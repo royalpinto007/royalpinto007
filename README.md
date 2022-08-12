@@ -1,5 +1,5 @@
 <h1 align="center">Hi👋, I'm Royal Simpson Pinto</h1>
-<h3 align="center">NITK ‘25 | Programming Enthusiast | Exploring</h3>
+<h3 align="center">NITK ‘25 | TA @Coding Ninjas | Building Stoccoin </h3>
 
 - 🌱 I’m currently learning **C++**
 
