@@ -1,5 +1,5 @@
 <h1 align="center">Hi👋, I'm Royal Simpson Pinto</h1>
-<h3 align="center">NITK ‘25 | TA @Coding Ninjas | Building Stoccoin </h3>
+<h3 align="center">NITK ‘25 | TA @CodingNinjas | Building Stoccoin </h3>
 
 # 💫 About Me:
 🌱 I’m currently learning C++, Javascript and Kotlin<br><br>📫 How to reach me royalpinto007@gmail.com
