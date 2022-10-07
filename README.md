@@ -2,8 +2,22 @@
 <h3 align="center">NITK ‘25 | TA @CodingNinjas | Building Stoccoin </h3>
 
 # 💫 About Me:
-🌱 I’m currently learning C++, Javascript and Kotlin<br><br>📫 How to reach me royalpinto007@gmail.com
+I am a 2nd Year Undergraduate Student at "National Institute of Technology Karnataka, Surathkal". 📚
+I'm also a part of a Technical Club- "Institution of Engineering and Technology", and have contributed to the events conducted by the club. 
 
+Currently, I work as a Teaching Assistant at "Coding Ninjas". I'm using my problem solving and debugging skills to help students resolve their doubts based on C++ and Data Structures. (2 months experience till now) 💻
+
+Founder of a Fin-Tech Startup named "Stoccoin" where I manage a team of around 10 members, and we provide news regarding Stocks and Cryptocurrencies on different social media platforms to promote financial knowledge among all. We also conduct virtual events once in every 2 months. ✔️
+
+📍Past Experience-
+•Worked as a Web Development Intern at "CollegeRanker India" for 1 month, where I contributed to the company with my knowledge of HTML, CSS and JavaScript. 
+
+📌Achievements-
+-Winner of the "Youth Verification Challenge 2022" conducted by Google News Initiative. 
+-Completed all the labs in the "Google Cloud Facilitator Program 2022" and achieved the ultimate milestone.
+-Learnt C++ along with its Data Structures, where I had solved over 400 problems and ranked 1 in the leaderboard, in terms of points achieved. 
+-Solved 100+ problems on Leetcode, till now.
+-Completed the Engineering Virtual Program of "Goldman Sachs" where I gained skills in basic cryptography, password cracking, and password best practices along with learning what it’s like to work in the Engineering division.
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
