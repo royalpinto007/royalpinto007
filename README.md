@@ -1,7 +1,7 @@
 <h1 align="center">Hi👋, I'm Royal Simpson Pinto</h1>
 <h3 align="center">NITK ‘25 | TA @CodingNinjas | Building Stoccoin </h3>
 
-# 💫 About Me:\
+# 💫 About Me:
 I am a 2nd Year Undergraduate Student at "National Institute of Technology Karnataka, Surathkal". 📚\
 I'm also a part of a Technical Club- "Institution of Engineering and Technology", and have contributed to the events conducted by the club. 
 
