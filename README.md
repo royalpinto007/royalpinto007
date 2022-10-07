@@ -13,10 +13,10 @@ Founder of a Fin-Tech Startup named "Stoccoin" where I manage a team of around 1
 •Worked as a Web Development Intern at "CollegeRanker India" for 1 month, where I contributed to the company with my knowledge of HTML, CSS and JavaScript. 
 
 📌Achievements-
--Winner of the "Youth Verification Challenge 2022" conducted by Google News Initiative. 
--Completed all the labs in the "Google Cloud Facilitator Program 2022" and achieved the ultimate milestone.
--Learnt C++ along with its Data Structures, where I had solved over 400 problems and ranked 1 in the leaderboard, in terms of points achieved. 
--Solved 100+ problems on Leetcode, till now.
+-Winner of the "Youth Verification Challenge 2022" conducted by Google News Initiative. \
+-Completed all the labs in the "Google Cloud Facilitator Program 2022" and achieved the ultimate milestone.\
+-Learnt C++ along with its Data Structures, where I had solved over 400 problems and ranked 1 in the leaderboard, in terms of points achieved. \
+-Solved 100+ problems on Leetcode, till now.\
 -Completed the Engineering Virtual Program of "Goldman Sachs" where I gained skills in basic cryptography, password cracking, and password best practices along with learning what it’s like to work in the Engineering division.
 
 <h3 align="left">Connect with me:</h3>
