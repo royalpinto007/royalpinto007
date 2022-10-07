@@ -9,7 +9,7 @@ Currently, I work as a Teaching Assistant at "Coding Ninjas". I'm using my probl
 
 Founder of a Fin-Tech Startup named "Stoccoin" where I manage a team of around 10 members, and we provide news regarding Stocks and Cryptocurrencies on different social media platforms to promote financial knowledge among all. We also conduct virtual events once in every 2 months. ✔️
 
-📍Past Experience-
+📍Past Experience-\
 •Worked as a Web Development Intern at "CollegeRanker India" for 1 month, where I contributed to the company with my knowledge of HTML, CSS and JavaScript. 
 
 📌Achievements-\
