@@ -37,10 +37,6 @@ Founder of a Fin-Tech Startup named "Stoccoin" where I manage a team of around 1
 <a href="https://discord.gg/sVfx6Npu" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="sVfx6Npu" height="30" width="40" /></a>
 </p>
 
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=ROYALPINTO007&theme=dark&hide_border=false&include_all_commits=true&count_private=true)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=ROYALPINTO007&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
-
 [![@royalpinto007's Holopin board](https://holopin.me/royalpinto007)](https://holopin.io/@royalpinto007)
 
 ### ✍️ Random Dev Quote
