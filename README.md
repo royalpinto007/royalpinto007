@@ -1,8 +1,4 @@
-<h1 align="center">Hi👋, I'm Royal Simpson Pinto</h1>
-
 ![Header Image- Royal Simpson Pinto](readme-header.png)
-
-# Royal Simpson Pinto
 
 ## Work Experience-
 
