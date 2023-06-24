@@ -1,33 +1,66 @@
 ![Header Image- Royal Simpson Pinto](readme-header.png)
+# Royal Simpson Pinto
 
-## Contact-
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-royalpinto007-blue)](https://linkedin.com/in/royalpinto007) 
+[![Twitter](https://img.shields.io/badge/Twitter-royalpinto007-blue)](https://twitter.com/royalpinto007) 
+[![Email](https://img.shields.io/badge/Email-royalpinto007%40icloud.com-blue)](mailto:royalpinto007@icloud.com) 
 
-- [Mail](mailto:royalpinto007@icloud.com)
-- [LinkedIn](https://linkedin.com/in/royalpinto007)
-- [Twitter](https://twitter.com/royalpinto007)
+## Work Experience
 
-## Work Experience-
+### [Software Developer at Drupal | Google Summer of Code](https://www.drupal.org/u/royalpinto007)
+May 2023 - October 2023
 
-- [Teaching Assistant Intern - Coding Ninjas](https://bit.ly/3uTdJxv)             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;           (July 2022- November 2022)
+- Selected as one of 967 contributors out of 43,765 applicants worldwide from 160 countries.
+- Leading development of chatbot for Drupal documentation and contribution onboarding.
+- Collaborating with cross-functional teams for seamless integration.
 
-I provided mentorship and assistance to over 400 students in the areas of C++ and Data Structures, using my debugging skills to address and resolve more than 600 inquiries. My efforts were highly rated, with an average score of 4.82 out of 5.
+### [Student Developer at Codepal | IEEE NITK](https://github.com/IEEE-NITK/CodePal/pull/102)
+December 2022 - February 2023
 
-- [Web Development Intern - TwiLearn EduTech Pvt. Ltd.](https://bit.ly/3V3xgFY)  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (February 2022- March 2022)
+- Added Rust language support to CodePal.
+- Integrated Rust compiler and implemented evaluator.
 
-I utilized my expertise in HTML, CSS, and JavaScript to facilitate resolution of more than five issues on the company's website.
-</pre>
+### [Teaching Assistant Intern at Coding Ninjas](https://bit.ly/3uTdJxv)
+July 2022 - November 2022
 
+- Mentored 400+ students in C++ and Data Structures, resolving 600+ related inquiries with expertise.
+- Received an exceptional average rating of 4.82/5 from satisfied students for the provided guidance.
 
-## Achievements-
+### [Frontend Web Developer Intern at TwiLearn](https://bit.ly/3V3xgFY)
+February 2022 - March 2022
 
-- Winner of [Google Youth Verification Challenge](https://bit.ly/3HAjoQF) 2022, organized by the Google News Initiative.
-- Winner of the [ETHIndia](https://bit.ly/3YpORej) 2022 Hackathon in the Valist protocol track.
-- Achieved the Ultimate Milestone in the [Google Cloud Facilitator Program](https://bit.ly/3W32JcH) 2022.
-- As part of the [Hacksquad](https://bit.ly/3FSwasv) event, I contributed to several repositories in a team of five members and we were successful in winning the competition.
-- Collaborated on many repositories during [HacktoberFest](https://bit.ly/3BDLUgq) and successfully completed the event.
-- Learned C++ and its Data Structures at [Coding Ninjas](https://bit.ly/3VXv58i), where I solved over 400 problems and ranked first on the leader-board in terms of points achieved.
-- Solved problems on [Leetcode](https://leetcode.com/royalpinto007/) and [Codeforces](https://codeforces.com/profile/royalpinto007).
+- Utilized HTML, CSS, and JavaScript knowledge to fix 5 issues on the company's website.
+- Engaged in web development collaboration.
 
+***
+
+## Projects
+
+### [Drupal-Chatbot](https://github.com/royalpinto007/Drupal-Chatbot)
+May 2023 - October 2023
+
+- Custom Drupal module with OpenAI integration.
+- Simplified onboarding and documentation assistance.
+- Seamless integration, positive user reception, and thorough testing.
+
+### [Stoccoin-Website (Under Development)](https://github.com/Stoccoin-Official/Stoccoin-Website)
+March 2023 - August 2023
+
+- Web-App for trading stocks and cryptocurrencies with real-time data and news feed.
+- Led open-source teaching in GirlScript Summer of Code program, achieving 100+ forks and 50+ stars.
+
+***
+## Achievements
+
+- Winner of the [Google Youth Verification Challenge 2022](https://bit.ly/3HAjoQF) conducted by Google News Initiative.
+- Winner of the [ETHIndia 2022 Hackathon](https://bit.ly/3YpORej) under Valist protocol track.
+- Achieved the Ultimate Milestone in the [Google Cloud Facilitator Program 2022](https://bit.ly/3W32JcH).
+- Won the [Hacksquad](https://bit.ly/3FSwasv) competition as part of a team of five by contributing to several repositories.
+- Completed [Hacktoberfest](https://bit.ly/3BDLUgq) with multiple repository collaborations.
+- Topped [Coding Ninjas](https://bit.ly/3VXv58i) with 400+ solved C++ and DSA problems, demonstrating mastery.
+- Coding Profiles: [LeetCode](https://leetcode.com/royalpinto007/), [Codeforces](https://codeforces.com/profile/royalpinto007) (Solved 800+ problems)
+
+***
 ## Skills-
 
 - Programming:
@@ -48,4 +81,6 @@ I utilized my expertise in HTML, CSS, and JavaScript to facilitate resolution of
 <br/> Content creation
 <br/> Search engine optimization
 
-[![@royalpinto007's Holopin board](https://holopin.me/royalpinto007)](https://holopin.io/@royalpinto007)
+[Few projects created while learning technologies](https://royalpinto007.github.io/Projects/)
+
+<!-- [![@royalpinto007's Holopin board](https://holopin.me/royalpinto007)](https://holopin.io/@royalpinto007) -->
