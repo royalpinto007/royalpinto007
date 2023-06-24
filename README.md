@@ -7,27 +7,23 @@
 
 ## Work Experience
 
-### [Software Developer at Drupal | Google Summer of Code](https://www.drupal.org/u/royalpinto007)
-May 2023 - October 2023
+### [Software Developer at Drupal | Google Summer of Code](https://www.drupal.org/u/royalpinto007) <span style="float: right;">May 2023 - October 2023</span>
 
 - Selected as one of 967 contributors out of 43,765 applicants worldwide from 160 countries.
 - Leading development of chatbot for Drupal documentation and contribution onboarding.
 - Collaborating with cross-functional teams for seamless integration.
 
-### [Student Developer at Codepal | IEEE NITK](https://github.com/IEEE-NITK/CodePal/pull/102)
-December 2022 - February 2023
+### [Student Developer at Codepal | IEEE NITK](https://github.com/IEEE-NITK/CodePal/pull/102) <span style="float: right;">December 2022 - February 2023</span>
 
 - Added Rust language support to CodePal.
 - Integrated Rust compiler and implemented evaluator.
 
-### [Teaching Assistant Intern at Coding Ninjas](https://bit.ly/3uTdJxv)
-July 2022 - November 2022
+### [Teaching Assistant Intern at Coding Ninjas](https://bit.ly/3uTdJxv) <span style="float: right;">July 2022 - November 2022</span>
 
 - Mentored 400+ students in C++ and Data Structures, resolving 600+ related inquiries with expertise.
 - Received an exceptional average rating of 4.82/5 from satisfied students for the provided guidance.
 
-### [Frontend Web Developer Intern at TwiLearn](https://bit.ly/3V3xgFY)
-February 2022 - March 2022
+### [Frontend Web Developer Intern at TwiLearn](https://bit.ly/3V3xgFY) <span style="float: right;">February 2022 - March 2022</span>
 
 - Utilized HTML, CSS, and JavaScript knowledge to fix 5 issues on the company's website.
 - Engaged in web development collaboration.
@@ -36,20 +32,20 @@ February 2022 - March 2022
 
 ## Projects
 
-### [Drupal-Chatbot](https://github.com/royalpinto007/Drupal-Chatbot)
-May 2023 - October 2023
+### [Drupal-Chatbot](https://github.com/royalpinto007/Drupal-Chatbot) <span style="float: right;">May 2023 - October 2023</span>
 
 - Custom Drupal module with OpenAI integration.
 - Simplified onboarding and documentation assistance.
 - Seamless integration, positive user reception, and thorough testing.
 
-### [Stoccoin-Website (Under Development)](https://github.com/Stoccoin-Official/Stoccoin-Website)
-March 2023 - August 2023
+
+### [Stoccoin-Website (Under Development)](https://github.com/Stoccoin-Official/Stoccoin-Website) <span style="float: right;">March 2023 - August 2023</span>
 
 - Web-App for trading stocks and cryptocurrencies with real-time data and news feed.
 - Led open-source teaching in GirlScript Summer of Code program, achieving 100+ forks and 50+ stars.
 
 ***
+
 ## Achievements
 
 - Winner of the [Google Youth Verification Challenge 2022](https://bit.ly/3HAjoQF) conducted by Google News Initiative.
@@ -64,11 +60,11 @@ March 2023 - August 2023
 ## Skills-
 
 - Programming:
-<br/> Main Language - C++
-<br/> Front-End Web Development- HTML5, CSS3, Bootstrap5, JavaScript, jQuery, React.js
+<br/> Main Languages - C++, JavaScript
+<br/> Front-End Web Development- HTML5, CSS3, Bootstrap5, jQuery, React.js, TailwindCSS
 <br/> Back-End Web Development- Node.js, Express.js, EJS, MongoDB, Mongoose, REST, PHP
 <br/> App Development- Kotlin
-<br/> Technical Documentation- Markdown
+<br/> Technical Documentation- Markdown, Latex, Medium
 
 - Journalism:
 <br/> Fact-checking
