@@ -42,7 +42,7 @@ _March 2023 - Present_
 
 ### [Sevak](https://github.com/Sevak-Official/Sevak)
 
-_May 2023 - October 2023_
+_December 2022 - January 2023_
 
 - Attained **regional recognition** in Health track at **Microsoft Imagine Cup Challenge 2022**.
 - Implemented **Azure-integrated web app**, boosting healthcare connection efficiency by **30%**.
