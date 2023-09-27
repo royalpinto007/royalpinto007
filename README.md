@@ -2,27 +2,27 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-royalpinto007-blue)](https://linkedin.com/in/royalpinto007)
 [![Twitter](https://img.shields.io/badge/Twitter-royalpinto007-blue)](https://twitter.com/royalpinto007)
-[![Email](https://img.shields.io/badge/Email-royalpinto007%40icloud.com-blue)](mailto:royalpinto007@icloud.com)
+[![Email](https://img.shields.io/badge/Email-royalpinto007%40gmail.com-blue)](mailto:royalpinto007@gmail.com)
 
 ## Work Experience
 
-### [Software Developer at Drupal | Google Summer of Code](https://medium.com/@royalpinto007/work-report-google-summer-of-code-2023-journey-with-drupal-146e91dd88fc)
+### [Google Summer of Code, Drupal](https://summerofcode.withgoogle.com/programs/2023/projects/V6n2jJa5)
 
-_May 2023 - October 2023_
+_May 2023 - September 2023_
 
-- Engineered [Drupal-Chatbot](https://github.com/royalpinto007/Drupal-Chatbot) with **OpenAI integration**, enhancing contributor on-boarding.
+- Engineered [Drupal-Chatbot](https://github.com/royalpinto007/Drupal-Chatbot) with **OpenAI, RapidAPI** integration, enhancing contributor on-boarding.
 - Devised intelligent module with **80% query accuracy** and device engagement surge.
-- Designed **dynamic Drupal block**, minimizing repeat queries by using **local storage**.
+- Designed an efficient **Drupal block**, minimizing repeat queries by using **local storage**.
 - Accelerated new Drupal **contributor learning curve by 50%**.
 
-### [Student Developer at Codepal | IEEE NITK](https://medium.com/@royalpinto007/adding-rust-support-to-codepal-my-experience-in-nitk-winter-of-code-207b60dd2eb6)
+### [NITK Winter of Code, CodePal](https://medium.com/@royalpinto007/adding-rust-support-to-codepal-my-experience-in-nitk-winter-of-code-207b60dd2eb6)
 
 _December 2022 - February 2023_
 
 - Added **Rust language support** to Visual Studio Code extension, CodePal.
 - **Integrated Rust compiler and implemented evaluator**, improving overall system performance by 20%.
 
-### [Teaching Assistant Intern at Coding Ninjas](https://bit.ly/3uTdJxv)
+### [Teaching Assistant, Coding Ninjas](https://bit.ly/3uTdJxv)
 
 _July 2022 - November 2022_
 
@@ -33,11 +33,11 @@ _July 2022 - November 2022_
 
 ### [Stoccoin-Website](https://github.com/Stoccoin-Official/Stoccoin-Website)
 
-_March 2023 - Present_
+_March 2023 - August 2023_
 
 - Built web application for **real-time processing** of stock and cryptocurrency prices.
 - Utilized **Firebase’s authentication** features to enhance user security.
-- Leveraged **TradingView API** for both financial data and dynamic news widget integration.
+- Leveraged **TradingViewAPI** for both financial data and dynamic news widget integration.
 - Mentored **500+ candidates** in open source teaching during **GirlScript Summer of Code 2023**.
 
 ### [Sevak](https://github.com/Sevak-Official/Sevak)
@@ -67,12 +67,12 @@ _December 2021 - May 2025_
 ## Skills
 
 - Technical:
-  <br/> Main Language- C++
+  <br/> Main Language- C++, Python
   <br/> Version Control- Git (GitHub, GitLab)
   <br/> Front-End Web Development- HTML, CSS, JavaScript, React.js, TailwindCSS
   <br/> Back-End Web Development- Node.js, Express.js, MongoDB, SQL, PHP
   <br/> App Development- Kotlin
-  <br/> Technical Documentation- Markdown, Latex, Medium
+  <br/> Technical Documentation- Markdown, Latex, [Medium](https://medium.com/@royalpinto007)
 
 - Journalism:
   <br/> Fact-checking
