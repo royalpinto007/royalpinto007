@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Warm palette — dark default matches the hire.agentpostmortem.com design language,
+   light is a warm ivory variant. Token classes (bg-bg, text-ink, border-line, …)
+   resolve via CSS variables so no dark: prefixes are needed. */
+:root {
+  --bg: #faf7f0;
+  --panel: #ffffff;
+  --panel-2: #f4efe6;
+  --ink: #1f1c16;
+  --mute: #6e6759;
+  --faint: #9c9585;
+  --line: rgba(31, 28, 22, 0.1);
+  --line-strong: rgba(31, 28, 22, 0.18);
+  --accent: #a67c34;
+  --accent-hover: #8a6527;
+  --accent-soft: rgba(166, 124, 52, 0.1);
+}
+
+.dark {
+  --bg: #0d0c0a;
+  --panel: #121110;
+  --panel-2: #171512;
+  --ink: #efece5;
+  --mute: #a39d92;
+  --faint: #6f6a60;
+  --line: rgba(239, 236, 229, 0.09);
+  --line-strong: rgba(239, 236, 229, 0.18);
+  --accent: #c9a35c;
+  --accent-hover: #e2c288;
+  --accent-soft: rgba(201, 163, 92, 0.1);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Display serif emphasis */
+.display-em {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Reveal on scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: reveal-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .reveal-1 { animation-delay: 0.08s; }
+  .reveal-2 { animation-delay: 0.16s; }
+  .reveal-3 { animation-delay: 0.24s; }
+  @keyframes reveal-in {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer utilities {
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
