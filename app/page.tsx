@@ -81,6 +81,9 @@ export default async function HomePage() {
             <img
               src={siteConfig.avatar}
               alt={siteConfig.name}
+              width={448}
+              height={448}
+              fetchPriority="high"
               className="w-44 h-44 sm:w-56 sm:h-56 rounded-full object-cover border border-line-strong"
             />
           </div>

@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    // Inline the (small) global stylesheet into the HTML so first paint
+    // isn't blocked by a render-blocking CSS request.
+    inlineCss: true,
+  },
 };
 
 export default nextConfig;

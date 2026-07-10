@@ -15,16 +15,17 @@ export function Footer() {
             <p className="text-xs text-faint mt-2">{siteConfig.location}</p>
             <div className="flex gap-3 mt-5">
               {[
-                { icon: GithubIcon, href: siteConfig.github },
-                { icon: LinkedinIcon, href: siteConfig.linkedin },
-                { icon: TwitterIcon, href: siteConfig.twitter },
-                { icon: Mail, href: `mailto:${siteConfig.email}` },
-              ].map(({ icon: Icon, href }) => (
+                { icon: GithubIcon, href: siteConfig.github, label: "GitHub" },
+                { icon: LinkedinIcon, href: siteConfig.linkedin, label: "LinkedIn" },
+                { icon: TwitterIcon, href: siteConfig.twitter, label: "Twitter" },
+                { icon: Mail, href: `mailto:${siteConfig.email}`, label: "Email" },
+              ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={href}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={label}
                   className="w-9 h-9 rounded-full border border-line flex items-center justify-center text-mute hover:text-accent hover:border-accent transition-all"
                 >
                   <Icon className="w-3.5 h-3.5" />
