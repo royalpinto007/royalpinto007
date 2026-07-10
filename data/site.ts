@@ -19,7 +19,7 @@ export const siteConfig = {
   availability: "Open to new opportunities — AI, full-stack, and open source work",
   availabilityStatus: true,
   replyTime: "Within 24 hours",
-  avatar: "https://avatars.githubusercontent.com/u/97520428?v=4",
+  avatar: "/avatar.webp",
 
   stats: [
     { label: "Open source contributions", value: "1500+" },
