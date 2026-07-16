@@ -23,7 +23,7 @@ AI engineer. I build agentic systems and the infrastructure to trust them: permi
 - [AgentPostmortem](https://agentpostmortem.com): Every AI agent failure, documented: a public case registry.
 
 **Products**
-- [SignalizeAI](https://github.com/royalpinto007/signalizeai): An extension for agentic signal analysis.
+- [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI): AI prospecting as a Chrome extension, featured on the Chrome Web Store.
 - [PennyRush](https://pennyrush.agentpostmortem.workers.dev): A private money hub: receipts and statements parsed in memory, only extracted fields stored.
 - [ProofClip](https://proofclip.agentpostmortem.com): Testimonial walls and social-proof cards for creators and small SaaS, embedded with one script tag.
 
