@@ -165,7 +165,7 @@ export const siteConfig = {
       tech: ["TypeScript", "Node.js", "MCP", "Security"],
       featured: false,
       section: "AI Products",
-      liveUrl: "#",
+      liveUrl: "https://www.npmjs.com/package/@royalpinto007/mcp-audit",
       githubUrl: "https://github.com/royalpinto007/mcp-audit",
     },
     {
@@ -184,7 +184,7 @@ export const siteConfig = {
       tech: ["TypeScript", "GitHub Actions", "Evals"],
       featured: false,
       section: "AI Products",
-      liveUrl: "#",
+      liveUrl: "https://www.npmjs.com/package/@royalpinto007/evalgate",
       githubUrl: "https://github.com/royalpinto007/evalgate",
     },
     {
@@ -203,7 +203,7 @@ export const siteConfig = {
       tech: ["Python", "CLI", "AI agents"],
       featured: false,
       section: "AI Products",
-      liveUrl: "#",
+      liveUrl: "https://pypi.org/project/ctxlens-cli/",
       githubUrl: "https://github.com/royalpinto007/ctxlens",
     },
     {
@@ -222,7 +222,7 @@ export const siteConfig = {
       tech: ["Python", "Cryptography", "FastAPI"],
       featured: false,
       section: "AI Products",
-      liveUrl: "#",
+      liveUrl: "https://pypi.org/project/answerproof/",
       githubUrl: "https://github.com/royalpinto007/answerproof",
     },
     {
