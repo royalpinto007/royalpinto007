@@ -114,24 +114,6 @@ export const siteConfig = {
       githubUrl: "https://github.com/royalpinto007",
     },
     {
-      id: "proofclip",
-      name: "ProofClip",
-      category: "AI",
-      status: "Production",
-      description:
-        "Testimonial-wall SaaS — collect customer testimonials with a shareable form and embed a wall of social proof on any site.",
-      features: [
-        "Hosted collection forms with zero-code setup",
-        "Embeddable testimonial walls",
-        "Moderation and curation dashboard",
-      ],
-      tech: ["Next.js", "TypeScript", "Supabase", "Cloudflare"],
-      featured: true,
-      section: "AI Products",
-      liveUrl: "https://proofclip.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007",
-    },
-    {
       id: "aashinyra",
       name: "AashiNyra",
       category: "Frontend",
@@ -151,7 +133,7 @@ export const siteConfig = {
     },
     {
       id: "mcp-audit",
-      name: "mcp-audit",
+      name: "MCP-audit",
       category: "AI",
       status: "Open Source",
       description:
@@ -170,7 +152,7 @@ export const siteConfig = {
     },
     {
       id: "evalgate",
-      name: "evalgate",
+      name: "Evalgate",
       category: "AI",
       status: "Open Source",
       description:
@@ -189,7 +171,7 @@ export const siteConfig = {
     },
     {
       id: "ctxlens",
-      name: "ctxlens",
+      name: "Ctxlens",
       category: "AI",
       status: "Open Source",
       description:
@@ -208,7 +190,7 @@ export const siteConfig = {
     },
     {
       id: "answerproof",
-      name: "answerproof",
+      name: "Answerproof",
       category: "AI",
       status: "Open Source",
       description:
@@ -227,7 +209,7 @@ export const siteConfig = {
     },
     {
       id: "injection-arena",
-      name: "injection-arena",
+      name: "Injection-arena",
       category: "AI",
       status: "Open Source",
       description:
@@ -408,7 +390,7 @@ export const siteConfig = {
     },
     {
       id: "vaultrag",
-      name: "vaultrag",
+      name: "Vaultrag",
       category: "AI",
       status: "Open Source",
       description:
@@ -427,7 +409,7 @@ export const siteConfig = {
     },
     {
       id: "agentrace",
-      name: "agentrace",
+      name: "Agentrace",
       category: "AI",
       status: "Open Source",
       description:
@@ -446,7 +428,7 @@ export const siteConfig = {
     },
     {
       id: "voiceeval",
-      name: "voiceeval",
+      name: "Voiceeval",
       category: "AI",
       status: "Open Source",
       description:
