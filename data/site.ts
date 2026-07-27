@@ -150,6 +150,43 @@ export const siteConfig = {
       githubUrl: "https://github.com/royalpinto007",
     },
     {
+      id: "kabootar",
+      name: "Kabootar",
+      category: "Open Source",
+      status: "Open Source",
+      description:
+        "Offline mesh messenger: chat with no internet, no servers, no SIM. Messages hop phone to phone over Bluetooth and Wi-Fi as a delay-tolerant network.",
+      features: [
+        "Delay-tolerant mesh: messages relay hop to hop and deliver when the recipient is reachable",
+        "Epidemic routing with id-based dedup, TTL bounds, and end-to-end delivery acks",
+        "Bluetooth and Wi-Fi transport, built in Flutter for Android and iOS",
+        "No accounts, no servers, no SIM: fully offline and serverless",
+      ],
+      tech: ["Flutter", "Dart", "Bluetooth / Wi-Fi", "Mesh Networking"],
+      featured: true,
+      section: "Open Source & Tools",
+      liveUrl: "#",
+      githubUrl: "https://github.com/royalpinto007/Kabootar",
+    },
+    {
+      id: "tiny-day",
+      name: "Tiny Day",
+      category: "Frontend",
+      status: "Open Source",
+      description:
+        "A cozy, offline-first daily planner for Android: gentle scheduling, focus, replanning, and no accounts.",
+      features: [
+        "Offline-first: works fully without an account or a network connection",
+        "Gentle scheduling, focus sessions, and easy replanning",
+        "Private by design, data stays on the device",
+      ],
+      tech: ["TypeScript", "Android", "Offline-first"],
+      featured: false,
+      section: "Open Source & Tools",
+      liveUrl: "#",
+      githubUrl: "https://github.com/royalpinto007/Tiny-Day",
+    },
+    {
       id: "water",
       name: "Water",
       category: "Open Source",
