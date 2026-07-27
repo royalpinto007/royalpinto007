@@ -22,6 +22,10 @@ AI engineer. I build agentic systems and the infrastructure to trust them: permi
 - [relayg](https://github.com/royalpinto007/relayg): Support triage as a LangGraph state machine, paused mid-run by a human-in-the-loop interrupt.
 - [AgentPostmortem](https://github.com/royalpinto007/agent-postmortem): Every AI agent failure, documented: a public case registry.
 
+**Systems & apps**
+- [Kabootar](https://github.com/royalpinto007/Kabootar): Offline mesh messenger: chat with no internet, no servers, no SIM. Messages hop phone-to-phone over Bluetooth and Wi-Fi (delay-tolerant network, epidemic routing, end-to-end acks). Flutter.
+- [Tiny Day](https://github.com/royalpinto007/Tiny-Day): A cozy, offline-first daily planner for Android: gentle scheduling, focus, replanning, no accounts.
+
 **Products**
 - [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI): AI prospecting as a Chrome extension, featured on the Chrome Web Store.
 - [PennyRush](https://github.com/royalpinto007/PennyRush): A private money hub: receipts and statements parsed in memory, only extracted fields stored.
