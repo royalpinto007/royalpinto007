@@ -23,7 +23,7 @@ export const siteConfig = {
 
   stats: [
     { label: "Open source contributions", value: "1500+" },
-    { label: "Live products shipped", value: "10+" },
+    { label: "Products and tools shipped", value: "15+" },
     { label: "Students mentored", value: "500+" },
   ],
 

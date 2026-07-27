@@ -43,8 +43,8 @@ export default async function HomePage() {
             <p className="text-lg text-mute leading-relaxed mb-8 max-w-xl">
               {siteConfig.name}. AI agents, permission-aware RAG, and voice and
               agent evals, with the full-stack around all of it, plus an offline
-              mesh messenger for when there is no internet. Ten-plus products
-              live, and open source every single day.
+              mesh messenger for when there is no internet. Fifteen-plus
+              products and tools live, and open source every single day.
             </p>
             <div className="flex flex-wrap gap-2.5 mb-10">
               <span className="inline-flex items-center gap-2 text-xs px-3.5 py-1.5 rounded-full border border-line text-mute">
