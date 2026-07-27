@@ -8,8 +8,13 @@ AI engineer. I build agentic systems and the infrastructure to trust them: permi
 
 **Agent infrastructure**
 - [vaultrag](https://github.com/royalpinto007/vaultrag): Permission-aware RAG: access control enforced inside the retrieval query, CI fails on any leak.
+- [mcp-audit](https://github.com/royalpinto007/mcp-audit): Security scanner for MCP servers: 18 rules, SARIF output, `npx mcp-audit <target>`.
+- [answerproof](https://github.com/royalpinto007/answerproof): Verifiable receipts for RAG answers: Merkle inclusion proofs and Ed25519 signatures.
 - [agentrace](https://github.com/royalpinto007/agentrace): Observability for Claude Code subagents: flags the agent results you should not trust.
+- [ctxlens](https://github.com/royalpinto007/ctxlens): Context-window profiler for agents: shows what is eating your tokens and cuts the waste.
+- [evalgate](https://github.com/royalpinto007/evalgate): Prompt regression CI: the build fails when your prompt gets dumber.
 - [voiceeval](https://github.com/royalpinto007/voiceeval): Evaluation for voice agents: catches the failures a text eval scores as a perfect call.
+- [injection-arena](https://github.com/royalpinto007/injection-arena): A self-hostable prompt-injection challenge game: beat stacked AI defenses, climb the leaderboard.
 - [Tracecase](https://github.com/royalpinto007/Tracecase): CI for AI agents: replay runs against prompt changes, catch regressions before they ship.
 - [Bridgekit](https://github.com/royalpinto007/Bridgekit): Scoped MCP server with per-client permission boundaries and an append-only audit log.
 - [casebook-mcp](https://github.com/royalpinto007/casebook-mcp): Remote MCP server over AgentPostmortem, a public registry of real AI-agent failures.
