@@ -148,7 +148,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://www.npmjs.com/package/@royalpinto007/mcp-audit",
-      githubUrl: "https://github.com/royalpinto007/mcp-audit",
+      githubUrl: "https://github.com/royalpinto007/MCP-audit",
     },
     {
       id: "evalgate",
@@ -167,7 +167,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://www.npmjs.com/package/@royalpinto007/evalgate",
-      githubUrl: "https://github.com/royalpinto007/evalgate",
+      githubUrl: "https://github.com/royalpinto007/Evalgate",
     },
     {
       id: "ctxlens",
@@ -186,7 +186,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://pypi.org/project/ctxlens-cli/",
-      githubUrl: "https://github.com/royalpinto007/ctxlens",
+      githubUrl: "https://github.com/royalpinto007/Ctxlens",
     },
     {
       id: "answerproof",
@@ -205,7 +205,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://pypi.org/project/answerproof/",
-      githubUrl: "https://github.com/royalpinto007/answerproof",
+      githubUrl: "https://github.com/royalpinto007/Answerproof",
     },
     {
       id: "injection-arena",
@@ -224,7 +224,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://injection-arena.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/injection-arena",
+      githubUrl: "https://github.com/royalpinto007/Injection-arena",
     },
     {
       id: "relayg",
@@ -242,7 +242,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://relayg.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/relayg",
+      githubUrl: "https://github.com/royalpinto007/RelayG",
     },
     {
       id: "resolvd",
@@ -350,7 +350,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://mcp.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/casebook-mcp",
+      githubUrl: "https://github.com/royalpinto007/Casebook-MCP",
     },
     {
       id: "casebook-chat",
@@ -368,7 +368,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://chat.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/casebook-chat",
+      githubUrl: "https://github.com/royalpinto007/Casebook-Chat",
     },
     {
       id: "agentpostmortem",
@@ -405,7 +405,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/vaultrag",
+      githubUrl: "https://github.com/royalpinto007/Vaultrag",
     },
     {
       id: "agentrace",
@@ -424,7 +424,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/agentrace",
+      githubUrl: "https://github.com/royalpinto007/Agentrace",
     },
     {
       id: "voiceeval",
@@ -443,7 +443,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/voiceeval",
+      githubUrl: "https://github.com/royalpinto007/Voiceeval",
     },
     {
       id: "pennyrush",
