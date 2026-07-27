@@ -241,7 +241,7 @@ export const siteConfig = {
       tech: ["Next.js", "TypeScript", "SQLite"],
       featured: false,
       section: "AI Products",
-      liveUrl: "#",
+      liveUrl: "https://injection-arena.agentpostmortem.workers.dev",
       githubUrl: "https://github.com/royalpinto007/injection-arena",
     },
     {
