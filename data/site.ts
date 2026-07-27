@@ -537,43 +537,6 @@ export const siteConfig = {
       githubUrl: "https://github.com/royalpinto007/Water",
     },
     {
-      id: "html-mp4",
-      name: "HTML-MP4",
-      category: "Open Source",
-      status: "Open Source",
-      description:
-        "Turn HTML animations into deterministic MP4 video — frame-accurate rendering of web animations to shareable video files.",
-      features: [
-        "Deterministic, frame-accurate capture of HTML/CSS/JS animations",
-        "Headless rendering pipeline to MP4",
-        "Reproducible output for CI and content workflows",
-      ],
-      tech: ["TypeScript", "Node.js", "FFmpeg"],
-      featured: false,
-      section: "Open Source & Tools",
-      liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/HTML-MP4",
-    },
-    {
-      id: "dmd-sarif",
-      name: "DMD Compiler — SARIF & Squiggles",
-      category: "Open Source",
-      status: "Open Source",
-      description:
-        "Compiler contributions to the D language — implemented SARIF support and squiggle/caret error messages in DMD.",
-      features: [
-        "SARIF support for standardized static analysis reporting and tool integration",
-        "Squiggle and caret support for detailed, IDE-friendly error messages",
-        "Updated 1,500+ compiler tests for correctness",
-        "Built d-errors-docs for improved developer experience",
-      ],
-      tech: ["D", "DMD Compiler", "SARIF", "C++"],
-      featured: false,
-      section: "Open Source & Tools",
-      liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007",
-    },
-    {
       id: "drupal-chatbot",
       name: "Drupal Chatbot",
       category: "Open Source",
