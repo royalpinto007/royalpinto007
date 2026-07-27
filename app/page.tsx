@@ -41,9 +41,10 @@ export default async function HomePage() {
               that actually ship.
             </h1>
             <p className="text-lg text-mute leading-relaxed mb-8 max-w-xl">
-              {siteConfig.name}. Agentic workflows with n8n and the Claude API,
-              browser extensions with real users, and 1500+ contributions to open
-              source compilers and networking systems.
+              {siteConfig.name}. AI agents, permission-aware RAG, and voice and
+              agent evals, with the full-stack around all of it, plus an offline
+              mesh messenger for when there is no internet. Ten-plus products
+              live, and open source every single day.
             </p>
             <div className="flex flex-wrap gap-2.5 mb-10">
               <span className="inline-flex items-center gap-2 text-xs px-3.5 py-1.5 rounded-full border border-line text-mute">
@@ -100,6 +101,32 @@ export default async function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Open source graph */}
+      <section className="py-20 border-b border-line">
+        <SectionHeader
+          eyebrow="Open source, every day"
+          title="Open source in"
+          titleEm="2026"
+          subtitle="3,130 contributions in 2026. GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code. The graph is the habit, not a sprint."
+        />
+        <a
+          href={siteConfig.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block p-6 rounded-xl border border-line bg-panel hover:border-line-strong transition-colors"
+        >
+          <img
+            src="/wall2026.svg"
+            alt="Royal Pinto GitHub contributions in 2026"
+            className="w-full h-auto"
+            loading="lazy"
+          />
+          <span className="inline-block mt-4 text-sm text-mute">
+            2026 &middot; github.com/royalpinto007 &rarr;
+          </span>
+        </a>
       </section>
 
       {/* Currently */}
