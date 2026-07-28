@@ -23,8 +23,40 @@ const serviceIconMap: Record<string, React.ComponentType<{ className?: string }>
 };
 
 export default async function HomePage() {
-  const featuredProjects = siteConfig.projects.filter((p) => p.featured).slice(0, 4);
   const latestPosts = await fetchMediumPosts(siteConfig.mediumFeedUrl, 3);
+
+  const pick = (ids: string[]) =>
+    ids
+      .map((id) => siteConfig.projects.find((p) => p.id === id))
+      .filter((p): p is (typeof siteConfig.projects)[number] => Boolean(p));
+
+  const projectGroups = [
+    {
+      label: "Flagship",
+      items: pick(["signalizeai", "aashinyra", "kabootar", "tiny-day"]),
+    },
+    {
+      label: "AI engineering stack",
+      items: pick([
+        "tenantq",
+        "vaultrag",
+        "mcp-audit",
+        "evalgate",
+        "answerproof",
+        "ctxlens",
+        "injection-arena",
+        "agentrace",
+        "voiceeval",
+        "relayg",
+        "casebook-mcp",
+        "casebook-chat",
+      ]),
+    },
+    {
+      label: "Agent suite",
+      items: pick(["resolvd", "tracecase", "webhands", "bridgekit", "greenlite"]),
+    },
+  ];
 
   return (
     <div className="max-w-[1300px] mx-auto px-5 sm:px-8">
@@ -182,14 +214,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* Projects, grouped like the hire funnel: Flagship / Stack / Suite */}
       <section className="py-20 border-b border-line">
         <div className="flex items-end justify-between mb-12">
           <SectionHeader
             eyebrow="Work"
-            title="Featured"
-            titleEm="work"
-            subtitle="Live products people use today."
+            title="Everything"
+            titleEm="I've shipped"
+            subtitle="Flagship products, the AI-engineering stack, and the live agent suite."
           />
           <Link
             href="/projects"
@@ -198,11 +230,18 @@ export default async function HomePage() {
             All projects →
           </Link>
         </div>
-        <div className="grid sm:grid-cols-2 gap-5">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
-          ))}
-        </div>
+        {projectGroups.map((group) => (
+          <div key={group.label} className="mb-12 last:mb-0">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-accent mb-5">
+              {group.label}
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-5">
+              {group.items.map((project) => (
+                <ProjectCard key={project.id} {...project} />
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* Tech Stack */}
