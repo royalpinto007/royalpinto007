@@ -2,12 +2,13 @@
 
 AI engineer. I build agentic systems and the infrastructure to trust them: permission-aware retrieval, agent observability, human-in-the-loop approval, and evals that fail CI when behaviour regresses. Building continuously.
 
-**Open source**: Google Summer of Code, Linux Foundation (LFX), and Symmetry Autumn of Code. 3+ years shipping in production.
+**Open source**: Google Summer of Code, Linux Foundation (LFX), and Symmetry Autumn of Code. 3+ years shipping in production. Recently contributing to [Qdrant](https://github.com/qdrant): the core engine, agent skills, and the MCP server.
 
 #### Projects
 
 **Agent infrastructure**
-- [Vaultrag](https://github.com/royalpinto007/Vaultrag): Permission-aware RAG: access control enforced inside the retrieval query, CI fails on any leak.
+- [Tenantq](https://github.com/royalpinto007/Tenantq): Multi-tenant hybrid search on Qdrant: payload tenant isolation, dense+sparse RRF, HNSW tuning, and benchmarks.
+- [VaultRAG](https://github.com/royalpinto007/VaultRAG): Permission-aware RAG: access control enforced inside the retrieval query, CI fails on any leak.
 - [MCP-audit](https://github.com/royalpinto007/MCP-audit): Security scanner for MCP servers: 18 rules, SARIF output, `npx mcp-audit <target>`.
 - [Answerproof](https://github.com/royalpinto007/Answerproof): Verifiable receipts for RAG answers: Merkle inclusion proofs and Ed25519 signatures.
 - [Agentrace](https://github.com/royalpinto007/Agentrace): Observability for Claude Code subagents: flags the agent results you should not trust.
