@@ -1,0 +1,48 @@
+name: Refresh GitHub contributions wall
+
+on:
+  schedule:
+    - cron: "17 6 * * 1" # every Monday 06:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Regenerate contributions wall
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/gen-wall.mjs
+
+      - name: Commit changes if any
+        run: |
+          if [ -n "$(git status --porcelain public/ app/page.tsx)" ]; then
+            git config user.name "royalpinto007"
+            git config user.email "royalpinto007@gmail.com"
+            git add public/wall2026.svg app/page.tsx
+            git commit -m "chore: refresh 2026 contribution wall"
+            git push
+          else
+            echo "no change in contributions"
+          fi
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler deploy
