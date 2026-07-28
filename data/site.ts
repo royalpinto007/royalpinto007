@@ -466,6 +466,43 @@ export const siteConfig = {
       githubUrl: "https://github.com/royalpinto007/Voiceeval",
     },
     {
+      id: "proofclip",
+      name: "ProofClip",
+      category: "Frontend",
+      status: "Production",
+      description:
+        "Testimonial wall and social-proof generator for creators and small SaaS: collect testimonials with a shareable form, embed a wall of love, and turn any testimonial into a share-ready social card.",
+      features: [
+        "Public collection form, screenshot import, and a moderation dashboard",
+        "Embeddable masonry widget via a single script tag",
+        "Client-side canvas card generator (9:16, 1:1, 16:9), no paid image API",
+        "Runs entirely on Cloudflare Workers, D1, and R2, with plan limits enforced",
+      ],
+      tech: ["Cloudflare Workers", "Hono", "D1", "R2"],
+      featured: false,
+      section: "Open Source & Tools",
+      liveUrl: "https://proofclip.agentpostmortem.com",
+      githubUrl: "https://github.com/royalpinto007/ProofClip",
+    },
+    {
+      id: "goldmine",
+      name: "Goldmine",
+      category: "Frontend",
+      status: "Production",
+      description:
+        "Football content-idea packs for creators during World Cup season: clear hooks, angles, and first steps to test on reels, fan pages, and newsletters, with a free starter pack and a paid full pack.",
+      features: [
+        "Free starter pack plus a paid full pack via Lemon Squeezy checkout",
+        "Fast, UI-first landing site with free and full-pack flows",
+        "Built with Vite, deployed on Cloudflare Pages",
+      ],
+      tech: ["Vite", "TypeScript", "Cloudflare Pages"],
+      featured: false,
+      section: "Open Source & Tools",
+      liveUrl: "https://goldmine.signalizeai.org",
+      githubUrl: "https://github.com/royalpinto007/Goldmine",
+    },
+    {
       id: "pennyrush",
       name: "PennyRush",
       category: "Frontend",
