@@ -29,7 +29,7 @@ export const siteConfig = {
 
   currently: [
     "Building agentic AI workflows with n8n and Claude API for clients",
-    "Running a suite of five live AI agents for support, debugging, and ops",
+    "Running a suite of eight live AI agents for triage, approvals, debugging, and ops",
     "Growing SignalizeAI — a sales-research extension on Chrome and Firefox",
     "Contributing to Qdrant open source: the core engine, agent skills, and the MCP server",
     "Contributing to open source compilers, networking systems, and AI tooling",
@@ -101,9 +101,9 @@ export const siteConfig = {
       category: "AI",
       status: "Production",
       description:
-        "Five live AI agents — Resolvd, Tracecase, Webhands, Bridgekit, and Greenlite — covering support triage, incident debugging, browser automation, integrations, and code review.",
+        "Eight live AI agents — Resolvd, Greenlite, Tracecase, RelayG, Webhands, Bridgekit, and the Casebook MCP and Chat — covering triage, approvals, incident debugging, browser automation, integrations, and code review.",
       features: [
-        "Five production agents deployed and running end-to-end",
+        "Eight production agents deployed and running end-to-end",
         "Built on n8n workflows and the Claude API",
         "Supabase persistence with Cloudflare Workers delivery",
         "Live demos available for each agent",
