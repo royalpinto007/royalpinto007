@@ -109,7 +109,7 @@ export default async function HomePage() {
           eyebrow="Open source, every day"
           title="Open source in"
           titleEm="2026"
-          subtitle="3,437 contributions in 2026. GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code. The graph is the habit, not a sprint."
+          subtitle="3,438 contributions in 2026. GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code. The graph is the habit, not a sprint."
         />
         <a
           href={siteConfig.github}
