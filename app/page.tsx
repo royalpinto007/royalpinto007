@@ -78,7 +78,7 @@ export default async function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="flex-shrink-0 self-center lg:self-auto reveal reveal-2">
+          <div className="flex-shrink-0 mx-auto lg:mx-0 reveal reveal-2">
             <img
               src={siteConfig.avatar}
               alt={siteConfig.name}
