@@ -31,6 +31,7 @@ export const siteConfig = {
     "Building agentic AI workflows with n8n and Claude API for clients",
     "Running a suite of five live AI agents for support, debugging, and ops",
     "Growing SignalizeAI — a sales-research extension on Chrome and Firefox",
+    "Contributing to Qdrant open source: the core engine, agent skills, and the MCP server",
     "Contributing to open source compilers, networking systems, and AI tooling",
   ],
 
@@ -130,6 +131,25 @@ export const siteConfig = {
       section: "AI Products",
       liveUrl: "https://aashinyra.com",
       githubUrl: "https://github.com/royalpinto007",
+    },
+    {
+      id: "tenantq",
+      name: "Tenantq",
+      category: "AI",
+      status: "Open Source",
+      description:
+        "Multi-tenant hybrid search on Qdrant: payload-based tenant isolation with a leak test, dense and sparse retrieval fused with reciprocal rank fusion through the Query API, and a benchmark harness reporting recall and tail latency.",
+      features: [
+        "Payload-based tenant isolation with a test that fails on any cross-tenant leak",
+        "Dense and sparse hybrid search fused with RRF through the Qdrant Query API",
+        "HNSW tuning (m, ef_construct, hnsw_ef) with Recall@K and p50/p95/p99 benchmarks",
+        "Docker Compose, Prometheus metrics, CI, and a live demo",
+      ],
+      tech: ["Qdrant", "FastEmbed", "FastAPI", "Python"],
+      featured: true,
+      section: "AI Products",
+      liveUrl: "#",
+      githubUrl: "https://github.com/royalpinto007/Tenantq",
     },
     {
       id: "mcp-audit",
