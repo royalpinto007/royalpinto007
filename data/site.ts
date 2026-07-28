@@ -410,7 +410,7 @@ export const siteConfig = {
     },
     {
       id: "vaultrag",
-      name: "Vaultrag",
+      name: "VaultRAG",
       category: "AI",
       status: "Open Source",
       description:
@@ -425,7 +425,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/Vaultrag",
+      githubUrl: "https://github.com/royalpinto007/VaultRAG",
     },
     {
       id: "agentrace",
