@@ -14,6 +14,7 @@ AI engineer. I build agentic systems and the infrastructure to trust them: permi
 - [Answerproof](https://github.com/royalpinto007/Answerproof): Verifiable receipts for RAG answers: Merkle inclusion proofs and Ed25519 signatures.
 - [Agentrace](https://github.com/royalpinto007/Agentrace): Observability for Claude Code subagents: flags the agent results you should not trust.
 - [Ctxlens](https://github.com/royalpinto007/Ctxlens): Context-window profiler for agents: shows what is eating your tokens and cuts the waste.
+- [ctxtrim](https://github.com/royalpinto007/ctxtrim): Trims AI-context bloat: finds the files ballooning your Claude Code, Cursor, and Codex token cost and writes the ignore files to cut it. `npx ctxtrim`.
 - [Evalgate](https://github.com/royalpinto007/Evalgate): Prompt regression CI: the build fails when your prompt gets dumber.
 - [Voiceeval](https://github.com/royalpinto007/Voiceeval): Evaluation for voice agents: catches the failures a text eval scores as a perfect call.
 - [Injection-arena](https://github.com/royalpinto007/Injection-arena): A self-hostable prompt-injection challenge game: beat stacked AI defenses, climb the leaderboard.
