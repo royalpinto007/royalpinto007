@@ -579,6 +579,25 @@ export const siteConfig = {
       githubUrl: "https://github.com/royalpinto007/Mycelia",
     },
     {
+      id: "distro-skills",
+      name: "Distro Skills",
+      category: "Open Source",
+      status: "Open Source",
+      description:
+        "26 Agent Skills that teach an AI agent to distribute a developer or indie product — Show HN, Product Hunt, awesome-lists, dev.to, GitHub, Reddit, X, npm/PyPI. The builder's counterpart to marketing skills.",
+      features: [
+        "A skill per channel: what to say, when to post, and how to run the thread",
+        "distribution-context foundation every skill reads, so you set product and audience once",
+        "Honest, builder-shaped playbooks with templates, checklists, and benchmarks",
+        "Works with Claude Code, Codex, Cursor, and any agent supporting the Agent Skills spec",
+      ],
+      tech: ["Agent Skills", "Claude Code", "Distribution", "Markdown"],
+      featured: false,
+      section: "Open Source & Tools",
+      liveUrl: "#",
+      githubUrl: "https://github.com/royalpinto007/distro-skills",
+    },
+    {
       id: "tiny-day",
       name: "Tiny Day",
       category: "Frontend",
