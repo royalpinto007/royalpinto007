@@ -541,6 +541,25 @@ export const siteConfig = {
       githubUrl: "https://github.com/royalpinto007/Kabootar",
     },
     {
+      id: "auralis",
+      name: "Auralis",
+      category: "Open Source",
+      status: "Open Source",
+      description:
+        "A living field of light rendered in real time on the GPU, in the browser: WebGPU with a WebGL2 fallback, no server. Move your cursor to bend the current.",
+      features: [
+        "Domain-warped FBM noise mapped through cosine palettes, animated every frame on the GPU",
+        "WebGPU-first with a graceful WebGL2 fallback, so it runs on almost any browser",
+        "Runs entirely on the visitor's GPU, so it costs nothing to host at any scale",
+        "One self-contained HTML file, no dependencies, no build step",
+      ],
+      tech: ["WebGPU", "WebGL2", "WGSL / GLSL", "Shaders"],
+      featured: false,
+      section: "Open Source & Tools",
+      liveUrl: "https://auralis.agentpostmortem.com",
+      githubUrl: "https://github.com/royalpinto007/Auralis",
+    },
+    {
       id: "tiny-day",
       name: "Tiny Day",
       category: "Frontend",

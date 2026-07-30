@@ -33,6 +33,7 @@ AI engineer. I build agentic systems and the infrastructure to trust them: permi
 **Systems & apps**
 - [Kabootar](https://github.com/royalpinto007/Kabootar): Offline mesh messenger: chat with no internet, no servers, no SIM. Messages hop phone-to-phone over Bluetooth and Wi-Fi (delay-tolerant network, epidemic routing, end-to-end acks). Flutter.
 - [Tiny Day](https://github.com/royalpinto007/Tiny-Day): A cozy, offline-first daily planner for Android: gentle scheduling, focus, replanning, no accounts.
+- [Auralis](https://github.com/royalpinto007/Auralis): A real-time interactive aurora rendered on the GPU in the browser, WebGPU with a WebGL2 fallback, no server. Move your cursor to bend the light.
 
 **Products**
 - [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI): AI prospecting as a Chrome extension, featured on the Chrome Web Store.
