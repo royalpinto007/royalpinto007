@@ -2,7 +2,7 @@
 
 AI engineer. I build agentic systems and the infrastructure to trust them: permission-aware retrieval, agent observability, human-in-the-loop approval, and evals that fail CI when behaviour regresses. Building continuously.
 
-**Open source**: Google Summer of Code, Linux Foundation (LFX), and Symmetry Autumn of Code. 3+ years shipping in production. Recently contributing to [Qdrant](https://github.com/qdrant): the core engine, agent skills, and the MCP server.
+**Open source**: Google Summer of Code, Linux Foundation (LFX), and Symmetry Autumn of Code. 3+ years shipping in production.
 
 #### Projects
 
@@ -35,6 +35,10 @@ AI engineer. I build agentic systems and the infrastructure to trust them: permi
 **Products**
 - [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI): AI prospecting as a Chrome extension, featured on the Chrome Web Store.
 - [PennyRush](https://github.com/royalpinto007/PennyRush): A private money hub: receipts and statements parsed in memory, only extracted fields stored.
+
+**Awesome lists**
+- [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals): Curated, auto-updating directory of tools, frameworks, and benchmarks for evaluating AI agents. Filterable site.
+- [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails): Curated, auto-updating directory of open-source LLM guardrails: injection defense, PII, content safety, structured output, red-teaming.
 
 **Roots**
 - [cpp](https://github.com/royalpinto007/cpp): The code I wrote while learning C++ at the very start, kept detailed on purpose: datatypes through graphs and DP.
