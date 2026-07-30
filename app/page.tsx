@@ -33,7 +33,7 @@ export default async function HomePage() {
   const projectGroups = [
     {
       label: "Flagship",
-      items: pick(["signalizeai", "aashinyra", "kabootar", "tiny-day", "auralis"]),
+      items: pick(["signalizeai", "aashinyra", "kabootar", "tiny-day", "auralis", "mycelia"]),
     },
     {
       label: "AI engineering stack",
