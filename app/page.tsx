@@ -52,6 +52,7 @@ export default async function HomePage() {
         "relayg",
         "casebook-mcp",
         "casebook-chat",
+        "distro-skills",
       ]),
     },
     {

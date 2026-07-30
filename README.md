@@ -41,6 +41,7 @@ AI engineer. I build agentic systems and the infrastructure to trust them: permi
 - [PennyRush](https://github.com/royalpinto007/PennyRush): A private money hub: receipts and statements parsed in memory, only extracted fields stored.
 
 **Awesome lists**
+- [distro-skills](https://github.com/royalpinto007/distro-skills): 26 Agent Skills that teach an AI agent to distribute a dev/indie product (Show HN, Product Hunt, awesome-lists, dev.to, GitHub, Reddit, X, npm/PyPI). The builder's counterpart to marketing skills.
 - [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals): Curated, auto-updating directory of tools, frameworks, and benchmarks for evaluating AI agents. Filterable site.
 - [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails): Curated, auto-updating directory of open-source LLM guardrails: injection defense, PII, content safety, structured output, red-teaming.
 
