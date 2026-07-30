@@ -560,6 +560,25 @@ export const siteConfig = {
       githubUrl: "https://github.com/royalpinto007/Auralis",
     },
     {
+      id: "mycelia",
+      name: "Mycelia",
+      category: "Open Source",
+      status: "Open Source",
+      description:
+        "A GPU slime-mold simulation in the browser: 262k agents leave trails, sense them, and self-organize into living networks that flow toward your cursor. WebGL2 GPGPU, no server.",
+      features: [
+        "Physarum model: agents sense three directions, steer to the strongest trail, move, and deposit",
+        "Four GPU passes per frame on ping-pong float textures, no CPU in the loop",
+        "Runs entirely on the visitor's GPU, so it costs nothing to host at any scale",
+        "Four palettes, three behaviours, and a save-to-PNG wallpaper export",
+      ],
+      tech: ["WebGL2", "GPGPU", "GLSL", "Simulation"],
+      featured: false,
+      section: "Open Source & Tools",
+      liveUrl: "https://mycelia.agentpostmortem.com",
+      githubUrl: "https://github.com/royalpinto007/Mycelia",
+    },
+    {
       id: "tiny-day",
       name: "Tiny Day",
       category: "Frontend",
