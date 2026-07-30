@@ -10,6 +10,7 @@ AI engineer. I build agentic systems and the infrastructure to trust them: permi
 - [Tenantq](https://github.com/royalpinto007/Tenantq): Multi-tenant hybrid search on Qdrant: payload tenant isolation, dense+sparse RRF, HNSW tuning, and benchmarks.
 - [VaultRAG](https://github.com/royalpinto007/VaultRAG): Permission-aware RAG: access control enforced inside the retrieval query, CI fails on any leak.
 - [MCP-audit](https://github.com/royalpinto007/MCP-audit): Security scanner for MCP servers: 18 rules, SARIF output, `npx mcp-audit <target>`.
+- [skill-audit](https://github.com/royalpinto007/skill-audit): Security scanner for agent skills: 31 rules, prompt-injection and exfil detection, SARIF output, `npx @royalpinto007/skill-audit <path>`.
 - [Answerproof](https://github.com/royalpinto007/Answerproof): Verifiable receipts for RAG answers: Merkle inclusion proofs and Ed25519 signatures.
 - [Agentrace](https://github.com/royalpinto007/Agentrace): Observability for Claude Code subagents: flags the agent results you should not trust.
 - [Ctxlens](https://github.com/royalpinto007/Ctxlens): Context-window profiler for agents: shows what is eating your tokens and cuts the waste.
