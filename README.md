@@ -4,8 +4,6 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 
 **Open source**: Google Summer of Code, Linux Foundation (LFX), and Symmetry Autumn of Code. 3+ years shipping in production.
 
-#### Projects
-
 **Products and apps**
 - [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI): AI prospecting as a Chrome extension, featured on the Chrome Web Store.
 - **AashiNyra**: an AI fashion-influencer platform I run end to end, built on an n8n automation layer that drives the growth loop.
