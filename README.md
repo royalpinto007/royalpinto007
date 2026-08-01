@@ -6,7 +6,7 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 
 **Products and apps**
 - [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI): AI prospecting as a Chrome extension, featured on the Chrome Web Store.
-- **AashiNyra**: an AI fashion-influencer platform I run end to end, built on an n8n automation layer that drives the growth loop.
+- **AashiNyra Deals**: a live women's fashion deals platform I run end to end, tracking 16+ retailers nightly for genuine price drops with cashback to UPI.
 - [Kabootar](https://github.com/royalpinto007/Kabootar): Offline mesh messenger, chat with no internet, no servers, no SIM. Messages hop phone-to-phone over Bluetooth and Wi-Fi (delay-tolerant, epidemic routing, end-to-end acks). Flutter.
 - [Tiny Day](https://github.com/royalpinto007/Tiny-Day): A cozy, offline-first daily planner for Android, no accounts.
 - [PennyRush](https://github.com/royalpinto007/PennyRush): A private money hub, receipts and statements parsed in memory, only extracted fields stored.
