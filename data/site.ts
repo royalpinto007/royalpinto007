@@ -209,6 +209,25 @@ export const siteConfig = {
       githubUrl: "https://github.com/royalpinto007/Ctxtrim",
     },
     {
+      id: "tokencut",
+      name: "tokencut",
+      category: "AI",
+      status: "Open Source",
+      description:
+        "Measure and cut the token cost of an LLM or agent message payload before you send it: truncate bloated tool results, drop duplicate context, and trim history to a token budget. Zero model calls, deterministic.",
+      features: [
+        "Analyze: token breakdown by role and block kind, the biggest blocks, and a cost estimate",
+        "Compact: truncates oversized tool results, removes duplicate context, trims oldest turns to a budget",
+        "Never rewrites meaning, only cuts what is safe, keeping system and the last N turns",
+        "Zero dependencies, npx-runnable, works on Anthropic and OpenAI style messages, 5 tests",
+      ],
+      tech: ["Node.js", "LLM", "Agents", "Developer Tools"],
+      featured: false,
+      section: "AI Products",
+      liveUrl: "https://www.npmjs.com/package/tokencut",
+      githubUrl: "https://github.com/royalpinto007/tokencut",
+    },
+    {
       id: "evalgate",
       name: "Evalgate",
       category: "AI",
