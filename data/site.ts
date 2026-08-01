@@ -116,17 +116,17 @@ export const siteConfig = {
     },
     {
       id: "aashinyra",
-      name: "AashiNyra",
+      name: "AashiNyra Deals",
       category: "Frontend",
       status: "Production",
       description:
-        "Fashion discovery and affiliate commerce platform — curated collections with affiliate-powered checkout.",
+        "Live women's fashion deals platform that tracks 16+ retailers nightly for genuine price drops, with cashback paid to UPI.",
       features: [
-        "Curated fashion discovery feeds",
-        "Affiliate commerce integration",
-        "Fast, image-heavy storefront experience",
+        "Nightly price tracking with verified drops, not fake MRPs",
+        "Affiliate conversion via Cuelinks and INRDeals, cashback to UPI",
+        "Programmatic JSON-LD SEO over a 14,800+ product catalog",
       ],
-      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+      tech: ["Next.js", "Cloudflare Workers", "Supabase", "D1/R2"],
       featured: true,
       section: "AI Products",
       liveUrl: "https://aashinyra.com",
