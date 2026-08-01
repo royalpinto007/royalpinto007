@@ -23,7 +23,7 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 - Evals and observability: [Agentrace](https://github.com/royalpinto007/Agentrace), [Evalgate](https://github.com/royalpinto007/Evalgate), [Tracecase](https://github.com/royalpinto007/Tracecase), [Voiceeval](https://github.com/royalpinto007/Voiceeval)
 - Retrieval and trust: [VaultRAG](https://github.com/royalpinto007/VaultRAG), [Tenantq](https://github.com/royalpinto007/Tenantq), [Answerproof](https://github.com/royalpinto007/Answerproof)
 - Security scanners: [MCP-audit](https://github.com/royalpinto007/MCP-audit), [Skill-audit](https://github.com/royalpinto007/Skill-audit), [Injection-arena](https://github.com/royalpinto007/Injection-arena)
-- Context and token cost: [Ctxlens](https://github.com/royalpinto007/Ctxlens), [Ctxtrim](https://github.com/royalpinto007/Ctxtrim)
+- Context and token cost: [Ctxlens](https://github.com/royalpinto007/Ctxlens), [Ctxtrim](https://github.com/royalpinto007/Ctxtrim), [tokencut](https://github.com/royalpinto007/tokencut)
 - Scoped MCP access: [Bridgekit](https://github.com/royalpinto007/Bridgekit), [Casebook MCP](https://github.com/royalpinto007/Casebook-MCP), [Casebook Chat](https://github.com/royalpinto007/Casebook-Chat)
 - Human-in-the-loop agents: [Resolvd](https://github.com/royalpinto007/Resolvd), [Greenlite](https://github.com/royalpinto007/Greenlite), [Webhands](https://github.com/royalpinto007/Webhands), [RelayG](https://github.com/royalpinto007/RelayG)
 
