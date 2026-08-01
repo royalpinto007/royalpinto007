@@ -12,13 +12,8 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 - [PennyRush](https://github.com/royalpinto007/PennyRush): A private money hub, receipts and statements parsed in memory, only extracted fields stored.
 - [Auralis](https://github.com/royalpinto007/Auralis) and [Mycelia](https://github.com/royalpinto007/Mycelia): GPU experiments in the browser, a real-time WebGPU aurora and a 262k-agent slime-mold simulation, no server.
 
-**Open-source lists**
-- [distro-skills](https://github.com/royalpinto007/distro-skills): 26 Agent Skills that teach an AI agent to distribute a dev or indie product.
-- [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals): Auto-updating directory of tools and benchmarks for evaluating AI agents.
-- [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails): Auto-updating directory of open-source LLM guardrails.
-- [awesome-mcp-security](https://github.com/royalpinto007/awesome-mcp-security): Auto-updating directory of tools, standards, and research for securing Model Context Protocol servers.
-- [awesome-context-engineering](https://github.com/royalpinto007/awesome-context-engineering): Practitioner-first, auto-updating directory for context engineering in LLMs and agents.
-- [awesome-agent-memory](https://github.com/royalpinto007/awesome-agent-memory): Vendor-neutral, auto-updating directory of frameworks, stores, benchmarks, and papers for AI agent memory.
+**Open-source lists and skills**
+- Curated, auto-updating directories I maintain: [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals), [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails), [awesome-mcp-security](https://github.com/royalpinto007/awesome-mcp-security), [awesome-context-engineering](https://github.com/royalpinto007/awesome-context-engineering), [awesome-agent-memory](https://github.com/royalpinto007/awesome-agent-memory), plus the [distro-skills](https://github.com/royalpinto007/distro-skills) Agent Skills pack.
 
 **AI agent infrastructure**
 
