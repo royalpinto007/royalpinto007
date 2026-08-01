@@ -13,7 +13,7 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 - [Auralis](https://github.com/royalpinto007/Auralis) and [Mycelia](https://github.com/royalpinto007/Mycelia): GPU experiments in the browser, a real-time WebGPU aurora and a 262k-agent slime-mold simulation, no server.
 
 **Open-source lists and skills**
-- Curated, auto-updating directories I maintain: [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals), [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails), [awesome-mcp-security](https://github.com/royalpinto007/awesome-mcp-security), [awesome-context-engineering](https://github.com/royalpinto007/awesome-context-engineering), [awesome-agent-memory](https://github.com/royalpinto007/awesome-agent-memory), plus the [distro-skills](https://github.com/royalpinto007/distro-skills) Agent Skills pack.
+- Curated, auto-updating directories I maintain: [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals), [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails), [awesome-mcp-security](https://github.com/royalpinto007/awesome-mcp-security), [awesome-context-engineering](https://github.com/royalpinto007/awesome-context-engineering), [awesome-agent-memory](https://github.com/royalpinto007/awesome-agent-memory), [awesome-agent-skills](https://github.com/royalpinto007/awesome-agent-skills), plus the [distro-skills](https://github.com/royalpinto007/distro-skills) Agent Skills pack.
 
 **AI agent infrastructure**
 
