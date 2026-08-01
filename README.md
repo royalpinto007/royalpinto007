@@ -16,6 +16,9 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 - [distro-skills](https://github.com/royalpinto007/distro-skills): 26 Agent Skills that teach an AI agent to distribute a dev or indie product.
 - [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals): Auto-updating directory of tools and benchmarks for evaluating AI agents.
 - [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails): Auto-updating directory of open-source LLM guardrails.
+- [awesome-mcp-security](https://github.com/royalpinto007/awesome-mcp-security): Auto-updating directory of tools, standards, and research for securing Model Context Protocol servers.
+- [awesome-context-engineering](https://github.com/royalpinto007/awesome-context-engineering): Practitioner-first, auto-updating directory for context engineering in LLMs and agents.
+- [awesome-agent-memory](https://github.com/royalpinto007/awesome-agent-memory): Vendor-neutral, auto-updating directory of frameworks, stores, benchmarks, and papers for AI agent memory.
 
 **AI agent infrastructure**
 
