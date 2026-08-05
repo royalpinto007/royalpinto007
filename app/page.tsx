@@ -11,9 +11,7 @@ import {
 import { SectionHeader } from "@/components/SectionHeader";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TechStackGrid } from "@/components/TechStackGrid";
-import { BlogCard } from "@/components/BlogCard";
 import { siteConfig } from "@/data/site";
-import { fetchMediumPosts } from "@/lib/medium";
 
 const serviceIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Layers,
@@ -22,9 +20,7 @@ const serviceIconMap: Record<string, React.ComponentType<{ className?: string }>
   Palette,
 };
 
-export default async function HomePage() {
-  const latestPosts = await fetchMediumPosts(siteConfig.mediumFeedUrl, 3);
-
+export default function HomePage() {
   const pick = (ids: string[]) =>
     ids
       .map((id) => siteConfig.projects.find((p) => p.id === id))
@@ -323,34 +319,6 @@ export default async function HomePage() {
           <TechStackGrid />
         </div>
       </section>
-
-      {/* 06 — Writing */}
-      {latestPosts.length > 0 && (
-        <section className="py-20">
-          <div className="reveal flex items-end justify-between gap-6">
-            <SectionHeader
-              index="06"
-              eyebrow="Writing"
-              title="Notes on"
-              titleEm="building"
-              subtitle="Thoughts on AI, engineering, and shipping products."
-            />
-            <Link
-              href="/blog"
-              className="mono text-xs text-accent hover:text-accent-hover flex-shrink-0 whitespace-nowrap transition-colors"
-            >
-              All posts &rarr;
-            </Link>
-          </div>
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {latestPosts.map((post, i) => (
-              <div key={i} data-d={String((i % 3) + 1)} className="reveal">
-                <BlogCard post={post} />
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
     </div>
   );
 }

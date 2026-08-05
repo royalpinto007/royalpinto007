@@ -1,37 +1,39 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Warm editorial "ink & gold" palette.
-   Dark is the default (matches hire.agentpostmortem.com); light is a warm ivory.
-   Token classes (bg-bg, text-ink, border-line, …) resolve via CSS variables. */
+/* Neo-technical identity — cool near-black, electric indigo, lime signal.
+   Dark is the default; light is a bright paper variant. Token classes
+   (bg-bg, text-ink, border-line, text-accent, …) resolve via CSS variables. */
 :root {
-  --bg: #f6f1e7;
-  --panel: #fffdf8;
-  --panel-2: #efe7d8;
-  --ink: #201c14;
-  --mute: #675f50;
-  --faint: #8a8271;
-  --line: rgba(32, 28, 20, 0.1);
-  --line-strong: rgba(32, 28, 20, 0.2);
-  --accent: #8a6527;
-  --accent-hover: #6f511f;
-  --accent-soft: rgba(138, 101, 39, 0.1);
-  --glow: rgba(138, 101, 39, 0.14);
+  --bg: #f5f4f2;
+  --panel: #ffffff;
+  --panel-2: #ecebe8;
+  --ink: #0e0e14;
+  --mute: #55555f;
+  --faint: #86868f;
+  --line: rgba(12, 12, 22, 0.1);
+  --line-strong: rgba(12, 12, 22, 0.2);
+  --accent: #5b3df5;
+  --accent-hover: #4a2fd8;
+  --accent-soft: rgba(91, 61, 245, 0.1);
+  --signal: #4e8500;
+  --glow: rgba(91, 61, 245, 0.13);
 }
 
 .dark {
-  --bg: #0b0a07;
-  --panel: #141210;
-  --panel-2: #1b1813;
-  --ink: #f3efe6;
-  --mute: #a8a094;
-  --faint: #7c7568;
-  --line: rgba(243, 239, 230, 0.08);
-  --line-strong: rgba(243, 239, 230, 0.16);
-  --accent: #d0a95f;
-  --accent-hover: #e8ca8f;
-  --accent-soft: rgba(208, 169, 95, 0.12);
-  --glow: rgba(208, 169, 95, 0.16);
+  --bg: #0a0a0f;
+  --panel: #131319;
+  --panel-2: #1b1b23;
+  --ink: #f3f3f7;
+  --mute: #a2a2b0;
+  --faint: #6a6a7a;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --accent: #7d6bff;
+  --accent-hover: #9b8dff;
+  --accent-soft: rgba(125, 107, 255, 0.14);
+  --signal: #c6ff3d;
+  --glow: rgba(125, 107, 255, 0.22);
 }
 
 @theme inline {
@@ -46,7 +48,8 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
-  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --color-signal: var(--signal);
+  --font-display: var(--font-bricolage), "Inter", sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
@@ -59,23 +62,36 @@ body {
   color: var(--ink);
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--bg);
+/* Film grain over everything (clicks pass through) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Display serif */
-.display {
-  font-family: var(--font-instrument-serif), Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.015em;
-  line-height: 0.98;
+::selection {
+  background: var(--accent);
+  color: #fff;
 }
+
+/* Bold grotesk display */
+.display {
+  font-family: var(--font-bricolage), "Inter", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.96;
+}
+/* Serif-italic emphasis pop against the grotesk */
 .display-em {
   font-family: var(--font-instrument-serif), Georgia, serif;
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.01em;
+  color: var(--accent);
 }
 
 /* Mono metadata / eyebrows / indices */
@@ -91,7 +107,7 @@ body {
   color: var(--accent);
 }
 
-/* Ambient warm glow behind the hero */
+/* Ambient accent glow */
 .glow {
   position: absolute;
   inset: 0;
@@ -102,32 +118,27 @@ body {
 .glow::before {
   content: "";
   position: absolute;
-  top: -30%;
-  left: 50%;
+  top: -35%;
+  left: 55%;
   width: 90vw;
-  max-width: 1100px;
-  height: 700px;
+  max-width: 1000px;
+  height: 720px;
   transform: translateX(-50%);
-  background: radial-gradient(50% 50% at 50% 50%, var(--glow), transparent 70%);
-  filter: blur(20px);
-}
-
-/* Hairline grid texture (subtle) */
-.rule {
-  border-color: var(--line);
+  background: radial-gradient(50% 50% at 50% 50%, var(--glow), transparent 72%);
+  filter: blur(24px);
 }
 
 /* Scroll reveal — gated behind .js so no-JS shows everything */
 .js .reveal {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(20px);
 }
 .js .reveal.in {
   opacity: 1;
   transform: none;
   transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .js .reveal[data-d="1"].in {
   transition-delay: 0.06s;
