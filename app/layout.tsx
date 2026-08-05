@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { RevealObserver } from "@/components/RevealObserver";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
@@ -12,6 +13,11 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   style: ["normal", "italic"],
   variable: "--font-instrument-serif",
+});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jetbrains-mono",
 });
 
 export const metadata: Metadata = {
@@ -35,10 +41,19 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Enable scroll-reveal only when JS runs, so no-JS shows everything. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js')`,
+          }}
+        />
+      </head>
       <body
-        className={`${inter.className} ${instrumentSerif.variable} bg-bg text-ink antialiased`}
+        className={`${inter.className} ${instrumentSerif.variable} ${jetbrainsMono.variable} bg-bg text-ink antialiased`}
       >
         <ThemeProvider>
+          <RevealObserver />
           <Header />
           <main>{children}</main>
           <Footer />
