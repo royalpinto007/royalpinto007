@@ -59,10 +59,6 @@ export default async function HomePage() {
       label: "Agent suite",
       items: pick(["resolvd", "tracecase", "webhands", "bridgekit", "greenlite"]),
     },
-    {
-      label: "Frontend design",
-      items: pick(["frontend-showcase"]),
-    },
   ];
 
   return (
@@ -168,22 +164,6 @@ export default async function HomePage() {
         </a>
       </section>
 
-      {/* Currently */}
-      <section className="py-20 border-b border-line">
-        <SectionHeader eyebrow="Right now" title="Currently" titleEm="in motion" />
-        <div className="grid sm:grid-cols-2 gap-4">
-          {siteConfig.currently.map((item, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-4 p-5 rounded-xl border border-line bg-panel"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-              <span className="text-sm text-mute leading-relaxed">{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Services */}
       <section className="py-20 border-b border-line">
         <SectionHeader
@@ -249,6 +229,43 @@ export default async function HomePage() {
             </div>
           </div>
         ))}
+      </section>
+
+      {/* Frontend design showcase */}
+      <section className="py-20 border-b border-line">
+        <div className="flex items-end justify-between mb-12">
+          <SectionHeader
+            eyebrow="Frontend design"
+            title="Ten sites,"
+            titleEm="one bar"
+            subtitle="Design-forward, multi-page marketing sites, each a distinct genre and visual identity, built static-first with Astro and verified to render fully without JavaScript."
+          />
+          <a
+            href="https://frequency.signalizeai.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-accent hover:text-accent-hover flex-shrink-0 mb-12 transition-colors"
+          >
+            See one live →
+          </a>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          {siteConfig.frontendSites.map((s) => (
+            <a
+              key={s.name}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col gap-1 p-5 rounded-xl border border-line bg-panel hover:border-accent transition-colors duration-300"
+            >
+              <span className="flex items-center justify-between text-ink">
+                {s.name}
+                <ArrowUpRight className="w-3.5 h-3.5 text-mute group-hover:text-accent transition-colors" />
+              </span>
+              <span className="text-[11px] uppercase tracking-[0.15em] text-mute">{s.genre}</span>
+            </a>
+          ))}
+        </div>
       </section>
 
       {/* Tech Stack */}

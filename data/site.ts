@@ -35,6 +35,19 @@ export const siteConfig = {
     "Contributing to open source compilers, networking systems, and AI tooling",
   ],
 
+  frontendSites: [
+    { name: "Ledger", genre: "Fintech", url: "https://ledger.signalizeai.org" },
+    { name: "Atlas", genre: "Architecture", url: "https://atlas.signalizeai.org" },
+    { name: "Frequency", genre: "Music", url: "https://frequency.signalizeai.org" },
+    { name: "Sprout", genre: "Wellness app", url: "https://sprout.signalizeai.org" },
+    { name: "Cellar", genre: "Wine bar", url: "https://cellar.signalizeai.org" },
+    { name: "Nebula", genre: "AI product", url: "https://nebula.signalizeai.org" },
+    { name: "Vantage", genre: "Studio", url: "https://vantage.signalizeai.org" },
+    { name: "Halcyon", genre: "Audio", url: "https://halcyon.signalizeai.org" },
+    { name: "Fable", genre: "Portfolio", url: "https://fable.signalizeai.org" },
+    { name: "Pulse", genre: "Conference", url: "https://pulse.signalizeai.org" },
+  ],
+
   services: [
     {
       icon: "Brain",
