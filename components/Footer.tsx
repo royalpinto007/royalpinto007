@@ -6,13 +6,35 @@ import { siteConfig } from "@/data/site";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-line bg-bg mt-24">
-      <div className="max-w-[1300px] mx-auto px-5 sm:px-8 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 mb-12">
+    <footer className="relative border-t border-line bg-bg mt-28 overflow-hidden">
+      <div className="glow opacity-60" aria-hidden />
+      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 py-16">
+        {/* Big closing wordmark */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 pb-14 border-b border-line">
+          <div>
+            <div className="display text-5xl sm:text-6xl text-ink leading-none">
+              Let&apos;s build
+              <br />
+              <span className="display-em text-accent">something.</span>
+            </div>
+          </div>
+          <a
+            href={siteConfig.hireUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-fit items-center gap-2 text-sm font-medium text-bg bg-accent hover:bg-accent-hover px-6 py-3 rounded-full transition-colors"
+          >
+            Hire me — five live agents
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 py-14">
           <div className="sm:col-span-2">
-            <div className="display-em text-2xl mb-3 text-ink">{siteConfig.name}</div>
-            <p className="text-sm text-mute leading-relaxed max-w-xs">{siteConfig.shortBio}</p>
-            <p className="text-xs text-faint mt-2">{siteConfig.location}</p>
+            <div className="display text-2xl mb-3 text-ink">{siteConfig.name}</div>
+            <p className="text-sm text-mute leading-relaxed max-w-xs">
+              {siteConfig.shortBio}
+            </p>
+            <p className="mono text-xs text-faint mt-3">{siteConfig.location}</p>
             <div className="flex gap-3 mt-5">
               {[
                 { icon: GithubIcon, href: siteConfig.github, label: "GitHub" },
@@ -35,9 +57,7 @@ export function Footer() {
           </div>
           {Object.entries(siteConfig.footerLinks).map(([group, links]) => (
             <div key={group}>
-              <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-faint mb-4">
-                {group}
-              </div>
+              <div className="eyebrow text-faint mb-4">{group}</div>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.href}>
@@ -53,18 +73,12 @@ export function Footer() {
             </div>
           ))}
         </div>
+
         <div className="border-t border-line pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-faint">
-            © {year} {siteConfig.name}. All rights reserved.
+          <p className="mono text-xs text-faint">
+            © {year} {siteConfig.name}
           </p>
-          <a
-            href={siteConfig.hireUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-accent hover:text-accent-hover transition-colors"
-          >
-            Hire me — five live agents at hire.agentpostmortem.com
-          </a>
+          <p className="mono text-xs text-faint">Built and shipped, daily.</p>
         </div>
       </div>
     </footer>

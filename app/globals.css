@@ -1,35 +1,37 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Warm palette — dark default matches the hire.agentpostmortem.com design language,
-   light is a warm ivory variant. Token classes (bg-bg, text-ink, border-line, …)
-   resolve via CSS variables so no dark: prefixes are needed. */
+/* Warm editorial "ink & gold" palette.
+   Dark is the default (matches hire.agentpostmortem.com); light is a warm ivory.
+   Token classes (bg-bg, text-ink, border-line, …) resolve via CSS variables. */
 :root {
-  --bg: #faf7f0;
-  --panel: #ffffff;
-  --panel-2: #f4efe6;
-  --ink: #1f1c16;
-  --mute: #6e6759;
-  --faint: #746c5d;
-  --line: rgba(31, 28, 22, 0.1);
-  --line-strong: rgba(31, 28, 22, 0.18);
+  --bg: #f6f1e7;
+  --panel: #fffdf8;
+  --panel-2: #efe7d8;
+  --ink: #201c14;
+  --mute: #675f50;
+  --faint: #8a8271;
+  --line: rgba(32, 28, 20, 0.1);
+  --line-strong: rgba(32, 28, 20, 0.2);
   --accent: #8a6527;
   --accent-hover: #6f511f;
-  --accent-soft: rgba(166, 124, 52, 0.1);
+  --accent-soft: rgba(138, 101, 39, 0.1);
+  --glow: rgba(138, 101, 39, 0.14);
 }
 
 .dark {
-  --bg: #0d0c0a;
-  --panel: #121110;
-  --panel-2: #171512;
-  --ink: #efece5;
-  --mute: #a39d92;
-  --faint: #857f74;
-  --line: rgba(239, 236, 229, 0.09);
-  --line-strong: rgba(239, 236, 229, 0.18);
-  --accent: #c9a35c;
-  --accent-hover: #e2c288;
-  --accent-soft: rgba(201, 163, 92, 0.1);
+  --bg: #0b0a07;
+  --panel: #141210;
+  --panel-2: #1b1813;
+  --ink: #f3efe6;
+  --mute: #a8a094;
+  --faint: #7c7568;
+  --line: rgba(243, 239, 230, 0.08);
+  --line-strong: rgba(243, 239, 230, 0.16);
+  --accent: #d0a95f;
+  --accent-hover: #e8ca8f;
+  --accent-soft: rgba(208, 169, 95, 0.12);
+  --glow: rgba(208, 169, 95, 0.16);
 }
 
 @theme inline {
@@ -45,6 +47,7 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
   --font-display: var(--font-instrument-serif), Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 html {
@@ -61,7 +64,13 @@ body {
   color: var(--bg);
 }
 
-/* Display serif emphasis */
+/* Display serif */
+.display {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+}
 .display-em {
   font-family: var(--font-instrument-serif), Georgia, serif;
   font-style: italic;
@@ -69,21 +78,75 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Reveal on scroll */
-@media (prefers-reduced-motion: no-preference) {
-  .reveal {
-    opacity: 0;
-    transform: translateY(14px);
-    animation: reveal-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+/* Mono metadata / eyebrows / indices */
+.mono {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-feature-settings: "tnum" 1;
+}
+.eyebrow {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Ambient warm glow behind the hero */
+.glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.glow::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  width: 90vw;
+  max-width: 1100px;
+  height: 700px;
+  transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 50%, var(--glow), transparent 70%);
+  filter: blur(20px);
+}
+
+/* Hairline grid texture (subtle) */
+.rule {
+  border-color: var(--line);
+}
+
+/* Scroll reveal — gated behind .js so no-JS shows everything */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.js .reveal[data-d="1"].in {
+  transition-delay: 0.06s;
+}
+.js .reveal[data-d="2"].in {
+  transition-delay: 0.13s;
+}
+.js .reveal[data-d="3"].in {
+  transition-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  .reveal-1 { animation-delay: 0.08s; }
-  .reveal-2 { animation-delay: 0.16s; }
-  .reveal-3 { animation-delay: 0.24s; }
-  @keyframes reveal-in {
-    to {
-      opacity: 1;
-      transform: none;
-    }
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 

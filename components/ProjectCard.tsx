@@ -24,37 +24,45 @@ export function ProjectCard({
   githubUrl,
 }: ProjectCardProps) {
   return (
-    <div className="group relative flex flex-col rounded-xl border border-line bg-panel p-7 hover:border-line-strong transition-colors duration-300">
-      <div className="flex items-start justify-between mb-4">
+    <div className="group relative flex flex-col rounded-2xl border border-line bg-panel p-7 transition-all duration-300 hover:border-accent/50 hover:-translate-y-1">
+      {/* hover accent hairline */}
+      <span className="pointer-events-none absolute inset-x-7 top-0 h-px scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
+
+      <div className="flex items-start justify-between gap-3 mb-4">
         <div>
-          <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-faint mb-1.5">
-            {category}
-          </div>
-          <h3 className="text-lg text-ink">{name}</h3>
+          <div className="eyebrow text-faint mb-2">{category}</div>
+          <h3 className="display text-2xl text-ink leading-none">{name}</h3>
         </div>
-        <span className="text-[11px] font-medium px-2.5 py-1 rounded-full border border-line text-accent whitespace-nowrap">
+        <span className="mono shrink-0 text-[10px] px-2.5 py-1 rounded-full border border-line text-accent whitespace-nowrap">
           {status}
         </span>
       </div>
+
       <p className="text-sm text-mute mb-5 leading-relaxed">{description}</p>
+
       <ul className="space-y-1.5 mb-5">
         {features.slice(0, 3).map((f) => (
-          <li key={f} className="text-xs text-mute flex items-start gap-2 leading-relaxed">
+          <li
+            key={f}
+            className="text-xs text-mute flex items-start gap-2 leading-relaxed"
+          >
             <span className="text-accent mt-0.5 flex-shrink-0">—</span>
             {f}
           </li>
         ))}
       </ul>
+
       <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
         {tech.map((t) => (
           <span
             key={t}
-            className="text-[11px] px-2.5 py-1 rounded-full border border-line text-mute"
+            className="mono text-[10px] px-2.5 py-1 rounded-full border border-line text-mute"
           >
             {t}
           </span>
         ))}
       </div>
+
       <div className="flex gap-5 pt-4 border-t border-line">
         {liveUrl && liveUrl !== "#" && (
           <a

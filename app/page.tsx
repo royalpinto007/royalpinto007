@@ -62,35 +62,39 @@ export default async function HomePage() {
   ];
 
   return (
-    <div className="max-w-[1300px] mx-auto px-5 sm:px-8">
+    <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
       {/* Hero */}
-      <section className="pt-20 pb-24 sm:pt-28 sm:pb-32">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20">
-          <div className="flex-1 min-w-0 reveal">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-6">
+      <section className="relative pt-20 pb-24 sm:pt-28 sm:pb-32">
+        <div className="glow" aria-hidden />
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-14 lg:gap-20">
+          <div className="flex-1 min-w-0">
+            <div className="eyebrow mb-6 flex items-center gap-2.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
               {siteConfig.role} — {siteConfig.location}
             </div>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl text-ink tracking-tight mb-7 leading-[1.05] font-normal">
+            <h1 className="display text-5xl sm:text-7xl lg:text-[5.5rem] text-ink mb-8">
               I build <span className="display-em text-accent">AI products</span>
               <br />
               that actually ship.
             </h1>
-            <p className="text-lg text-mute leading-relaxed mb-8 max-w-xl">
-              {siteConfig.name}. AI agents, permission-aware RAG, and voice and
-              agent evals, with the full-stack around all of it, plus an offline
-              mesh messenger for when there is no internet. Fifteen-plus
-              products and tools live, and open source every single day.
+            <p className="text-lg text-mute leading-relaxed mb-9 max-w-xl">
+              {siteConfig.name}. AI agents, permission-aware RAG, and voice and agent
+              evals, with the full-stack around all of it, plus an offline mesh
+              messenger for when there is no internet.{" "}
+              <span className="text-ink">
+                Fifteen-plus products live, open source every single day.
+              </span>
             </p>
             <div className="flex flex-wrap gap-2.5 mb-10">
-              <span className="inline-flex items-center gap-2 text-xs px-3.5 py-1.5 rounded-full border border-line text-mute">
+              <span className="mono inline-flex items-center gap-2 text-[11px] px-3.5 py-1.5 rounded-full border border-line text-mute">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 Available for work
               </span>
-              <span className="inline-flex items-center gap-2 text-xs px-3.5 py-1.5 rounded-full border border-line text-mute">
+              <span className="mono inline-flex items-center gap-2 text-[11px] px-3.5 py-1.5 rounded-full border border-line text-mute">
                 <MapPin className="w-3 h-3" /> {siteConfig.timezone}
               </span>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               <a
                 href={siteConfig.hireUrl}
                 target="_blank"
@@ -113,44 +117,67 @@ export default async function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="flex-shrink-0 mx-auto lg:mx-0 reveal reveal-2">
-            <img
-              src={siteConfig.avatar}
-              alt={siteConfig.name}
-              width={448}
-              height={448}
-              fetchPriority="high"
-              className="w-44 h-44 sm:w-56 sm:h-56 rounded-full object-cover border border-line-strong"
-            />
+
+          <div className="flex-shrink-0 mx-auto lg:mx-0">
+            <div className="relative">
+              <div
+                className="absolute -inset-3 rounded-full border border-line"
+                aria-hidden
+              />
+              <img
+                src={siteConfig.avatar}
+                alt={siteConfig.name}
+                width={448}
+                height={448}
+                fetchPriority="high"
+                className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover border border-line-strong"
+              />
+              <span className="mono absolute -bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full border border-line bg-panel text-mute whitespace-nowrap">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                Open to work
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="pb-20 border-b border-line">
-        <div className="grid grid-cols-3 gap-px bg-line rounded-xl overflow-hidden border border-line">
-          {siteConfig.stats.map((stat) => (
-            <div key={stat.label} className="text-center p-6 sm:p-8 bg-panel">
-              <div className="display-em text-3xl sm:text-4xl text-accent">{stat.value}</div>
-              <div className="text-xs text-mute mt-2">{stat.label}</div>
+      <section className="pb-16">
+        <div className="grid grid-cols-3 border-y border-line">
+          {siteConfig.stats.map((stat, i) => (
+            <div
+              key={stat.label}
+              className={`py-9 sm:py-11 text-center ${
+                i > 0 ? "border-l border-line" : ""
+              }`}
+            >
+              <div className="display text-4xl sm:text-6xl text-accent">
+                {stat.value}
+              </div>
+              <div className="mono text-[11px] text-faint mt-3 tracking-wider">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Open source graph */}
+      {/* 01 — Open source graph */}
       <section className="py-20 border-b border-line">
-        <SectionHeader
-          eyebrow="Open source, every day"
-          title="Open source in"
-          titleEm="2026"
-          subtitle="3,990 contributions in 2026. GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code. The graph is the habit, not a sprint."
-        />
+        <div className="reveal">
+          <SectionHeader
+            index="01"
+            eyebrow="Open source, every day"
+            title="The graph is the"
+            titleEm="habit."
+            subtitle="3,990 contributions in 2026. GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code. Not a sprint — a practice."
+          />
+        </div>
         <a
           href={siteConfig.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="block p-6 rounded-xl border border-line bg-panel hover:border-line-strong transition-colors"
+          className="reveal mt-10 block p-6 rounded-2xl border border-line bg-panel hover:border-accent/50 transition-colors"
         >
           <img
             src="/wall2026.svg"
@@ -158,38 +185,44 @@ export default async function HomePage() {
             className="w-full h-auto"
             loading="lazy"
           />
-          <span className="inline-block mt-4 text-sm text-mute">
-            2026 &middot; github.com/royalpinto007 &rarr;
+          <span className="mono inline-block mt-4 text-xs text-mute">
+            2026 · github.com/royalpinto007 &rarr;
           </span>
         </a>
       </section>
 
-      {/* Services */}
+      {/* 02 — Services */}
       <section className="py-20 border-b border-line">
-        <SectionHeader
-          eyebrow="What I do"
-          title="Where I can"
-          titleEm="add value"
-          subtitle="From product vision to production deployment."
-        />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {siteConfig.services.map((service) => {
+        <div className="reveal">
+          <SectionHeader
+            index="02"
+            eyebrow="What I do"
+            title="Where I"
+            titleEm="add value"
+            subtitle="From product vision to production deployment."
+          />
+        </div>
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {siteConfig.services.map((service, i) => {
             const Icon = serviceIconMap[service.icon];
             return (
               <div
                 key={service.title}
-                className="p-6 rounded-xl border border-line bg-panel hover:border-line-strong transition-colors duration-300"
+                data-d={String((i % 3) + 1)}
+                className="reveal group p-6 rounded-2xl border border-line bg-panel hover:border-accent/50 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-10 h-10 rounded-full border border-line flex items-center justify-center mb-5">
+                <div className="w-11 h-11 rounded-full border border-line flex items-center justify-center mb-5 group-hover:border-accent transition-colors">
                   {Icon && <Icon className="w-4.5 h-4.5 text-accent" />}
                 </div>
-                <h3 className="text-ink mb-2">{service.title}</h3>
-                <p className="text-sm text-mute mb-5 leading-relaxed">{service.description}</p>
+                <h3 className="display text-xl text-ink mb-2">{service.title}</h3>
+                <p className="text-sm text-mute mb-5 leading-relaxed">
+                  {service.description}
+                </p>
                 <div className="flex flex-wrap gap-1.5">
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[11px] px-2.5 py-1 rounded-full border border-line text-mute"
+                      className="mono text-[10px] px-2.5 py-1 rounded-full border border-line text-mute"
                     >
                       {tag}
                     </span>
@@ -201,10 +234,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Projects, grouped like the hire funnel: Flagship / Stack / Suite */}
+      {/* 03 — Work */}
       <section className="py-20 border-b border-line">
-        <div className="flex items-end justify-between mb-12">
+        <div className="reveal flex items-end justify-between gap-6">
           <SectionHeader
+            index="03"
             eyebrow="Work"
             title="Everything"
             titleEm="I've shipped"
@@ -212,29 +246,32 @@ export default async function HomePage() {
           />
           <Link
             href="/projects"
-            className="text-sm text-accent hover:text-accent-hover flex-shrink-0 mb-12 transition-colors"
+            className="mono text-xs text-accent hover:text-accent-hover flex-shrink-0 whitespace-nowrap transition-colors"
           >
-            All projects →
+            All projects &rarr;
           </Link>
         </div>
-        {projectGroups.map((group) => (
-          <div key={group.label} className="mb-12 last:mb-0">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-accent mb-5">
-              {group.label}
-            </h3>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {group.items.map((project) => (
-                <ProjectCard key={project.id} {...project} />
-              ))}
+        <div className="mt-10 space-y-12">
+          {projectGroups.map((group) => (
+            <div key={group.label}>
+              <div className="eyebrow text-faint mb-5">{group.label}</div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {group.items.map((project, i) => (
+                  <div key={project.id} data-d={String((i % 3) + 1)} className="reveal">
+                    <ProjectCard {...project} />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
 
-      {/* Frontend design showcase */}
+      {/* 04 — Frontend design */}
       <section className="py-20 border-b border-line">
-        <div className="flex items-end justify-between mb-12">
+        <div className="reveal flex items-end justify-between gap-6">
           <SectionHeader
+            index="04"
             eyebrow="Frontend design"
             title="Ten sites,"
             titleEm="one bar"
@@ -244,98 +281,76 @@ export default async function HomePage() {
             href="https://frequency.signalizeai.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-accent hover:text-accent-hover flex-shrink-0 mb-12 transition-colors"
+            className="mono text-xs text-accent hover:text-accent-hover flex-shrink-0 whitespace-nowrap transition-colors"
           >
-            See one live →
+            See one live &rarr;
           </a>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          {siteConfig.frontendSites.map((s) => (
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          {siteConfig.frontendSites.map((s, i) => (
             <a
               key={s.name}
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col gap-1 p-5 rounded-xl border border-line bg-panel hover:border-accent transition-colors duration-300"
+              data-d={String((i % 3) + 1)}
+              className="reveal group flex flex-col gap-1 p-5 rounded-2xl border border-line bg-panel hover:border-accent/50 hover:-translate-y-1 transition-all duration-300"
             >
-              <span className="flex items-center justify-between text-ink">
+              <span className="display text-lg text-ink flex items-center justify-between">
                 {s.name}
-                <ArrowUpRight className="w-3.5 h-3.5 text-mute group-hover:text-accent transition-colors" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-faint group-hover:text-accent transition-colors" />
               </span>
-              <span className="text-[11px] uppercase tracking-[0.15em] text-mute">{s.genre}</span>
+              <span className="mono text-[10px] uppercase tracking-wider text-faint">
+                {s.genre}
+              </span>
             </a>
           ))}
         </div>
       </section>
 
-      {/* Tech Stack */}
+      {/* 05 — Toolkit */}
       <section className="py-20 border-b border-line">
-        <SectionHeader
-          eyebrow="Skills"
-          title="What I"
-          titleEm="build with"
-          subtitle="The tools and technologies I reach for most."
-        />
-        <TechStackGrid />
+        <div className="reveal">
+          <SectionHeader
+            index="05"
+            eyebrow="Toolkit"
+            title="What I"
+            titleEm="build with"
+            subtitle="The tools and technologies I reach for most."
+          />
+        </div>
+        <div className="reveal mt-10">
+          <TechStackGrid />
+        </div>
       </section>
 
-      {/* Blog */}
+      {/* 06 — Writing */}
       {latestPosts.length > 0 && (
-        <section className="py-20 border-b border-line">
-          <div className="flex items-end justify-between mb-12">
+        <section className="py-20">
+          <div className="reveal flex items-end justify-between gap-6">
             <SectionHeader
+              index="06"
               eyebrow="Writing"
-              title="Latest"
-              titleEm="writing"
-              subtitle="Thoughts on AI, engineering, and building products."
+              title="Notes on"
+              titleEm="building"
+              subtitle="Thoughts on AI, engineering, and shipping products."
             />
             <Link
               href="/blog"
-              className="text-sm text-accent hover:text-accent-hover flex-shrink-0 mb-12 transition-colors"
+              className="mono text-xs text-accent hover:text-accent-hover flex-shrink-0 whitespace-nowrap transition-colors"
             >
-              All posts →
+              All posts &rarr;
             </Link>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {latestPosts.map((post, i) => (
-              <BlogCard key={i} post={post} />
+              <div key={i} data-d={String((i % 3) + 1)} className="reveal">
+                <BlogCard post={post} />
+              </div>
             ))}
           </div>
         </section>
       )}
-
-      {/* CTA */}
-      <section className="py-20">
-        <div className="rounded-xl border border-line bg-panel p-10 sm:p-16 text-center">
-          <div className="inline-flex items-center gap-2 mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <span className="text-xs text-accent tracking-wide">Available now</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl text-ink mb-4 font-normal">
-            Building something <span className="display-em text-accent">with AI?</span>
-          </h2>
-          <p className="text-mute mb-9 max-w-md mx-auto leading-relaxed">
-            Five live agents are already running at hire.agentpostmortem.com. Tell me
-            what you&apos;re building and I&apos;ll help you ship it.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href={siteConfig.hireUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-accent text-bg text-sm font-semibold px-7 py-3 rounded-full hover:bg-accent-hover transition-colors"
-            >
-              Hire me <ArrowUpRight className="w-4 h-4" />
-            </a>
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="border border-line-strong text-ink text-sm px-7 py-3 rounded-full hover:border-accent hover:text-accent transition-colors"
-            >
-              Email me
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

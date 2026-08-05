@@ -34,7 +34,8 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="max-w-[1300px] mx-auto px-5 sm:px-8 py-20">
+    <div className="relative max-w-[1240px] mx-auto px-5 sm:px-8 py-20">
+      <div className="glow" aria-hidden />
       <SectionHeader
         eyebrow="Get in touch"
         title="Let's"
@@ -43,12 +44,13 @@ export default function ContactPage() {
       />
 
       {/* Main CTA Card */}
-      <div className="rounded-xl border border-line bg-panel p-10 sm:p-12 mb-10">
-        <div className="flex items-center gap-2 mb-5">
+      <div className="reveal mt-14 relative overflow-hidden rounded-2xl border border-line bg-panel p-10 sm:p-14">
+        <div className="glow opacity-70" aria-hidden />
+        <div className="mono flex items-center gap-2 mb-5 text-xs text-accent">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          <span className="text-xs text-accent tracking-wide">Available now</span>
+          Available now
         </div>
-        <h2 className="text-2xl sm:text-3xl text-ink mb-3 font-normal">
+        <h2 className="display text-3xl sm:text-4xl text-ink mb-3">
           Building something <span className="display-em text-accent">with AI?</span>
         </h2>
         <p className="text-mute mb-8 max-w-md leading-relaxed">
@@ -84,58 +86,56 @@ export default function ContactPage() {
       </div>
 
       {/* Direct channels */}
-      <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-faint mb-5">
-        Direct channels
-      </h3>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-        {channels.map(({ icon: Icon, label, desc, href, cta }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group p-6 rounded-xl border border-line bg-panel hover:border-line-strong transition-colors duration-300"
-          >
-            <div className="w-10 h-10 rounded-full border border-line flex items-center justify-center mb-4">
-              <Icon className="w-4 h-4 text-accent" />
-            </div>
-            <div className="text-sm text-ink">{label}</div>
-            <div className="text-xs text-faint mt-1 mb-4 break-all">{desc}</div>
-            <span className="text-xs font-medium text-accent group-hover:text-accent-hover transition-colors">
-              {cta} →
-            </span>
-          </a>
-        ))}
+      <div className="reveal mt-14">
+        <div className="eyebrow text-faint mb-5">Direct channels</div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {channels.map(({ icon: Icon, label, desc, href, cta }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-2xl border border-line bg-panel hover:border-accent/50 hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="w-11 h-11 rounded-full border border-line flex items-center justify-center mb-4 group-hover:border-accent transition-colors">
+                <Icon className="w-4 h-4 text-accent" />
+              </div>
+              <div className="display text-lg text-ink">{label}</div>
+              <div className="mono text-[11px] text-faint mt-1 mb-4 break-all">{desc}</div>
+              <span className="text-xs font-medium text-accent group-hover:text-accent-hover transition-colors">
+                {cta} &rarr;
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
 
       {/* Socials */}
-      <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-faint mb-5">
-        Find me online
-      </h3>
-      <div className="grid sm:grid-cols-3 gap-4 mb-12">
-        {socials.map(({ icon: Icon, label, href }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-4 p-5 rounded-xl border border-line bg-panel hover:border-line-strong transition-colors duration-300"
-          >
-            <div className="w-10 h-10 rounded-full border border-line flex items-center justify-center">
-              <Icon className="w-4 h-4 text-accent" />
-            </div>
-            <span className="text-sm text-ink group-hover:text-accent transition-colors">
-              {label}
-            </span>
-          </a>
-        ))}
+      <div className="reveal mt-14">
+        <div className="eyebrow text-faint mb-5">Find me online</div>
+        <div className="grid sm:grid-cols-3 gap-4">
+          {socials.map(({ icon: Icon, label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-4 p-5 rounded-2xl border border-line bg-panel hover:border-accent/50 transition-colors duration-300"
+            >
+              <div className="w-11 h-11 rounded-full border border-line flex items-center justify-center group-hover:border-accent transition-colors">
+                <Icon className="w-4 h-4 text-accent" />
+              </div>
+              <span className="text-sm text-ink group-hover:text-accent transition-colors">
+                {label}
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
 
       {/* Logistics */}
-      <div className="rounded-xl border border-line bg-panel p-8">
-        <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-faint mb-6">
-          Logistics
-        </h3>
+      <div className="reveal mt-14 rounded-2xl border border-line bg-panel p-8">
+        <div className="eyebrow text-faint mb-6">Logistics</div>
         <div className="grid sm:grid-cols-3 gap-8">
           {[
             { icon: MapPin, label: "Location", value: siteConfig.location },
@@ -145,7 +145,7 @@ export default function ContactPage() {
             <div key={label} className="flex items-start gap-3">
               <Icon className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
               <div>
-                <div className="text-xs text-faint">{label}</div>
+                <div className="mono text-[11px] text-faint">{label}</div>
                 <div className="text-sm text-ink mt-0.5">{value}</div>
               </div>
             </div>
