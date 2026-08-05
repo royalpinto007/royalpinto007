@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "A collection of products, systems, experiments, and tools I've shipped or worked on.",
 };
 
-const sections = ["AI Products", "Open Source & Tools", "Earlier Work"];
+const sections = ["AI Products", "Frontend & Design", "Open Source & Tools", "Earlier Work"];
 
 export default function ProjectsPage() {
   return (

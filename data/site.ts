@@ -688,6 +688,24 @@ export const siteConfig = {
       liveUrl: "#",
       githubUrl: "https://github.com/royalpinto007",
     },
+    {
+      id: "frontend-showcase",
+      name: "Frontend Design Showcase",
+      category: "Frontend",
+      status: "Live",
+      description:
+        "Ten design-forward, multi-page marketing sites, each a distinct genre and visual identity, built static-first with Astro and verified to render fully without JavaScript.",
+      features: [
+        "Ledger (fintech), Atlas (architecture studio), Frequency (music), Sprout (wellness app)",
+        "Nebula, Vantage, Halcyon, Fable, Pulse, and Cellar across six more genres",
+        "Each on its own signalizeai.org domain, with tests, CI, and a tagged release",
+      ],
+      tech: ["Astro", "React", "Tailwind v4", "TypeScript", "Cloudflare Pages"],
+      featured: true,
+      section: "Frontend & Design",
+      liveUrl: "https://frequency.signalizeai.org",
+      githubUrl: "https://github.com/royalpinto007",
+    },
   ],
 
   footerLinks: {

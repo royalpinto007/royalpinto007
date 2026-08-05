@@ -59,6 +59,10 @@ export default async function HomePage() {
       label: "Agent suite",
       items: pick(["resolvd", "tracecase", "webhands", "bridgekit", "greenlite"]),
     },
+    {
+      label: "Frontend design",
+      items: pick(["frontend-showcase"]),
+    },
   ];
 
   return (

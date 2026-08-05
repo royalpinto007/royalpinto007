@@ -25,6 +25,10 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 - Scoped MCP access: [Bridgekit](https://github.com/royalpinto007/Bridgekit), [Casebook MCP](https://github.com/royalpinto007/Casebook-MCP), [Casebook Chat](https://github.com/royalpinto007/Casebook-Chat)
 - Human-in-the-loop agents: [Resolvd](https://github.com/royalpinto007/Resolvd), [Greenlite](https://github.com/royalpinto007/Greenlite), [Webhands](https://github.com/royalpinto007/Webhands), [RelayG](https://github.com/royalpinto007/RelayG)
 
+**Frontend design**
+
+Ten design-forward, multi-page websites, each a distinct genre and visual identity, built static-first (Astro) and verified to render fully without JavaScript: [Nebula](https://nebula.signalizeai.org), [Vantage](https://vantage.signalizeai.org), [Halcyon](https://halcyon.signalizeai.org), [Fable](https://fable.signalizeai.org), [Pulse](https://pulse.signalizeai.org), [Cellar](https://cellar.signalizeai.org), [Ledger](https://ledger.signalizeai.org), [Atlas](https://atlas.signalizeai.org), [Frequency](https://frequency.signalizeai.org), [Sprout](https://sprout.signalizeai.org).
+
 **Roots**
 - [cpp](https://github.com/royalpinto007/cpp): Where I started, learning C++, datatypes through graphs and DP.
 
