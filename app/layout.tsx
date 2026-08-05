@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import {
+  Inter,
+  Instrument_Serif,
+  JetBrains_Mono,
+  Bricolage_Grotesque,
+} from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { RevealObserver } from "@/components/RevealObserver";
 import { Header } from "@/components/Header";
@@ -8,6 +13,11 @@ import { siteConfig } from "@/data/site";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-bricolage",
+});
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
@@ -50,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body
-        className={`${inter.className} ${instrumentSerif.variable} ${jetbrainsMono.variable} bg-bg text-ink antialiased`}
+        className={`${inter.className} ${bricolage.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} bg-bg text-ink antialiased`}
       >
         <ThemeProvider>
           <RevealObserver />
