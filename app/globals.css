@@ -161,6 +161,40 @@ body::after {
   }
 }
 
+/* Contribution wall — theme-aware cell fills. The SVG ships fallback fill
+   presentation attributes so it reads standalone; these CSS rules always
+   win over presentation attributes, so the wall follows the active theme. */
+.wall-svg .l0 {
+  fill: #e4e3de;
+}
+.wall-svg .l1 {
+  fill: #9be9a8;
+}
+.wall-svg .l2 {
+  fill: #40c463;
+}
+.wall-svg .l3 {
+  fill: #2f9e4f;
+}
+.wall-svg .l4 {
+  fill: #216e39;
+}
+.dark .wall-svg .l0 {
+  fill: #1f1f28;
+}
+.dark .wall-svg .l1 {
+  fill: #0e4429;
+}
+.dark .wall-svg .l2 {
+  fill: #006d32;
+}
+.dark .wall-svg .l3 {
+  fill: #26a641;
+}
+.dark .wall-svg .l4 {
+  fill: #39d353;
+}
+
 @layer utilities {
   .line-clamp-3 {
     display: -webkit-box;
