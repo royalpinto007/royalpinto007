@@ -125,7 +125,7 @@ export const siteConfig = {
       featured: true,
       section: "AI Products",
       liveUrl: "https://hire.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007",
+      githubUrl: "https://github.com/AgentPostmortem",
     },
     {
       id: "aashinyra",
@@ -513,7 +513,7 @@ export const siteConfig = {
       tech: ["Python", "Claude", "Agent evals"],
       featured: false,
       section: "AI Products",
-      liveUrl: "#",
+      liveUrl: "https://pypi.org/project/agentrace-cli/",
       githubUrl: "https://github.com/AgentPostmortem/Agentrace",
     },
     {
@@ -532,7 +532,7 @@ export const siteConfig = {
       tech: ["Python", "Voice AI", "Evals"],
       featured: false,
       section: "AI Products",
-      liveUrl: "#",
+      liveUrl: "https://pypi.org/project/voiceeval-cli/",
       githubUrl: "https://github.com/AgentPostmortem/Voiceeval",
     },
     {
@@ -681,7 +681,7 @@ export const siteConfig = {
       featured: false,
       section: "Open Source & Tools",
       liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/drupal-chatbot",
+      githubUrl: "https://github.com/royalpinto007/Drupal-Chatbot",
     },
     {
       id: "dent-docs",
@@ -698,8 +698,8 @@ export const siteConfig = {
       tech: ["Ansible", "GNS3", "Linux", "TCP/IP"],
       featured: false,
       section: "Open Source & Tools",
-      liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007",
+      liveUrl: "https://docs.dent.dev",
+      githubUrl: "https://github.com/royalpinto007/docs.dent.dev",
     },
     {
       id: "frontend-showcase",
@@ -717,7 +717,7 @@ export const siteConfig = {
       featured: true,
       section: "Frontend & Design",
       liveUrl: "https://frequency.signalizeai.org",
-      githubUrl: "https://github.com/royalpinto007",
+      githubUrl: "https://github.com/Facetworks",
     },
   ],
 
