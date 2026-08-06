@@ -10,7 +10,6 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 - [Kabootar](https://github.com/royalpinto007/Kabootar): Offline mesh messenger, chat with no internet, no servers, no SIM. Messages hop phone-to-phone over Bluetooth and Wi-Fi (delay-tolerant, epidemic routing, end-to-end acks). Flutter.
 - [Tiny Day](https://github.com/royalpinto007/Tiny-Day): A cozy, offline-first daily planner for Android, no accounts.
 - [PennyRush](https://github.com/royalpinto007/PennyRush): A private money hub, receipts and statements parsed in memory, only extracted fields stored.
-- [Auralis](https://github.com/Facetworks/Auralis) and [Mycelia](https://github.com/Facetworks/Mycelia): GPU experiments in the browser, a real-time WebGPU aurora and a 262k-agent slime-mold simulation, no server.
 
 **Open-source lists and skills**
 - Curated, auto-updating directories I maintain: [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals), [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails), [awesome-mcp-security](https://github.com/royalpinto007/awesome-mcp-security), [awesome-context-engineering](https://github.com/royalpinto007/awesome-context-engineering), [awesome-agent-memory](https://github.com/royalpinto007/awesome-agent-memory), [awesome-agent-skills](https://github.com/royalpinto007/awesome-agent-skills), plus two authored Agent Skills packs, [distro-skills](https://github.com/royalpinto007/distro-skills) (distribute a product) and [ship-skills](https://github.com/royalpinto007/ship-skills) (make a repo shippable).
@@ -28,6 +27,8 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 **Frontend design**
 
 Ten design-forward, multi-page websites, each a distinct genre and visual identity, built static-first (Astro) and verified to render fully without JavaScript: [Nebula](https://nebula.signalizeai.org), [Vantage](https://vantage.signalizeai.org), [Halcyon](https://halcyon.signalizeai.org), [Fable](https://fable.signalizeai.org), [Pulse](https://pulse.signalizeai.org), [Cellar](https://cellar.signalizeai.org), [Ledger](https://ledger.signalizeai.org), [Atlas](https://atlas.signalizeai.org), [Frequency](https://frequency.signalizeai.org), [Sprout](https://sprout.signalizeai.org). Source for all ten lives in the [Facetworks](https://github.com/Facetworks) org.
+
+Plus two browser GPU experiments in the same org: [Auralis](https://github.com/Facetworks/Auralis), a real-time WebGPU aurora with a WebGL2 fallback, and [Mycelia](https://github.com/Facetworks/Mycelia), a 262k-agent slime-mold simulation. Both run entirely on the visitor's GPU with no server.
 
 **Roots**
 - [cpp](https://github.com/royalpinto007/cpp): Where I started, learning C++, datatypes through graphs and DP.
