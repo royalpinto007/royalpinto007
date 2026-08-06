@@ -18,7 +18,7 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 **AI agent infrastructure**
 
 [AgentPostmortem](https://github.com/AgentPostmortem/agent-postmortem) is the flagship: a public registry of real AI-agent failures. Around it sits a suite built on one idea, that with agents generation is easy and verification is the hard half:
-- Evals and observability: [Agentrace](https://github.com/AgentPostmortem/Agentrace), [Evalgate](https://github.com/AgentPostmortem/Evalgate), [Tracecase](https://github.com/AgentPostmortem/Tracecase), [Voiceeval](https://github.com/AgentPostmortem/Voiceeval)
+- Evals and observability: [Agentrace](https://github.com/AgentPostmortem/Agentrace) (`pip install agentrace-cli`), [Evalgate](https://github.com/AgentPostmortem/Evalgate), [Tracecase](https://github.com/AgentPostmortem/Tracecase), [Voiceeval](https://github.com/AgentPostmortem/Voiceeval) (`pip install voiceeval-cli`)
 - Retrieval and trust: [VaultRAG](https://github.com/AgentPostmortem/VaultRAG), [Tenantq](https://github.com/AgentPostmortem/Tenantq), [Answerproof](https://github.com/AgentPostmortem/Answerproof)
 - Security scanners: [MCP-audit](https://github.com/AgentPostmortem/MCP-audit), [Skill-audit](https://github.com/AgentPostmortem/Skill-audit), [Injection-arena](https://github.com/AgentPostmortem/Injection-arena)
 - Context and token cost: [Ctxlens](https://github.com/AgentPostmortem/Ctxlens), [Ctxtrim](https://github.com/AgentPostmortem/Ctxtrim), [tokencut](https://github.com/AgentPostmortem/tokencut)
@@ -27,7 +27,7 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 
 **Frontend design**
 
-Ten design-forward, multi-page websites, each a distinct genre and visual identity, built static-first (Astro) and verified to render fully without JavaScript: [Nebula](https://nebula.signalizeai.org), [Vantage](https://vantage.signalizeai.org), [Halcyon](https://halcyon.signalizeai.org), [Fable](https://fable.signalizeai.org), [Pulse](https://pulse.signalizeai.org), [Cellar](https://cellar.signalizeai.org), [Ledger](https://ledger.signalizeai.org), [Atlas](https://atlas.signalizeai.org), [Frequency](https://frequency.signalizeai.org), [Sprout](https://sprout.signalizeai.org).
+Ten design-forward, multi-page websites, each a distinct genre and visual identity, built static-first (Astro) and verified to render fully without JavaScript: [Nebula](https://nebula.signalizeai.org), [Vantage](https://vantage.signalizeai.org), [Halcyon](https://halcyon.signalizeai.org), [Fable](https://fable.signalizeai.org), [Pulse](https://pulse.signalizeai.org), [Cellar](https://cellar.signalizeai.org), [Ledger](https://ledger.signalizeai.org), [Atlas](https://atlas.signalizeai.org), [Frequency](https://frequency.signalizeai.org), [Sprout](https://sprout.signalizeai.org). Source for all ten lives in the [Facetworks](https://github.com/Facetworks) org.
 
 **Roots**
 - [cpp](https://github.com/royalpinto007/cpp): Where I started, learning C++, datatypes through graphs and DP.
