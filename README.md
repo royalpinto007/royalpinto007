@@ -18,12 +18,12 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 **AI agent infrastructure**
 
 [AgentPostmortem](https://github.com/royalpinto007/agent-postmortem) is the flagship: a public registry of real AI-agent failures. Around it sits a suite built on one idea, that with agents generation is easy and verification is the hard half:
-- Evals and observability: [Agentrace](https://github.com/royalpinto007/Agentrace), [Evalgate](https://github.com/royalpinto007/Evalgate), [Tracecase](https://github.com/royalpinto007/Tracecase), [Voiceeval](https://github.com/royalpinto007/Voiceeval)
-- Retrieval and trust: [VaultRAG](https://github.com/royalpinto007/VaultRAG), [Tenantq](https://github.com/royalpinto007/Tenantq), [Answerproof](https://github.com/royalpinto007/Answerproof)
-- Security scanners: [MCP-audit](https://github.com/royalpinto007/MCP-audit), [Skill-audit](https://github.com/royalpinto007/Skill-audit), [Injection-arena](https://github.com/royalpinto007/Injection-arena)
-- Context and token cost: [Ctxlens](https://github.com/royalpinto007/Ctxlens), [Ctxtrim](https://github.com/royalpinto007/Ctxtrim), [tokencut](https://github.com/royalpinto007/tokencut)
-- Scoped MCP access: [Bridgekit](https://github.com/royalpinto007/Bridgekit), [Casebook MCP](https://github.com/royalpinto007/Casebook-MCP), [Casebook Chat](https://github.com/royalpinto007/Casebook-Chat)
-- Human-in-the-loop agents: [Resolvd](https://github.com/royalpinto007/Resolvd), [Greenlite](https://github.com/royalpinto007/Greenlite), [Webhands](https://github.com/royalpinto007/Webhands), [RelayG](https://github.com/royalpinto007/RelayG)
+- Evals and observability: [Agentrace](https://github.com/AgentPostmortem/Agentrace), [Evalgate](https://github.com/AgentPostmortem/Evalgate), [Tracecase](https://github.com/AgentPostmortem/Tracecase), [Voiceeval](https://github.com/AgentPostmortem/Voiceeval)
+- Retrieval and trust: [VaultRAG](https://github.com/AgentPostmortem/VaultRAG), [Tenantq](https://github.com/AgentPostmortem/Tenantq), [Answerproof](https://github.com/AgentPostmortem/Answerproof)
+- Security scanners: [MCP-audit](https://github.com/AgentPostmortem/MCP-audit), [Skill-audit](https://github.com/AgentPostmortem/Skill-audit), [Injection-arena](https://github.com/AgentPostmortem/Injection-arena)
+- Context and token cost: [Ctxlens](https://github.com/AgentPostmortem/Ctxlens), [Ctxtrim](https://github.com/AgentPostmortem/Ctxtrim), [tokencut](https://github.com/AgentPostmortem/tokencut)
+- Scoped MCP access: [Bridgekit](https://github.com/AgentPostmortem/Bridgekit), [Casebook MCP](https://github.com/AgentPostmortem/Casebook-MCP), [Casebook Chat](https://github.com/AgentPostmortem/Casebook-Chat)
+- Human-in-the-loop agents: [Resolvd](https://github.com/AgentPostmortem/Resolvd), [Greenlite](https://github.com/AgentPostmortem/Greenlite), [Webhands](https://github.com/AgentPostmortem/Webhands), [RelayG](https://github.com/AgentPostmortem/RelayG)
 
 **Frontend design**
 
