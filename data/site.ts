@@ -476,7 +476,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/agent-postmortem",
+      githubUrl: "https://github.com/AgentPostmortem/agent-postmortem",
     },
     {
       id: "vaultrag",
