@@ -162,7 +162,7 @@ export const siteConfig = {
       featured: true,
       section: "AI Products",
       liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/Tenantq",
+      githubUrl: "https://github.com/AgentPostmortem/Tenantq",
     },
     {
       id: "mcp-audit",
@@ -181,7 +181,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://www.npmjs.com/package/@royalpinto007/mcp-audit",
-      githubUrl: "https://github.com/royalpinto007/MCP-audit",
+      githubUrl: "https://github.com/AgentPostmortem/MCP-audit",
     },
     {
       id: "skill-audit",
@@ -200,7 +200,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://www.npmjs.com/package/@royalpinto007/skill-audit",
-      githubUrl: "https://github.com/royalpinto007/Skill-audit",
+      githubUrl: "https://github.com/AgentPostmortem/Skill-audit",
     },
     {
       id: "ctxtrim",
@@ -219,7 +219,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://www.npmjs.com/package/ctxtrim",
-      githubUrl: "https://github.com/royalpinto007/Ctxtrim",
+      githubUrl: "https://github.com/AgentPostmortem/Ctxtrim",
     },
     {
       id: "tokencut",
@@ -238,7 +238,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://www.npmjs.com/package/tokencut",
-      githubUrl: "https://github.com/royalpinto007/tokencut",
+      githubUrl: "https://github.com/AgentPostmortem/tokencut",
     },
     {
       id: "evalgate",
@@ -257,7 +257,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://www.npmjs.com/package/@royalpinto007/evalgate",
-      githubUrl: "https://github.com/royalpinto007/Evalgate",
+      githubUrl: "https://github.com/AgentPostmortem/Evalgate",
     },
     {
       id: "ctxlens",
@@ -276,7 +276,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://pypi.org/project/ctxlens-cli/",
-      githubUrl: "https://github.com/royalpinto007/Ctxlens",
+      githubUrl: "https://github.com/AgentPostmortem/Ctxlens",
     },
     {
       id: "answerproof",
@@ -295,7 +295,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://pypi.org/project/answerproof/",
-      githubUrl: "https://github.com/royalpinto007/Answerproof",
+      githubUrl: "https://github.com/AgentPostmortem/Answerproof",
     },
     {
       id: "injection-arena",
@@ -314,7 +314,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://injection-arena.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Injection-arena",
+      githubUrl: "https://github.com/AgentPostmortem/Injection-arena",
     },
     {
       id: "relayg",
@@ -332,7 +332,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://relayg.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/RelayG",
+      githubUrl: "https://github.com/AgentPostmortem/RelayG",
     },
     {
       id: "resolvd",
@@ -350,7 +350,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://resolvd.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Resolvd",
+      githubUrl: "https://github.com/AgentPostmortem/Resolvd",
     },
     {
       id: "tracecase",
@@ -368,7 +368,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://tracecase.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Tracecase",
+      githubUrl: "https://github.com/AgentPostmortem/Tracecase",
     },
     {
       id: "webhands",
@@ -386,7 +386,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://webhands.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Webhands",
+      githubUrl: "https://github.com/AgentPostmortem/Webhands",
     },
     {
       id: "bridgekit",
@@ -404,7 +404,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://bridgekit.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Bridgekit",
+      githubUrl: "https://github.com/AgentPostmortem/Bridgekit",
     },
     {
       id: "greenlite",
@@ -422,7 +422,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://greenlite.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Greenlite",
+      githubUrl: "https://github.com/AgentPostmortem/Greenlite",
     },
     {
       id: "casebook-mcp",
@@ -440,7 +440,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://mcp.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Casebook-MCP",
+      githubUrl: "https://github.com/AgentPostmortem/Casebook-MCP",
     },
     {
       id: "casebook-chat",
@@ -458,7 +458,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "https://chat.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Casebook-Chat",
+      githubUrl: "https://github.com/AgentPostmortem/Casebook-Chat",
     },
     {
       id: "agentpostmortem",
@@ -495,7 +495,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/VaultRAG",
+      githubUrl: "https://github.com/AgentPostmortem/VaultRAG",
     },
     {
       id: "agentrace",
@@ -514,7 +514,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/Agentrace",
+      githubUrl: "https://github.com/AgentPostmortem/Agentrace",
     },
     {
       id: "voiceeval",
@@ -533,7 +533,7 @@ export const siteConfig = {
       featured: false,
       section: "AI Products",
       liveUrl: "#",
-      githubUrl: "https://github.com/royalpinto007/Voiceeval",
+      githubUrl: "https://github.com/AgentPostmortem/Voiceeval",
     },
     {
       id: "pennyrush",
