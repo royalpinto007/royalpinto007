@@ -11,6 +11,20 @@ interface ProjectCardProps {
   liveUrl?: string;
   githubUrl?: string;
   featured?: boolean;
+  /** Home page variant: no feature bullets, tighter type, condensed tech list. */
+  compact?: boolean;
+}
+
+/** Status colours by value, so Production / Open Source / Live read apart. */
+function statusStyle(status: string) {
+  const key = status.toLowerCase();
+  if (key === "production" || key === "live") {
+    return "border-transparent bg-[color-mix(in_srgb,var(--signal)_18%,transparent)] text-[var(--signal)]";
+  }
+  if (key === "open source") {
+    return "border-transparent bg-accent-soft text-accent";
+  }
+  return "border border-line text-mute";
 }
 
 export function ProjectCard({
@@ -22,48 +36,55 @@ export function ProjectCard({
   tech,
   liveUrl,
   githubUrl,
+  compact = false,
 }: ProjectCardProps) {
-  return (
-    <div className="group relative flex flex-col rounded-2xl border border-line bg-panel p-7 transition-all duration-300 hover:border-accent/50 hover:-translate-y-1">
-      {/* hover accent hairline */}
-      <span className="pointer-events-none absolute inset-x-7 top-0 h-px scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
+  const shownTech = tech.slice(0, 3);
+  const extraTech = tech.length - shownTech.length;
 
-      <div className="flex items-start justify-between gap-3 mb-4">
-        <div>
-          <div className="eyebrow text-faint mb-2">{category}</div>
-          <h3 className="display text-2xl text-ink leading-none">{name}</h3>
-        </div>
-        <span className="mono shrink-0 text-[10px] px-2.5 py-1 rounded-full border border-line text-accent whitespace-nowrap">
+  return (
+    <div className="group relative flex h-full flex-col rounded-2xl border border-line bg-panel p-5 sm:p-6 transition-all duration-300 hover:border-accent/50 hover:-translate-y-1">
+      {/* hover accent hairline */}
+      <span className="pointer-events-none absolute inset-x-6 top-0 h-px scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
+
+      <div className="mono mb-2 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-faint">
+        <span className="truncate">{category}</span>
+        <span
+          className={`ml-auto shrink-0 rounded-full px-2 py-0.5 text-[10px] tracking-normal ${statusStyle(status)}`}
+        >
           {status}
         </span>
       </div>
 
-      <p className="text-sm text-mute mb-5 leading-relaxed">{description}</p>
+      <h3 className="display text-xl sm:text-[1.6rem] text-ink leading-tight">
+        {name}
+      </h3>
 
-      <ul className="space-y-1.5 mb-5">
-        {features.slice(0, 3).map((f) => (
-          <li
-            key={f}
-            className="text-xs text-mute flex items-start gap-2 leading-relaxed"
-          >
-            <span className="text-accent mt-0.5 flex-shrink-0">—</span>
-            {f}
-          </li>
-        ))}
-      </ul>
+      <p
+        className={`mt-2 text-sm text-mute leading-relaxed ${compact ? "line-clamp-2" : "line-clamp-3"}`}
+      >
+        {description}
+      </p>
 
-      <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
-        {tech.map((t) => (
-          <span
-            key={t}
-            className="mono text-[10px] px-2.5 py-1 rounded-full border border-line text-mute"
-          >
-            {t}
-          </span>
-        ))}
+      {!compact && features.length > 0 && (
+        <ul className="mt-4 space-y-1.5">
+          {features.slice(0, 3).map((f) => (
+            <li
+              key={f}
+              className="flex items-start gap-2 text-xs text-mute leading-relaxed"
+            >
+              <span className="mt-0.5 flex-shrink-0 text-accent">&bull;</span>
+              {f}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div className="mono mt-4 text-[10px] text-faint truncate">
+        {shownTech.join(" · ")}
+        {extraTech > 0 && ` · +${extraTech}`}
       </div>
 
-      <div className="flex gap-5 pt-4 border-t border-line">
+      <div className="mt-auto flex gap-5 pt-4">
         {liveUrl && liveUrl !== "#" && (
           <a
             href={liveUrl}
