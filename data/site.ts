@@ -589,7 +589,7 @@ export const siteConfig = {
       featured: false,
       section: "Open Source & Tools",
       liveUrl: "https://auralis.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Auralis",
+      githubUrl: "https://github.com/Facetworks/Auralis",
     },
     {
       id: "mycelia",
@@ -608,7 +608,7 @@ export const siteConfig = {
       featured: false,
       section: "Open Source & Tools",
       liveUrl: "https://mycelia.agentpostmortem.com",
-      githubUrl: "https://github.com/royalpinto007/Mycelia",
+      githubUrl: "https://github.com/Facetworks/Mycelia",
     },
     {
       id: "distro-skills",
