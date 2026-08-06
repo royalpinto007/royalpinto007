@@ -16,7 +16,7 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 
 **AI agent infrastructure**
 
-[AgentPostmortem](https://github.com/AgentPostmortem/agent-postmortem) is the flagship: a public registry of real AI-agent failures. Around it sits a suite built on one idea, that with agents generation is easy and verification is the hard half:
+[AgentPostmortem](https://github.com/AgentPostmortem/agentpostmortem) is the flagship: a public registry of real AI-agent failures. Around it sits a suite built on one idea, that with agents generation is easy and verification is the hard half:
 - Evals and observability: [Agentrace](https://github.com/AgentPostmortem/Agentrace) (`pip install agentrace-cli`), [Evalgate](https://github.com/AgentPostmortem/Evalgate), [Tracecase](https://github.com/AgentPostmortem/Tracecase), [Voiceeval](https://github.com/AgentPostmortem/Voiceeval) (`pip install voiceeval-cli`)
 - Retrieval and trust: [VaultRAG](https://github.com/AgentPostmortem/VaultRAG), [Tenantq](https://github.com/AgentPostmortem/Tenantq), [Answerproof](https://github.com/AgentPostmortem/Answerproof)
 - Security scanners: [MCP-audit](https://github.com/AgentPostmortem/MCP-audit), [Skill-audit](https://github.com/AgentPostmortem/Skill-audit), [Injection-arena](https://github.com/AgentPostmortem/Injection-arena)
