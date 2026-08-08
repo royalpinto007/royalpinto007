@@ -797,8 +797,9 @@ export const siteConfig = {
       category: "Frontend",
       status: "Live",
       description:
-        "Ten design-forward, multi-page marketing sites, each a distinct genre and visual identity, built static-first with Astro and verified to render fully without JavaScript.",
+        "Twelve design-forward, multi-page sites, each a distinct genre and visual identity, built static-first with Astro and verified to render fully without JavaScript. A type foundry, a banking site, a wine bar, a deep-ocean institute, and eight more.",
       features: [
+        "Quire (type foundry) sets every specimen as real text; Fathom (ocean institute) draws its depth scale and cast charts from the data",
         "Ledger (fintech), Atlas (architecture studio), Frequency (music), Sprout (wellness app)",
         "Nebula, Vantage, Halcyon, Fable, Pulse, and Cellar across six more genres",
         "Each on its own signalizeai.org domain, with tests, CI, and a tagged release",
