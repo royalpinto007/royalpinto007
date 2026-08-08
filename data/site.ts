@@ -554,6 +554,24 @@ export const siteConfig = {
       githubUrl: "https://github.com/royalpinto007/PennyRush",
     },
     {
+      id: "holdfast",
+      name: "Holdfast",
+      category: "Open Source",
+      status: "Open Source",
+      description:
+        "Photo records that cannot be quietly changed. Every entry is hashed together with its note, its time and the hash of the entry before it, so a reworded note, a deleted entry, a reordered pair or a swapped photo shows as a broken seal at the exact entry it went wrong.",
+      features: [
+        "SHA-256 hash chain over field-separated entries, verified on every open",
+        "No INTERNET permission at all, enforced by a CI gate alongside the backup flag and the hash separator",
+        "Exports plain text stating the hashing rule, so a recipient can recompute the chain without the app",
+      ],
+      tech: ["Kotlin", "Jetpack Compose", "Android"],
+      featured: false,
+      section: "Open Source & Tools",
+      liveUrl: "#",
+      githubUrl: "https://github.com/royalpinto007/Holdfast",
+    },
+    {
       id: "pagefold",
       name: "Pagefold",
       category: "Open Source",

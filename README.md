@@ -9,7 +9,7 @@ AI and product engineer. I build and ship, fast and daily: full-stack products, 
 - **AashiNyra Deals**: a live women's fashion deals platform I run end to end, tracking 16+ retailers nightly for genuine price drops with cashback to UPI.
 - [Kabootar](https://github.com/royalpinto007/Kabootar): Offline mesh messenger, chat with no internet, no servers, no SIM. Messages hop phone-to-phone over Bluetooth and Wi-Fi (delay-tolerant, epidemic routing, end-to-end acks). Flutter.
 - [Tiny Day](https://github.com/royalpinto007/Tiny-Day): A cozy, offline-first daily planner for Android, no accounts.
-- [PennyRush](https://github.com/royalpinto007/PennyRush): A private money hub, receipts and statements parsed in memory, only extracted fields stored.
+- [PennyRush](https://github.com/royalpinto007/PennyRush): A private money hub, receipts and statements parsed in memory, only extracted fields stored. [Holdfast](https://github.com/royalpinto007/Holdfast): photo records sealed in a hash chain, so a note reworded or an entry backdated later shows up; no internet permission at all, so it cannot phone home.
 - Five local-first Chrome extensions, TypeScript and MV3, each doing on your machine what people currently hand to a website: [Pagefold](https://github.com/royalpinto007/Pagefold) (read offline), [Stowlane](https://github.com/royalpinto007/Stowlane) (stow tabs), [Glasswing](https://github.com/royalpinto007/Glasswing) (accessibility checks), [Bellrope](https://github.com/royalpinto007/Bellrope) (watch a page for changes), [Cribsheet](https://github.com/royalpinto007/Cribsheet) (decode a token or cron line in place).
 
 **Open-source lists and skills**
