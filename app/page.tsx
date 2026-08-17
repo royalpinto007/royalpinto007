@@ -190,7 +190,7 @@ export default function HomePage() {
             eyebrow="Open source, every day"
             title="The graph is the"
             titleEm="habit."
-            subtitle="5,054 contributions in 2026. GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code. Not a sprint — a practice."
+            subtitle="5,336 contributions in 2026. GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code. Not a sprint — a practice."
           />
         </div>
         <a
