@@ -46,6 +46,14 @@ export const siteConfig = {
     { name: "Halcyon", genre: "Audio", url: "https://halcyon.signalizeai.org" },
     { name: "Fable", genre: "Portfolio", url: "https://fable.signalizeai.org" },
     { name: "Pulse", genre: "Conference", url: "https://pulse.signalizeai.org" },
+    { name: "Quire", genre: "Type foundry", url: "https://quire.signalizeai.org" },
+    { name: "Fathom", genre: "Research institute", url: "https://fathom.signalizeai.org" },
+    { name: "Ironline", genre: "Strength gym", url: "https://ironline.signalizeai.org" },
+    { name: "Lumen", genre: "Dental studio", url: "https://lumen.signalizeai.org" },
+    { name: "Threadline", genre: "Fashion shop", url: "https://threadline.signalizeai.org" },
+    { name: "Hollowpine", genre: "Wilderness lodge", url: "https://hollowpine.signalizeai.org" },
+    { name: "Fieldline", genre: "Real estate", url: "https://fieldline.signalizeai.org" },
+    { name: "Conduit", genre: "Devtool", url: "https://conduit.signalizeai.org" },
   ],
 
   services: [
@@ -815,11 +823,12 @@ export const siteConfig = {
       category: "Frontend",
       status: "Live",
       description:
-        "Twelve design-forward, multi-page sites, each a distinct genre and visual identity, built static-first with Astro and verified to render fully without JavaScript. A type foundry, a banking site, a wine bar, a deep-ocean institute, and eight more.",
+        "Eighteen design-forward, multi-page sites, each a distinct genre and visual identity, built static-first with Astro and verified to render fully without JavaScript. A type foundry, a banking site, a wine bar, a deep-ocean institute, and fourteen more.",
       features: [
         "Quire (type foundry) sets every specimen as real text; Fathom (ocean institute) draws its depth scale and cast charts from the data",
         "Ledger (fintech), Atlas (architecture studio), Frequency (music), Sprout (wellness app)",
         "Nebula, Vantage, Halcyon, Fable, Pulse, and Cellar across six more genres",
+        "Ironline (gym), Lumen (dental studio), Threadline (fashion shop), Hollowpine (lodge), Fieldline (real estate), Conduit (devtool)",
         "Each on its own signalizeai.org domain, with tests, CI, and a tagged release",
       ],
       tech: ["Astro", "React", "Tailwind v4", "TypeScript", "Cloudflare Pages"],

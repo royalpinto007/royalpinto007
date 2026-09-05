@@ -299,7 +299,7 @@ export default function HomePage() {
           <SectionHeader
             index="04"
             eyebrow="Frontend design"
-            title="Ten sites,"
+            title="Eighteen sites,"
             titleEm="one bar"
             subtitle="Design-forward, multi-page marketing sites, each a distinct genre and visual identity, built static-first with Astro and verified to render fully without JavaScript."
           />
