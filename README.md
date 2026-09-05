@@ -28,7 +28,7 @@ AI and product engineer. I build and ship, fast and daily.
 
 **Frontend design**
 - 18 static-first Astro sites, one genre each: [Nebula](https://nebula.signalizeai.org) · [Vantage](https://vantage.signalizeai.org) · [Halcyon](https://halcyon.signalizeai.org) · [Fable](https://fable.signalizeai.org) · [Pulse](https://pulse.signalizeai.org) · [Cellar](https://cellar.signalizeai.org) · [Ledger](https://ledger.signalizeai.org) · [Atlas](https://atlas.signalizeai.org) · [Frequency](https://frequency.signalizeai.org) · [Sprout](https://sprout.signalizeai.org) · [Quire](https://quire.signalizeai.org) · [Fathom](https://fathom.signalizeai.org) · [Ironline](https://ironline.signalizeai.org) · [Lumen](https://lumen.signalizeai.org) · [Threadline](https://threadline.signalizeai.org) · [Hollowpine](https://hollowpine.signalizeai.org) · [Fieldline](https://fieldline.signalizeai.org) · [Conduit](https://conduit.signalizeai.org)
-- GPU experiments: [Auralis](https://github.com/Facetworks/Auralis) (WebGPU aurora) · [Mycelia](https://github.com/Facetworks/Mycelia) (slime-mold simulation)
+- GPU experiments: [Auralis](https://github.com/Facetworks/Auralis) (WebGPU aurora) · [Mycelia](https://github.com/Facetworks/Mycelia) (slime-mold simulation) · [Undertow](https://github.com/Facetworks/undertow) (fluid solver) · [Lichen](https://github.com/Facetworks/lichen) (reaction-diffusion) · [Abyss](https://github.com/Facetworks/abyss) (raymarched fractal) · [Drift](https://github.com/Facetworks/drift) (flow-field particles)
 - Full index: [Facetworks](https://github.com/Facetworks) · [gallery](https://facetworks.signalizeai.org)
 
 **Roots**
