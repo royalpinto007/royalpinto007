@@ -803,6 +803,25 @@ export const siteConfig = {
       githubUrl: "https://github.com/Facetworks/drift",
     },
     {
+      id: "gummy",
+      name: "Gummy",
+      category: "Open Source",
+      status: "Open Source",
+      description:
+        "One soft specimen in a light studio: verlet spring-mass physics with dielectric shading, refractive transmission, and studio reflections. Take hold and let go.",
+      features: [
+        "Ring of masses with neighbor plus shear springs and area-preserving pressure",
+        "Smooth-minimum union over a guaranteed-fill disk with gradient normals",
+        "Firmness and damping sliders that retune the solver live, with lab readouts",
+        "One self-contained HTML file, no dependencies, no build step",
+      ],
+      tech: ["WebGL2", "GLSL", "Soft-body physics", "Shaders"],
+      featured: true,
+      section: "Open Source & Tools",
+      liveUrl: "https://gummy.signalizeai.org",
+      githubUrl: "#",
+    },
+    {
       id: "distro-skills",
       name: "Distro Skills",
       category: "Open Source",
