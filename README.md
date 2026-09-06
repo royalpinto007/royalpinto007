@@ -9,15 +9,9 @@ AI and product engineer. I build and ship, fast and daily.
 - [AashiNyra Deals](https://aashinyra.com): live fashion deals platform, 16+ retailers tracked nightly, cashback to UPI.
 - [Kabootar](https://github.com/royalpinto007/Kabootar): offline mesh messenger over Bluetooth and Wi-Fi. No internet, no servers, no SIM.
 - [Tiny Day](https://github.com/royalpinto007/Tiny-Day): cozy offline-first Android planner. No accounts.
-- [PennyRush](https://github.com/royalpinto007/PennyRush): private money hub. Statements parsed in memory, only fields stored. Plus [Holdfast](https://github.com/royalpinto007/Holdfast): photo records sealed in a hash chain, no internet permission at all.
-
-**Browser extensions**
-- Five local-first extensions (TypeScript, MV3), each doing on your machine what people currently hand to a website:
-- [Pagefold](https://github.com/royalpinto007/Pagefold): save any article, read it offline. No account, no network requests.
-- [Stowlane](https://github.com/royalpinto007/Stowlane): stow a window of tabs into a named lane, bring it back later.
-- [Glasswing](https://github.com/royalpinto007/Glasswing): accessibility checks in the page, plain sentences, nothing leaves your machine.
-- [Bellrope](https://github.com/royalpinto007/Bellrope): watch one part of a page, get told when it changes. No server.
-- [Cribsheet](https://github.com/royalpinto007/Cribsheet): decode a timestamp, cron line, or token in place. No server.
+- [PennyRush](https://github.com/royalpinto007/PennyRush): private money hub. Statements parsed in memory, only fields stored.
+- [Holdfast](https://github.com/royalpinto007/Holdfast): photo records sealed in a hash chain. No internet permission.
+- Five local-first Chrome extensions (TypeScript, MV3): [Pagefold](https://github.com/royalpinto007/Pagefold) (read offline) · [Stowlane](https://github.com/royalpinto007/Stowlane) (stow tabs) · [Glasswing](https://github.com/royalpinto007/Glasswing) (accessibility) · [Bellrope](https://github.com/royalpinto007/Bellrope) (watch pages) · [Cribsheet](https://github.com/royalpinto007/Cribsheet) (decode tokens)
 
 **Lists and skills**
 - Curated, auto-updating directories: [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals) · [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails) · [awesome-mcp-security](https://github.com/royalpinto007/awesome-mcp-security) · [awesome-context-engineering](https://github.com/royalpinto007/awesome-context-engineering) · [awesome-agent-memory](https://github.com/royalpinto007/awesome-agent-memory) · [awesome-agent-skills](https://github.com/royalpinto007/awesome-agent-skills)
@@ -34,17 +28,8 @@ AI and product engineer. I build and ship, fast and daily.
 
 **Frontend design**
 - 18 static-first Astro sites, one genre each ([gallery](https://facetworks.signalizeai.org)): [Nebula](https://github.com/Facetworks/nebula) · [Vantage](https://github.com/Facetworks/vantage) · [Halcyon](https://github.com/Facetworks/halcyon) · [Fable](https://github.com/Facetworks/fable) · [Pulse](https://github.com/Facetworks/pulse) · [Cellar](https://github.com/Facetworks/cellar) · [Ledger](https://github.com/Facetworks/ledger) · [Atlas](https://github.com/Facetworks/atlas) · [Frequency](https://github.com/Facetworks/frequency) · [Sprout](https://github.com/Facetworks/sprout) · [Quire](https://github.com/Facetworks/quire) · [Fathom](https://github.com/Facetworks/fathom) · [Ironline](https://github.com/Facetworks/ironline) · [Lumen](https://github.com/Facetworks/lumen) · [Threadline](https://github.com/Facetworks/threadline) · [Hollowpine](https://github.com/Facetworks/hollowpine) · [Fieldline](https://github.com/Facetworks/fieldline) · [Conduit](https://github.com/Facetworks/conduit)
+- GPU experiments: [Auralis](https://github.com/Facetworks/Auralis) (WebGPU aurora) · [Mycelia](https://github.com/Facetworks/Mycelia) (slime-mold simulation) · [Undertow](https://github.com/Facetworks/undertow) (fluid solver) · [Lichen](https://github.com/Facetworks/lichen) (reaction-diffusion) · [Abyss](https://github.com/Facetworks/abyss) (raymarched fractal) · [Drift](https://github.com/Facetworks/drift) (flow-field particles) · [Gummy](https://github.com/Facetworks/gummy) (soft-body jelly)
 - Full index: [Facetworks](https://github.com/Facetworks) · [gallery](https://facetworks.signalizeai.org)
-
-**GPU experiments**
-- Seven single-file browser pieces, no server, no dependencies — each one live:
-- [Auralis](https://github.com/Facetworks/Auralis) ([live](https://auralis.signalizeai.org)): real-time aurora on the GPU, WebGPU with a WebGL2 fallback.
-- [Mycelia](https://github.com/Facetworks/Mycelia) ([live](https://mycelia.signalizeai.org)): 262k slime-mold agents self-organizing on the GPU.
-- [Undertow](https://github.com/Facetworks/undertow) ([live](https://undertow.signalizeai.org)): stable-fluids solver, drag to stir the dye.
-- [Lichen](https://github.com/Facetworks/lichen) ([live](https://lichen.signalizeai.org)): Gray-Scott reaction-diffusion, click to seed coral.
-- [Abyss](https://github.com/Facetworks/abyss) ([live](https://abyss.signalizeai.org)): raymarched Mandelbulb, steer the orbit and light.
-- [Drift](https://github.com/Facetworks/drift) ([live](https://drift.signalizeai.org)): 65k particles on a curl-noise flow field.
-- [Gummy](https://github.com/Facetworks/gummy) ([live](https://gummy.signalizeai.org)): soft-body jelly specimen, take hold and let go.
 
 **Roots**
 - [cpp](https://github.com/royalpinto007/cpp): where I started — C++, datatypes through graphs and DP.
