@@ -56,6 +56,16 @@ export const siteConfig = {
     { name: "Conduit", genre: "Devtool", url: "https://conduit.signalizeai.org" },
   ],
 
+  gpuSites: [
+    { name: "Auralis", genre: "Aurora", url: "https://auralis.signalizeai.org" },
+    { name: "Mycelia", genre: "Slime mold", url: "https://mycelia.signalizeai.org" },
+    { name: "Undertow", genre: "Fluid", url: "https://undertow.signalizeai.org" },
+    { name: "Lichen", genre: "Reaction-diffusion", url: "https://lichen.signalizeai.org" },
+    { name: "Abyss", genre: "Fractal", url: "https://abyss.signalizeai.org" },
+    { name: "Drift", genre: "Flow field", url: "https://drift.signalizeai.org" },
+    { name: "Gummy", genre: "Soft body", url: "https://gummy.signalizeai.org" },
+  ],
+
   services: [
     {
       icon: "Brain",

@@ -333,6 +333,29 @@ export default function HomePage() {
             </a>
           ))}
         </div>
+        <p className="reveal mono mt-10 mb-4 text-[11px] uppercase tracking-widest text-faint">
+          Plus seven GPU experiments — one file each, running live on your graphics card
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+          {siteConfig.gpuSites.map((s, i) => (
+            <a
+              key={s.name}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-d={String((i % 3) + 1)}
+              className="reveal group flex flex-col gap-1 p-4 rounded-2xl border border-line bg-panel hover:border-accent/50 hover:-translate-y-1 transition-all duration-300"
+            >
+              <span className="display text-base text-ink flex items-center justify-between">
+                {s.name}
+                <ArrowUpRight className="w-3 h-3 text-faint group-hover:text-accent transition-colors" />
+              </span>
+              <span className="mono text-[10px] uppercase tracking-wider text-faint">
+                {s.genre}
+              </span>
+            </a>
+          ))}
+        </div>
       </section>
 
       {/* 05 — Toolkit */}
