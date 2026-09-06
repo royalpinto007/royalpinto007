@@ -64,8 +64,8 @@ export const siteConfig = {
     { name: "Abyss", genre: "Fractal", url: "https://abyss.signalizeai.org" },
     { name: "Drift", genre: "Flow field", url: "https://drift.signalizeai.org" },
     { name: "Gummy", genre: "Soft body", url: "https://gummy.signalizeai.org" },
+    { name: "Jalebi", genre: "Dahi dip", url: "https://jalebi.signalizeai.org" },
   ],
-
   services: [
     {
       icon: "Brain",
@@ -830,6 +830,25 @@ export const siteConfig = {
       section: "Open Source & Tools",
       liveUrl: "https://gummy.signalizeai.org",
       githubUrl: "#",
+    },
+    {
+      id: "jalebi",
+      name: "Jalebi",
+      category: "Open Source",
+      status: "Open Source",
+      description:
+        "A syrupy coil dipped in dahi on a fourteen-second loop: spiral-tube SDF with syrup gloss and dahi coating, ripples, drips, and a ceramic bowl. WebGPU first with a WebGL2 fallback.",
+      features: [
+        "Deterministic dip cycle: descend, soak, rise with drips, rest — identical every loop",
+        "Dahi coating with drip streaks, droplet ballistics, and splash rings",
+        "Dip now, auto-dip toggle, pause, and a live fps readout",
+        "One self-contained HTML file, no dependencies, no build step",
+      ],
+      tech: ["WebGPU", "WGSL", "WebGL2", "Raymarching"],
+      featured: true,
+      section: "Open Source & Tools",
+      liveUrl: "https://jalebi.signalizeai.org",
+      githubUrl: "https://github.com/Facetworks/jalebi",
     },
     {
       id: "distro-skills",

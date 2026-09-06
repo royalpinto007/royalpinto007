@@ -334,7 +334,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="reveal mono mt-10 mb-4 text-[11px] uppercase tracking-widest text-faint">
-          Plus seven GPU experiments — one file each, running live on your graphics card
+          Plus eight GPU experiments — one file each, running live on your graphics card
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
           {siteConfig.gpuSites.map((s, i) => (
