@@ -46,6 +46,7 @@ export default function HomePage() {
         "tiny-day",
         "auralis",
         "mycelia",
+        "gummy",
       ]),
     },
     {
