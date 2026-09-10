@@ -300,17 +300,17 @@ export default function HomePage() {
           <SectionHeader
             index="04"
             eyebrow="Frontend design"
-            title="Eighteen sites,"
+            title={`${siteConfig.frontendSites.length} design sites,`}
             titleEm="one bar"
-            subtitle="Design-forward, multi-page marketing sites, each a distinct genre and visual identity, built static-first with Astro and verified to render fully without JavaScript."
+            subtitle="Distinctive websites for brands, products, and places. Explore the Facetworks collection, then commission a custom build in a direction you love."
           />
           <a
-            href="https://frequency.signalizeai.org"
+            href="https://facetworks.signalizeai.org"
             target="_blank"
             rel="noopener noreferrer"
             className="mono text-xs text-accent hover:text-accent-hover flex-shrink-0 whitespace-nowrap transition-colors"
           >
-            See one live &rarr;
+            Explore Facetworks &rarr;
           </a>
         </div>
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -334,7 +334,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="reveal mono mt-10 mb-4 text-[11px] uppercase tracking-widest text-faint">
-          Plus eight GPU experiments — one file each, running live on your graphics card
+          Plus {siteConfig.gpuSites.length} interactive experiences, running live in your browser
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
           {siteConfig.gpuSites.map((s, i) => (

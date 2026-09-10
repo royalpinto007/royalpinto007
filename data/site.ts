@@ -57,6 +57,11 @@ export const siteConfig = {
   ],
 
   gpuSites: [
+    { name: "Mochimo", genre: "Character interaction", url: "https://mochimo.signalizeai.org" },
+    { name: "Magnetic Sand", genre: "Magnetic sculpture", url: "https://magnetic-sand.signalizeai.org" },
+    { name: "Fogged Glass", genre: "Tactile window", url: "https://fogged-glass.signalizeai.org" },
+    { name: "Jelly iPhone", genre: "Product demo", url: "https://jelly-iphone.signalizeai.org" },
+    { name: "Jelly Pancake", genre: "Interactive toy", url: "https://jelly-pancake.signalizeai.org" },
     { name: "Auralis", genre: "Aurora", url: "https://auralis.signalizeai.org" },
     { name: "Mycelia", genre: "Slime mold", url: "https://mycelia.signalizeai.org" },
     { name: "Undertow", genre: "Fluid", url: "https://undertow.signalizeai.org" },
@@ -64,7 +69,6 @@ export const siteConfig = {
     { name: "Abyss", genre: "Fractal", url: "https://abyss.signalizeai.org" },
     { name: "Drift", genre: "Flow field", url: "https://drift.signalizeai.org" },
     { name: "Gummy", genre: "Soft body", url: "https://gummy.signalizeai.org" },
-    { name: "Jalebi", genre: "Dahi dip", url: "https://jalebi.signalizeai.org" },
   ],
   services: [
     {
@@ -701,8 +705,8 @@ export const siteConfig = {
     {
       id: "auralis",
       name: "Auralis",
-      category: "Open Source",
-      status: "Open Source",
+      category: "Interactive",
+      status: "Live",
       description:
         "A living field of light rendered in real time on the GPU, in the browser: WebGPU with a WebGL2 fallback, no server. Move your cursor to bend the current.",
       features: [
@@ -713,15 +717,14 @@ export const siteConfig = {
       ],
       tech: ["WebGPU", "WebGL2", "WGSL / GLSL", "Shaders"],
       featured: false,
-      section: "Open Source & Tools",
+      section: "Frontend & Design",
       liveUrl: "https://auralis.signalizeai.org",
-      githubUrl: "https://github.com/Facetworks/Auralis",
     },
     {
       id: "mycelia",
       name: "Mycelia",
-      category: "Open Source",
-      status: "Open Source",
+      category: "Interactive",
+      status: "Live",
       description:
         "A GPU slime-mold simulation in the browser: 262k agents leave trails, sense them, and self-organize into living networks that flow toward your cursor. WebGL2 GPGPU, no server.",
       features: [
@@ -732,15 +735,14 @@ export const siteConfig = {
       ],
       tech: ["WebGL2", "GPGPU", "GLSL", "Simulation"],
       featured: false,
-      section: "Open Source & Tools",
+      section: "Frontend & Design",
       liveUrl: "https://mycelia.signalizeai.org",
-      githubUrl: "https://github.com/Facetworks/Mycelia",
     },
     {
       id: "undertow",
       name: "Undertow",
-      category: "Open Source",
-      status: "Open Source",
+      category: "Interactive",
+      status: "Live",
       description:
         "A real-time GPU fluid simulation in the browser: drag to pour dye into a stable-fluids solver and watch it fold. WebGL2, no server.",
       features: [
@@ -751,15 +753,14 @@ export const siteConfig = {
       ],
       tech: ["WebGL2", "GPGPU", "GLSL", "Fluid Simulation"],
       featured: false,
-      section: "Open Source & Tools",
+      section: "Frontend & Design",
       liveUrl: "https://undertow.signalizeai.org",
-      githubUrl: "https://github.com/Facetworks/undertow",
     },
     {
       id: "lichen",
       name: "Lichen",
-      category: "Open Source",
-      status: "Open Source",
+      category: "Interactive",
+      status: "Live",
       description:
         "A Gray-Scott reaction-diffusion system blooming coral patterns on your GPU: click to seed a colony. WebGL2, no server.",
       features: [
@@ -770,15 +771,14 @@ export const siteConfig = {
       ],
       tech: ["WebGL2", "GPGPU", "GLSL", "Simulation"],
       featured: false,
-      section: "Open Source & Tools",
+      section: "Frontend & Design",
       liveUrl: "https://lichen.signalizeai.org",
-      githubUrl: "https://github.com/Facetworks/lichen",
     },
     {
       id: "abyss",
       name: "Abyss",
-      category: "Open Source",
-      status: "Open Source",
+      category: "Interactive",
+      status: "Live",
       description:
         "A Mandelbulb fractal raymarched live on your GPU: move to steer the orbit and the light. WebGL2, no server.",
       features: [
@@ -789,15 +789,14 @@ export const siteConfig = {
       ],
       tech: ["WebGL2", "GLSL", "Raymarching", "Fractals"],
       featured: false,
-      section: "Open Source & Tools",
+      section: "Frontend & Design",
       liveUrl: "https://abyss.signalizeai.org",
-      githubUrl: "https://github.com/Facetworks/abyss",
     },
     {
       id: "drift",
       name: "Drift",
-      category: "Open Source",
-      status: "Open Source",
+      category: "Interactive",
+      status: "Live",
       description:
         "65,536 particles riding a curl-noise flow field on your GPU: drag to spin up vortices. WebGL2 GPGPU, no server.",
       features: [
@@ -808,15 +807,14 @@ export const siteConfig = {
       ],
       tech: ["WebGL2", "GPGPU", "GLSL", "Particles"],
       featured: false,
-      section: "Open Source & Tools",
+      section: "Frontend & Design",
       liveUrl: "https://drift.signalizeai.org",
-      githubUrl: "https://github.com/Facetworks/drift",
     },
     {
       id: "gummy",
       name: "Gummy",
-      category: "Open Source",
-      status: "Open Source",
+      category: "Interactive",
+      status: "Live",
       description:
         "One soft specimen in a light studio: verlet spring-mass physics with dielectric shading, refractive transmission, and studio reflections. Take hold and let go.",
       features: [
@@ -827,28 +825,8 @@ export const siteConfig = {
       ],
       tech: ["WebGL2", "GLSL", "Soft-body physics", "Shaders"],
       featured: true,
-      section: "Open Source & Tools",
+      section: "Frontend & Design",
       liveUrl: "https://gummy.signalizeai.org",
-      githubUrl: "#",
-    },
-    {
-      id: "jalebi",
-      name: "Jalebi",
-      category: "Open Source",
-      status: "Open Source",
-      description:
-        "A syrupy coil dipped in dahi on a fourteen-second loop: spiral-tube SDF with syrup gloss and dahi coating, ripples, drips, and a ceramic bowl. WebGPU first with a WebGL2 fallback.",
-      features: [
-        "Deterministic dip cycle: descend, soak, rise with drips, rest — identical every loop",
-        "Dahi coating with drip streaks, droplet ballistics, and splash rings",
-        "Dip now, auto-dip toggle, pause, and a live fps readout",
-        "One self-contained HTML file, no dependencies, no build step",
-      ],
-      tech: ["WebGPU", "WGSL", "WebGL2", "Raymarching"],
-      featured: true,
-      section: "Open Source & Tools",
-      liveUrl: "https://jalebi.signalizeai.org",
-      githubUrl: "https://github.com/Facetworks/jalebi",
     },
     {
       id: "distro-skills",
@@ -943,23 +921,22 @@ export const siteConfig = {
     },
     {
       id: "frontend-showcase",
-      name: "Frontend Design Showcase",
+      name: "Facetworks",
       category: "Frontend",
       status: "Live",
       description:
-        "Eighteen design-forward, multi-page sites, each a distinct genre and visual identity, built static-first with Astro and verified to render fully without JavaScript. A type foundry, a banking site, a wine bar, a deep-ocean institute, and fourteen more.",
+        "Thirty distinctive websites and interactive experiences. Explore eighteen design sites and twelve browser experiments, then commission a custom build inspired by a direction you love.",
       features: [
         "Quire (type foundry) sets every specimen as real text; Fathom (ocean institute) draws its depth scale and cast charts from the data",
         "Ledger (fintech), Atlas (architecture studio), Frequency (music), Sprout (wellness app)",
         "Nebula, Vantage, Halcyon, Fable, Pulse, and Cellar across six more genres",
         "Ironline (gym), Lumen (dental studio), Threadline (fashion shop), Hollowpine (lodge), Fieldline (real estate), Conduit (devtool)",
-        "Each on its own signalizeai.org domain, with tests, CI, and a tagged release",
+        "Mochimo, Magnetic Sand, Fogged Glass, Jelly iPhone, and Jelly Pancake extend the collection into tactile web experiences",
       ],
       tech: ["Astro", "React", "Tailwind v4", "TypeScript", "Cloudflare Pages"],
       featured: true,
       section: "Frontend & Design",
-      liveUrl: "https://frequency.signalizeai.org",
-      githubUrl: "https://github.com/Facetworks",
+      liveUrl: "https://facetworks.signalizeai.org",
     },
   ],
 
