@@ -2,8 +2,19 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
-export function DesignGallery({ compact = false }: { compact?: boolean }) {
-  const projects = [...siteConfig.frontendSites, ...siteConfig.gpuSites];
+export function DesignGallery({
+  compact = false,
+  kind = "all",
+}: {
+  compact?: boolean;
+  kind?: "all" | "websites" | "experiments";
+}) {
+  const projects =
+    kind === "websites"
+      ? siteConfig.frontendSites
+      : kind === "experiments"
+        ? siteConfig.gpuSites
+        : [...siteConfig.frontendSites, ...siteConfig.gpuSites];
   const selected = compact
     ? projects.filter((p) =>
         [

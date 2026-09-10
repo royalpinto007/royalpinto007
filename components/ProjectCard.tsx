@@ -43,7 +43,7 @@ export function ProjectCard({
         {liveUrl && liveUrl !== "#" && (
           <a href={liveUrl} target="_blank" rel="noopener noreferrer">
             <ExternalLink size={14} />
-            Live site
+            {/npmjs.com|pypi.org/.test(liveUrl) ? "View package" : "Live site"}
           </a>
         )}
         {githubUrl && githubUrl !== "#" && (

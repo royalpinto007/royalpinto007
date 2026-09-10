@@ -1,70 +1,112 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { siteConfig } from "@/data/site";
+import { projectCategories, categoryFor } from "@/data/project-categories";
 import { ProjectCard } from "@/components/ProjectCard";
 import { DesignGallery } from "@/components/DesignGallery";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore my live products, websites, browser experiments, and open-source engineering.",
+    "Browse apps, browser extensions, websites, interactive experiments, packages, and open-source contributions by Royal Pinto.",
 };
 export default function ProjectsPage() {
-  const products = siteConfig.projects.filter(
-    (p) => p.section !== "Frontend & Design",
-  );
   return (
     <div className="portfolio-shell projects-page">
       <header className="projects-heading">
-        <p>Products / Interfaces / Systems</p>
+        <p>Browse the work</p>
         <h1>
-          Built. Shipped.
+          Different tools.
           <br />
-          <span>Still exploring.</span>
+          <span>One builder.</span>
         </h1>
         <p>
-          A closer look at the products I build and the details I care about.
-          Open a live project and try it.
+          Explore by the kind of project you have in mind. Real interfaces,
+          working products, and the systems underneath.
         </p>
       </header>
       <nav className="project-jumps" aria-label="Project categories">
-        <a href="#products">Products & tools</a>
-        <a href="#designs">Websites & experiments</a>
-        <a href={siteConfig.hireUrl}>Work with me ↗</a>
+        {projectCategories.map((category) => (
+          <a key={category.id} href={`#${category.id}`}>
+            {category.title}
+          </a>
+        ))}
       </nav>
-      <section id="products">
-        <div className="section-intro">
-          <h2>Products with a purpose.</h2>
-          <p>AI workflows, browser tools, and open-source systems.</p>
-        </div>
-        <div className="product-showcase">
-          {products.map((project) => (
-            <div key={project.id} className="product-entry">
-              {["signalizeai", "agentpostmortem", "aashinyra"].some((slug) =>
-                project.id.includes(slug),
-              ) && (
-                <Image
-                  src={`/work/${project.id.includes("signalizeai") ? "signalizeai" : project.id.includes("aashinyra") ? "aashinyra" : "agentpostmortem"}.webp`}
-                  alt={`${project.name} live preview`}
-                  width={1008}
-                  height={700}
-                />
-              )}
-              <ProjectCard {...project} />
+      {projectCategories.map((category) => {
+        const hasPreview = (id: string) =>
+          existsSync(path.join(process.cwd(), "public/work", id + ".webp"));
+        const items = siteConfig.projects
+          .filter((project) => categoryFor(project) === category.id)
+          .sort((a, b) => Number(hasPreview(b.id)) - Number(hasPreview(a.id)));
+        return (
+          <section
+            key={category.id}
+            id={category.id}
+            data-project-category={category.id}
+          >
+            <div className="section-intro">
+              <h2>{category.title}</h2>
+              <p>{category.description}</p>
             </div>
-          ))}
-        </div>
-      </section>
-      <section id="designs">
-        <div className="section-intro">
-          <h2>Interfaces worth exploring.</h2>
-          <p>
-            18 websites and 12 interactive experiences. Independent concepts,
-            built to show what a custom web experience can feel like.
-          </p>
-        </div>
-        <DesignGallery />
-      </section>
+            {category.id === "websites" ? (
+              <DesignGallery kind="websites" />
+            ) : category.id === "experiments" ? (
+              <DesignGallery kind="experiments" />
+            ) : (
+              <div className="category-projects">
+                {items.map((project) => {
+                  const screenshot = existsSync(
+                    path.join(
+                      process.cwd(),
+                      "public/work",
+                      project.id + ".webp",
+                    ),
+                  )
+                    ? `/work/${project.id}.webp`
+                    : null;
+                  return (
+                    <div
+                      key={project.id}
+                      className="category-project"
+                      data-project-id={project.id}
+                    >
+                      {screenshot && (
+                        <a
+                          href={
+                            project.liveUrl !== "#"
+                              ? project.liveUrl
+                              : project.githubUrl
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Image
+                            src={screenshot}
+                            alt={`${project.name} preview`}
+                            width={1008}
+                            height={700}
+                          />
+                        </a>
+                      )}
+                      <ProjectCard {...project} compact />
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+            {category.id === "websites" && (
+              <a
+                className="quiet-link"
+                href="https://facetworks.signalizeai.org/"
+              >
+                Explore Facetworks ↗
+              </a>
+            )}
+          </section>
+        );
+      })}
     </div>
   );
 }
