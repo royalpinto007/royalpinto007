@@ -1,377 +1,265 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  MapPin,
-  Layers,
-  Brain,
-  Server,
-  Palette,
-} from "lucide-react";
-import { SectionHeader } from "@/components/SectionHeader";
-import { ProjectCard } from "@/components/ProjectCard";
-import { TechStackGrid } from "@/components/TechStackGrid";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
-
-const serviceIconMap: Record<
-  string,
-  React.ComponentType<{ className?: string }>
-> = {
-  Layers,
-  Brain,
-  Server,
-  Palette,
-};
 
 const wallSvg = readFileSync(
   path.join(process.cwd(), "public", "wall2026.svg"),
   "utf8",
 );
+const work = [
+  {
+    name: "SignalizeAI",
+    kind: "AI product / browser extension",
+    image: "signalizeai",
+    href: "https://signalizeai.org",
+    description:
+      "From a company website to a sales-ready prospect record. Research, personas, and outreach in the browser.",
+  },
+  {
+    name: "AgentPostmortem",
+    kind: "AI infrastructure / open source",
+    image: "agentpostmortem",
+    href: "https://agentpostmortem.com",
+    description:
+      "A public registry of real AI-agent failures. Making failure evidence useful to the next builder.",
+  },
+  {
+    name: "AashiNyra Deals",
+    kind: "Full-stack product / commerce",
+    image: "aashinyra",
+    href: "https://aashinyra.com",
+    description:
+      "A fashion deals platform with retailer tracking, genuine price drops, and cashback to UPI.",
+  },
+  {
+    name: "Facetworks",
+    kind: "Creative development / interaction",
+    image: "facetworks",
+    href: "https://facetworks.signalizeai.org",
+    description:
+      "Thirty working concepts, from distinctive websites to tactile browser experiments. Built to be explored.",
+  },
+];
 
 export default function HomePage() {
-  const pick = (ids: string[]) =>
-    ids
-      .map((id) => siteConfig.projects.find((p) => p.id === id))
-      .filter((p): p is (typeof siteConfig.projects)[number] => Boolean(p));
-
-  const projectGroups = [
-    {
-      label: "Flagship",
-      items: pick([
-        "signalizeai",
-        "aashinyra",
-        "kabootar",
-        "tiny-day",
-        "auralis",
-        "mycelia",
-        "gummy",
-      ]),
-    },
-    {
-      label: "AI engineering stack",
-      items: pick([
-        "tenantq",
-        "vaultrag",
-        "mcp-audit",
-        "skill-audit",
-        "evalgate",
-        "answerproof",
-        "ctxlens",
-        "ctxtrim",
-        "injection-arena",
-        "agentrace",
-        "voiceeval",
-        "relayg",
-        "casebook-mcp",
-        "casebook-chat",
-        "distro-skills",
-      ]),
-    },
-    {
-      label: "Agent suite",
-      items: pick([
-        "resolvd",
-        "tracecase",
-        "webhands",
-        "bridgekit",
-        "greenlite",
-      ]),
-    },
-  ];
-
   return (
-    <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
-      {/* Hero */}
-      <section className="relative pt-20 pb-24 sm:pt-28 sm:pb-32">
-        <div className="glow" aria-hidden />
-        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-14 lg:gap-20">
-          <div className="flex-1 min-w-0">
-            <div className="eyebrow mb-6 flex items-center gap-2.5">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent" />
-              {siteConfig.role} — {siteConfig.location}
-            </div>
-            <h1 className="display text-5xl sm:text-7xl lg:text-[5.5rem] text-ink mb-8">
-              I build{" "}
-              <span className="display-em text-accent">AI products</span>
-              <br />
-              that actually ship.
-            </h1>
-            <p className="text-lg text-mute leading-relaxed mb-9 max-w-xl">
-              {siteConfig.name}. AI agents, permission-aware RAG, and voice and
-              agent evals, with the full-stack around all of it, plus an offline
-              mesh messenger for when there is no internet.{" "}
-              <span className="text-ink">
-                Fifteen-plus products live, open source every single day.
-              </span>
-            </p>
-            <div className="flex flex-wrap gap-2.5 mb-10">
-              <span className="mono inline-flex items-center gap-2 text-[11px] px-3.5 py-1.5 rounded-full border border-line text-mute">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                Available for work
-              </span>
-              <span className="mono inline-flex items-center gap-2 text-[11px] px-3.5 py-1.5 rounded-full border border-line text-mute">
-                <MapPin className="w-3 h-3" /> {siteConfig.timezone}
-              </span>
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
+    <div className="portfolio-shell">
+      <section className="portfolio-hero">
+        <div className="hero-copy">
+          <p className="intro-name">Royal Simpson Pinto / Software engineer</p>
+          <h1>
+            Built to work.
+            <br />
+            <span>Made to matter.</span>
+          </h1>
+          <p className="hero-description">
+            I build AI products, useful tools, and distinctive web experiences.
+            From the first interface to the systems underneath.
+          </p>
+          <div className="hero-actions">
+            <a className="primary-link" href={siteConfig.hireUrl}>
+              Hire me <ArrowUpRight size={17} />
+            </a>
+            <Link className="quiet-link" href="/projects">
+              View projects <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+        <figure className="portrait">
+          <Image
+            src={siteConfig.avatar}
+            alt="Royal Simpson Pinto"
+            width={600}
+            height={660}
+            priority
+          />
+          <figcaption>
+            <span>Engineer. Builder. Open-source contributor.</span>
+            <span>
+              {siteConfig.availabilityStatus
+                ? "Open to opportunities"
+                : "Currently building"}
+            </span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section className="selected-work" id="work">
+        <div className="section-intro">
+          <p className="section-kicker">Selected work</p>
+          <h2>Ideas you can actually open.</h2>
+          <p>
+            Products, platforms, and a little creative engineering. Each one has
+            a working life beyond this page.
+          </p>
+        </div>
+        <div className="work-grid">
+          {work.map((project) => (
+            <article className="work-piece" key={project.name}>
               <a
-                href={siteConfig.hireUrl}
+                className="work-preview"
+                href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-accent text-bg text-sm font-semibold px-6 py-3 rounded-full hover:bg-accent-hover transition-colors"
               >
-                Hire me <ArrowUpRight className="w-4 h-4" />
+                <Image
+                  src={`/work/${project.image}.webp`}
+                  alt={`${project.name} live website`}
+                  width={1008}
+                  height={700}
+                />
               </a>
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 border border-line-strong text-ink text-sm px-6 py-3 rounded-full hover:border-accent hover:text-accent transition-colors"
-              >
-                View projects <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 text-mute text-sm px-4 py-3 hover:text-ink transition-colors"
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex-shrink-0 mx-auto lg:mx-0">
-            <div className="relative">
-              <div
-                className="absolute -inset-3 rounded-full border border-line"
-                aria-hidden
-              />
-              <img
-                src={siteConfig.avatar}
-                alt={siteConfig.name}
-                width={448}
-                height={448}
-                fetchPriority="high"
-                className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover border border-line-strong"
-              />
-              <span className="mono absolute -bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full border border-line bg-panel text-mute whitespace-nowrap">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                Open to work
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="pb-16">
-        <div className="grid grid-cols-3 border-y border-line">
-          {siteConfig.stats.map((stat, i) => (
-            <div
-              key={stat.label}
-              className={`py-9 sm:py-11 text-center ${
-                i > 0 ? "border-l border-line" : ""
-              }`}
-            >
-              <div className="display text-4xl sm:text-6xl text-accent">
-                {stat.value}
-              </div>
-              <div className="mono text-[11px] text-faint mt-3 tracking-wider">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 01 — Open source graph */}
-      <section className="py-20 border-b border-line">
-        <div className="reveal">
-          <SectionHeader
-            index="01"
-            eyebrow="Open source, every day"
-            title="The graph is the"
-            titleEm="habit."
-            subtitle="6,744 contributions in 2026. GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code. Not a sprint — a practice."
-          />
-        </div>
-        <a
-          href={siteConfig.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="reveal mt-10 block p-6 rounded-2xl border border-line bg-panel hover:border-accent/50 transition-colors"
-        >
-          {/* Inlined so page CSS can theme the cell fills (an <img> cannot be
-              styled by the page). The file is generated by scripts/gen-wall.mjs. */}
-          <div
-            className="w-full [&>svg]:w-full [&>svg]:h-auto"
-            dangerouslySetInnerHTML={{ __html: wallSvg }}
-          />
-          <span className="mono inline-block mt-4 text-xs text-mute">
-            2026 · github.com/royalpinto007 &rarr;
-          </span>
-        </a>
-      </section>
-
-      {/* 02 — Services */}
-      <section className="py-20 border-b border-line">
-        <div className="reveal">
-          <SectionHeader
-            index="02"
-            eyebrow="What I do"
-            title="Where I"
-            titleEm="add value"
-            subtitle="From product vision to production deployment."
-          />
-        </div>
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {siteConfig.services.map((service, i) => {
-            const Icon = serviceIconMap[service.icon];
-            return (
-              <div
-                key={service.title}
-                data-d={String((i % 3) + 1)}
-                className="reveal group p-6 rounded-2xl border border-line bg-panel hover:border-accent/50 transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="w-11 h-11 rounded-full border border-line flex items-center justify-center mb-5 group-hover:border-accent transition-colors">
-                  {Icon && <Icon className="w-4.5 h-4.5 text-accent" />}
-                </div>
-                <h3 className="display text-xl text-ink mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-mute mb-5 leading-relaxed">
-                  {service.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="mono text-[10px] px-2.5 py-1 rounded-full border border-line text-mute"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 03 — Work */}
-      <section className="py-20 border-b border-line">
-        <div className="reveal flex items-end justify-between gap-6">
-          <SectionHeader
-            index="03"
-            eyebrow="Work"
-            title="Everything"
-            titleEm="I've shipped"
-            subtitle="Flagship products, the AI-engineering stack, and the live agent suite."
-          />
-          <Link
-            href="/projects"
-            className="mono text-xs text-accent hover:text-accent-hover flex-shrink-0 whitespace-nowrap transition-colors"
-          >
-            All projects &rarr;
-          </Link>
-        </div>
-        <div className="mt-10 space-y-12">
-          {projectGroups.map((group) => (
-            <div key={group.label}>
-              <div className="eyebrow text-faint mb-5">{group.label}</div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {group.items.map((project, i) => (
-                  <div
-                    key={project.id}
-                    data-d={String((i % 3) + 1)}
-                    className="reveal"
+              <div className="work-meta">
+                <h3>
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <ProjectCard {...project} compact />
-                  </div>
-                ))}
+                    {project.name} <ArrowUpRight size={19} />
+                  </a>
+                </h3>
+                <span>{project.kind}</span>
               </div>
-            </div>
+              <p>{project.description}</p>
+            </article>
           ))}
         </div>
+        <Link className="quiet-link collection-link" href="/projects">
+          View projects <ArrowRight size={17} />
+        </Link>
       </section>
 
-      {/* 04 — Frontend design */}
-      <section className="py-20 border-b border-line">
-        <div className="reveal flex items-end justify-between gap-6">
-          <SectionHeader
-            index="04"
-            eyebrow="Frontend design"
-            title={`${siteConfig.frontendSites.length} design sites,`}
-            titleEm="one bar"
-            subtitle="Distinctive websites for brands, products, and places. Explore the Facetworks collection, then commission a custom build in a direction you love."
-          />
-          <a
-            href="https://facetworks.signalizeai.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mono text-xs text-accent hover:text-accent-hover flex-shrink-0 whitespace-nowrap transition-colors"
-          >
-            Explore Facetworks &rarr;
+      <section className="capabilities">
+        <div>
+          <h2>
+            One engineer.
+            <br />
+            The whole picture.
+          </h2>
+          <p>
+            I care about the experience people see and the engineering they
+            don’t. Clear interfaces, deliberate architecture, and a usable
+            handover.
+          </p>
+          <a className="quiet-link" href={siteConfig.hireUrl}>
+            Hire me <ArrowUpRight size={17} />
           </a>
         </div>
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          {siteConfig.frontendSites.map((s, i) => (
-            <a
-              key={s.name}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-d={String((i % 3) + 1)}
-              className="reveal group flex flex-col gap-1 p-5 rounded-2xl border border-line bg-panel hover:border-accent/50 hover:-translate-y-1 transition-all duration-300"
-            >
-              <span className="display text-lg text-ink flex items-center justify-between">
-                {s.name}
-                <ArrowUpRight className="w-3.5 h-3.5 text-faint group-hover:text-accent transition-colors" />
-              </span>
-              <span className="mono text-[10px] uppercase tracking-wider text-faint">
-                {s.genre}
-              </span>
-            </a>
-          ))}
-        </div>
-        <p className="reveal mono mt-10 mb-4 text-[11px] uppercase tracking-widest text-faint">
-          Plus {siteConfig.gpuSites.length} interactive experiences, running live in your browser
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
-          {siteConfig.gpuSites.map((s, i) => (
-            <a
-              key={s.name}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-d={String((i % 3) + 1)}
-              className="reveal group flex flex-col gap-1 p-4 rounded-2xl border border-line bg-panel hover:border-accent/50 hover:-translate-y-1 transition-all duration-300"
-            >
-              <span className="display text-base text-ink flex items-center justify-between">
-                {s.name}
-                <ArrowUpRight className="w-3 h-3 text-faint group-hover:text-accent transition-colors" />
-              </span>
-              <span className="mono text-[10px] uppercase tracking-wider text-faint">
-                {s.genre}
-              </span>
-            </a>
+        <div className="capability-list">
+          {siteConfig.services.map((service) => (
+            <article key={service.title}>
+              <h3>{service.title}</h3>
+              <p>{service.description.replaceAll("—", ",")}</p>
+              <span>{service.tags.join(" / ")}</span>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* 05 — Toolkit */}
-      <section className="py-20 border-b border-line">
-        <div className="reveal">
-          <SectionHeader
-            index="05"
-            eyebrow="Toolkit"
-            title="What I"
-            titleEm="build with"
-            subtitle="The tools and technologies I reach for most."
-          />
+      <section className="open-source" id="oss">
+        <div className="section-intro">
+          <h2>Open source is part of the job.</h2>
+          <p>
+            GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code.
+            Contributions to compilers, networking systems, and AI tooling.
+          </p>
         </div>
-        <div className="reveal mt-10">
-          <TechStackGrid />
+        <div className="contribution-summary">
+          <strong>6,744 contributions in 2026</strong>
+          <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
+            View GitHub profile <ArrowUpRight size={16} />
+          </a>
         </div>
+        <div
+          className="contribution-wall"
+          dangerouslySetInnerHTML={{ __html: wallSvg }}
+        />
+        <div className="experience-facts">
+          {siteConfig.stats.map((stat) => (
+            <div key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="playground" id="frontend">
+        <div className="section-intro">
+          <h2>A serious interest in play.</h2>
+          <p>
+            {siteConfig.frontendSites.length} design sites.{" "}
+            {siteConfig.gpuSites.length} interactive experiences. A place to
+            explore what the browser can feel like.
+          </p>
+        </div>
+        <div className="playground-images">
+          {["fogged-glass", "magnetic-sand", "jelly-iphone"].map((slug) => (
+            <a
+              key={slug}
+              href={`https://${slug}.signalizeai.org`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={`/work/${slug}.webp`}
+                alt={slug.replaceAll("-", " ")}
+                width={960}
+                height={640}
+              />
+              <span>
+                {slug
+                  .split("-")
+                  .map((word) => word[0].toUpperCase() + word.slice(1))
+                  .join(" ")}{" "}
+                <ArrowUpRight size={16} />
+              </span>
+            </a>
+          ))}
+        </div>
+        <a
+          className="quiet-link"
+          href="https://facetworks.signalizeai.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore Facetworks <ArrowUpRight size={17} />
+        </a>
+        <details className="project-index">
+          <summary>
+            Browse all{" "}
+            {siteConfig.frontendSites.length + siteConfig.gpuSites.length}{" "}
+            design experiments
+          </summary>
+          <div>
+            {[...siteConfig.frontendSites, ...siteConfig.gpuSites].map(
+              (project) => (
+                <a
+                  key={project.name}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.name}
+                  <span>{project.genre}</span>
+                </a>
+              ),
+            )}
+          </div>
+        </details>
+      </section>
+      <section className="writing-link">
+        <div>
+          <h2>What I learn while building.</h2>
+          <p>Notes on engineering, AI, and shipping software.</p>
+        </div>
+        <Link className="quiet-link" href="/blog">
+          Read the blog <ArrowRight size={17} />
+        </Link>
       </section>
     </div>
   );
