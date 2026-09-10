@@ -7,7 +7,6 @@ import { siteConfig } from "@/data/site";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 export function Header() {

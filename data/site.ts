@@ -5,7 +5,8 @@ export const siteConfig = {
   location: "Mangaluru, India",
   timezone: "IST (UTC+5:30)",
   bio: "I build AI-powered products and agentic workflows, contribute to open source compilers and networking systems, and ship things that work.",
-  shortBio: "Software engineer building AI-first products and contributing to open source.",
+  shortBio:
+    "Software engineer building AI-first products and contributing to open source.",
   email: "royalpinto007@gmail.com",
   phone: "+91 7337834185",
   whatsappLink: "https://wa.me/917337834185",
@@ -16,10 +17,11 @@ export const siteConfig = {
   mediumUsername: "royalpinto007",
   mediumFeedUrl: "https://medium.com/feed/@royalpinto007",
   hireUrl: "https://hire.agentpostmortem.com",
-  availability: "Open to new opportunities — AI, full-stack, and open source work",
+  availability:
+    "Open to new opportunities — AI, full-stack, and open source work",
   availabilityStatus: true,
   replyTime: "Within 24 hours",
-  avatar: "/avatar.webp",
+  avatar: "/github-avatar.webp",
 
   stats: [
     { label: "Open source contributions", value: "1500+" },
@@ -37,37 +39,137 @@ export const siteConfig = {
 
   frontendSites: [
     { name: "Ledger", genre: "Fintech", url: "https://ledger.signalizeai.org" },
-    { name: "Atlas", genre: "Architecture", url: "https://atlas.signalizeai.org" },
-    { name: "Frequency", genre: "Music", url: "https://frequency.signalizeai.org" },
-    { name: "Sprout", genre: "Wellness app", url: "https://sprout.signalizeai.org" },
-    { name: "Cellar", genre: "Wine bar", url: "https://cellar.signalizeai.org" },
-    { name: "Nebula", genre: "AI product", url: "https://nebula.signalizeai.org" },
-    { name: "Vantage", genre: "Studio", url: "https://vantage.signalizeai.org" },
+    {
+      name: "Atlas",
+      genre: "Architecture",
+      url: "https://atlas.signalizeai.org",
+    },
+    {
+      name: "Frequency",
+      genre: "Music",
+      url: "https://frequency.signalizeai.org",
+    },
+    {
+      name: "Sprout",
+      genre: "Wellness app",
+      url: "https://sprout.signalizeai.org",
+    },
+    {
+      name: "Cellar",
+      genre: "Wine bar",
+      url: "https://cellar.signalizeai.org",
+    },
+    {
+      name: "Nebula",
+      genre: "AI product",
+      url: "https://nebula.signalizeai.org",
+    },
+    {
+      name: "Vantage",
+      genre: "Studio",
+      url: "https://vantage.signalizeai.org",
+    },
     { name: "Halcyon", genre: "Audio", url: "https://halcyon.signalizeai.org" },
     { name: "Fable", genre: "Portfolio", url: "https://fable.signalizeai.org" },
-    { name: "Pulse", genre: "Conference", url: "https://pulse.signalizeai.org" },
-    { name: "Quire", genre: "Type foundry", url: "https://quire.signalizeai.org" },
-    { name: "Fathom", genre: "Research institute", url: "https://fathom.signalizeai.org" },
-    { name: "Ironline", genre: "Strength gym", url: "https://ironline.signalizeai.org" },
-    { name: "Lumen", genre: "Dental studio", url: "https://lumen.signalizeai.org" },
-    { name: "Threadline", genre: "Fashion shop", url: "https://threadline.signalizeai.org" },
-    { name: "Hollowpine", genre: "Wilderness lodge", url: "https://hollowpine.signalizeai.org" },
-    { name: "Fieldline", genre: "Real estate", url: "https://fieldline.signalizeai.org" },
-    { name: "Conduit", genre: "Devtool", url: "https://conduit.signalizeai.org" },
+    {
+      name: "Pulse",
+      genre: "Conference",
+      url: "https://pulse.signalizeai.org",
+    },
+    {
+      name: "Quire",
+      genre: "Type foundry",
+      url: "https://quire.signalizeai.org",
+    },
+    {
+      name: "Fathom",
+      genre: "Research institute",
+      url: "https://fathom.signalizeai.org",
+    },
+    {
+      name: "Ironline",
+      genre: "Strength gym",
+      url: "https://ironline.signalizeai.org",
+    },
+    {
+      name: "Lumen",
+      genre: "Dental studio",
+      url: "https://lumen.signalizeai.org",
+    },
+    {
+      name: "Threadline",
+      genre: "Fashion shop",
+      url: "https://threadline.signalizeai.org",
+    },
+    {
+      name: "Hollowpine",
+      genre: "Wilderness lodge",
+      url: "https://hollowpine.signalizeai.org",
+    },
+    {
+      name: "Fieldline",
+      genre: "Real estate",
+      url: "https://fieldline.signalizeai.org",
+    },
+    {
+      name: "Conduit",
+      genre: "Devtool",
+      url: "https://conduit.signalizeai.org",
+    },
   ],
 
   gpuSites: [
-    { name: "Mochimo", genre: "Character interaction", url: "https://mochimo.signalizeai.org" },
-    { name: "Magnetic Sand", genre: "Magnetic sculpture", url: "https://magnetic-sand.signalizeai.org" },
-    { name: "Fogged Glass", genre: "Tactile window", url: "https://fogged-glass.signalizeai.org" },
-    { name: "Jelly iPhone", genre: "Product demo", url: "https://jelly-iphone.signalizeai.org" },
-    { name: "Jelly Pancake", genre: "Interactive toy", url: "https://jelly-pancake.signalizeai.org" },
-    { name: "Auralis", genre: "Aurora", url: "https://auralis.signalizeai.org" },
-    { name: "Mycelia", genre: "Slime mold", url: "https://mycelia.signalizeai.org" },
-    { name: "Undertow", genre: "Fluid", url: "https://undertow.signalizeai.org" },
-    { name: "Lichen", genre: "Reaction-diffusion", url: "https://lichen.signalizeai.org" },
+    {
+      name: "Mochimo",
+      genre: "Character interaction",
+      url: "https://mochimo.signalizeai.org",
+    },
+    {
+      name: "Magnetic Sand",
+      genre: "Magnetic sculpture",
+      url: "https://magnetic-sand.signalizeai.org",
+    },
+    {
+      name: "Fogged Glass",
+      genre: "Tactile window",
+      url: "https://fogged-glass.signalizeai.org",
+    },
+    {
+      name: "Jelly iPhone",
+      genre: "Product demo",
+      url: "https://jelly-iphone.signalizeai.org",
+    },
+    {
+      name: "Jelly Pancake",
+      genre: "Interactive toy",
+      url: "https://jelly-pancake.signalizeai.org",
+    },
+    {
+      name: "Auralis",
+      genre: "Aurora",
+      url: "https://auralis.signalizeai.org",
+    },
+    {
+      name: "Mycelia",
+      genre: "Slime mold",
+      url: "https://mycelia.signalizeai.org",
+    },
+    {
+      name: "Undertow",
+      genre: "Fluid",
+      url: "https://undertow.signalizeai.org",
+    },
+    {
+      name: "Lichen",
+      genre: "Reaction-diffusion",
+      url: "https://lichen.signalizeai.org",
+    },
     { name: "Abyss", genre: "Fractal", url: "https://abyss.signalizeai.org" },
-    { name: "Drift", genre: "Flow field", url: "https://drift.signalizeai.org" },
+    {
+      name: "Drift",
+      genre: "Flow field",
+      url: "https://drift.signalizeai.org",
+    },
     { name: "Gummy", genre: "Soft body", url: "https://gummy.signalizeai.org" },
   ],
   services: [
@@ -944,7 +1046,6 @@ export const siteConfig = {
     Pages: [
       { label: "Home", href: "/" },
       { label: "Projects", href: "/projects" },
-      { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
     ],
     Connect: [

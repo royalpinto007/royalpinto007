@@ -1,5 +1,129 @@
 @import "tailwindcss";
 
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 24px;
+  margin: 36px 0;
+}
+.design-tile {
+  min-width: 0;
+}
+.design-tile img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.5;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: filter 0.2s;
+}
+.design-tile:hover img {
+  filter: brightness(0.9);
+}
+.design-tile > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+.design-tile h3 {
+  font-size: 20px;
+  font-weight: 550;
+}
+.design-tile p {
+  color: var(--mute);
+  font-size: 14px;
+  margin-top: 4px;
+}
+.projects-heading {
+  padding: 65px 0 40px;
+}
+.projects-heading h1 {
+  font-size: clamp(48px, 6vw, 84px);
+  letter-spacing: -0.06em;
+  line-height: 1.08;
+  margin: 24px 0;
+}
+.projects-heading h1 span {
+  color: var(--accent);
+}
+.projects-heading > p {
+  max-width: 620px;
+  color: var(--mute);
+  line-height: 1.7;
+}
+.project-jumps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding: 20px 0;
+  border-block: 1px solid var(--line);
+}
+.project-jumps a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.projects-page section {
+  padding: 60px 0;
+  scroll-margin-top: 24px;
+}
+.product-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+.product-entry {
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+}
+.product-entry:has(> img) {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+  padding-bottom: 32px;
+}
+@media (max-width: 767px) {
+  .product-entry:has(> img) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+.product-entry > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.7;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.product-entry .project-card {
+  border: 0;
+  background: none;
+  padding: 24px 0;
+}
+@media (max-width: 767px) {
+  .design-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 14px;
+  }
+  .design-tile h3 {
+    font-size: 17px;
+  }
+  .product-showcase {
+    grid-template-columns: 1fr;
+  }
+  .projects-heading {
+    padding-top: 40px;
+  }
+}
+@media (max-width: 440px) {
+  .design-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
 .reveal {
   min-width: 0;
   overflow-wrap: anywhere;
