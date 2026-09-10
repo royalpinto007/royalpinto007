@@ -3,6 +3,7 @@ import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { DesignGallery } from "@/components/DesignGallery";
 import { siteConfig } from "@/data/site";
 
 const wallSvg = readFileSync(
@@ -229,37 +230,7 @@ export default function HomePage() {
         >
           Explore Facetworks <ArrowUpRight size={17} />
         </a>
-        <details className="project-index">
-          <summary>
-            Browse all{" "}
-            {siteConfig.frontendSites.length + siteConfig.gpuSites.length}{" "}
-            design experiments
-          </summary>
-          <div>
-            {[...siteConfig.frontendSites, ...siteConfig.gpuSites].map(
-              (project) => (
-                <a
-                  key={project.name}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.name}
-                  <span>{project.genre}</span>
-                </a>
-              ),
-            )}
-          </div>
-        </details>
-      </section>
-      <section className="writing-link">
-        <div>
-          <h2>What I learn while building.</h2>
-          <p>Notes on engineering, AI, and shipping software.</p>
-        </div>
-        <Link className="quiet-link" href="/blog">
-          Read the blog <ArrowRight size={17} />
-        </Link>
+        <DesignGallery compact />
       </section>
     </div>
   );
