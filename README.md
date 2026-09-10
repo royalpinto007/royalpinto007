@@ -26,10 +26,15 @@ AI and product engineer. I build and ship, fast and daily.
 - MCP access: [Bridgekit](https://github.com/AgentPostmortem/Bridgekit) · [Casebook MCP](https://github.com/AgentPostmortem/Casebook-MCP) · [Casebook Chat](https://github.com/AgentPostmortem/Casebook-Chat)
 - Human-in-the-loop: [Resolvd](https://github.com/AgentPostmortem/Resolvd) · [Greenlite](https://github.com/AgentPostmortem/Greenlite) · [Webhands](https://github.com/AgentPostmortem/Webhands) · [RelayG](https://github.com/AgentPostmortem/RelayG)
 
-**Frontend design**
-- 18 static-first Astro sites, one genre each ([gallery](https://facetworks.signalizeai.org)): [Nebula](https://github.com/Facetworks/nebula) · [Vantage](https://github.com/Facetworks/vantage) · [Halcyon](https://github.com/Facetworks/halcyon) · [Fable](https://github.com/Facetworks/fable) · [Pulse](https://github.com/Facetworks/pulse) · [Cellar](https://github.com/Facetworks/cellar) · [Ledger](https://github.com/Facetworks/ledger) · [Atlas](https://github.com/Facetworks/atlas) · [Frequency](https://github.com/Facetworks/frequency) · [Sprout](https://github.com/Facetworks/sprout) · [Quire](https://github.com/Facetworks/quire) · [Fathom](https://github.com/Facetworks/fathom) · [Ironline](https://github.com/Facetworks/ironline) · [Lumen](https://github.com/Facetworks/lumen) · [Threadline](https://github.com/Facetworks/threadline) · [Hollowpine](https://github.com/Facetworks/hollowpine) · [Fieldline](https://github.com/Facetworks/fieldline) · [Conduit](https://github.com/Facetworks/conduit)
-- GPU experiments: [Auralis](https://github.com/Facetworks/Auralis) (WebGPU aurora) · [Mycelia](https://github.com/Facetworks/Mycelia) (slime-mold simulation) · [Undertow](https://github.com/Facetworks/undertow) (fluid solver) · [Lichen](https://github.com/Facetworks/lichen) (reaction-diffusion) · [Abyss](https://github.com/Facetworks/abyss) (raymarched fractal) · [Drift](https://github.com/Facetworks/drift) (flow-field particles) · [Gummy](https://github.com/Facetworks/gummy) (soft-body jelly) · [Jalebi](https://github.com/Facetworks/jalebi) (dahi dip, on loop)
-- Full index: [Facetworks](https://github.com/Facetworks) · [gallery](https://facetworks.signalizeai.org)
+**Facetworks: design & development**
+
+[Explore the gallery](https://facetworks.signalizeai.org) of 30 working concepts: 18 distinctive websites and 12 interactive experiences. Find a direction you love and [commission a custom build](https://hire.agentpostmortem.com).
+
+- Websites for products, studios, hospitality, finance, and more, including [Ledger](https://ledger.signalizeai.org), [Frequency](https://frequency.signalizeai.org), and [Quire](https://quire.signalizeai.org).
+- Tactile experiences: [Mochimo](https://mochimo.signalizeai.org) · [Magnetic Sand](https://magnetic-sand.signalizeai.org) · [Fogged Glass](https://fogged-glass.signalizeai.org) · [Jelly iPhone](https://jelly-iphone.signalizeai.org) · [Jelly Pancake](https://jelly-pancake.signalizeai.org) · [Gummy](https://gummy.signalizeai.org).
+- Generative worlds: [Auralis](https://auralis.signalizeai.org) · [Mycelia](https://mycelia.signalizeai.org) · [Undertow](https://undertow.signalizeai.org) · [Lichen](https://lichen.signalizeai.org) · [Abyss](https://abyss.signalizeai.org) · [Drift](https://drift.signalizeai.org).
+
+These are independent concepts and experiments, not client endorsements or off-the-shelf products. The source repositories are private.
 
 **Roots**
 - [cpp](https://github.com/royalpinto007/cpp): where I started — C++, datatypes through graphs and DP.
