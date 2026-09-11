@@ -120,6 +120,11 @@ export const siteConfig = {
 
   gpuSites: [
     {
+      name: "Paint Manchester Red",
+      genre: "Interactive fan tribute",
+      url: "https://manchester-red.signalizeai.org",
+    },
+    {
       name: "Mochimo",
       genre: "Character interaction",
       url: "https://mochimo.signalizeai.org",
@@ -1027,7 +1032,7 @@ export const siteConfig = {
       category: "Frontend",
       status: "Live",
       description:
-        "Thirty distinctive websites and interactive experiences. Explore eighteen design sites and twelve browser experiments, then commission a custom build inspired by a direction you love.",
+        "Thirty-one distinctive websites and interactive experiences. Explore eighteen design sites and thirteen browser experiments, then commission a custom build inspired by a direction you love.",
       features: [
         "Quire (type foundry) sets every specimen as real text; Fathom (ocean institute) draws its depth scale and cast charts from the data",
         "Ledger (fintech), Atlas (architecture studio), Frequency (music), Sprout (wellness app)",

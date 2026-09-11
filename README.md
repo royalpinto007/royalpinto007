@@ -5,6 +5,7 @@ AI and product engineer. I build and ship, fast and daily.
 **Open source**: Google Summer of Code, Linux Foundation (LFX), Symmetry Autumn of Code. 3+ years in production.
 
 **Products and apps**
+
 - [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI): AI prospecting as a Chrome extension, featured on the Chrome Web Store.
 - [AashiNyra Deals](https://aashinyra.com): live fashion deals platform, 16+ retailers tracked nightly, cashback to UPI.
 - [Kabootar](https://github.com/royalpinto007/Kabootar): offline mesh messenger over Bluetooth and Wi-Fi. No internet, no servers, no SIM.
@@ -14,10 +15,12 @@ AI and product engineer. I build and ship, fast and daily.
 - Five local-first Chrome extensions (TypeScript, MV3): [Pagefold](https://github.com/royalpinto007/Pagefold) (read offline) · [Stowlane](https://github.com/royalpinto007/Stowlane) (stow tabs) · [Glasswing](https://github.com/royalpinto007/Glasswing) (accessibility) · [Bellrope](https://github.com/royalpinto007/Bellrope) (watch pages) · [Cribsheet](https://github.com/royalpinto007/Cribsheet) (decode tokens)
 
 **Lists and skills**
+
 - Curated, auto-updating directories: [awesome-agent-evals](https://github.com/royalpinto007/awesome-agent-evals) · [awesome-llm-guardrails](https://github.com/royalpinto007/awesome-llm-guardrails) · [awesome-mcp-security](https://github.com/royalpinto007/awesome-mcp-security) · [awesome-context-engineering](https://github.com/royalpinto007/awesome-context-engineering) · [awesome-agent-memory](https://github.com/royalpinto007/awesome-agent-memory) · [awesome-agent-skills](https://github.com/royalpinto007/awesome-agent-skills)
 - Authored Agent Skills packs: [distro-skills](https://github.com/royalpinto007/distro-skills) (distribute a product) · [ship-skills](https://github.com/royalpinto007/ship-skills) (make a repo shippable)
 
 **AI agent infrastructure**
+
 - [AgentPostmortem](https://github.com/AgentPostmortem/agentpostmortem): public registry of real AI-agent failures. The flagship.
 - Evals: [Agentrace](https://github.com/AgentPostmortem/Agentrace) · [Evalgate](https://github.com/AgentPostmortem/Evalgate) · [Tracecase](https://github.com/AgentPostmortem/Tracecase) · [Voiceeval](https://github.com/AgentPostmortem/Voiceeval)
 - Trust: [VaultRAG](https://github.com/AgentPostmortem/VaultRAG) · [Tenantq](https://github.com/AgentPostmortem/Tenantq) · [Answerproof](https://github.com/AgentPostmortem/Answerproof)
@@ -28,7 +31,9 @@ AI and product engineer. I build and ship, fast and daily.
 
 **Facetworks: design & development**
 
-[Explore the gallery](https://facetworks.signalizeai.org) of 30 working concepts: 18 distinctive websites and 12 interactive experiences. Find a direction you love and [commission a custom build](https://hire.agentpostmortem.com).
+[Explore the gallery](https://facetworks.signalizeai.org) of 31 working concepts: 18 distinctive websites and 13 interactive experiences. Find a direction you love and [commission a custom build](https://hire.agentpostmortem.com).
+
+Latest: [Paint Manchester Red](https://manchester-red.signalizeai.org). Ignite a flare, draw with curling smoke and save your own fan poster.
 
 - Websites for products, studios, hospitality, finance, and more, including [Ledger](https://ledger.signalizeai.org), [Frequency](https://frequency.signalizeai.org), and [Quire](https://quire.signalizeai.org).
 - Tactile experiences: [Mochimo](https://mochimo.signalizeai.org) · [Magnetic Sand](https://magnetic-sand.signalizeai.org) · [Fogged Glass](https://fogged-glass.signalizeai.org) · [Jelly iPhone](https://jelly-iphone.signalizeai.org) · [Jelly Pancake](https://jelly-pancake.signalizeai.org) · [Gummy](https://gummy.signalizeai.org).
@@ -37,6 +42,7 @@ AI and product engineer. I build and ship, fast and daily.
 These are independent concepts and experiments, not client endorsements or off-the-shelf products. The source repositories are private.
 
 **Roots**
+
 - [cpp](https://github.com/royalpinto007/cpp): where I started — C++, datatypes through graphs and DP.
 
 📫 royalpinto007@gmail.com
