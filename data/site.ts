@@ -120,6 +120,11 @@ export const siteConfig = {
 
   gpuSites: [
     {
+      name: "Not a Robot. Just a Fly.",
+      genre: "3D flybody anatomy · Choreographed CAPTCHA",
+      url: "https://fly-captcha.signalizeai.org",
+    },
+    {
       name: "Rent My Screen",
       genre: "3D preview · Payments coming soon",
       url: "https://rentmyscreen.xyz",
