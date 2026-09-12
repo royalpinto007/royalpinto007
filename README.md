@@ -31,9 +31,9 @@ AI and product engineer. I build and ship, fast and daily.
 
 **Facetworks: design & development**
 
-[Explore the gallery](https://facetworks.signalizeai.org) of 34 independent projects: 18 distinctive websites and 16 interactive experiences. Find a direction you love and [commission a custom build](https://hire.agentpostmortem.com).
+[Explore the gallery](https://facetworks.signalizeai.org) of 35 independent projects: 18 distinctive websites and 17 interactive experiences. Find a direction you love and [commission a custom build](https://hire.agentpostmortem.com).
 
-Latest: [Not a Robot. Just a Fly.](https://fly-captcha.signalizeai.org), an anatomically detailed 3D fly completing a fictional CAPTCHA. Authored leg animation and a cinematic browser demo, not a trained policy. Also explore [Rent My Screen](https://rentmyscreen.xyz), with payments coming soon, and [Internet CEO](https://internetceo.lol).
+Latest: [Forklift Certified. Somehow.](https://fly-forklift.signalizeai.org), an anatomical fly operating a miniature forklift, lifting, reversing and stacking a pallet. Authored 3D choreography with leg IK and a real browser demo, not a trained policy. Also explore [Not a Robot. Just a Fly.](https://fly-captcha.signalizeai.org), [Rent My Screen](https://rentmyscreen.xyz), with payments coming soon, and [Internet CEO](https://internetceo.lol).
 
 - Websites for products, studios, hospitality, finance, and more, including [Ledger](https://ledger.signalizeai.org), [Frequency](https://frequency.signalizeai.org), and [Quire](https://quire.signalizeai.org).
 - Tactile experiences: [Mochimo](https://mochimo.signalizeai.org) · [Magnetic Sand](https://magnetic-sand.signalizeai.org) · [Fogged Glass](https://fogged-glass.signalizeai.org) · [Jelly iPhone](https://jelly-iphone.signalizeai.org) · [Jelly Pancake](https://jelly-pancake.signalizeai.org) · [Gummy](https://gummy.signalizeai.org).

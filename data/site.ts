@@ -120,6 +120,11 @@ export const siteConfig = {
 
   gpuSites: [
     {
+      name: "Forklift Certified. Somehow.",
+      genre: "3D miniature warehouse · Fly-operated forklift",
+      url: "https://fly-forklift.signalizeai.org",
+    },
+    {
       name: "Not a Robot. Just a Fly.",
       genre: "3D flybody anatomy · Choreographed CAPTCHA",
       url: "https://fly-captcha.signalizeai.org",
