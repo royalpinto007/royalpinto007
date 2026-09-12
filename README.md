@@ -31,9 +31,9 @@ AI and product engineer. I build and ship, fast and daily.
 
 **Facetworks: design & development**
 
-[Explore the gallery](https://facetworks.signalizeai.org) of 31 working concepts: 18 distinctive websites and 13 interactive experiences. Find a direction you love and [commission a custom build](https://hire.agentpostmortem.com).
+[Explore the gallery](https://facetworks.signalizeai.org) of 33 independent projects: 18 distinctive websites and 15 interactive experiences. Find a direction you love and [commission a custom build](https://hire.agentpostmortem.com).
 
-Latest: [Paint Manchester Red](https://manchester-red.signalizeai.org). Ignite a flare, draw with curling smoke and save your own fan poster.
+Latest: [Rent My Screen](https://rentmyscreen.xyz), a free private 3D monitor preview with payments coming soon, and the redesigned [Internet CEO](https://internetceo.lol), a social web experiment with public reign history.
 
 - Websites for products, studios, hospitality, finance, and more, including [Ledger](https://ledger.signalizeai.org), [Frequency](https://frequency.signalizeai.org), and [Quire](https://quire.signalizeai.org).
 - Tactile experiences: [Mochimo](https://mochimo.signalizeai.org) · [Magnetic Sand](https://magnetic-sand.signalizeai.org) · [Fogged Glass](https://fogged-glass.signalizeai.org) · [Jelly iPhone](https://jelly-iphone.signalizeai.org) · [Jelly Pancake](https://jelly-pancake.signalizeai.org) · [Gummy](https://gummy.signalizeai.org).

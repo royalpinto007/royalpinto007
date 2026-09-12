@@ -12,7 +12,9 @@ with sync_playwright() as p:
         assert page.goto(URL, wait_until="networkidle").status == 200
         assert page.locator("[data-project-category]").count() == 7
         assert page.locator("#websites .design-tile").count() == 18
-        assert page.locator("#experiments .design-tile").count() == 13
+        assert page.locator("#experiments .design-tile").count() == 15
+        for domain in ['rentmyscreen.xyz', 'internetceo.lol']:
+            assert page.locator(f'#experiments a[href="https://{domain}"]').count() == 1
         for category, ids in {
             "apps":["aashinyra", "pennyrush", "tiny-day", "holdfast", "kabootar"],
             "browser-extensions":["signalizeai", "pagefold", "stowlane", "glasswing", "bellrope", "cribsheet"],
