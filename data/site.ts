@@ -120,6 +120,16 @@ export const siteConfig = {
 
   gpuSites: [
     {
+      name: "Rent My Screen",
+      genre: "3D preview · Payments coming soon",
+      url: "https://rentmyscreen.xyz",
+    },
+    {
+      name: "Internet CEO",
+      genre: "Social web experiment · Redesigned",
+      url: "https://internetceo.lol",
+    },
+    {
       name: "Paint Manchester Red",
       genre: "Interactive fan tribute",
       url: "https://manchester-red.signalizeai.org",
