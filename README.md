@@ -31,9 +31,9 @@ AI and product engineer. I build and ship, fast and daily.
 
 **Facetworks: design & development**
 
-[Explore the gallery](https://facetworks.signalizeai.org) of 36 independent projects: 18 distinctive websites and 18 interactive experiences. Find a direction you love and [commission a custom build](https://hire.agentpostmortem.com).
+[Explore the gallery](https://facetworks.signalizeai.org) of 37 independent projects: 18 distinctive websites and 19 interactive experiences. Find a direction you love and [commission a custom build](https://hire.agentpostmortem.com).
 
-Latest: [The Cheese Heist](https://rat-heist.signalizeai.org), an articulated rat disarming a mousetrap, taking the cheese and resetting it. DeepMind dm_control anatomy, authored choreography and a real browser demo, not a trained policy. Also explore [Forklift Certified. Somehow.](https://fly-forklift.signalizeai.org), [Not a Robot. Just a Fly.](https://fly-captcha.signalizeai.org), [Rent My Screen](https://rentmyscreen.xyz), with payments coming soon, and [Internet CEO](https://internetceo.lol).
+Latest: [Small Change](https://coin-trick.signalizeai.org), a choreographed MyoHand coin trick with an X-ray reveal. Also: [The Cheese Heist](https://rat-heist.signalizeai.org), an articulated rat disarming a mousetrap, taking the cheese and resetting it. DeepMind dm_control anatomy, authored choreography and a real browser demo, not a trained policy. Also explore [Forklift Certified. Somehow.](https://fly-forklift.signalizeai.org), [Not a Robot. Just a Fly.](https://fly-captcha.signalizeai.org), [Rent My Screen](https://rentmyscreen.xyz), with payments coming soon, and [Internet CEO](https://internetceo.lol).
 
 - Websites for products, studios, hospitality, finance, and more, including [Ledger](https://ledger.signalizeai.org), [Frequency](https://frequency.signalizeai.org), and [Quire](https://quire.signalizeai.org).
 - Tactile experiences: [Mochimo](https://mochimo.signalizeai.org) · [Magnetic Sand](https://magnetic-sand.signalizeai.org) · [Fogged Glass](https://fogged-glass.signalizeai.org) · [Jelly iPhone](https://jelly-iphone.signalizeai.org) · [Jelly Pancake](https://jelly-pancake.signalizeai.org) · [Gummy](https://gummy.signalizeai.org).

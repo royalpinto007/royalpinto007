@@ -120,6 +120,11 @@ export const siteConfig = {
 
   gpuSites: [
     {
+      name: "Small Change",
+      genre: "3D coin trick · Choreographed MyoHand anatomy",
+      url: "https://coin-trick.signalizeai.org",
+    },
+    {
       name: "The Cheese Heist",
       genre: "3D rat caper · Skinned dm_control anatomy",
       url: "https://rat-heist.signalizeai.org",
