@@ -120,6 +120,11 @@ export const siteConfig = {
 
   gpuSites: [
     {
+      name: "The Cheese Heist",
+      genre: "3D rat caper · Skinned dm_control anatomy",
+      url: "https://rat-heist.signalizeai.org",
+    },
+    {
       name: "Forklift Certified. Somehow.",
       genre: "3D miniature warehouse · Fly-operated forklift",
       url: "https://fly-forklift.signalizeai.org",
