@@ -249,6 +249,24 @@ export const siteConfig = {
 
   projects: [
     {
+      id: "boardeject",
+      name: "BoardEject",
+      category: "Open-source exporter",
+      status: "Early release",
+      description:
+        "Turn supported Apple Freeform captures into editable Excalidraw files. Browser-local conversion, a macOS capture helper, and clear reports for unsupported content.",
+      features: [
+        "Editable shapes, text, and supported connectors instead of flattened exports",
+        "Native 2×2 table recovery validated against real macOS captures",
+        "No board uploads or account; advanced table layouts and pressure-sensitive ink remain limited",
+      ],
+      tech: ["TypeScript", "WebAssembly", "Swift"],
+      featured: true,
+      section: "Open Source & Tools",
+      liveUrl: "https://boardeject.dev",
+      githubUrl: "https://github.com/royalpinto007/boardeject",
+    },
+    {
       id: "signalizeai",
       name: "SignalizeAI",
       category: "AI",
