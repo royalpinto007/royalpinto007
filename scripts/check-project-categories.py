@@ -16,7 +16,7 @@ with sync_playwright() as p:
         for domain in ['rentmyscreen.xyz', 'internetceo.lol']:
             assert page.locator(f'#experiments a[href="https://{domain}"]').count() == 1
         for category, ids in {
-            "apps":["aashinyra", "pennyrush", "tiny-day", "holdfast", "kabootar"],
+            "apps":["boardeject", "aashinyra", "pennyrush", "tiny-day", "holdfast", "kabootar"],
             "browser-extensions":["signalizeai", "pagefold", "stowlane", "glasswing", "bellrope", "cribsheet"],
             "packages":["ctxtrim", "tokencut", "ctxlens", "distro-skills"],
             "editor-tools":["water"],

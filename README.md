@@ -6,6 +6,7 @@ AI and product engineer. I build and ship, fast and daily.
 
 **Products and apps**
 
+- [BoardEject](https://boardeject.dev): open-source Apple Freeform to editable Excalidraw exporter. Browser-local processing, a macOS capture helper, and conversion reports. Early release with explicit fidelity limits. [Source](https://github.com/royalpinto007/boardeject) · [Try a capture](https://boardeject.dev/test-capture).
 - [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI): AI prospecting as a Chrome extension, featured on the Chrome Web Store.
 - [AashiNyra Deals](https://aashinyra.com): live fashion deals platform, 16+ retailers tracked nightly, cashback to UPI.
 - [Kabootar](https://github.com/royalpinto007/Kabootar): offline mesh messenger over Bluetooth and Wi-Fi. No internet, no servers, no SIM.
