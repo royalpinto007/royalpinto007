@@ -626,6 +626,34 @@ textarea {
   border-bottom: 1px solid var(--line);
   background: var(--bg);
 }
+.coffee-ticker {
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.coffee-ticker-track {
+  display: flex;
+  width: max-content;
+  padding: 9px 0;
+}
+.coffee-ticker-track > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 320px;
+  padding-left: 30px;
+}
+.coffee-ticker-track b {
+  font-size: 13px;
+  font-weight: 500;
+}
 .header-inner {
   max-width: 1400px;
   margin: auto;
@@ -764,19 +792,28 @@ textarea {
 .project-card-tech {
   font-size: 11px;
   color: var(--accent);
-  margin: 20px 0;
+  margin: 20px 0 14px;
 }
 .project-card-links {
   display: flex;
-  gap: 22px;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: auto;
+  padding-top: 4px;
   font-size: 13px;
 }
 .project-card-links a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 7px;
-  min-height: 44px;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.project-card-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 @media (max-width: 1000px) {
   .portfolio-hero {
@@ -947,6 +984,9 @@ textarea {
   }
 }
 @media (prefers-reduced-motion: no-preference) {
+  .coffee-ticker-track {
+    animation: coffee-ticker 22s linear infinite;
+  }
   .hero-copy {
     animation: enter 0.6s both;
   }
@@ -964,7 +1004,15 @@ textarea {
     }
   }
 }
+@keyframes coffee-ticker {
+  to {
+    transform: translateX(-25%);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
+  .coffee-ticker-track > span:not(:first-child) {
+    display: none;
+  }
   html {
     scroll-behavior: auto;
   }

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { RevealObserver } from "@/components/RevealObserver";
 import { Header } from "@/components/Header";
+import { CoffeeTicker } from "@/components/CoffeeTicker";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
@@ -51,6 +52,7 @@ export default function RootLayout({
         <ThemeProvider>
           <RevealObserver />
           <Header />
+          <CoffeeTicker />
           <a href="#main-content" className="skip-link">
             Skip to content
           </a>
