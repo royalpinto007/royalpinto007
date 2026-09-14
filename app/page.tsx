@@ -170,7 +170,7 @@ export default function HomePage() {
           </p>
         </div>
         <div className="contribution-summary">
-          <strong>6,744 contributions in 2026</strong>
+          <strong>7,470 contributions in 2026</strong>
           <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
             View GitHub profile <ArrowUpRight size={16} />
           </a>
