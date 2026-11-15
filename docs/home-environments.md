@@ -72,3 +72,10 @@ The 20-second Remotion composition has three authored acts: a coastal chrome ope
 Interactive containers stay outside decorative entrance translations so a focus reveal cannot move a button between pointerdown and pointerup. Expanding the sculpture refreshes scroll-trigger layout. On mobile its active panel occupies its own grid row below the subtitle.
 
 `scripts/check-coastal-interactions.py` exercises deferred loading, real pixel changes from keyboard rotation and lighting, mouse/touch drag, idle rendering, disposal/focus restoration, loading/ready/error containment, native BoardEject illustration states, failed model/chunk alternatives, no JavaScript and all three film chapter seeks. Existing bounds, loading, motion, scene and portrait checks still apply.
+
+
+## Scenery that moves while idle
+
+The hero has a visible seabird crossing and water highlights, with a quicker, bounded background camera drift. Other visible chapters have ambient CSS motion without pointer or scroll input: marina water reflections, conservatory/pavilion petals, atrium/cinema prism light and tidal rings. Foreground engineering/playground artwork floats on a separate picture wrapper; original portrait pixels and text do not move with these loops. Each chapter has a native scenery pause control. Its observer keeps tracking visibility after loading the artwork once, so loops stop offscreen, in hidden tabs and with reduced motion. No-JavaScript scenes stay static.
+
+The explicit Three.js sculpture interaction remains optional and renders only on demand. Idle atmosphere uses HTML/SVG and transform/opacity CSS animations, with no additional library, image or model download. `scripts/check-ambient-motion.py` verifies visible movement after reload with no input, actual pause/resume, local control containment, four scene types, hidden-tab/offscreen suspension, client navigation, reduced motion and no JavaScript.

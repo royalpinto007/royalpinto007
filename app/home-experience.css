@@ -742,10 +742,10 @@ html[data-motion="static"] .home-page .experiment-play {
 }
 @keyframes coast-drift {
   from {
-    transform: scale(1.02) translateX(-0.3%);
+    transform: scale(1.04) translate(-0.8%, 0.4%);
   }
   to {
-    transform: scale(1.07) translateX(0.5%);
+    transform: scale(1.13) translate(0.8%, -0.4%);
   }
 }
 @keyframes coast-glint {

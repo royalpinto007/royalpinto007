@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowDownRight, Pause, Play, Sun } from "lucide-react";
 
+import { CoastalAtmosphere } from "./CoastalAtmosphere";
+
 const lights = ["Golden hour", "Sky blue", "Rose glow"];
 const glints = Array.from({ length: 24 }, (_, i) => ({
   x: 54 + ((i * 73) % 44),
@@ -97,6 +99,7 @@ export function CinematicHero({ children }: { children: ReactNode }) {
           />
         </picture>
       </div>
+      <CoastalAtmosphere />
       <div className="hero-sunset" aria-hidden="true" />
       <div className="hero-lightbeam" aria-hidden="true" />
       <div className="hero-glitter" aria-hidden="true">

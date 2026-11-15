@@ -1,0 +1,273 @@
+/* Continuous atmosphere, independent of pointer and scroll input. */
+.coastal-atmosphere {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+}
+.hero-cinema > .coastal-atmosphere {
+  z-index: -1;
+}
+.coast-flight {
+  position: absolute;
+  top: 26%;
+  left: 0;
+  width: clamp(90px, 10vw, 160px);
+  height: auto;
+  opacity: 0;
+}
+.hero-cinema .coast-flight {
+  top: 14%;
+}
+.coast-caustic {
+  position: absolute;
+  top: 75%;
+  left: 18%;
+  width: 38%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fff8d9e0, transparent);
+  opacity: 0;
+}
+.coast-caustic:nth-last-child(2) {
+  top: 84%;
+  left: 49%;
+  width: 27%;
+}
+.coast-caustic:last-child {
+  top: 93%;
+  left: 8%;
+  width: 48%;
+}
+.coast-petal {
+  position: absolute;
+  left: 12%;
+  top: 15%;
+  width: 9px;
+  height: 15px;
+  border-radius: 70% 15% 70% 20%;
+  background: #b94d7c;
+  opacity: 0;
+}
+.coast-petal:nth-child(2) {
+  left: 28%;
+  top: 31%;
+}
+.coast-petal:nth-child(3) {
+  left: 44%;
+  top: 18%;
+  background: #f4a1bb;
+}
+.coast-petal:nth-child(4) {
+  left: 64%;
+  top: 42%;
+}
+.coast-petal:nth-child(5) {
+  left: 78%;
+  top: 12%;
+  background: #f4a1bb;
+}
+.coast-petal:nth-child(6) {
+  left: 89%;
+  top: 30%;
+}
+.coast-prism {
+  position: absolute;
+  top: -25%;
+  left: 58%;
+  width: 28%;
+  height: 150%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #fff4da66 48%,
+    #b3ddfa44 54%,
+    transparent 60%
+  );
+  opacity: 0;
+}
+.coast-prism:last-child {
+  left: 14%;
+  width: 16%;
+}
+.coast-tide {
+  position: absolute;
+  top: 69%;
+  left: 12%;
+  width: clamp(140px, 24vw, 400px);
+  aspect-ratio: 3;
+  border: 2px solid #fff5dc;
+  border-radius: 50%;
+  opacity: 0;
+}
+.coast-tide:nth-child(2) {
+  top: 83%;
+  left: 60%;
+}
+.coast-tide:last-child {
+  top: 91%;
+  left: 29%;
+}
+.scene-ambient-toggle {
+  position: absolute;
+  z-index: 3;
+  top: 16px;
+  right: var(--chapter-gutter);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 14px;
+  color: #173b50;
+  background: #fff8eedf;
+  border: 1px solid #6f8b9d;
+  border-radius: 7px;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .scene-ambient-toggle {
+    top: 6px;
+  }
+  .hero-cinema .coast-flight {
+    top: 47%;
+  }
+}
+@keyframes coast-flight {
+  from {
+    transform: translate3d(-15vw, 8px, 0);
+    opacity: 0.2;
+  }
+  20%,
+  80% {
+    opacity: 0.7;
+  }
+  to {
+    transform: translate3d(110vw, -28px, 0);
+    opacity: 0.2;
+  }
+}
+@keyframes coast-caustic {
+  from {
+    transform: translateX(-12%) scaleX(0.55);
+    opacity: 0.08;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  to {
+    transform: translateX(25%) scaleX(1.2);
+    opacity: 0.08;
+  }
+}
+@keyframes coast-petal {
+  from {
+    transform: translate3d(-18px, -25px, 0) rotate(-35deg);
+    opacity: 0;
+  }
+  15%,
+  75% {
+    opacity: 0.7;
+  }
+  to {
+    transform: translate3d(55px, 180px, 0) rotate(195deg);
+    opacity: 0;
+  }
+}
+@keyframes coast-prism {
+  from {
+    transform: translateX(-38%) rotate(19deg);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateX(45%) rotate(25deg);
+    opacity: 0.65;
+  }
+}
+@keyframes coast-tide {
+  from {
+    transform: scale(0.65);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+@keyframes coastal-object-float {
+  from {
+    transform: translateY(-9px) rotate(-2deg);
+  }
+  to {
+    transform: translateY(9px) rotate(2deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .coast-flight {
+    animation: coast-flight 18s linear infinite -6s paused;
+  }
+  .coast-caustic {
+    animation: coast-caustic 6s linear infinite -1s paused;
+  }
+  .coast-caustic:nth-last-child(2) {
+    animation-delay: -3.8s;
+  }
+  .coast-caustic:last-child {
+    animation-delay: -2.4s;
+  }
+  .coast-petal {
+    animation: coast-petal 9s linear infinite -1s paused;
+  }
+  .coast-petal:nth-child(2) {
+    animation-delay: -4s;
+  }
+  .coast-petal:nth-child(3) {
+    animation-delay: -6.5s;
+  }
+  .coast-petal:nth-child(4) {
+    animation-delay: -2.5s;
+  }
+  .coast-petal:nth-child(5) {
+    animation-delay: -8s;
+  }
+  .coast-petal:nth-child(6) {
+    animation-delay: -5s;
+  }
+  .coast-prism {
+    animation: coast-prism 8s ease-in-out infinite alternate -2s paused;
+  }
+  .coast-prism:last-child {
+    animation-delay: -6s;
+  }
+  .coast-tide {
+    animation: coast-tide 7s linear infinite -1s paused;
+  }
+  .coast-tide:nth-child(2) {
+    animation-delay: -3.5s;
+  }
+  .coast-tide:last-child {
+    animation-delay: -5.5s;
+  }
+  .hero-cinema[data-active="true"] > .coastal-atmosphere > *,
+  .chapter-environment[data-active="true"] .coastal-atmosphere > * {
+    animation-play-state: running;
+  }
+  .home-page .hero-landscape img {
+    animation-duration: 12s;
+    animation-timing-function: linear;
+  }
+  .home-page .hero-lightbeam {
+    animation-duration: 7s;
+  }
+  .home-page .immersive-chapter .world-scene picture {
+    display: block;
+    animation: coastal-object-float 5s ease-in-out infinite alternate -1s paused;
+  }
+  .home-page
+    .immersive-chapter:has(.chapter-environment[data-active="true"])
+    .world-scene
+    picture {
+    animation-play-state: running;
+  }
+}

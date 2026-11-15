@@ -3,6 +3,7 @@ import "./home-experience.css";
 import "./coastal-home.css";
 import "./home-environments.css";
 import "./coastal-motion.css";
+import "./ambient-coast.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
