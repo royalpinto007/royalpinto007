@@ -65,7 +65,9 @@ with sync_playwright() as p:
     checks.append('breakpoint changes keep content within the viewport')
 
     card = page.locator('.work-piece').nth(2).locator('.work-details')
-    assert card.evaluate("n=>getComputedStyle(n).opacity==='0'")
+    # Resizing across the fine-pointer breakpoint remounts GSAP asynchronously.
+    # Wait for the new context's hidden state before exercising its reveal.
+    page.wait_for_function("document.documentElement.dataset.motion==='ready' && getComputedStyle(document.querySelectorAll('.work-piece .work-details')[2]).opacity==='0'")
     distance = card.evaluate('n=>n.getBoundingClientRect().top-240')
     page.mouse.wheel(0,distance)
     page.wait_for_function("getComputedStyle(document.querySelectorAll('.work-piece .work-details')[2]).opacity==='1'")
