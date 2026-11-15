@@ -13,7 +13,7 @@ with sync_playwright() as p:
   page.wait_for_function("document.documentElement.dataset.motion==='ready'")
   page.wait_for_function("[...document.querySelectorAll('.hero-line>span')].every(n=>getComputedStyle(n).transform==='none')")
   assert page.locator('.brand-link').inner_text().startswith('Royal Simpson Pinto')
-  assert page.locator('.brand-link').bounding_box()['width']>130
+  assert page.locator('.brand-link > span').evaluate('n=>{const range=document.createRange();range.selectNodeContents(n);const r=range.getBoundingClientRect(),b=n.getBoundingClientRect();return r.left>=b.left-1&&r.right<=b.right+1&&parseFloat(getComputedStyle(n).fontSize)>=12}')
   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),('hero',width)
   page.screenshot(path=str(OUT/f'hero-{width}.png'))
   band=page.locator('.kinetic-band');band.scroll_into_view_if_needed()

@@ -9,6 +9,7 @@ const revealSelector = [
   ".contribution-wall",
   ".experience-facts > div",
   ".playground-images > a",
+  ".experiment-preview",
   ".design-tile",
   ".category-project",
   ".reveal",
@@ -182,7 +183,9 @@ export function mountPortfolioMotion(root: HTMLElement) {
           });
 
         if (fine) {
-          const scene = root.querySelector(".portrait-scene");
+          const scene = root.querySelector(
+            ".portrait-scene:not(.portrait-person)",
+          );
           if (hero && scene)
             gsap.to(scene, {
               y: -65,
@@ -194,6 +197,38 @@ export function mountPortfolioMotion(root: HTMLElement) {
                 end: "bottom top",
                 scrub: 0.8,
               },
+            });
+          const landscape = root.querySelector(".hero-landscape");
+          if (landscape && hero)
+            gsap.to(landscape, {
+              yPercent: 12,
+              scale: 1.06,
+              ease: "none",
+              scrollTrigger: {
+                trigger: hero,
+                start: "top top",
+                end: "bottom top",
+                scrub: 0.8,
+              },
+            });
+          root
+            .querySelectorAll<HTMLElement>(".product-art")
+            .forEach((art, i) => {
+              gsap.fromTo(
+                art,
+                { rotation: i % 2 ? -1.5 : 1.5, scale: 1.06 },
+                {
+                  rotation: i % 2 ? 1.5 : -1.5,
+                  scale: 1.06,
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: art,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 0.8,
+                  },
+                },
+              );
             });
           root
             .querySelectorAll(".playground-images img")
@@ -235,6 +270,19 @@ export function mountPortfolioMotion(root: HTMLElement) {
               ease: "none",
               scrollTrigger: { start: 0, end: "max", scrub: 1 },
             });
+          });
+
+        const calendar = root.querySelector(".contribution-calendar");
+        if (calendar)
+          gsap.from(calendar.querySelectorAll(".wall-svg rect"), {
+            y: 6,
+            scale: 0.85,
+            transformOrigin: "50% 50%",
+            duration: 0.6,
+            stagger: 0.002,
+            ease: "power3.out",
+            clearProps: "transform,transformOrigin",
+            scrollTrigger: { trigger: calendar, start: "top 88%", once: true },
           });
 
         if (progress) {

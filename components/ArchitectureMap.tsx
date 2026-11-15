@@ -307,6 +307,31 @@ export function ArchitectureMap({
   system: string;
   instance?: string;
 }) {
+  const phases: Record<string, string[][]> = {
+    aashinyra: [
+      ["retailers", "ingest"],
+      ["postgres", "auth"],
+      ["publish", "d1"],
+      ["browser", "app", "r2"],
+    ],
+    signalizeai: [
+      ["page", "ui"],
+      ["api", "brief"],
+      ["alarm", "snapshots", "diff", "supabase"],
+      ["alerts", "brief"],
+    ],
+    boardeject: [
+      ["selection", "helper", "capture"],
+      ["worker", "model"],
+      ["converter", "preview", "report"],
+      ["download"],
+    ],
+  };
+  const wirePhases: Record<string, number[][]> = {
+    aashinyra: [[0], [1, 7], [2, 3], [4, 5, 6]],
+    signalizeai: [[0], [1, 2], [3, 4, 6, 7, 8, 9], [5, 6]],
+    boardeject: [[0, 1], [2, 3], [4, 5, 7, 8], [6]],
+  };
   const mapId = `${system}${instance}`;
   const graph = graphs[system];
   return (
@@ -340,13 +365,21 @@ export function ArchitectureMap({
       </defs>
       <g className="architecture-wires" aria-hidden="true">
         {graph.edges.map((edge, i) => (
-          <g key={i}>
+          <g
+            key={i}
+            data-stages={wirePhases[system]
+              .flatMap((indices, stage) => (indices.includes(i) ? [stage] : []))
+              .join(" ")}
+          >
             <path
               className={edge.dashed ? "map-wire map-wire-dashed" : "map-wire"}
               d={edge.path}
               pathLength={edge.dashed ? undefined : 1}
               markerEnd={`url(#${mapId}-arrow)`}
             />
+            {!edge.dashed && (
+              <path className="map-packet" d={edge.path} pathLength="100" />
+            )}
             {edge.label && (
               <text x={edge.x} y={edge.y}>
                 {edge.label}
@@ -360,6 +393,11 @@ export function ArchitectureMap({
           <g
             className={`map-node map-node-${node.tone || "neutral"}`}
             key={node.id}
+            data-stages={phases[system]
+              .flatMap((nodes, stage) =>
+                nodes.includes(node.id) ? [stage] : [],
+              )
+              .join(" ")}
             transform={`translate(${node.x} ${node.y})`}
           >
             <rect width="190" height="84" rx="9" />

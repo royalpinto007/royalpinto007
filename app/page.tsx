@@ -1,12 +1,16 @@
 import { readFileSync } from "node:fs";
 import "./home.css";
+import "./home-experience.css";
 import path from "node:path";
 import Image from "next/image";
+import { Anton } from "next/font/google";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
 import { DesignGallery } from "@/components/DesignGallery";
 import { MotionReel } from "@/components/MotionReel";
 import { KineticBand } from "@/components/KineticBand";
+import { ExperimentPlayground } from "@/components/ExperimentPlayground";
+import { CinematicHero } from "@/components/CinematicHero";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { SystemsShowcase } from "@/components/SystemsShowcase";
 import { siteConfig } from "@/data/site";
@@ -50,69 +54,53 @@ const work = [
   },
 ];
 
+const display = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
+});
+
 export default function HomePage() {
   return (
-    <div className="portfolio-shell home-page">
-      <section className="portfolio-hero hero-cinema">
-        <div className="hero-sunset" aria-hidden="true" />
+    <div className={`portfolio-shell home-page ${display.variable}`}>
+      <CinematicHero>
         <div className="hero-copy">
           <p className="intro-name">
-            Royal Simpson Pinto <span>Software engineer</span>
+            Software engineer <span>Independent builder</span>
           </p>
           <h1>
             <span className="hero-line">
-              <span>Built from</span>
+              <span>Build</span>
             </span>
             <span className="hero-line">
-              <span className="hero-title-accent">curiosity.</span>
+              <span className="hero-title-accent">beyond.</span>
             </span>
           </h1>
-          <p className="hero-description">
-            AI agents. Full-stack products. Automation. Web3.
-          </p>
-          <a className="hero-open-source" href="#oss">
-            <GitBranch size={15} /> Built in the open <ArrowRight size={14} />
-          </a>
-          <div className="hero-actions">
-            <a className="primary-link" href="#work">
-              Explore my work <ArrowRight size={17} />
-            </a>
-            <a className="quiet-link" href={siteConfig.hireUrl}>
-              Let’s talk <ArrowUpRight size={17} />
+          <div className="hero-details">
+            <p className="hero-description">
+              AI agents. Full-stack. Automation. Web3.
+            </p>
+            <a className="hero-open-source" href="#oss">
+              <GitBranch size={13} /> Built in the open <ArrowRight size={13} />
             </a>
           </div>
         </div>
         <figure className="portrait">
-          <div className="portrait-scene">
-            <div className="portrait-visual">
-              <picture>
-                <source srcSet="/portrait-sky.webp" type="image/webp" />
-                <Image
-                  src={siteConfig.avatar}
-                  alt="Illustrated portrait of Royal Simpson Pinto against a blue and pink sunset sky"
-                  width={460}
-                  height={460}
-                  loading="eager"
-                  fetchPriority="high"
-                />
-              </picture>
-            </div>
+          <div className="portrait-scene portrait-person">
+            <picture>
+              <source srcSet="/portrait-sky.webp" type="image/webp" />
+              <Image
+                src={siteConfig.avatar}
+                alt="Illustrated portrait of Royal Simpson Pinto against a blue and pink sunset sky"
+                width={460}
+                height={460}
+                loading="eager"
+                fetchPriority="high"
+              />
+            </picture>
           </div>
-          <figcaption>
-            <span>Mangaluru, India</span>
-            <span>
-              {siteConfig.availabilityStatus
-                ? "Open to opportunities"
-                : "Currently building"}
-            </span>
-          </figcaption>
         </figure>
-      </section>
-
-      <a className="scroll-note" href="#work">
-        <span>Scroll to explore</span>
-        <ArrowRight size={15} aria-hidden="true" />
-      </a>
+      </CinematicHero>
 
       <KineticBand />
 
@@ -168,60 +156,18 @@ export default function HomePage() {
       <SystemsShowcase />
       <MotionReel />
 
-      <section className="open-source" id="oss">
+      <section
+        className="open-source open-source-experience"
+        id="oss"
+        aria-labelledby="source-title"
+      >
         <div className="section-intro open-source-heading">
-          <h2>
-            Started in open source.
-            <br />
-            <span>Still building in it.</span>
-          </h2>
+          <h2 id="source-title">Open by default.</h2>
           <p>
-            From my first programmes to the projects I contribute to, build, and
-            maintain today.
+            Contribute. Create. Maintain.
+            <br />
+            Keep the good ideas moving.
           </p>
-        </div>
-        <div className="open-source-journey">
-          <div className="journey-start">
-            <span className="journey-label">Where it started</span>
-            <ul
-              className="programme-strip"
-              aria-label="Programmes that started my open-source journey"
-            >
-              <li>
-                <strong>GSoC</strong>
-                <span>Google Summer of Code</span>
-              </li>
-              <li>
-                <strong>LFX</strong>
-                <span>Linux Foundation’s LFX Mentorship</span>
-              </li>
-              <li>
-                <strong>SAoC</strong>
-                <span>Symmetry Autumn of Code</span>
-              </li>
-            </ul>
-          </div>
-          <div className="journey-now">
-            <span className="journey-label">Where it keeps going</span>
-            <a
-              href="https://github.com/qdrant"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <strong>Contributing</strong>
-              <span>Qdrant, compilers, networking & developer tools</span>
-              <ArrowUpRight size={18} />
-            </a>
-            <a
-              href="https://github.com/AgentPostmortem"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <strong>Building & maintaining</strong>
-              <span>AgentPostmortem, BoardEject & open-source tooling</span>
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
         </div>
         <div className="contribution-summary">
           <strong>12,529 contributions in 2026</strong>
@@ -253,6 +199,30 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        <div className="source-origin journey-start">
+          <p>
+            Where it started.
+            <br />
+            <strong>Still building, well beyond the programmes.</strong>
+          </p>
+          <ul
+            className="programme-strip"
+            aria-label="Programmes that started my open-source journey"
+          >
+            <li>
+              <strong>GSoC</strong>
+              <span>Google Summer of Code</span>
+            </li>
+            <li>
+              <strong>LFX</strong>
+              <span>Linux Foundation’s LFX Mentorship</span>
+            </li>
+            <li>
+              <strong>SAoC</strong>
+              <span>Symmetry Autumn of Code</span>
+            </li>
+          </ul>
+        </div>
         <div className="experience-facts">
           {siteConfig.stats.slice(1).map((stat) => (
             <div key={stat.label}>
@@ -268,32 +238,7 @@ export default function HomePage() {
           <h2>Go on. Play with it.</h2>
           <p>Physics. Light. A little browser magic.</p>
         </div>
-        <div className="playground-images">
-          {["fogged-glass", "magnetic-sand", "jelly-iphone"].map((slug) => (
-            <a
-              key={slug}
-              href={`/facetworks/${slug}/`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="playground-image-viewport">
-                <Image
-                  src={`/work/${slug}.webp`}
-                  alt={slug.replaceAll("-", " ")}
-                  width={960}
-                  height={640}
-                />
-              </div>
-              <span>
-                {slug
-                  .split("-")
-                  .map((word) => word[0].toUpperCase() + word.slice(1))
-                  .join(" ")}{" "}
-                <ArrowUpRight size={16} />
-              </span>
-            </a>
-          ))}
-        </div>
+        <ExperimentPlayground />
         <a
           className="quiet-link"
           href="https://royalpinto007.com/facetworks"

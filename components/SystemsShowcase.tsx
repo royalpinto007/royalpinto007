@@ -162,6 +162,27 @@ export function SystemsShowcase() {
                 <ArrowUpRight size={17} />
               </a>
             </div>
+            <fieldset className="architecture-walkthrough">
+              <legend>Follow the data</legend>
+              <label>
+                <input
+                  type="radio"
+                  name={`walk-${system.id}`}
+                  value="all"
+                  defaultChecked
+                />
+                <span>Full system</span>
+              </label>
+              {system.flow.map((step, i) => (
+                <label key={step.title}>
+                  <input type="radio" name={`walk-${system.id}`} value={i} />
+                  <span>
+                    <b>{i + 1}</b>
+                    {step.title}
+                  </span>
+                </label>
+              ))}
+            </fieldset>
             <ArchitectureMap system={system.id} />
             <ol
               className="system-flow"
@@ -170,7 +191,7 @@ export function SystemsShowcase() {
               {system.flow.map((node, i) => {
                 const Icon = system.icons[i];
                 return (
-                  <li key={node.title}>
+                  <li key={node.title} data-stage={i}>
                     <div className="system-node">
                       <span className="system-step" aria-hidden="true">
                         0{i + 1}

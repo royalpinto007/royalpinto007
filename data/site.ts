@@ -33,7 +33,7 @@ export const siteConfig = {
     "Building agentic AI workflows with n8n and Claude API for clients",
     "Running a suite of eight live AI agents for triage, approvals, debugging, and ops",
     "Growing SignalizeAI — a sales-research extension on Chrome and Firefox",
-    "Contributing to Qdrant open source: the core engine, agent skills, and the MCP server",
+    "Contributing to open-source systems, agent tooling, and developer tools",
     "Contributing to open source compilers, networking systems, and AI tooling",
   ],
 

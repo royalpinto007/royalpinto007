@@ -20,8 +20,8 @@ with sync_playwright() as p:
    expect(hero['x']<=width*.05 and width-hero['x']-hero['width']<=width*.05,f'{width}: unused lateral gutters')
 
   headline=page.locator('h1').inner_text().lower()
-  expect('built from' in headline and 'curiosity' in headline,f'{width}: cinematic headline missing')
-  expect('Royal Simpson Pinto' in page.locator('.intro-name').inner_text(),f'{width}: personal identity absent')
+  expect('build' in headline and 'beyond' in headline,f'{width}: cinematic headline missing')
+  expect('Royal Simpson Pinto' in page.locator('.brand-link').inner_text(),f'{width}: personal identity absent')
   for i,line in enumerate(page.locator('.hero-line').all()):
    expect(line.evaluate('n=>n.getBoundingClientRect().height<=parseFloat(getComputedStyle(n).lineHeight)*1.3'),f'{width}: headline line {i+1} wraps')
   description=page.locator('.hero-description').inner_text().lower()
@@ -29,7 +29,8 @@ with sync_playwright() as p:
   expect(len(description.split())<25,f'{width}: hero too wordy')
   expect(page.locator('#systems').evaluate('n=>n.compareDocumentPosition(document.querySelector(".motion-reel")) & Node.DOCUMENT_POSITION_FOLLOWING'),f'{width}: creative reel precedes system design')
   expect('Where it started' in page.locator('.journey-start').inner_text(),f'{width}: programmes not framed as the beginning')
-  expect('Contributing' in page.locator('.journey-now').inner_text() and 'Building & maintaining' in page.locator('.journey-now').inner_text(),f'{width}: ongoing open source missing')
+  expect('Contribute. Create. Maintain.' in page.locator('.open-source-heading').inner_text(),f'{width}: ongoing open source missing')
+  expect('Qdrant' not in page.locator('#oss').inner_text(),f'{width}: named contribution reference remains')
   expect(page.locator('#system-tenantq,#system-vaultrag').count()==0,f'{width}: retired architecture cases remain')
   page.screenshot(path=str(OUT/f'hero-{width}.png'))
   if width in [1920,320]:
