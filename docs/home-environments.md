@@ -42,7 +42,15 @@ Edit this original environment into a PORTRAIT 9:16 composition for a mobile cin
 
 ## Verification
 
-`python scripts/check-environments.py` checks seven unique full-section scenes at 320, 390, 768, 1440 and 1920 pixels, responsive source selection, deferred requests, copy containment, normal-motion entrance bounds, reduced-motion cleanup, no-JavaScript rendering and image failure. Existing Home, loading, bounds, motion, reel and interactive-scene checks cover the retained behavior. Only the dev review Worker is released; the public holding page is unchanged.
+`python scripts/check-environments.py` checks six unique full-section scenes at 320, 390, 768, 1440 and 1920 pixels, responsive source selection, deferred requests, copy containment, normal-motion entrance bounds, reduced-motion cleanup, no-JavaScript rendering and image failure. Existing Home, loading, bounds, motion, reel and interactive-scene checks cover the retained behavior. Only the dev review Worker is released; the public holding page is unchanged.
+
+## Foreground focus and readable type
+
+The current Home selects SignalizeAI, AashiNyra and BoardEject. AgentPostmortem and its related projects remain in the Projects catalogue; its observatory environment is retained as an unused source asset. Six distinct environments are assigned to Home. The decorative images use reduced saturation/contrast and a subtle warm veil, while foreground text and controls keep their full contrast.
+
+Navigation, calls to action, captions and supporting copy use a larger shared type scale, with responsive spacing and retained native keyboard controls. The light coastal palette remains drawn from the supplied portrait.
+
+The playground's liquid-chrome artwork is an original Blender 5.2 Cycles render, built from a procedural trefoil, reflective silver, jacket-blue and rose glass, and warm porcelain steps. The script `scripts/render-coastal-chrome.py` regenerates the transparent PNG and editable Blender scene at a supplied output path. Responsive production assets are `public/scene/liquid-chrome.webp` and `public/scene/liquid-chrome-mobile.webp`. The web page serves optimized images and existing GSAP motion, with no Blender or extra 3D runtime in the browser.
 
 ## Original portrait fidelity
 

@@ -28,15 +28,6 @@ const work = [
     stack: ["Browser extension", "AI workflows"],
   },
   {
-    name: "AgentPostmortem",
-    kind: "AI infrastructure",
-    image: "agentpostmortem",
-    scene: "observatory",
-    href: "https://agentpostmortem.com",
-    description: "Real agent failures. Lessons worth building on.",
-    stack: ["Supabase", "MCP", "Open source"],
-  },
-  {
     name: "AashiNyra",
     kind: "Commerce",
     image: "aashinyra",

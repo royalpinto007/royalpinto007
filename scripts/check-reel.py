@@ -75,8 +75,8 @@ with sync_playwright() as p:
     page.locator('.reel-stage').scroll_into_view_if_needed()
     page.wait_for_function("document.querySelector('.reel-poster > img').complete && document.querySelector('.reel-poster > img').naturalWidth>0")
     assert page.locator('.reel-poster > img').evaluate('n=>n.complete && n.naturalWidth>0')
-    assert page.locator('.work-piece').count() == 4
-    checks.append('without JavaScript, static reel and all four project entries remain available')
+    assert page.locator('.work-piece').count() == 3
+    checks.append('without JavaScript, static reel and all three selected project entries remain available')
     context.close()
 
     context = browser.new_context(reduced_motion='no-preference')

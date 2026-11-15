@@ -66,6 +66,15 @@ export function Header() {
                 href={link.href}
                 prefetch={false}
                 key={link.href}
+                aria-current={
+                  (
+                    link.href === "/"
+                      ? pathname === "/"
+                      : pathname.startsWith(link.href)
+                  )
+                    ? "page"
+                    : undefined
+                }
                 onClick={(event) => {
                   const menu = event.currentTarget.closest("details");
                   if (menu) menu.open = false;

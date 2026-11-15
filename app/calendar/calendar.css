@@ -177,3 +177,8 @@
     font-size: 34px;
   }
 }
+
+.calendar-preview-copy > p {
+  font-size: 17px;
+  line-height: 1.65;
+}

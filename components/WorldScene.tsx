@@ -7,19 +7,15 @@ export function WorldScene({
   kind: "studio" | "engine" | "play" | "arcade" | "telephone" | "horizon";
 }) {
   const asset =
-    kind === "studio" || kind === "engine" ? `${kind}-island` : kind;
+    kind === "studio" || kind === "engine"
+      ? `${kind}-island`
+      : kind === "play"
+        ? "liquid-chrome"
+        : kind;
   return (
     <div className={`world-scene world-${kind}`} aria-hidden="true">
       {kind === "horizon" ? (
         <CoastalHorizon />
-      ) : kind === "play" ? (
-        <div className="chrome-stage">
-          <div className="chrome-ring" />
-          <div className="chrome-sphere" />
-          <div className="chrome-sphere chrome-satellite" />
-          <div className="glass-prism" />
-          <div className="chrome-floor" />
-        </div>
       ) : (
         <picture>
           <source
@@ -30,7 +26,7 @@ export function WorldScene({
           <img
             src={`/scene/${asset}.webp`}
             width={1200}
-            height={800}
+            height={kind === "play" ? 960 : 800}
             alt=""
             loading="lazy"
             decoding="async"

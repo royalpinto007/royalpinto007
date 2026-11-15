@@ -155,3 +155,23 @@
     margin-bottom: 24px;
   }
 }
+
+.contact-page .contact-invitation > p {
+  font-size: 17px;
+}
+.contact-page .contact-invitation > div:last-child > a:not(.primary-link) {
+  font-size: 15px;
+}
+.contact-section-label {
+  font-size: 13px;
+}
+.contact-page .contact-channels .mono {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.contact-channel-action {
+  font-size: 15px;
+}
+.contact-socials > a {
+  font-size: 16px;
+}

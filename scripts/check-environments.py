@@ -14,7 +14,7 @@ with sync_playwright() as p:
   initial_art=[u for u in requests if '/scene/environments/' in u]
   first_visible=page.locator('.work-world').first.bounding_box()['y']<900
   assert not initial_art if not first_visible else all('/marina' in u for u in initial_art), 'Offscreen chapter artwork competed with the initial hero load'
-  assert page.locator('.chapter-environment').count()==7
+  assert page.locator('.chapter-environment').count()==6
   scenes=[]
   for host in page.locator('.work-world,.immersive-chapter').all():
    host.locator('.chapter-environment').evaluate('n=>n.scrollIntoView({block:"start"})')
@@ -24,7 +24,7 @@ with sync_playwright() as p:
    rect=host.bounding_box();back=host.locator('.chapter-environment').bounding_box()
    assert abs(rect['width']-back['width'])<2 and abs(rect['height']-back['height'])<2, 'Scenery is inset inside a card'
    assert back['x']<=1 and back['width']>=width-2,'Section scenery leaves empty side gutters'
-   assert image.evaluate("n=>getComputedStyle(n).opacity==='1'")
+   assert image.evaluate("n=>getComputedStyle(n).opacity==='1'&&getComputedStyle(n).filter.includes('saturate(0.72)')&&getComputedStyle(n).filter.includes('contrast(0.88)')")
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
    if host.locator('.work-details').count():
     preview=host.locator('.work-preview')
@@ -38,7 +38,7 @@ with sync_playwright() as p:
     detail=host.locator('.work-details')
     assert detail.evaluate('''n=>{const b=n.getBoundingClientRect();return [...n.querySelectorAll('h3,p,li,a')].every(x=>{const r=document.createRange();r.selectNodeContents(x);const t=r.getBoundingClientRect();return t.left>=b.left-1&&t.right<=b.right+1})}'''),'Project copy escapes its glass layer'
    checks.append({'width':width,'scene':source.rsplit('/',1)[-1],'full_section':True})
-  assert len(scenes)==len(set(scenes))==7
+  assert len(scenes)==len(set(scenes))==6
   ctx.close()
  ctx=b.new_context(viewport={'width':1440,'height':1000},reduced_motion='no-preference')
  page=ctx.new_page();page.goto(BASE,wait_until='networkidle');page.wait_for_function("document.documentElement.dataset.motion==='ready'")
@@ -69,4 +69,4 @@ with sync_playwright() as p:
  ctx.close();b.close()
 assert not errors,errors
 (OUT/'verification.json').write_text(json.dumps({'ok':True,'checks':checks,'deferred_images':True,'no_js':True,'failure_fallback':True,'reduced_motion_cleanup':True,'runtime_errors':errors},indent=2)+'\n')
-print('PASS seven unique section-wide environments at five widths, deferred responsive images, copy containment, motion cleanup, no-JS and failed-image fallback')
+print('PASS six unique section-wide environments at five widths, deferred responsive images, copy containment, motion cleanup, no-JS and failed-image fallback')

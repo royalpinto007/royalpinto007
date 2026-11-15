@@ -279,3 +279,35 @@
   top: auto;
   bottom: calc(100% + 10px);
 }
+
+/* Readable catalogue controls and project descriptions. */
+.project-directory-bar > p,
+.category-menu summary,
+.category-menu nav a {
+  font-size: 16px;
+}
+.projects-page .category-project .project-card > p,
+.projects-page .category-project .project-card > ul li {
+  font-size: 16px;
+  line-height: 1.65;
+}
+.projects-page .category-project .project-card-head span,
+.projects-page .category-project .project-card-tech,
+.projects-page .category-project .project-card-links a {
+  font-size: 14px;
+}
+.projects-page .design-tile p {
+  font-size: 15px;
+}
+@media (max-width: 767px) {
+  .project-directory-bar {
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+.projects-page .project-jumps a:nth-child(n),
+.projects-page .section-intro > p {
+  font-size: 16px;
+}
