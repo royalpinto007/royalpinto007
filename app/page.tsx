@@ -4,6 +4,7 @@ import "./coastal-home.css";
 import "./home-environments.css";
 import "./coastal-motion.css";
 import "./ambient-coast.css";
+import "./kinetic-opening.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
@@ -15,6 +16,8 @@ import { CoastalSculpture } from "@/components/CoastalSculpture";
 import { BoardDemo } from "@/components/BoardDemo";
 import { ContributionWall } from "@/components/ContributionWall";
 import { CinematicHero } from "@/components/CinematicHero";
+import { TypingDescriptor } from "@/components/TypingDescriptor";
+import { SkillRail } from "@/components/SkillRail";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { SystemsShowcase } from "@/components/SystemsShowcase";
 import { SceneEnvironment } from "@/components/SceneEnvironment";
@@ -67,12 +70,14 @@ export default function HomePage() {
             </span>
           </h1>
           <div className="hero-details">
-            <p className="hero-description">
-              AI agents. Full-stack. Automation. Web3.
-            </p>
-            <a className="hero-open-source" href="#oss">
-              <GitBranch size={13} /> Built in the open <ArrowRight size={13} />
-            </a>
+            <TypingDescriptor />
+            <div className="hero-proof-row">
+              <a className="hero-open-source" href="#oss">
+                <GitBranch size={13} /> Built in the open{" "}
+                <ArrowRight size={13} />
+              </a>
+              <SkillRail />
+            </div>
           </div>
         </div>
         <figure className="portrait">

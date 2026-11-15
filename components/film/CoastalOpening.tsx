@@ -9,7 +9,7 @@ export function CoastalOpening({
   compact: boolean;
   closing?: boolean;
 }) {
-  const enter = interpolate(frame, [0, 28], [0, 1], {
+  const enter = interpolate(frame, [0, 18], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -102,13 +102,34 @@ export function CoastalOpening({
           style={{
             position: "absolute",
             left: compact ? 48 : 74,
+            top: compact ? 370 : 450,
+            color: "#12374e",
+            fontSize: compact ? 25 : 30,
+            fontFamily: "var(--font-geist),sans-serif",
+          }}
+        >
+          {"Open source. Always building.".slice(
+            0,
+            Math.max(0, Math.floor((frame - 65) * 0.8)),
+          )}
+        </p>
+      )}
+      {closing && (
+        <p
+          style={{
+            position: "absolute",
+            left: compact ? 48 : 74,
             bottom: compact ? 170 : 100,
             color: "#12374e",
             fontSize: compact ? 25 : 24,
             fontFamily: "var(--font-geist),sans-serif",
           }}
         >
-          royalpinto007.com
+          {"royalpinto007.com".slice(
+            0,
+            Math.max(0, Math.floor((frame - 28) * 0.5)),
+          )}
+          <span style={{ opacity: frame % 24 < 16 ? 1 : 0 }}>▍</span>
         </p>
       )}
     </AbsoluteFill>

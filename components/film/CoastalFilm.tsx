@@ -7,6 +7,7 @@ import {
 } from "remotion";
 import { CoastalOpening } from "./CoastalOpening";
 import { ArtifactScene } from "./ArtifactScene";
+import { DockScene } from "./DockScene";
 
 export const FILM_DURATION = 600;
 export function ProjectReelComposition() {
@@ -14,7 +15,7 @@ export function ProjectReelComposition() {
   const compact = useVideoConfig().width < 1000;
   const index = frame < 150 ? 0 : frame < 390 ? 1 : 2;
   const local = frame < 150 ? frame : frame < 390 ? frame - 150 : frame - 390;
-  const wipe = interpolate(local, [0, 14], [100, 0], {
+  const wipe = interpolate(local, [0, 8], [100, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -25,7 +26,7 @@ export function ProjectReelComposition() {
       style={{ overflow: "hidden", background: "#bbdcf2" }}
     >
       <Sequence from={0} durationInFrames={150}>
-        <CoastalOpening frame={local} compact={compact} />
+        <DockScene frame={local} compact={compact} />
       </Sequence>
       <Sequence from={150} durationInFrames={240}>
         <ArtifactScene frame={local} compact={compact} />
@@ -38,7 +39,7 @@ export function ProjectReelComposition() {
           pointerEvents: "none",
           background: "#fff1dd",
           transform: `translateX(${-100 + wipe}%)`,
-          opacity: local < 14 ? 1 : 0,
+          opacity: local < 8 ? 1 : 0,
         }}
       />
       <div

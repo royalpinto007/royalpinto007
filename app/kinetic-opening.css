@@ -1,0 +1,325 @@
+.typing-visual {
+  display: none;
+}
+.typing-description {
+  min-height: 3.2em;
+}
+.hero-proof-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: fit-content;
+}
+.home-page .hero-details {
+  max-width: 460px;
+}
+.hero-cinema[data-effects-enabled="true"] .typing-static {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.hero-cinema[data-effects-enabled="true"] .typing-visual {
+  display: block;
+}
+.typing-words {
+  display: grid;
+  font-family: ui-monospace, monospace;
+  font-variant-ligatures: none;
+}
+.typing-word {
+  grid-area: 1 / 1;
+  width: max-content;
+  position: relative;
+  opacity: 0;
+  white-space: pre;
+}
+.typing-reveal {
+  display: block;
+}
+.typing-caret {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  height: 70%;
+  width: 2px;
+  background: #963361;
+}
+.skill-rail {
+  position: relative;
+  width: 220px;
+  flex: 0 0 auto;
+  perspective: 600px;
+}
+.skill-rail-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 6px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #fff5e9e8, #bddaf0de);
+  border: 1px solid #fff9;
+  box-shadow:
+    0 7px 0 #607d9d50,
+    0 14px 20px #173b5024;
+  transform: rotateX(18deg) rotateY(-8deg) rotateZ(-3deg);
+  transform-style: preserve-3d;
+}
+.skill-tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  padding: 5px 2px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #f9e1ed, #e8b4cc);
+  color: #173b50;
+  border: 1px solid #fff9;
+  box-shadow: 0 4px 0 #94486855;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 650;
+}
+.skill-tile:nth-child(2) {
+  background: linear-gradient(145deg, #e2f2ff, #99c5ea);
+  box-shadow: 0 4px 0 #46709e55;
+}
+.skill-tile:nth-child(3) {
+  background: linear-gradient(145deg, #ffecce, #f7c49e);
+  box-shadow: 0 4px 0 #a7755355;
+}
+.skill-tile:nth-child(4) {
+  background: linear-gradient(145deg, #efe8ff, #c7b0e5);
+  box-shadow: 0 4px 0 #6b558d55;
+}
+.skill-tile > svg {
+  width: 22px;
+  height: 22px;
+}
+.skill-rail-orbit {
+  position: absolute;
+  inset: -40px 0 -10px;
+  overflow: clip;
+  pointer-events: none;
+}
+.skill-rail-ball-route {
+  position: absolute;
+  top: 36px;
+  left: 12.5%;
+  width: 100%;
+  height: 28px;
+}
+.skill-rail-ball {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 22%,
+    #fff 0 5%,
+    #c8ebff 13%,
+    #4978ac 38%,
+    #f5b7d2 62%,
+    #fff4d7 77%,
+    #5474a3
+  );
+  box-shadow:
+    inset -3px -4px 5px #173b5040,
+    0 7px 8px #173b5040;
+}
+.skill-rail-film {
+  width: 100%;
+  perspective: 1500px;
+}
+.skill-rail-film .skill-rail-track {
+  gap: 20px;
+  padding: 18px;
+  border-radius: 30px;
+}
+.skill-rail-film .skill-tile {
+  min-height: 112px;
+  padding: 12px;
+  font-size: 24px;
+  border-radius: 18px;
+  box-shadow: 0 10px 0 #607d9d55;
+}
+.skill-rail-film .skill-tile > svg {
+  width: 50px;
+  height: 50px;
+}
+.skill-rail-film .skill-rail-orbit {
+  inset: -160px 0 -25px;
+}
+.skill-rail-film .skill-rail-ball-route {
+  top: 136px;
+  height: 72px;
+}
+.skill-rail-film .skill-rail-ball {
+  width: 72px;
+  height: 72px;
+  margin-left: -36px;
+}
+@keyframes type-word {
+  0%,
+  24% {
+    opacity: 1;
+  }
+  25%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes type-reveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  9%,
+  24% {
+    clip-path: inset(0 0 0 0);
+  }
+  25%,
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+@keyframes type-caret {
+  0% {
+    transform: translateX(0);
+  }
+  9%,
+  24% {
+    transform: translateX(calc(var(--letters) * 1ch));
+  }
+  25%,
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes rail-hop {
+  0%,
+  20% {
+    transform: translate3d(0, 0, 0);
+  }
+  22.5% {
+    transform: translate3d(12.5%, -24px, 0);
+  }
+  25%,
+  45% {
+    transform: translate3d(25%, 0, 0);
+  }
+  47.5% {
+    transform: translate3d(37.5%, -24px, 0);
+  }
+  50%,
+  70% {
+    transform: translate3d(50%, 0, 0);
+  }
+  72.5% {
+    transform: translate3d(62.5%, -24px, 0);
+  }
+  75%,
+  92% {
+    transform: translate3d(75%, 0, 0);
+  }
+  96% {
+    transform: translate3d(37.5%, -28px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes tile-press {
+  0%,
+  20% {
+    transform: translateY(3px) scale(0.97);
+  }
+  25%,
+  100% {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .typing-word {
+    animation: type-word 8s step-end infinite paused;
+    animation-delay: var(--phase);
+  }
+  .typing-reveal {
+    animation: type-reveal 8s steps(var(--letters), end) infinite paused;
+    animation-delay: var(--phase);
+  }
+  .typing-caret {
+    animation: type-caret 8s steps(var(--letters), end) infinite paused;
+    animation-delay: var(--phase);
+  }
+  .skill-rail-live .skill-rail-ball-route {
+    animation: rail-hop 8s linear infinite paused;
+  }
+  .skill-rail-live .skill-tile {
+    animation: tile-press 8s var(--ease-out) infinite paused;
+    animation-delay: var(--phase);
+  }
+  .hero-cinema[data-active="true"]
+    :is(
+      .typing-word,
+      .typing-reveal,
+      .typing-caret,
+      .skill-rail-live .skill-rail-ball-route,
+      .skill-rail-live .skill-tile
+    ) {
+    animation-play-state: running;
+  }
+}
+@media (max-width: 1023px) {
+  .hero-proof-row {
+    gap: 12px;
+  }
+  .skill-rail-live {
+    width: 128px;
+  }
+  .skill-rail-live .skill-rail-track {
+    gap: 4px;
+    padding: 4px;
+  }
+  .skill-rail-live .skill-tile {
+    padding: 5px 1px;
+  }
+  .skill-rail-live .skill-tile > svg {
+    width: 19px;
+    height: 19px;
+  }
+  .skill-rail-live .skill-tile > span {
+    display: none;
+  }
+  .skill-rail-live .skill-rail-ball {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+  }
+}
+@media (max-width: 767px) {
+  .home-page .hero-details {
+    max-width: 100%;
+  }
+  .hero-proof-row {
+    gap: 4px;
+  }
+  .hero-proof-row .hero-open-source {
+    flex: 0 0 auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-cinema[data-effects-enabled="true"] .typing-static {
+    position: static;
+    width: auto;
+    height: auto;
+    clip-path: none;
+    white-space: normal;
+  }
+  .hero-cinema[data-effects-enabled="true"] .typing-visual {
+    display: none;
+  }
+}

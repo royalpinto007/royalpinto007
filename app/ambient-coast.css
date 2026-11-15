@@ -205,10 +205,10 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .coast-flight {
-    animation: coast-flight 18s linear infinite -6s paused;
+    animation: coast-flight 9s linear infinite -6s paused;
   }
   .coast-caustic {
-    animation: coast-caustic 6s linear infinite -1s paused;
+    animation: coast-caustic 3.2s linear infinite -1s paused;
   }
   .coast-caustic:nth-last-child(2) {
     animation-delay: -3.8s;
@@ -217,7 +217,7 @@
     animation-delay: -2.4s;
   }
   .coast-petal {
-    animation: coast-petal 9s linear infinite -1s paused;
+    animation: coast-petal 4.8s linear infinite -1s paused;
   }
   .coast-petal:nth-child(2) {
     animation-delay: -4s;
@@ -235,13 +235,13 @@
     animation-delay: -5s;
   }
   .coast-prism {
-    animation: coast-prism 8s ease-in-out infinite alternate -2s paused;
+    animation: coast-prism 4.4s ease-in-out infinite alternate -2s paused;
   }
   .coast-prism:last-child {
     animation-delay: -6s;
   }
   .coast-tide {
-    animation: coast-tide 7s linear infinite -1s paused;
+    animation: coast-tide 3.8s linear infinite -1s paused;
   }
   .coast-tide:nth-child(2) {
     animation-delay: -3.5s;
@@ -254,15 +254,15 @@
     animation-play-state: running;
   }
   .home-page .hero-landscape img {
-    animation-duration: 12s;
+    animation-duration: 7.5s;
     animation-timing-function: linear;
   }
   .home-page .hero-lightbeam {
-    animation-duration: 7s;
+    animation-duration: 4.2s;
   }
   .home-page .immersive-chapter .world-scene picture {
     display: block;
-    animation: coastal-object-float 5s ease-in-out infinite alternate -1s paused;
+    animation: coastal-object-float 3s ease-in-out infinite alternate -1s paused;
   }
   .home-page
     .immersive-chapter:has(.chapter-environment[data-active="true"])

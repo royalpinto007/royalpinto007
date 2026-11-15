@@ -80,6 +80,7 @@ export function CinematicHero({ children }: { children: ReactNode }) {
       className="portfolio-hero hero-cinema"
       ref={host}
       data-active={active}
+      data-effects-enabled={enabled}
       data-light={light}
     >
       <div className="hero-landscape" aria-hidden="true">

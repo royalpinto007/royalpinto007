@@ -49,8 +49,8 @@ export function mountPortfolioMotion(root: HTMLElement) {
             lines,
             {
               yPercent: 110,
-              duration: 0.9,
-              stagger: 0.1,
+              duration: 0.65,
+              stagger: 0.08,
               clearProps: "transform",
             },
             0,

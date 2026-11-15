@@ -812,7 +812,7 @@ body:has(.home-page) .site-header {
 }
 @media (max-width: 1023px) and (prefers-reduced-motion: no-preference) {
   .home-page .hero-line > span {
-    animation: mobile-hero-in 800ms var(--ease-out) backwards;
+    animation: mobile-hero-in 600ms var(--ease-out) backwards;
   }
   .home-page .hero-line:nth-child(2) > span {
     animation-delay: 80ms;

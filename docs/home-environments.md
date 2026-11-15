@@ -60,7 +60,6 @@ The hero uses `public/portrait-original.webp`, a lossless format conversion whos
 
 Each Home scene opens with one semantic heading instead of a numbered banner and repeated tagline. Selected work uses a compact heading/link composition and leads directly into the real product visual; its duplicate foreground studio is removed while the marina background stays. Engineering and the playground use smaller foreground sculptures alongside their headings, with native diagrams and playable experiments immediately below. The reel pairs its title with its duration. The discipline ticker is a slimmer transition. Existing heading entrances, responsive backgrounds, keyboard controls and reduced-motion alternatives retain their lifecycle.
 
-
 ## Coastal film and playable sculpture
 
 The 20-second Remotion composition has three authored acts: a coastal chrome opening, a deterministic BoardEject illustration that rearranges shapes into an editable board, and an original-portrait closing. Chapter buttons seek the same timeline. Playback stops offscreen or when the tab is hidden; pause, reduced motion, no JavaScript and failed-chunk poster alternatives remain available. This is a browser composition, not a newly exported video. The BoardEject illustration also has a native before/after control beside its real project link; it explicitly identifies itself as a sample workflow and does not convert uploaded files.
@@ -73,9 +72,16 @@ Interactive containers stay outside decorative entrance translations so a focus 
 
 `scripts/check-coastal-interactions.py` exercises deferred loading, real pixel changes from keyboard rotation and lighting, mouse/touch drag, idle rendering, disposal/focus restoration, loading/ready/error containment, native BoardEject illustration states, failed model/chunk alternatives, no JavaScript and all three film chapter seeks. Existing bounds, loading, motion, scene and portrait checks still apply.
 
-
 ## Scenery that moves while idle
 
 The hero has a visible seabird crossing and water highlights, with a quicker, bounded background camera drift. Other visible chapters have ambient CSS motion without pointer or scroll input: marina water reflections, conservatory/pavilion petals, atrium/cinema prism light and tidal rings. Foreground engineering/playground artwork floats on a separate picture wrapper; original portrait pixels and text do not move with these loops. Each chapter has a native scenery pause control. Its observer keeps tracking visibility after loading the artwork once, so loops stop offscreen, in hidden tabs and with reduced motion. No-JavaScript scenes stay static.
 
 The explicit Three.js sculpture interaction remains optional and renders only on demand. Idle atmosphere uses HTML/SVG and transform/opacity CSS animations, with no additional library, image or model download. `scripts/check-ambient-motion.py` verifies visible movement after reload with no input, actual pause/resume, local control containment, four scene types, hidden-tab/offscreen suspension, client navigation, reduced motion and no JavaScript.
+
+## Kinetic opening and film pacing
+
+The opening keeps its headline and original portrait stationary. A secondary descriptor types through agents, full-stack applications, automation and Web3 on a reserved two-line area, without shifting links. Assistive technology gets one complete static description, with no character-by-character announcements. A small original chrome cursor hops across four raised skill tiles beside the open-source link. These CSS effects share the hero's native pause and visibility lifecycle; reduced motion and no JavaScript retain the complete readable description and static rail. Other ambient scenes now use shorter cycles for movement that is visible immediately after reloading.
+
+The reel opens with the same authored physical motif at cinematic scale: a frame-driven camera moves around the skill rail, the chrome cursor hops between disciplines, and short messages type in sequence. A quicker wipe leads to BoardEject's editable artifact, a second camera beat and a typed coastal closing. All film movement and text derive from the Remotion frame, so pausing or seeking freezes the whole composition consistently. The player remains deferred until its section is visible. The two supplied video references informed physical depth, camera changes and timing; their footage, characters, branding and icons are not shipped. The authoring software used for those references is not inferred from their appearance.
+
+`scripts/check-kinetic-opening.py` checks actual automatic typing/cursor movement, stable link placement, native pause, hidden-tab/offscreen suspension, deferred film loading, synchronized film clocks and reduced-motion/no-JavaScript alternatives at 320, 390, 768 and 1440 pixels.

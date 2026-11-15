@@ -1,4 +1,4 @@
-import { AbsoluteFill, interpolate } from "remotion";
+import { AbsoluteFill, interpolate, spring } from "remotion";
 import { BoardArtifact } from "../BoardArtifact";
 
 export function ArtifactScene({
@@ -8,10 +8,19 @@ export function ArtifactScene({
   frame: number;
   compact: boolean;
 }) {
-  const progress = interpolate(frame, [38, 118], [0, 1], {
+  const progress = interpolate(frame, [18, 68], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
+  const second = frame >= 112;
+  const title = second
+    ? spring({
+        frame: frame - 112,
+        fps: 30,
+        config: { damping: 20, stiffness: 160 },
+      })
+    : 1;
+  const zoom = interpolate(frame, [0, 95, 130, 200, 239], [1, 1, 1.1, 1.1, 1]);
   return (
     <AbsoluteFill
       style={{
@@ -52,14 +61,16 @@ export function ArtifactScene({
           fontSize: compact ? 78 : 78,
           lineHeight: 1.03,
           textTransform: "uppercase",
+          opacity: title,
+          transform: `translateY(${(1 - title) * 22}px)`,
         }}
       >
-        Same idea.
+        {second ? "Still yours." : "Same idea."}
         <br />
         <span style={{ color: "#922f60" }}>
-          New
+          {second ? "Now" : "New"}
           <br />
-          possibilities.
+          {second ? "editable." : "possibilities."}
         </span>
       </div>
       <div
@@ -68,7 +79,7 @@ export function ArtifactScene({
           width: compact ? "90%" : "54%",
           left: compact ? "5%" : "42%",
           top: compact ? "43%" : "27%",
-          transform: `perspective(1800px) rotateY(${(1 - progress) * -12}deg) rotateZ(${(1 - progress) * -5}deg)`,
+          transform: `perspective(1800px) rotateY(${(1 - progress) * -12}deg) rotateZ(${(1 - progress) * -5}deg) scale(${zoom})`,
           filter: "drop-shadow(0 30px 25px #24475b30)",
         }}
       >
