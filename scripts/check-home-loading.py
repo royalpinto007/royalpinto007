@@ -16,7 +16,7 @@ with sync_playwright() as p:
  assert not any('/scene/sunset-coast.webp' in u for u in requests), 'Mobile loaded the desktop landscape'
  assert not any('_rsc=' in u for u in requests), 'Initial page eagerly prefetched other routes'
  assert page.locator('.hero-landscape img').evaluate('n=>n.currentSrc').endswith('/scene/coast-mobile.webp')
- assert page.locator('.portrait img').evaluate('n=>n.currentSrc').endswith('/portrait-display.webp')
+ assert page.locator('.portrait img').evaluate('n=>n.currentSrc').endswith('/portrait-original.webp')
  assert page.locator('html').evaluate("n=>getComputedStyle(n).colorScheme==='light'")
  assert page.locator('body').evaluate("n=>getComputedStyle(n).backgroundColor")== 'rgb(247, 246, 242)'
  page.route('**/wall2026.svg',lambda r:r.fulfill(status=503,content_type='text/plain',body='Unavailable'))

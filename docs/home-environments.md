@@ -43,3 +43,7 @@ Edit this original environment into a PORTRAIT 9:16 composition for a mobile cin
 ## Verification
 
 `python scripts/check-environments.py` checks seven unique full-section scenes at 320, 390, 768, 1440 and 1920 pixels, responsive source selection, deferred requests, copy containment, normal-motion entrance bounds, reduced-motion cleanup, no-JavaScript rendering and image failure. Existing Home, loading, bounds, motion, reel and interactive-scene checks cover the retained behavior. Only the dev review Worker is released; the public holding page is unchanged.
+
+## Original portrait fidelity
+
+The hero uses `public/portrait-original.webp`, a lossless format conversion whose decoded pixels match the supplied `portrait-sky.png` exactly. Portrait color filters are removed. `public/scene/portrait-outline.svg` follows the original hairline, face and phone corner instead of the previous eroded contour. The original PNG and previous outline remain unchanged for reference. `scripts/check-portrait-fidelity.py` checks pixel identity in the browser, no stretch or color filter, connected silhouette geometry and the retained hair/phone frame at five widths.

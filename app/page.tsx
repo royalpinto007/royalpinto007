@@ -84,7 +84,7 @@ export default function HomePage() {
         <figure className="portrait">
           <div className="portrait-scene portrait-person">
             <picture>
-              <source srcSet="/portrait-display.webp" type="image/webp" />
+              <source srcSet="/portrait-original.webp" type="image/webp" />
               <Image
                 src={siteConfig.avatar}
                 alt="Illustrated portrait of Royal Simpson Pinto against a blue and pink sunset sky"
