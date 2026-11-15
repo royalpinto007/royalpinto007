@@ -36,8 +36,9 @@ with sync_playwright() as p:
    page.wait_for_function("(scene)=>document.querySelector('.environment-'+scene).dataset.active==='true'",arg=backdrop.get_attribute('class').split('environment-')[-1])
    subject=backdrop.locator('.coastal-atmosphere > *').first;advances(page,subject)
    kind=backdrop.locator('.coastal-atmosphere').get_attribute('class');kinds.append(kind)
-   button=chapter.get_by_role('button',name='Pause '+backdrop.get_attribute('class').split('environment-')[-1]+' scenery',exact=True)
+   button=chapter.get_by_role('button',name='Pause scenery: '+backdrop.get_attribute('class').split('environment-')[-1],exact=True)
    assert button.evaluate('n=>{const r=n.getBoundingClientRect();return r.width>=44&&r.height>=44}')
+   assert button.evaluate('n=>n.getAttribute("aria-label").toLowerCase().includes(n.textContent.trim().toLowerCase())'),'Accessible name must contain the visible label'
    overlaps=button.evaluate('n=>{const b=n.getBoundingClientRect();return [...n.parentElement.querySelectorAll(".chapter-heading,h3,.system-picker,.sculpture-launch")].filter(x=>{const r=x.getBoundingClientRect();return Math.min(b.right,r.right)>Math.max(b.left,r.left)&&Math.min(b.bottom,r.bottom)>Math.max(b.top,r.top)}).map(x=>({class:x.className,rect:x.getBoundingClientRect().toJSON(),button:b.toJSON()}))}')
    if overlaps:page.screenshot(path=str(OUT/f'overlap-{width}.png'))
    assert not overlaps,(width,backdrop.get_attribute('class'),overlaps)
