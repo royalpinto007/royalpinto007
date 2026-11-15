@@ -20,16 +20,24 @@ with sync_playwright() as p:
    expect(hero['x']<=width*.05 and width-hero['x']-hero['width']<=width*.05,f'{width}: unused lateral gutters')
 
   headline=page.locator('h1').inner_text().lower()
-  expect('royal' in headline and 'simpson pinto' in headline,f'{width}: personal identity absent')
+  expect('built from' in headline and 'curiosity' in headline,f'{width}: cinematic headline missing')
+  expect('Royal Simpson Pinto' in page.locator('.intro-name').inner_text(),f'{width}: personal identity absent')
   for i,line in enumerate(page.locator('.hero-line').all()):
    expect(line.evaluate('n=>n.getBoundingClientRect().height<=parseFloat(getComputedStyle(n).lineHeight)*1.3'),f'{width}: headline line {i+1} wraps')
   description=page.locator('.hero-description').inner_text().lower()
   expect(all(x in description for x in ['ai agents','full-stack','automation','web3']),f'{width}: broad engineering identity missing')
   expect(len(description.split())<25,f'{width}: hero too wordy')
   expect(page.locator('#systems').evaluate('n=>n.compareDocumentPosition(document.querySelector(".motion-reel")) & Node.DOCUMENT_POSITION_FOLLOWING'),f'{width}: creative reel precedes system design')
+  expect('Where it started' in page.locator('.journey-start').inner_text(),f'{width}: programmes not framed as the beginning')
+  expect('Contributing' in page.locator('.journey-now').inner_text() and 'Building & maintaining' in page.locator('.journey-now').inner_text(),f'{width}: ongoing open source missing')
+  expect(page.locator('#system-tenantq,#system-vaultrag').count()==0,f'{width}: retired architecture cases remain')
   page.screenshot(path=str(OUT/f'hero-{width}.png'))
+  if width in [1920,320]:
+   page.locator('.hero-open-source').click()
+   expect(page.locator('#oss h2').bounding_box()['y']>=page.locator('.site-header').bounding_box()['height'],f'{width}: open-source anchor hidden behind header')
+   page.screenshot(path=str(OUT/f'open-source-{width}.png'))
   page.locator('#systems').scroll_into_view_if_needed()
-  for system in ['aashinyra','tenantq','vaultrag']:
+  for system in ['aashinyra','signalizeai','boardeject']:
    page.locator(f'label:has(#system-{system})').click()
    panel=page.locator(f'.system-case[data-system="{system}"]')
    expect(panel.is_visible(),f'{width}: {system} radio does not show its design')
@@ -51,10 +59,10 @@ with sync_playwright() as p:
     expect(full.locator('.architecture-scroll').evaluate('n=>n.scrollWidth>n.clientWidth'),f'{width}: map does not scroll internally')
     full.locator('summary').click()
    expect(page.evaluate('document.documentElement.scrollWidth<=innerWidth'),f'{width}: {system} overflow')
-  page.locator('#system-tenantq').focus()
+  page.locator('#system-signalizeai').focus()
   page.keyboard.press('ArrowRight')
-  expect(page.locator('#system-vaultrag').is_checked(),f'{width}: native arrow-key radio selection failed')
-  expect(page.locator('label:has(#system-vaultrag)>span').evaluate("n=>getComputedStyle(n).outlineStyle!=='none'"),f'{width}: radio keyboard focus has no visible outline')
+  expect(page.locator('#system-boardeject').is_checked(),f'{width}: native arrow-key radio selection failed')
+  expect(page.locator('label:has(#system-boardeject)>span').evaluate("n=>getComputedStyle(n).outlineStyle!=='none'"),f'{width}: radio keyboard focus has no visible outline')
   page.locator('#systems').screenshot(path=str(OUT/f'systems-{width}.png'))
   page.locator('label:has(#system-aashinyra)').click()
   if width in [1920,320]:page.locator('#systems').screenshot(path=str(OUT/f'aashinyra-{width}.png'))
@@ -81,7 +89,7 @@ with sync_playwright() as p:
  # The diagrams and case selection remain functional with no JavaScript.
  context=b.new_context(java_script_enabled=False,viewport={'width':390,'height':900})
  page=context.new_page();page.goto(BASE,wait_until='networkidle')
- for system in ['tenantq','vaultrag','aashinyra']:
+ for system in ['signalizeai','boardeject','aashinyra']:
   page.locator(f'label:has(#system-{system})').click()
   expect(page.locator(f'.system-case[data-system="{system}"]').is_visible(),f'noJS: {system} switching failed')
  expect(page.locator('.portrait img').evaluate('n=>n.naturalWidth===460'), 'noJS: portrait missing')

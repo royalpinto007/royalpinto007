@@ -10,7 +10,7 @@ node --test scripts/contribution-wall.test.mjs
 npm run build
 ```
 
-Home uses the original sunset portrait, illustrated project workflows, and architecture maps with optional design notes. Motion respects reduced-motion preferences and has static fallbacks. The contribution calendar preserves GitHub's recorded activity and green intensity levels.
+Home uses a cinematic composition around the original sunset portrait and illustrated project workflows. Its architecture explorer covers AashiNyra, the SignalizeAI extension, and BoardEject, with optional design notes and full maps on mobile. The open-source story separates the programmes that started the journey from ongoing contributions and maintenance. Motion respects reduced-motion preferences and has static fallbacks. The contribution calendar preserves GitHub's recorded activity and green intensity levels.
 
 Browser regression scripts in `scripts/check-*.py` use Python Playwright and Chrome. Set `PORTFOLIO_URL` to a server hosting the exported build or the deployed site. Run browser suites serially.
 

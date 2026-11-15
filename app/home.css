@@ -8,54 +8,6 @@ body:has(.home-page) .site-footer {
   max-width: 2200px;
   padding-inline: clamp(22px, 4vw, 88px);
 }
-.home-page .portfolio-hero {
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: 7%;
-  padding: 48px 0 64px;
-}
-.home-page .portfolio-hero h1 {
-  font-size: clamp(3rem, 5.5vw, 7rem);
-  line-height: 1.03;
-  letter-spacing: -0.06em;
-}
-.home-page .intro-name {
-  margin-bottom: 28px;
-}
-.home-page .hero-description {
-  max-width: 38ch;
-  font-size: clamp(16px, 1.1vw, 20px);
-  margin-top: 30px;
-}
-.home-page .portrait {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  justify-self: center;
-}
-.home-page .portrait-visual img {
-  border-radius: 12px;
-}
-.home-page .portrait-signature {
-  position: absolute;
-  left: -7%;
-  bottom: 36px;
-  font-family: Georgia, serif;
-  font-size: clamp(64px, 7.5vw, 128px);
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: -0.08em;
-  color: #fff2e7;
-  text-shadow: 0 3px 18px #18385c40;
-  pointer-events: none;
-  rotate: -8deg;
-}
-.home-page .portrait figcaption {
-  font-size: 10px;
-  gap: 12px;
-}
-.home-page .scroll-note {
-  margin-top: -20px;
-}
 .home-page .kinetic-band {
   margin-bottom: 0;
 }
@@ -203,11 +155,11 @@ body:has(.home-page) .site-footer {
   .systems-showcase:has(#system-aashinyra:checked)
   [data-system="aashinyra"],
 .home-page
-  .systems-showcase:has(#system-tenantq:checked)
-  [data-system="tenantq"],
+  .systems-showcase:has(#system-signalizeai:checked)
+  [data-system="signalizeai"],
 .home-page
-  .systems-showcase:has(#system-vaultrag:checked)
-  [data-system="vaultrag"] {
+  .systems-showcase:has(#system-boardeject:checked)
+  [data-system="boardeject"] {
   display: block;
 }
 .home-page .system-case-intro {
@@ -419,22 +371,6 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
   }
 }
 @media (max-width: 1023px) {
-  .home-page .portfolio-hero {
-    gap: 5%;
-  }
-  .home-page .portfolio-hero h1 {
-    font-size: clamp(3rem, 5.4vw, 5.5rem);
-  }
-  .home-page .portrait figcaption {
-    flex-direction: column;
-    gap: 2px;
-  }
-  .home-page .portrait figcaption span:last-child {
-    text-align: left;
-  }
-  .home-page .hero-break {
-    display: none;
-  }
   .home-page .system-case-intro {
     flex-direction: column;
     gap: 12px;
@@ -463,41 +399,6 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
   }
 }
 @media (max-width: 767px) {
-  .home-page .portfolio-hero {
-    grid-template-columns: 1fr;
-    padding: 32px 0 42px;
-    gap: 32px;
-  }
-  .home-page .portfolio-hero h1 {
-    font-size: clamp(2.3rem, 9.1vw, 4.8rem);
-  }
-  .home-page .intro-name {
-    font-size: 12px;
-    margin-bottom: 22px;
-  }
-  .home-page .hero-description {
-    font-size: 15px;
-    margin-top: 22px;
-  }
-  .home-page .hero-actions {
-    margin-top: 24px;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-  .home-page .hero-actions .quiet-link {
-    font-size: 13px;
-  }
-  .home-page .portrait {
-    max-width: 460px;
-  }
-  .home-page .portrait-signature {
-    left: 12px;
-    bottom: 66px;
-    font-size: clamp(76px, 19vw, 116px);
-  }
-  .home-page .scroll-note {
-    margin-top: -12px;
-  }
   .home-page .selected-work,
   .home-page .systems-showcase,
   .home-page .motion-reel {
@@ -618,18 +519,6 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
 }
 
 /* Product-led artwork, rather than a gallery of flat webpage captures. */
-.home-page .hero-open-source {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  font-size: 12px;
-  min-height: 44px;
-  color: var(--accent);
-  margin-top: 8px;
-}
-.home-page .hero-actions {
-  margin-top: 20px;
-}
 .home-page .product-art {
   position: relative;
   isolation: isolate;
@@ -1078,9 +967,6 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
     padding: 7px 0;
     font-size: 10px;
   }
-  .home-page .hero-break {
-    display: none;
-  }
 }
 @media (max-width: 767px) {
   .home-page .product-art {
@@ -1263,5 +1149,325 @@ html[data-motion="ready"]
 @media (min-width: 768px) and (max-width: 1023px) {
   .home-page .product-art {
     aspect-ratio: 1;
+  }
+}
+
+/* The portrait and its sky form one cinematic scene. */
+.home-page .hero-cinema {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+  min-height: 680px;
+  padding: 42px clamp(22px, 4vw, 88px) 50px;
+  margin-inline: calc(clamp(22px, 4vw, 88px) * -1);
+  background:
+    radial-gradient(
+      ellipse at 14% 16%,
+      #b7e7ff 0,
+      #a5d2f0 28%,
+      transparent 60%
+    ),
+    radial-gradient(ellipse at 78% 100%, #ffbb9466, transparent 65%),
+    linear-gradient(125deg, #b0d8ee 5%, #c6c2e6 45%, #f7b2ce 75%, #ffc2a4);
+}
+.home-page .hero-sunset {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 62% 85%, #ffdfb9b0 0, transparent 48%),
+    radial-gradient(ellipse at 95% 30%, #f673b24d 0, transparent 60%);
+}
+.home-page .hero-copy {
+  position: relative;
+  z-index: 2;
+  padding: 26px 0 30px;
+}
+.home-page .intro-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 36px;
+  font-size: 15px;
+  font-weight: 550;
+  color: #213c60;
+}
+.home-page .intro-name::before {
+  display: none;
+}
+.home-page .intro-name > span {
+  font-size: 11px;
+  font-weight: 400;
+  padding-left: 18px;
+  border-left: 1px solid #42617d60;
+}
+.home-page .portfolio-hero h1 {
+  font-size: clamp(60px, 7.4vw, 148px);
+  line-height: 0.94;
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  color: #193958;
+}
+.home-page .hero-title-accent {
+  background: none;
+  color: #75438f;
+  -webkit-text-fill-color: currentColor;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.065em;
+  padding-right: 0.1em;
+}
+.home-page .hero-description {
+  max-width: 38ch;
+  font-size: clamp(15px, 1.1vw, 19px);
+  margin-top: 30px;
+  color: #294765;
+  line-height: 1.7;
+}
+.home-page .hero-open-source {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  min-height: 44px;
+  color: #694282;
+  margin-top: 8px;
+}
+.home-page .hero-actions {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.home-page .hero-actions .primary-link {
+  border-radius: 999px;
+  padding: 17px 25px;
+}
+.home-page .hero-actions .quiet-link {
+  color: #294765;
+}
+.home-page .portrait {
+  width: 100%;
+  max-width: 720px;
+  justify-self: end;
+  margin: 0;
+  padding: 0;
+}
+.home-page .portrait-scene {
+  mask-image:
+    linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent),
+    linear-gradient(0deg, transparent, #000 12%, #000 88%, transparent);
+  mask-composite: intersect;
+}
+.home-page .portrait-visual img {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.home-page .portrait figcaption {
+  font-size: 11px;
+  gap: 16px;
+  padding-inline: 12%;
+  margin-top: 12px;
+  color: #294765;
+}
+.home-page .portrait figcaption span:last-child {
+  color: #694282;
+}
+.home-page .scroll-note {
+  margin: 16px 0 24px;
+}
+.home-page .open-source-heading {
+  display: grid;
+  grid-template-columns: 1fr 0.65fr;
+  align-items: end;
+  gap: 8%;
+  max-width: none;
+}
+.home-page .open-source-heading > p:last-child {
+  max-width: 38ch;
+  margin: 0;
+}
+.home-page .open-source-journey {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6%;
+  margin: 42px 0 44px;
+}
+.home-page .journey-label {
+  display: block;
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 22px;
+}
+.home-page .journey-start {
+  border-top: 1px solid var(--line-strong);
+  padding-top: 20px;
+}
+.home-page .journey-start .programme-strip li {
+  flex-direction: column;
+}
+.home-page .journey-start .programme-strip {
+  gap: 24px;
+  margin: 0;
+}
+.home-page .journey-start .programme-strip strong {
+  font-size: clamp(34px, 3.2vw, 54px);
+}
+.home-page .journey-start .programme-strip span {
+  font-size: 11px;
+}
+.home-page .journey-now {
+  border-top: 1px solid var(--line-strong);
+  padding-top: 20px;
+}
+.home-page .journey-now > a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 70px;
+  padding: 0 32px 18px 0;
+}
+.home-page .journey-now > a + a {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.home-page .journey-now strong {
+  font-size: 20px;
+  font-weight: 550;
+  letter-spacing: -0.025em;
+}
+.home-page .journey-now a > span {
+  font-size: 12px;
+  color: var(--mute);
+  line-height: 1.6;
+}
+.home-page .journey-now svg {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  color: var(--accent);
+}
+.home-page .journey-now > a + a svg {
+  top: 22px;
+}
+@media (min-width: 2200px) {
+  .home-page .hero-cinema {
+    margin-inline: -88px;
+  }
+}
+@media (max-width: 1023px) {
+  .home-page .hero-cinema {
+    min-height: 530px;
+    padding-top: 36px;
+    padding-bottom: 40px;
+  }
+  .home-page .intro-name {
+    font-size: 13px;
+    margin-bottom: 26px;
+  }
+  .home-page .intro-name > span {
+    width: 100%;
+    border: 0;
+    padding: 0;
+  }
+  .home-page .portfolio-hero h1 {
+    font-size: clamp(54px, 7.1vw, 82px);
+  }
+  .home-page .hero-description {
+    font-size: 15px;
+    margin-top: 22px;
+  }
+  .home-page .hero-actions {
+    gap: 18px;
+    margin-top: 18px;
+  }
+  .home-page .hero-actions .primary-link {
+    padding: 13px 18px;
+    font-size: 13px;
+  }
+  .home-page .hero-actions .quiet-link {
+    font-size: 13px;
+  }
+  .home-page .portrait figcaption {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 10px;
+  }
+  .home-page .portrait figcaption span:last-child {
+    text-align: left;
+  }
+  .home-page .open-source-heading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .home-page .open-source-journey {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+@media (max-width: 767px) {
+  .home-page .hero-cinema {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-top: 30px;
+    padding-bottom: 28px;
+  }
+  .home-page .hero-copy {
+    padding: 0;
+  }
+  .home-page .intro-name {
+    margin-bottom: 24px;
+  }
+  .home-page .portfolio-hero h1 {
+    font-size: clamp(56px, 13vw, 88px);
+  }
+  .home-page .hero-description {
+    font-size: 15px;
+    max-width: 32ch;
+    margin-top: 24px;
+  }
+  .home-page .hero-open-source {
+    margin-top: 8px;
+  }
+  .home-page .hero-actions {
+    margin-top: 12px;
+    gap: 20px;
+  }
+  .home-page .portrait {
+    max-width: 460px;
+    justify-self: center;
+    margin-top: 12px;
+  }
+  .home-page .portrait figcaption {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline: 10%;
+    margin-top: 6px;
+    font-size: 9px;
+  }
+  .home-page .journey-start .programme-strip {
+    gap: 16px;
+  }
+  .home-page .journey-start .programme-strip strong {
+    font-size: clamp(30px, 8vw, 48px);
+  }
+  .home-page .journey-start .programme-strip span {
+    font-size: 10px;
+  }
+  .home-page .journey-now strong {
+    font-size: 19px;
+  }
+  .home-page .open-source-journey {
+    margin-top: 32px;
   }
 }

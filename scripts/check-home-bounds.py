@@ -15,6 +15,18 @@ with sync_playwright() as p:
     const issues=[];
     const visible=n=>{const r=n.getBoundingClientRect();return r.width>0&&r.height>0&&getComputedStyle(n).visibility!=='hidden'};
     const inside=(r,b)=>r.left>=b.left-2&&r.right<=b.right+2&&r.top>=b.top-2&&r.bottom<=b.bottom+2;
+    const copy=document.querySelector('.hero-copy');
+    const blocks=[...copy.querySelectorAll('.intro-name,h1,.hero-description,.hero-open-source,.hero-actions')];
+    for(let i=0;i<blocks.length;i++) {
+     const r=blocks[i].getBoundingClientRect(),bound=copy.getBoundingClientRect();
+     if(!inside(r,bound))issues.push({kind:'hero content escapes',text:blocks[i].textContent});
+     for(let j=i+1;j<blocks.length;j++){
+      const q=blocks[j].getBoundingClientRect();
+      if(Math.min(r.right,q.right)-Math.max(r.left,q.left)>3&&Math.min(r.bottom,q.bottom)-Math.max(r.top,q.top)>3)issues.push({kind:'hero text collision',a:blocks[i].textContent,b:blocks[j].textContent});
+     }
+    }
+    const abbreviations=[...document.querySelectorAll('.journey-start .programme-strip strong')].map(n=>n.getBoundingClientRect().top);
+    if(Math.max(...abbreviations)-Math.min(...abbreviations)>2)issues.push({kind:'programme baselines misaligned'});
     for(const art of document.querySelectorAll('.product-art')) {
      const bound=art.getBoundingClientRect();const texts=[];
      for(const n of art.querySelectorAll('span,strong,small')) {
@@ -44,7 +56,7 @@ with sync_playwright() as p:
     return issues;
    }''')
    issues.extend({'width':w,'case':label,**x} for x in found)
-  for system in ['aashinyra','tenantq','vaultrag']:
+  for system in ['aashinyra','signalizeai','boardeject']:
    page.locator(f'label:has(#system-{system})').click()
    check(system)
    if w<1024:

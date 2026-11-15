@@ -53,31 +53,32 @@ const work = [
 export default function HomePage() {
   return (
     <div className="portfolio-shell home-page">
-      <section className="portfolio-hero">
+      <section className="portfolio-hero hero-cinema">
+        <div className="hero-sunset" aria-hidden="true" />
         <div className="hero-copy">
-          <p className="intro-name">Software engineer & open-source builder</p>
+          <p className="intro-name">
+            Royal Simpson Pinto <span>Software engineer</span>
+          </p>
           <h1>
             <span className="hero-line">
-              <span>Royal</span>
+              <span>Built from</span>
             </span>
             <span className="hero-line">
-              <span className="hero-title-accent">Simpson Pinto.</span>
+              <span className="hero-title-accent">curiosity.</span>
             </span>
           </h1>
           <p className="hero-description">
             AI agents. Full-stack products. Automation. Web3.
-            <br className="hero-break" /> From the architecture to the last
-            interaction.
           </p>
           <a className="hero-open-source" href="#oss">
             <GitBranch size={15} /> Built in the open <ArrowRight size={14} />
           </a>
           <div className="hero-actions">
-            <a className="primary-link" href={siteConfig.hireUrl}>
-              Hire me <ArrowUpRight size={17} />
+            <a className="primary-link" href="#work">
+              Explore my work <ArrowRight size={17} />
             </a>
-            <a className="quiet-link" href="#systems">
-              See how I build <ArrowRight size={17} />
+            <a className="quiet-link" href={siteConfig.hireUrl}>
+              Let’s talk <ArrowUpRight size={17} />
             </a>
           </div>
         </div>
@@ -97,11 +98,8 @@ export default function HomePage() {
               </picture>
             </div>
           </div>
-          <span className="portrait-signature" aria-hidden="true">
-            Royal.
-          </span>
           <figcaption>
-            <span>Royal Simpson Pinto · Mangaluru, India</span>
+            <span>Mangaluru, India</span>
             <span>
               {siteConfig.availabilityStatus
                 ? "Open to opportunities"
@@ -171,29 +169,60 @@ export default function HomePage() {
       <MotionReel />
 
       <section className="open-source" id="oss">
-        <div className="section-intro">
+        <div className="section-intro open-source-heading">
           <h2>
-            Open source. <span>Every day.</span>
+            Started in open source.
+            <br />
+            <span>Still building in it.</span>
           </h2>
-          <p className="sr-only">
-            Contributions across compilers, networking, AI, developer tools, and
-            more.
+          <p>
+            From my first programmes to the projects I contribute to, build, and
+            maintain today.
           </p>
         </div>
-        <ul className="programme-strip" aria-label="Open-source programmes">
-          <li>
-            <span>Google Summer of Code</span>
-            <strong>GSoC</strong>
-          </li>
-          <li>
-            <span>Linux Foundation’s LFX Mentorship</span>
-            <strong>LFX</strong>
-          </li>
-          <li>
-            <span>Symmetry Autumn of Code</span>
-            <strong>SAoC</strong>
-          </li>
-        </ul>
+        <div className="open-source-journey">
+          <div className="journey-start">
+            <span className="journey-label">Where it started</span>
+            <ul
+              className="programme-strip"
+              aria-label="Programmes that started my open-source journey"
+            >
+              <li>
+                <strong>GSoC</strong>
+                <span>Google Summer of Code</span>
+              </li>
+              <li>
+                <strong>LFX</strong>
+                <span>Linux Foundation’s LFX Mentorship</span>
+              </li>
+              <li>
+                <strong>SAoC</strong>
+                <span>Symmetry Autumn of Code</span>
+              </li>
+            </ul>
+          </div>
+          <div className="journey-now">
+            <span className="journey-label">Where it keeps going</span>
+            <a
+              href="https://github.com/qdrant"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Contributing</strong>
+              <span>Qdrant, compilers, networking & developer tools</span>
+              <ArrowUpRight size={18} />
+            </a>
+            <a
+              href="https://github.com/AgentPostmortem"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Building & maintaining</strong>
+              <span>AgentPostmortem, BoardEject & open-source tooling</span>
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
+        </div>
         <div className="contribution-summary">
           <strong>12,529 contributions in 2026</strong>
           <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
@@ -225,7 +254,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="experience-facts">
-          {siteConfig.stats.map((stat) => (
+          {siteConfig.stats.slice(1).map((stat) => (
             <div key={stat.label}>
               <strong>{stat.value}</strong>
               <span>{stat.label}</span>
