@@ -1,6 +1,7 @@
 import "./home.css";
 import "./home-experience.css";
 import "./coastal-home.css";
+import "./home-environments.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
@@ -13,6 +14,7 @@ import { ContributionWall } from "@/components/ContributionWall";
 import { CinematicHero } from "@/components/CinematicHero";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { SystemsShowcase } from "@/components/SystemsShowcase";
+import { SceneEnvironment } from "@/components/SceneEnvironment";
 import { siteConfig } from "@/data/site";
 
 const work = [
@@ -20,6 +22,7 @@ const work = [
     name: "SignalizeAI",
     kind: "AI product",
     image: "signalizeai",
+    scene: "marina",
     href: "https://signalizeai.org",
     description: "Account research, right inside your browser.",
     stack: ["Browser extension", "AI workflows"],
@@ -28,6 +31,7 @@ const work = [
     name: "AgentPostmortem",
     kind: "AI infrastructure",
     image: "agentpostmortem",
+    scene: "observatory",
     href: "https://agentpostmortem.com",
     description: "Real agent failures. Lessons worth building on.",
     stack: ["Supabase", "MCP", "Open source"],
@@ -36,6 +40,7 @@ const work = [
     name: "AashiNyra",
     kind: "Commerce",
     image: "aashinyra",
+    scene: "conservatory",
     href: "https://aashinyra.com",
     description: "Tracked deals. Real price drops. UPI cashback.",
     stack: ["PostgreSQL", "D1", "R2"],
@@ -44,11 +49,12 @@ const work = [
     name: "BoardEject",
     kind: "Developer tool",
     image: "boardeject",
+    scene: "pavilion",
     href: "https://boardeject.dev",
     description: "Apple Freeform to editable Excalidraw. Processed locally.",
     stack: ["Browser conversion", "macOS helper"],
   },
-];
+] as const;
 
 export default function HomePage() {
   return (
@@ -94,25 +100,37 @@ export default function HomePage() {
 
       <KineticBand />
 
-      <section className="selected-work" id="work">
-        <p className="section-marker">
-          <span>01 / Selected work</span>
-          <span>From idea to everyday use</span>
-        </p>
-        <div className="section-intro work-heading world-heading">
-          <h2>
-            Ideas,
-            <br />
-            <span>shipped.</span>
-          </h2>
-          <WorldScene kind="studio" />
-          <Link className="quiet-link" href="/projects" prefetch={false}>
-            All projects <ArrowRight size={17} />
-          </Link>
-        </div>
+      <section className="selected-work immersive-work" id="work">
         <div className="work-grid">
           {work.map((project, i) => (
-            <article className="work-piece" key={project.name}>
+            <article
+              className={`work-piece work-world work-world-${project.image}`}
+              key={project.name}
+            >
+              <SceneEnvironment scene={project.scene} />
+              {i === 0 && (
+                <>
+                  <p className="section-marker">
+                    <span>01 / Selected work</span>
+                    <span>From idea to everyday use</span>
+                  </p>
+                  <div className="section-intro work-heading world-heading">
+                    <h2>
+                      Ideas,
+                      <br />
+                      <span>shipped.</span>
+                    </h2>
+                    <WorldScene kind="studio" />
+                    <Link
+                      className="quiet-link"
+                      href="/projects"
+                      prefetch={false}
+                    >
+                      All projects <ArrowRight size={17} />
+                    </Link>
+                  </div>
+                </>
+              )}
               <a
                 className="work-preview"
                 aria-label={`Explore ${project.name}`}
@@ -235,7 +253,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="playground" id="frontend">
+      <section className="playground immersive-chapter" id="frontend">
+        <SceneEnvironment scene="tidal" />
         <p className="section-marker">
           <span>04 / The playground</span>
           <span>Made to be played with</span>

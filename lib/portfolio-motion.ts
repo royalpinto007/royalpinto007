@@ -4,7 +4,8 @@ import { attachPointerMotion } from "./pointer-motion";
 
 const revealSelector = [
   ".section-intro",
-  ".work-piece",
+  ".work-piece:not(.work-world)",
+  ".work-world .work-details",
   ".capability-list article",
   ".contribution-wall",
   ".experience-facts > div",
@@ -302,6 +303,40 @@ export function mountPortfolioMotion(root: HTMLElement) {
             });
           });
 
+        if (fine) {
+          root
+            .querySelectorAll<HTMLElement>(".chapter-environment")
+            .forEach((scene) => {
+              const camera = scene.querySelector(".environment-camera");
+              if (!camera) return;
+              const travel = gsap.timeline({
+                scrollTrigger: {
+                  trigger: scene,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 0.8,
+                },
+              });
+              travel.fromTo(
+                camera,
+                { yPercent: 3 },
+                { yPercent: -3, ease: "none" },
+                0,
+              );
+              travel.fromTo(
+                scene.querySelector(".environment-light"),
+                { xPercent: -8, opacity: 0.35 },
+                { xPercent: 8, opacity: 0.8, ease: "none" },
+                0,
+              );
+              travel.fromTo(
+                scene.querySelectorAll(".environment-glint"),
+                { opacity: 0.2, scale: 0.7 },
+                { opacity: 1, scale: 1.5, stagger: 0.15, ease: "none" },
+                0,
+              );
+            });
+        }
         root.querySelectorAll<HTMLElement>(".world-scene").forEach((scene) => {
           const boat = scene.querySelector(".horizon-boat");
           if (boat) {

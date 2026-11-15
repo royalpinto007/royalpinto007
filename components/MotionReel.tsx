@@ -1,6 +1,7 @@
 "use client";
 
 import { ReelBackdrop } from "./ReelBackdrop";
+import { SceneEnvironment } from "./SceneEnvironment";
 import Image from "next/image";
 import { useEffect, useRef, useState, type ComponentType } from "react";
 import type { ReelPlayerProps } from "./ReelPlayer";
@@ -53,7 +54,11 @@ export function MotionReel() {
   }, [visible, reduced, Player]);
 
   return (
-    <section className="motion-reel" aria-labelledby="reel-title">
+    <section
+      className="motion-reel immersive-chapter"
+      aria-labelledby="reel-title"
+    >
+      <SceneEnvironment scene="cinema" />
       <p className="section-marker">
         <span>03 / In motion</span>
         <span>Press play. Get the feeling.</span>

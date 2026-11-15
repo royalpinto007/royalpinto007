@@ -1,4 +1,5 @@
 import { WorldScene } from "./WorldScene";
+import { SceneEnvironment } from "./SceneEnvironment";
 import { ArchitectureMap } from "./ArchitectureMap";
 import {
   ArrowRight,
@@ -117,10 +118,11 @@ const systems = [
 export function SystemsShowcase() {
   return (
     <section
-      className="systems-showcase"
+      className="systems-showcase immersive-chapter"
       id="systems"
       aria-labelledby="systems-title"
     >
+      <SceneEnvironment scene="atrium" />
       <p className="section-marker">
         <span>02 / Under the hood</span>
         <span>Follow the decisions, not just the arrows</span>

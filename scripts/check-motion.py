@@ -22,7 +22,7 @@ def ready(page, state='ready'):
 
 
 def visible_cards(page):
-    assert page.locator('.work-piece, .design-tile, .reveal, .category-project').evaluate_all(
+    assert page.locator('.work-piece, .work-world .work-details, .design-tile, .reveal, .category-project').evaluate_all(
         "nodes=>nodes.every(n=>getComputedStyle(n).opacity==='1' && getComputedStyle(n).visibility!=='hidden')"
     )
 
@@ -64,11 +64,11 @@ with sync_playwright() as p:
     page.wait_for_function("[...document.querySelectorAll('.hero-line > span')].every(n=>getComputedStyle(n).transform==='none')")
     checks.append('breakpoint changes keep content within the viewport')
 
-    card = page.locator('.work-piece').nth(2)
+    card = page.locator('.work-piece').nth(2).locator('.work-details')
     assert card.evaluate("n=>getComputedStyle(n).opacity==='0'")
     distance = card.evaluate('n=>n.getBoundingClientRect().top-240')
     page.mouse.wheel(0,distance)
-    page.wait_for_function("getComputedStyle(document.querySelectorAll('.work-piece')[2]).opacity==='1'")
+    page.wait_for_function("getComputedStyle(document.querySelectorAll('.work-piece .work-details')[2]).opacity==='1'")
     progress = page.locator('.reading-progress').evaluate('n=>new DOMMatrix(getComputedStyle(n).transform).a')
     assert 0 < progress < 1, progress
     assert abs(page.locator('.site-header').bounding_box()['y']) < 1
