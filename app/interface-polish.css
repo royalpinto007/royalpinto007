@@ -219,7 +219,7 @@ body {
   padding-block: 15px 0;
 }
 .projects-page .project-jumps a:nth-child(n) {
-  min-height: 36px;
+  min-height: 44px;
   font-size: 11px;
   padding-inline: 13px;
   border: 1px solid #c2cbd2;
