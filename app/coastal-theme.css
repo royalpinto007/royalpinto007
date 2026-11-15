@@ -1,41 +1,45 @@
-/* The coastal palette and display type belong to the whole portfolio. */
+/* One dusk-coast identity across the portfolio, independent of OS appearance. */
 :root {
-  --bg: #dce7eb;
-  --panel: #edf2f2;
-  --panel-2: #bad3e6;
-  --ink: #0e3045;
-  --mute: #294a5e;
-  --faint: #3e576a;
-  --line: #a4b9c6;
-  --line-strong: #69869b;
-  --accent: #79425f;
-  --accent-hover: #542c48;
-  --accent-soft: #c8dce9;
+  --bg: #1e162e;
+  --panel: #30233e;
+  --panel-2: #423451;
+  --ink: #fff0dc;
+  --mute: #dfcedd;
+  --faint: #ccbdd0;
+  --line: #67566f;
+  --line-strong: #9d829b;
+  --accent: #ffbaaa;
+  --accent-hover: #ffd5b7;
+  --accent-soft: #49354b;
   --font-geist-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
-  --heading-gradient: linear-gradient(110deg, #143d58, #75465f);
-  --button-gradient: linear-gradient(115deg, #153e56, #24495d);
-  --button-hover: linear-gradient(115deg, #0a2b40, #17384c);
-  --button-ink: #fff9ef;
+  --heading-gradient: linear-gradient(110deg, #ffe3c0, #ff9bc4);
+  --button-gradient: linear-gradient(115deg, #ffb399, #ffc8a6);
+  --button-hover: linear-gradient(115deg, #ffd1b0, #ffb2c3);
+  --button-ink: #291d35;
 }
 body {
   background: var(--bg);
-  background-image: radial-gradient(
-    ellipse at 100% 12%,
-    #eac9ca50,
-    transparent 40%
-  );
+  background-image:
+    radial-gradient(ellipse at 100% 2%, #b5537950, transparent 42%),
+    linear-gradient(180deg, #24182de8, #1e162ef7 1300px),
+    url("/scene/sunset-coast.webp");
+  background-size:
+    auto,
+    auto,
+    100% 1500px;
+  background-repeat: no-repeat;
   background-attachment: scroll;
 }
 .sunset-atmosphere {
-  opacity: 0.3;
+  display: none;
 }
 .horizon-lines {
   display: none;
 }
 .site-header,
 .site-header.is-scrolled {
-  background: #d9e7edf0;
-  border-bottom: 1px solid #23485b26;
+  background: #24192eea;
+  border-bottom: 1px solid #ffb5c333;
   backdrop-filter: blur(20px);
 }
 .coffee-ticker {
@@ -54,7 +58,7 @@ body {
   color: var(--ink);
 }
 .site-nav a::after {
-  background: #78475f;
+  background: #ffb5c3;
 }
 .home-mobile-menu {
   display: none;
@@ -65,7 +69,7 @@ body {
   gap: 24px;
   margin-bottom: 28px;
   padding-top: 18px;
-  border-top: 1px solid #284d6340;
+  border-top: 1px solid #f2bec643;
   font-size: 10px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -75,6 +79,7 @@ body {
 .projects-heading h1,
 .contact-page h1,
 .footer-invitation h2 {
+  text-shadow: 0 10px 60px #f8819d19;
   font-family: var(--font-coastal-display), sans-serif;
   font-size: clamp(70px, 9.5vw, 160px);
   text-transform: uppercase;
@@ -85,7 +90,7 @@ body {
 }
 .projects-heading h1 span,
 .contact-page h1 span {
-  color: #79425f;
+  color: #ffbaaa;
   background: none;
   -webkit-text-fill-color: currentColor;
 }
@@ -106,17 +111,17 @@ body {
 }
 .project-jumps {
   gap: 8px;
-  border-color: #1e425b40;
+  border-color: #f2bec643;
 }
-.project-jumps a {
-  background: #f4f4ec90;
+.project-jumps a:nth-child(n) {
+  background: #55374980;
   border-radius: 4px;
   padding-inline: 16px;
   color: var(--ink);
-  border: 1px solid #fff7;
+  border: 1px solid #ffb6ce45;
 }
-.project-jumps a:hover {
-  background: #c0d5e3;
+.project-jumps a:nth-child(n):hover {
+  background: #66445e;
 }
 .category-project > a,
 .design-tile img {
@@ -126,7 +131,7 @@ body {
   color: var(--ink);
 }
 .category-project {
-  border-color: #2b516c38;
+  border-color: #f2bec638;
 }
 .project-card-links a {
   min-height: 44px;
@@ -141,10 +146,11 @@ body {
 }
 .contact-page .contact-invitation {
   background:
-    radial-gradient(ellipse at 100% 15%, #f1c2b6, transparent 65%), #b9d5e8;
-  border: 1px solid #6e93ac66;
+    linear-gradient(105deg, #302039f2 25%, #713c67a8),
+    url("/scene/sunset-coast.webp") center 68% / cover;
+  border: 1px solid #f7c0c570;
   border-radius: 16px;
-  box-shadow: inset 0 1px #fff9;
+  box-shadow: inset 0 1px #f5b7d43d;
 }
 .contact-page .contact-invitation h2 {
   font-family: var(--font-coastal-display), sans-serif;
@@ -154,15 +160,16 @@ body {
 }
 .contact-page .contact-channels > a,
 .contact-page .bg-panel {
-  background-color: #edf2f1c9;
-  border-color: #9cb7c8;
+  background-color: #39253fbe;
+  border-color: #806477;
 }
 .contact-page .contact-invitation {
-  background-color: #b9d5e8;
+  background-color: #44314d;
 }
 .site-footer {
+  background: radial-gradient(ellipse at 90% 100%, #9d466349, transparent 65%);
   position: relative;
-  border-top: 1px solid #1e425b35;
+  border-top: 1px solid #f7b9c63b;
 }
 .footer-invitation {
   padding-block: 90px;
@@ -171,6 +178,7 @@ body {
   border-radius: 0;
 }
 .footer-invitation h2 {
+  text-shadow: 0 10px 60px #f8819d19;
   font-size: clamp(64px, 8vw, 128px);
 }
 .footer-invitation p {
@@ -180,7 +188,7 @@ body {
   border-radius: 5px;
 }
 .footer-bottom {
-  border-color: #1e425b35;
+  border-color: #f7b9c63b;
   color: var(--mute);
 }
 .home-mobile-menu summary {
@@ -204,11 +212,11 @@ body {
   right: 0;
   width: 220px;
   padding: 12px 18px;
-  border: 1px solid #fff9;
-  background: #e8eff2f5;
+  border: 1px solid #f5b7d43d;
+  background: #302039f5;
   backdrop-filter: blur(18px);
   border-radius: 12px;
-  box-shadow: 0 20px 50px -25px #18344980;
+  box-shadow: 0 20px 50px -25px #110a2480;
 }
 .home-mobile-menu nav a {
   display: flex;
@@ -262,6 +270,28 @@ body {
     padding-block: 60px;
   }
   .footer-invitation h2 {
+    text-shadow: 0 10px 60px #f8819d19;
     font-size: clamp(52px, 12vw, 86px);
   }
+}
+
+.projects-heading,
+.contact-page > header {
+  position: relative;
+}
+.projects-page .category-project,
+.projects-page .design-tile {
+  border-color: var(--line);
+}
+.projects-page .project-card {
+  background: transparent;
+}
+.projects-page .design-tile img,
+.projects-page .category-project > a {
+  box-shadow: 0 24px 60px -30px #080918;
+  border: 1px solid #edafc24a;
+}
+:where(a, button, summary):focus-visible {
+  outline: 2px solid #ffcd9b;
+  outline-offset: 5px;
 }

@@ -19,32 +19,32 @@ const scenes = [
     category: "Creative development",
     name: "Facetworks / Magnetic sand",
     image: "magnetic-sand",
-    color: "#9dc2dc",
-    accent: "#173f59",
+    color: "#25394e",
+    accent: "#9bdae6",
   },
   {
     title: ["Real problems.", "Useful products."],
     category: "Product engineering",
     name: "SignalizeAI / Research in the browser",
     image: "signalizeai",
-    color: "#b8cddd",
-    accent: "#3b536e",
+    color: "#30243f",
+    accent: "#ffbba9",
   },
   {
     title: ["Small details.", "Big difference."],
     category: "Interaction design",
     name: "Facetworks / Jelly iPhone",
     image: "jelly-iphone",
-    color: "#dfb1c2",
-    accent: "#70445c",
+    color: "#5c2f4d",
+    accent: "#ffcedc",
   },
   {
     title: ["A little play.", "A new perspective."],
     category: "Browser experiments",
     name: "Facetworks / Fogged glass",
     image: "fogged-glass",
-    color: "#edc3a6",
-    accent: "#734f43",
+    color: "#553637",
+    accent: "#ffd0ad",
   },
 ];
 const SCENE_FRAMES = 150;
@@ -70,7 +70,7 @@ export function ProjectReelComposition() {
       data-reel-frame={frame}
       style={{
         background: scene.color,
-        color: "#1e2e4d",
+        color: "#fff0dc",
         overflow: "hidden",
         fontFamily: "inherit",
       }}
@@ -128,7 +128,7 @@ export function ProjectReelComposition() {
           aspectRatio: "1.44",
           borderRadius: 8,
           overflow: "hidden",
-          boxShadow: "0 24px 50px -26px #1e2e4d55",
+          boxShadow: "0 24px 50px -26px #fff0dc55",
           clipPath: `inset(0 ${interpolate(local, [4, 38], [100, 0], clamp)}% 0 0)`,
           translate: `0 ${interpolate(local, [4, 45], [38, 0], clamp)}px`,
         }}
@@ -166,7 +166,7 @@ export function ProjectReelComposition() {
         }}
       >
         {scenes.map((s, n) => (
-          <div key={s.name} style={{ flex: 1, background: "#1e2e4d15" }}>
+          <div key={s.name} style={{ flex: 1, background: "#fff0dc15" }}>
             <div
               style={{
                 height: "100%",

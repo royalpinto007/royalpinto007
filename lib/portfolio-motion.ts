@@ -214,6 +214,23 @@ export function mountPortfolioMotion(root: HTMLElement) {
           root
             .querySelectorAll<HTMLElement>(".product-art")
             .forEach((art, i) => {
+              const light = art.querySelector(".product-light");
+              if (light)
+                gsap.fromTo(
+                  light,
+                  { xPercent: -28, opacity: 0.25 },
+                  {
+                    xPercent: 28,
+                    opacity: 0.8,
+                    ease: "none",
+                    scrollTrigger: {
+                      trigger: art,
+                      start: "top bottom",
+                      end: "bottom top",
+                      scrub: 0.8,
+                    },
+                  },
+                );
               gsap.fromTo(
                 art,
                 { rotation: i % 2 ? -1.5 : 1.5, scale: 1.06 },

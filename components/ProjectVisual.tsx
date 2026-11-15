@@ -18,6 +18,7 @@ import {
 export function ProjectVisual({ product }: { product: string }) {
   return (
     <div className={`product-art product-art-${product}`} aria-hidden="true">
+      <div className="product-light" />
       <div className="product-art-topline">
         <span>Inside the product</span>
         <span>↗</span>
