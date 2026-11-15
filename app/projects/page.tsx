@@ -9,22 +9,22 @@ import { DesignGallery } from "@/components/DesignGallery";
 
 export const metadata: Metadata = {
   title: "Projects",
+  alternates: { canonical: "/projects" },
   description:
     "Browse apps, browser extensions, websites, interactive experiments, packages, and open-source contributions by Royal Pinto.",
 };
 export default function ProjectsPage() {
   return (
     <div className="portfolio-shell projects-page">
-      <header className="projects-heading">
-        <p>Browse the work</p>
+      <header className="projects-heading" data-motion-intro>
         <h1>
-          Different tools.
+          Many ideas.
           <br />
-          <span>One builder.</span>
+          <span>Made real.</span>
         </h1>
         <p>
-          Explore by the kind of project you have in mind. Real interfaces,
-          working products, and the systems underneath.
+          Apps that solve a problem. Tools that save a step. Websites that make
+          you look twice. Explore what I build, and how I build it.
         </p>
       </header>
       <nav className="project-jumps" aria-label="Project categories">
@@ -99,7 +99,7 @@ export default function ProjectsPage() {
             {category.id === "websites" && (
               <a
                 className="quiet-link"
-                href="https://facetworks.signalizeai.org/"
+                href="https://royalpinto007.com/facetworks/"
               >
                 Explore Facetworks ↗
               </a>

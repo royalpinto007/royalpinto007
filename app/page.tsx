@@ -1,9 +1,14 @@
 import { readFileSync } from "node:fs";
+import "./home.css";
 import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
 import { DesignGallery } from "@/components/DesignGallery";
+import { MotionReel } from "@/components/MotionReel";
+import { KineticBand } from "@/components/KineticBand";
+import { ProjectVisual } from "@/components/ProjectVisual";
+import { SystemsShowcase } from "@/components/SystemsShowcase";
 import { siteConfig } from "@/data/site";
 
 const wallSvg = readFileSync(
@@ -13,72 +18,90 @@ const wallSvg = readFileSync(
 const work = [
   {
     name: "SignalizeAI",
-    kind: "AI product / browser extension",
+    kind: "AI product",
     image: "signalizeai",
     href: "https://signalizeai.org",
-    description:
-      "From a company website to a sales-ready prospect record. Research, personas, and outreach in the browser.",
+    description: "Account research, right inside your browser.",
+    stack: ["Browser extension", "AI workflows"],
   },
   {
     name: "AgentPostmortem",
-    kind: "AI infrastructure / open source",
+    kind: "AI infrastructure",
     image: "agentpostmortem",
     href: "https://agentpostmortem.com",
-    description:
-      "A public registry of real AI-agent failures. Making failure evidence useful to the next builder.",
+    description: "Real agent failures. Lessons worth building on.",
+    stack: ["Supabase", "MCP", "Open source"],
   },
   {
-    name: "AashiNyra Deals",
-    kind: "Full-stack product / commerce",
+    name: "AashiNyra",
+    kind: "Commerce",
     image: "aashinyra",
     href: "https://aashinyra.com",
-    description:
-      "A fashion deals platform with retailer tracking, genuine price drops, and cashback to UPI.",
+    description: "Tracked deals. Real price drops. UPI cashback.",
+    stack: ["PostgreSQL", "D1", "R2"],
   },
   {
-    name: "Facetworks",
-    kind: "Creative development / interaction",
-    image: "facetworks",
-    href: "https://facetworks.signalizeai.org",
-    description:
-      "Thirty working concepts, from distinctive websites to tactile browser experiments. Built to be explored.",
+    name: "BoardEject",
+    kind: "Developer tool",
+    image: "boardeject",
+    href: "https://boardeject.dev",
+    description: "Apple Freeform to editable Excalidraw. Processed locally.",
+    stack: ["Browser conversion", "macOS helper"],
   },
 ];
 
 export default function HomePage() {
   return (
-    <div className="portfolio-shell">
+    <div className="portfolio-shell home-page">
       <section className="portfolio-hero">
         <div className="hero-copy">
-          <p className="intro-name">Royal Simpson Pinto / Software engineer</p>
+          <p className="intro-name">Software engineer & open-source builder</p>
           <h1>
-            Built to work.
-            <br />
-            <span>Made to matter.</span>
+            <span className="hero-line">
+              <span>Royal</span>
+            </span>
+            <span className="hero-line">
+              <span className="hero-title-accent">Simpson Pinto.</span>
+            </span>
           </h1>
           <p className="hero-description">
-            I build AI products, useful tools, and distinctive web experiences.
-            From the first interface to the systems underneath.
+            AI agents. Full-stack products. Automation. Web3.
+            <br className="hero-break" /> From the architecture to the last
+            interaction.
           </p>
+          <a className="hero-open-source" href="#oss">
+            <GitBranch size={15} /> Built in the open <ArrowRight size={14} />
+          </a>
           <div className="hero-actions">
             <a className="primary-link" href={siteConfig.hireUrl}>
               Hire me <ArrowUpRight size={17} />
             </a>
-            <Link className="quiet-link" href="/projects">
-              View projects <ArrowRight size={17} />
-            </Link>
+            <a className="quiet-link" href="#systems">
+              See how I build <ArrowRight size={17} />
+            </a>
           </div>
         </div>
         <figure className="portrait">
-          <Image
-            src={siteConfig.avatar}
-            alt="Royal Simpson Pinto"
-            width={600}
-            height={660}
-            priority
-          />
+          <div className="portrait-scene">
+            <div className="portrait-visual">
+              <picture>
+                <source srcSet="/portrait-sky.webp" type="image/webp" />
+                <Image
+                  src={siteConfig.avatar}
+                  alt="Illustrated portrait of Royal Simpson Pinto against a blue and pink sunset sky"
+                  width={460}
+                  height={460}
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </picture>
+            </div>
+          </div>
+          <span className="portrait-signature" aria-hidden="true">
+            Royal.
+          </span>
           <figcaption>
-            <span>Engineer. Builder. Open-source contributor.</span>
+            <span>Royal Simpson Pinto · Mangaluru, India</span>
             <span>
               {siteConfig.availabilityStatus
                 ? "Open to opportunities"
@@ -88,97 +111,119 @@ export default function HomePage() {
         </figure>
       </section>
 
+      <a className="scroll-note" href="#work">
+        <span>Scroll to explore</span>
+        <ArrowRight size={15} aria-hidden="true" />
+      </a>
+
+      <KineticBand />
+
       <section className="selected-work" id="work">
-        <div className="section-intro">
-          <p className="section-kicker">Selected work</p>
-          <h2>Ideas you can actually open.</h2>
-          <p>
-            Products, platforms, and a little creative engineering. Each one has
-            a working life beyond this page.
-          </p>
+        <div className="section-intro work-heading">
+          <h2>
+            A few things <span>I’ve built.</span>
+          </h2>
+          <Link className="quiet-link" href="/projects">
+            All projects <ArrowRight size={17} />
+          </Link>
         </div>
         <div className="work-grid">
           {work.map((project) => (
             <article className="work-piece" key={project.name}>
               <a
                 className="work-preview"
+                aria-label={`Explore ${project.name}`}
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Image
-                  src={`/work/${project.image}.webp`}
-                  alt={`${project.name} live website`}
-                  width={1008}
-                  height={700}
-                />
+                <ProjectVisual product={project.image} />
               </a>
-              <div className="work-meta">
-                <h3>
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.name} <ArrowUpRight size={19} />
-                  </a>
-                </h3>
-                <span>{project.kind}</span>
+              <div className="work-details">
+                <div className="work-meta">
+                  <h3>
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {project.name} <ArrowUpRight size={19} />
+                    </a>
+                  </h3>
+                  <span>{project.kind}</span>
+                </div>
+                <p>{project.description}</p>
+                <ul
+                  className="work-stack"
+                  aria-label={`${project.name} engineering`}
+                >
+                  {project.stack.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
-              <p>{project.description}</p>
             </article>
           ))}
         </div>
-        <Link className="quiet-link collection-link" href="/projects">
-          View projects <ArrowRight size={17} />
-        </Link>
       </section>
 
-      <section className="capabilities">
-        <div>
-          <h2>
-            One engineer.
-            <br />
-            The whole picture.
-          </h2>
-          <p>
-            I care about the experience people see and the engineering they
-            don’t. Clear interfaces, deliberate architecture, and a usable
-            handover.
-          </p>
-          <a className="quiet-link" href={siteConfig.hireUrl}>
-            Hire me <ArrowUpRight size={17} />
-          </a>
-        </div>
-        <div className="capability-list">
-          {siteConfig.services.map((service) => (
-            <article key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.description.replaceAll("—", ",")}</p>
-              <span>{service.tags.join(" / ")}</span>
-            </article>
-          ))}
-        </div>
-      </section>
+      <SystemsShowcase />
+      <MotionReel />
 
       <section className="open-source" id="oss">
         <div className="section-intro">
-          <h2>Open source is part of the job.</h2>
-          <p>
-            GSoC, Linux Foundation (LFX), and Symmetry Autumn of Code.
-            Contributions to compilers, networking systems, and AI tooling.
+          <h2>
+            Open source. <span>Every day.</span>
+          </h2>
+          <p className="sr-only">
+            Contributions across compilers, networking, AI, developer tools, and
+            more.
           </p>
         </div>
+        <ul className="programme-strip" aria-label="Open-source programmes">
+          <li>
+            <span>Google Summer of Code</span>
+            <strong>GSoC</strong>
+          </li>
+          <li>
+            <span>Linux Foundation’s LFX Mentorship</span>
+            <strong>LFX</strong>
+          </li>
+          <li>
+            <span>Symmetry Autumn of Code</span>
+            <strong>SAoC</strong>
+          </li>
+        </ul>
         <div className="contribution-summary">
-          <strong>12,208 contributions in 2026</strong>
+          <strong>12,529 contributions in 2026</strong>
           <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
             View GitHub profile <ArrowUpRight size={16} />
           </a>
         </div>
-        <div
-          className="contribution-wall"
-          dangerouslySetInnerHTML={{ __html: wallSvg }}
-        />
+        <div className="contribution-calendar">
+          <div
+            className="contribution-wall"
+            role="region"
+            aria-label="GitHub contribution calendar, scroll horizontally to explore the year"
+            tabIndex={0}
+            dangerouslySetInnerHTML={{ __html: wallSvg }}
+          />
+          <div className="contribution-legend">
+            <span>
+              Every square is a day on GitHub.
+              <small className="calendar-scroll-hint">
+                Scroll to explore the year.
+              </small>
+            </span>
+            <div aria-label="Contribution intensity from fewer to more">
+              <span>Less</span>
+              {[0, 1, 2, 3, 4].map((level) => (
+                <i key={level} data-level={level} aria-hidden="true" />
+              ))}
+              <span>More</span>
+            </div>
+          </div>
+        </div>
         <div className="experience-facts">
           {siteConfig.stats.map((stat) => (
             <div key={stat.label}>
@@ -191,27 +236,25 @@ export default function HomePage() {
 
       <section className="playground" id="frontend">
         <div className="section-intro">
-          <h2>A serious interest in play.</h2>
-          <p>
-            {siteConfig.frontendSites.length} design sites.{" "}
-            {siteConfig.gpuSites.length} interactive experiences. A place to
-            explore what the browser can feel like.
-          </p>
+          <h2>Go on. Play with it.</h2>
+          <p>Physics. Light. A little browser magic.</p>
         </div>
         <div className="playground-images">
           {["fogged-glass", "magnetic-sand", "jelly-iphone"].map((slug) => (
             <a
               key={slug}
-              href={`https://${slug}.signalizeai.org`}
+              href={`/facetworks/${slug}/`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
-                src={`/work/${slug}.webp`}
-                alt={slug.replaceAll("-", " ")}
-                width={960}
-                height={640}
-              />
+              <div className="playground-image-viewport">
+                <Image
+                  src={`/work/${slug}.webp`}
+                  alt={slug.replaceAll("-", " ")}
+                  width={960}
+                  height={640}
+                />
+              </div>
               <span>
                 {slug
                   .split("-")
@@ -224,7 +267,7 @@ export default function HomePage() {
         </div>
         <a
           className="quiet-link"
-          href="https://facetworks.signalizeai.org"
+          href="https://royalpinto007.com/facetworks"
           target="_blank"
           rel="noopener noreferrer"
         >

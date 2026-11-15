@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { RevealObserver } from "@/components/RevealObserver";
+import { PortfolioMotion } from "@/components/PortfolioMotion";
 import { Header } from "@/components/Header";
 import { CoffeeTicker } from "@/components/CoffeeTicker";
 import { Footer } from "@/components/Footer";
@@ -12,22 +11,31 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://royalpinto007.agentpostmortem.com"),
+  metadataBase: new URL("https://royalpinto007.com"),
   title: {
     default: `${siteConfig.name} | ${siteConfig.role}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.bio,
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.bio,
     type: "website",
-    images: ["/social-redesign.jpg"],
+    images: [
+      {
+        url: "/social-sky.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Royal Pinto's portfolio with an illustrated blue-sky portrait",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.bio,
+    images: ["/social-sky.jpg"],
   },
 };
 
@@ -37,28 +45,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Enable scroll-reveal only when JS runs, so no-JS shows everything. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add('js')`,
-          }}
-        />
-      </head>
+    <html lang="en">
       <body
         className={`${geist.className} ${geist.variable} ${mono.variable} bg-bg text-ink antialiased`}
       >
-        <ThemeProvider>
-          <RevealObserver />
-          <Header />
-          <CoffeeTicker />
-          <a href="#main-content" className="skip-link">
-            Skip to content
-          </a>
-          <main id="main-content">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <PortfolioMotion />
+        <div className="sunset-atmosphere" aria-hidden="true">
+          <div className="sky-current" />
+          <div className="sunset-current" />
+          <div className="horizon-lines" />
+        </div>
+        <Header />
+        <CoffeeTicker />
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+        <main id="main-content">{children}</main>
+        <Footer />
       </body>
     </html>
   );

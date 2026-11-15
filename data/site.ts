@@ -4,7 +4,7 @@ export const siteConfig = {
   role: "Software Engineer",
   location: "Mangaluru, India",
   timezone: "IST (UTC+5:30)",
-  bio: "I build AI-powered products and agentic workflows, contribute to open source compilers and networking systems, and ship things that work.",
+  bio: "Royal Simpson Pinto builds AI products, full-stack apps, and expressive web experiences. Explore the projects, open-source work, and browser experiments.",
   shortBio:
     "Software engineer building AI-first products and contributing to open source.",
   email: "royalpinto007@gmail.com",
@@ -16,15 +16,15 @@ export const siteConfig = {
   twitter: "https://twitter.com/royalpinto007",
   mediumUsername: "royalpinto007",
   mediumFeedUrl: "https://medium.com/feed/@royalpinto007",
-  hireUrl: "https://hire.agentpostmortem.com",
+  hireUrl: "https://hire.royalpinto007.com",
   availability:
     "Open to new opportunities — AI, full-stack, and open source work",
   availabilityStatus: true,
   replyTime: "Within 24 hours",
-  avatar: "/github-avatar.webp",
+  avatar: "/portrait-sky.png",
 
   stats: [
-    { label: "Open source contributions", value: "1500+" },
+    { label: "Open-source programmes", value: "3" },
     { label: "Products and tools shipped", value: "15+" },
     { label: "Students mentored", value: "500+" },
   ],
@@ -38,106 +38,116 @@ export const siteConfig = {
   ],
 
   frontendSites: [
-    { name: "Ledger", genre: "Fintech", url: "https://ledger.signalizeai.org" },
+    { name: "Ledger", genre: "Fintech", url: "https://royalpinto007.com/facetworks/ledger" },
     {
       name: "Atlas",
       genre: "Architecture",
-      url: "https://atlas.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/atlas",
     },
     {
       name: "Frequency",
       genre: "Music",
-      url: "https://frequency.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/frequency",
     },
     {
       name: "Sprout",
       genre: "Wellness app",
-      url: "https://sprout.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/sprout",
     },
     {
       name: "Cellar",
       genre: "Wine bar",
-      url: "https://cellar.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/cellar",
     },
     {
       name: "Nebula",
       genre: "AI product",
-      url: "https://nebula.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/nebula",
     },
     {
       name: "Vantage",
       genre: "Studio",
-      url: "https://vantage.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/vantage",
     },
-    { name: "Halcyon", genre: "Audio", url: "https://halcyon.signalizeai.org" },
-    { name: "Fable", genre: "Portfolio", url: "https://fable.signalizeai.org" },
+    { name: "Halcyon", genre: "Audio", url: "https://royalpinto007.com/facetworks/halcyon" },
+    { name: "Fable", genre: "Portfolio", url: "https://royalpinto007.com/facetworks/fable" },
     {
       name: "Pulse",
       genre: "Conference",
-      url: "https://pulse.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/pulse",
     },
     {
       name: "Quire",
       genre: "Type foundry",
-      url: "https://quire.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/quire",
     },
     {
       name: "Fathom",
       genre: "Research institute",
-      url: "https://fathom.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/fathom",
     },
     {
       name: "Ironline",
       genre: "Strength gym",
-      url: "https://ironline.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/ironline",
     },
     {
       name: "Lumen",
       genre: "Dental studio",
-      url: "https://lumen.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/lumen",
     },
     {
       name: "Threadline",
       genre: "Fashion shop",
-      url: "https://threadline.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/threadline",
     },
     {
       name: "Hollowpine",
       genre: "Wilderness lodge",
-      url: "https://hollowpine.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/hollowpine",
     },
     {
       name: "Fieldline",
       genre: "Real estate",
-      url: "https://fieldline.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/fieldline",
     },
     {
       name: "Conduit",
       genre: "Devtool",
-      url: "https://conduit.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/conduit",
     },
   ],
 
   gpuSites: [
     {
+      name: "Eight Eyes. One Pounce.",
+      genre: "3D hunting study · Code-modeled jumping spider",
+      url: "https://royalpinto007.com/facetworks/spider-pounce",
+    },
+    {
+      name: "Fly Circuit Lab",
+      genre: "3D neural escape · LIF giant-fiber circuit",
+      url: "https://royalpinto007.com/facetworks/fly-circuit-lab",
+    },
+    {
       name: "Small Change",
       genre: "3D coin trick · Choreographed MyoHand anatomy",
-      url: "https://coin-trick.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/coin-trick",
     },
     {
       name: "The Cheese Heist",
       genre: "3D rat caper · Skinned dm_control anatomy",
-      url: "https://rat-heist.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/rat-heist",
     },
     {
       name: "Forklift Certified. Somehow.",
       genre: "3D miniature warehouse · Fly-operated forklift",
-      url: "https://fly-forklift.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/fly-forklift",
     },
     {
       name: "Not a Robot. Just a Fly.",
       genre: "3D flybody anatomy · Choreographed CAPTCHA",
-      url: "https://fly-captcha.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/fly-captcha",
     },
     {
       name: "Rent My Screen",
@@ -152,88 +162,88 @@ export const siteConfig = {
     {
       name: "Paint Manchester Red",
       genre: "Interactive fan tribute",
-      url: "https://manchester-red.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/manchester-red",
     },
     {
       name: "Mochimo",
       genre: "Character interaction",
-      url: "https://mochimo.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/mochimo",
     },
     {
       name: "Magnetic Sand",
       genre: "Magnetic sculpture",
-      url: "https://magnetic-sand.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/magnetic-sand",
     },
     {
       name: "Fogged Glass",
       genre: "Tactile window",
-      url: "https://fogged-glass.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/fogged-glass",
     },
     {
       name: "Jelly iPhone",
       genre: "Product demo",
-      url: "https://jelly-iphone.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/jelly-iphone",
     },
     {
       name: "Jelly Pancake",
       genre: "Interactive toy",
-      url: "https://jelly-pancake.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/jelly-pancake",
     },
     {
       name: "Auralis",
       genre: "Aurora",
-      url: "https://auralis.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/auralis",
     },
     {
       name: "Mycelia",
       genre: "Slime mold",
-      url: "https://mycelia.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/mycelia",
     },
     {
       name: "Undertow",
       genre: "Fluid",
-      url: "https://undertow.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/undertow",
     },
     {
       name: "Lichen",
       genre: "Reaction-diffusion",
-      url: "https://lichen.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/lichen",
     },
-    { name: "Abyss", genre: "Fractal", url: "https://abyss.signalizeai.org" },
+    { name: "Abyss", genre: "Fractal", url: "https://royalpinto007.com/facetworks/abyss" },
     {
       name: "Drift",
       genre: "Flow field",
-      url: "https://drift.signalizeai.org",
+      url: "https://royalpinto007.com/facetworks/drift",
     },
-    { name: "Gummy", genre: "Soft body", url: "https://gummy.signalizeai.org" },
+    { name: "Gummy", genre: "Soft body", url: "https://royalpinto007.com/facetworks/gummy" },
   ],
   services: [
     {
       icon: "Brain",
-      title: "AI Agents & Automation",
+      title: "AI agents & automation",
       description:
-        "Agentic workflows, LLM integrations, and AI-powered product features that solve real problems.",
+        "AI features and workflows that turn a manual process into something people can use every day.",
       tags: ["Claude API", "OpenAI", "n8n"],
     },
     {
       icon: "Layers",
-      title: "Full-stack Engineering",
+      title: "Full-stack engineering",
       description:
-        "End-to-end product development — from React frontends to Node.js backends and cloud deployments.",
+        "From the first screen to the API, database, and deployment. One connected product, built to keep working.",
       tags: ["Next.js", "TypeScript", "Node.js"],
     },
     {
       icon: "Server",
-      title: "Open Source Systems",
+      title: "Open-source engineering",
       description:
-        "Compiler development, network OS contributions, documentation, and low-level systems engineering.",
+        "Contributions to shared software, from compiler and networking code to AI tools, documentation, and developer workflows.",
       tags: ["D", "C++", "Linux"],
     },
     {
       icon: "Palette",
-      title: "Browser Extensions & Tools",
+      title: "Extensions & creative web",
       description:
-        "Chrome and Firefox extensions, VS Code extensions, and developer tools built with modern web tech.",
+        "Useful browser extensions and expressive websites, with careful attention to interaction, accessibility, and the details you feel.",
       tags: ["Chrome APIs", "Cloudflare", "Supabase"],
     },
   ],
@@ -301,7 +311,7 @@ export const siteConfig = {
       tech: ["Claude API", "n8n", "Supabase", "Cloudflare Workers"],
       featured: true,
       section: "AI Products",
-      liveUrl: "https://hire.agentpostmortem.com",
+      liveUrl: "https://hire.royalpinto007.com",
       githubUrl: "https://github.com/AgentPostmortem",
     },
     {
@@ -873,7 +883,7 @@ export const siteConfig = {
       tech: ["WebGPU", "WebGL2", "WGSL / GLSL", "Shaders"],
       featured: false,
       section: "Frontend & Design",
-      liveUrl: "https://auralis.signalizeai.org",
+      liveUrl: "https://royalpinto007.com/facetworks/auralis",
     },
     {
       id: "mycelia",
@@ -891,7 +901,7 @@ export const siteConfig = {
       tech: ["WebGL2", "GPGPU", "GLSL", "Simulation"],
       featured: false,
       section: "Frontend & Design",
-      liveUrl: "https://mycelia.signalizeai.org",
+      liveUrl: "https://royalpinto007.com/facetworks/mycelia",
     },
     {
       id: "undertow",
@@ -909,7 +919,7 @@ export const siteConfig = {
       tech: ["WebGL2", "GPGPU", "GLSL", "Fluid Simulation"],
       featured: false,
       section: "Frontend & Design",
-      liveUrl: "https://undertow.signalizeai.org",
+      liveUrl: "https://royalpinto007.com/facetworks/undertow",
     },
     {
       id: "lichen",
@@ -927,7 +937,7 @@ export const siteConfig = {
       tech: ["WebGL2", "GPGPU", "GLSL", "Simulation"],
       featured: false,
       section: "Frontend & Design",
-      liveUrl: "https://lichen.signalizeai.org",
+      liveUrl: "https://royalpinto007.com/facetworks/lichen",
     },
     {
       id: "abyss",
@@ -945,7 +955,7 @@ export const siteConfig = {
       tech: ["WebGL2", "GLSL", "Raymarching", "Fractals"],
       featured: false,
       section: "Frontend & Design",
-      liveUrl: "https://abyss.signalizeai.org",
+      liveUrl: "https://royalpinto007.com/facetworks/abyss",
     },
     {
       id: "drift",
@@ -963,7 +973,7 @@ export const siteConfig = {
       tech: ["WebGL2", "GPGPU", "GLSL", "Particles"],
       featured: false,
       section: "Frontend & Design",
-      liveUrl: "https://drift.signalizeai.org",
+      liveUrl: "https://royalpinto007.com/facetworks/drift",
     },
     {
       id: "gummy",
@@ -981,7 +991,7 @@ export const siteConfig = {
       tech: ["WebGL2", "GLSL", "Soft-body physics", "Shaders"],
       featured: true,
       section: "Frontend & Design",
-      liveUrl: "https://gummy.signalizeai.org",
+      liveUrl: "https://royalpinto007.com/facetworks/gummy",
     },
     {
       id: "distro-skills",
@@ -1035,7 +1045,7 @@ export const siteConfig = {
       tech: ["TypeScript", "VS Code API"],
       featured: false,
       section: "Open Source & Tools",
-      liveUrl: "https://water.signalizeai.org",
+      liveUrl: "https://royalpinto007.com/facetworks/water",
       githubUrl: "https://github.com/royalpinto007/Water",
     },
     {
@@ -1080,8 +1090,9 @@ export const siteConfig = {
       category: "Frontend",
       status: "Live",
       description:
-        "Thirty-one distinctive websites and interactive experiences. Explore eighteen design sites and thirteen browser experiments, then commission a custom build inspired by a direction you love.",
+        "Thirty-nine distinctive websites and interactive experiences. Explore eighteen design sites and twenty-one browser experiments, then commission a custom build inspired by a direction you love.",
       features: [
+        "Eight Eyes. One Pounce. hunts a midge on your choice of three sides with an authored leap and a silk dragline",
         "Quire (type foundry) sets every specimen as real text; Fathom (ocean institute) draws its depth scale and cast charts from the data",
         "Ledger (fintech), Atlas (architecture studio), Frequency (music), Sprout (wellness app)",
         "Nebula, Vantage, Halcyon, Fable, Pulse, and Cellar across six more genres",
@@ -1091,7 +1102,7 @@ export const siteConfig = {
       tech: ["Astro", "React", "Tailwind v4", "TypeScript", "Cloudflare Pages"],
       featured: true,
       section: "Frontend & Design",
-      liveUrl: "https://facetworks.signalizeai.org",
+      liveUrl: "https://royalpinto007.com/facetworks",
     },
   ],
 

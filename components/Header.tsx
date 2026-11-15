@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-import { Moon, Sun, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
 const navLinks = [
   { label: "Home", href: "/" },
@@ -11,16 +10,20 @@ const navLinks = [
 ];
 export function Header() {
   const pathname = usePathname();
-  const { resolvedTheme, setTheme } = useTheme();
   return (
     <header className="site-header">
       <div className="header-inner">
         <Link
           href="/"
           className="brand-link"
-          aria-label="RSP, Royal Simpson Pinto home"
+          aria-label="Royal Simpson Pinto home"
         >
-          RSP
+          <span>Royal Simpson Pinto</span>
+          <small>
+            {pathname === "/"
+              ? "Software engineer & open-source builder"
+              : "Software engineer & creative developer"}
+          </small>
         </Link>
         <nav className="site-nav" aria-label="Main navigation">
           {navLinks.map((link) => (
@@ -45,16 +48,6 @@ export function Header() {
           <a className="primary-link" href={siteConfig.hireUrl}>
             Hire me <ArrowUpRight size={15} />
           </a>
-          <button
-            className="theme-button"
-            onClick={() =>
-              setTheme(resolvedTheme === "dark" ? "light" : "dark")
-            }
-            aria-label="Toggle theme"
-          >
-            <Sun className="hidden dark:block" size={16} />
-            <Moon className="dark:hidden" size={16} />
-          </button>
         </div>
       </div>
     </header>

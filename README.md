@@ -5,6 +5,8 @@
 🌍 Google Summer of Code · Linux Foundation · Symmetry Autumn of Code<br>
 🚀 3+ years building and shipping production software
 
+🌅 [Portfolio](https://royalpinto007.com) · [Hire me](https://hire.royalpinto007.com)
+
 ## Projects
 
 * [BoardEject](https://boardeject.dev) | Apple Freeform → editable Excalidraw
@@ -14,10 +16,10 @@
 * [Tiny Day](https://github.com/royalpinto007/Tiny-Day) | offline-first Android planner
 * [PennyRush](https://github.com/royalpinto007/PennyRush) | private money hub
 * [AgentPostmortem](https://github.com/AgentPostmortem/agentpostmortem) | AI agent failure registry + tooling
-* [Facetworks](https://facetworks.signalizeai.org) | 37 web design and interactive experiments
+* [Facetworks](https://royalpinto007.com/facetworks) | 39 web design and interactive experiments
 
 ## I also build
 
 🧪 AI evals · agent security · MCP tooling · RAG · agent memory · token optimization · local-first apps · Chrome extensions
 
-🌐 [Facetworks](https://facetworks.signalizeai.org) · ☕ [Buy me a coffee](https://buymeacoffee.com/royalpinto007) · ✉️ [royalpinto007@gmail.com](mailto:royalpinto007@gmail.com)
+🌐 [Facetworks](https://royalpinto007.com/facetworks) · ☕ [Buy me a coffee](https://buymeacoffee.com/royalpinto007) · ✉️ [royalpinto007@gmail.com](mailto:royalpinto007@gmail.com)

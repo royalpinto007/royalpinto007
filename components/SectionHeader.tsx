@@ -15,7 +15,7 @@ export function SectionHeader({
   centered,
 }: SectionHeaderProps) {
   return (
-    <div className={centered ? "text-center" : ""}>
+    <div className={centered ? "text-center" : ""} data-motion-intro>
       {eyebrow && (
         <div
           className={`flex items-center gap-3 mb-4 ${centered ? "justify-center" : ""}`}

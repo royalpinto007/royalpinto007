@@ -41,8 +41,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to Cloudflare
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: npx wrangler deploy
+      # Production includes Facetworks and every demo in one asset bundle.
+      # Publish through Open-Source/Final; deploying this repo's out/ alone
+      # would omit those paths. This job refreshes and validates source only.

@@ -5,7 +5,16 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-invitation">
-        <h2>Have something in mind?</h2>
+        <div>
+          <h2>
+            Have something
+            <br />
+            in mind?
+          </h2>
+          <p>
+            A first idea, a new product, or the next chapter. Let’s build it.
+          </p>
+        </div>
         <a className="primary-link" href={siteConfig.hireUrl}>
           Hire me <ArrowUpRight size={18} />
         </a>

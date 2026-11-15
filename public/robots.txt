@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://royalpinto007.com/sitemap.xml

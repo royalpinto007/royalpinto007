@@ -2,6 +2,7 @@
 // from live GitHub data. Run by .github/workflows/refresh-contributions.yml.
 // Requires GITHUB_TOKEN in the environment (public contribution data only).
 import { readFileSync, writeFileSync } from "node:fs";
+import { renderContributionWall } from "./contribution-wall.mjs";
 
 const YEAR = 2026;
 const USER = "royalpinto007";
@@ -16,7 +17,7 @@ const query = `query($user:String!,$from:DateTime!,$to:DateTime!){
     contributionsCollection(from:$from,to:$to){
       contributionCalendar{
         totalContributions
-        weeks{ contributionDays{ weekday contributionLevel } }
+        weeks{ contributionDays{ date weekday contributionLevel contributionCount } }
       }
     }
   }
@@ -46,34 +47,7 @@ if (json.errors) {
 }
 
 const cal = json.data.user.contributionsCollection.contributionCalendar;
-// Theme-aware levels: rects carry a class (l0..l4) and the page CSS
-// (app/globals.css, .wall selectors) supplies the fill per theme, so the
-// empty cells are light grey on the light theme and near-black on dark.
-const level = {
-  NONE: "l0",
-  FIRST_QUARTILE: "l1",
-  SECOND_QUARTILE: "l2",
-  THIRD_QUARTILE: "l3",
-  FOURTH_QUARTILE: "l4",
-};
-// Fallback fills (presentation attributes) so the file still reads standalone.
-// CSS rules always win over presentation attributes, so the themed page wins.
-const color = {
-  NONE: "#1e1c19",
-  FIRST_QUARTILE: "#0e4429",
-  SECOND_QUARTILE: "#006d32",
-  THIRD_QUARTILE: "#26a641",
-  FOURTH_QUARTILE: "#39d353",
-};
-
-let rects = "";
-cal.weeks.forEach((w, i) => {
-  w.contributionDays.forEach((d) => {
-    rects += `<rect x="${i * 14}" y="${d.weekday * 14}" width="11" height="11" rx="2" class="${level[d.contributionLevel]}" fill="${color[d.contributionLevel]}"/>`;
-  });
-});
-
-const svg = `<svg viewBox="0 0 739 95" width="100%" role="img" aria-label="Royal Pinto GitHub contributions in ${YEAR}" xmlns="http://www.w3.org/2000/svg" class="wall-svg" style="max-width:100%;height:auto">${rects}</svg>`;
+const svg = renderContributionWall(cal, YEAR);
 writeFileSync(`public/wall${YEAR}.svg`, svg);
 
 const total = cal.totalContributions.toLocaleString("en-US");

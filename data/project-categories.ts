@@ -23,7 +23,7 @@ export const projectCategories = [
     id: "experiments",
     title: "Interactive experiments",
     description:
-      "Twelve tactile browser experiences exploring physics, shaders, motion, and sound.",
+      "Interactive studies in physics, light, motion, sound, and the unexpected things a browser can do.",
   },
   {
     id: "packages",
@@ -41,7 +41,7 @@ export const projectCategories = [
     id: "open-source",
     title: "Open-source contributions & systems",
     description:
-      "Compiler and networking contributions, retrieval systems, and engineering infrastructure.",
+      "Shared engineering work across compilers, networking, AI, retrieval, documentation, and developer infrastructure.",
   },
 ] as const;
 export type ProjectCategory = (typeof projectCategories)[number]["id"];

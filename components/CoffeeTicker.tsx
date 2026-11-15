@@ -1,3 +1,5 @@
+import { ArrowUpRight } from "lucide-react";
+
 const message = "Like the work? Buy me a coffee";
 
 export function CoffeeTicker() {
@@ -7,14 +9,9 @@ export function CoffeeTicker() {
       href="https://www.buymeacoffee.com/royalpinto007"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Buy Royal Pinto a coffee"
     >
-      <span className="coffee-ticker-track" aria-hidden="true">
-        {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => (
-          <span key={item}>
-            {message} <b>↗</b>
-          </span>
-        ))}
+      <span className="coffee-ticker-track">
+        {message} <ArrowUpRight size={13} aria-hidden="true" />
       </span>
     </a>
   );

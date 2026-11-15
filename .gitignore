@@ -45,3 +45,7 @@ AGENTS.md
 CLAUDE.md
 *.pdf
 .claude/
+
+# Python browser-check caches
+__pycache__/
+*.py[cod]
