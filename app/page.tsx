@@ -131,15 +131,19 @@ export default function HomePage() {
                   </div>
                 </>
               )}
-              <a
-                className="work-preview"
-                aria-label={`Explore ${project.name}`}
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <div className="work-preview">
                 <ProjectVisual product={project.image} />
-              </a>
+                <a
+                  className="work-preview-link"
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>
+                    Explore {project.name} <ArrowUpRight size={15} />
+                  </span>
+                </a>
+              </div>
               <div className="work-details">
                 <p className="work-index">
                   <span>0{i + 1}</span> {project.kind}

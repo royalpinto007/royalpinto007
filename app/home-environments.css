@@ -246,6 +246,23 @@
   border-color: #415e72;
 }
 .home-page .work-world .work-preview::after {
+  content: none;
+}
+.home-page .work-world .work-preview-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 8px;
+}
+.home-page .work-world .work-preview-link > span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 12px;
+  font-size: 11px;
   background: #fffaf0f2;
   border: 1px solid #8ca8bb;
   border-radius: 6px;

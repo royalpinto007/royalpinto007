@@ -29,6 +29,12 @@ with sync_playwright() as p:
    if host.locator('.work-details').count():
     preview=host.locator('.work-preview')
     assert preview.evaluate("n=>getComputedStyle(n).backgroundColor==='rgba(0, 0, 0, 0)'&&getComputedStyle(n).boxShadow==='none'")
+    link=preview.get_by_role('link')
+    assert link.inner_text().startswith('Explore ')
+    assert link.get_attribute('aria-label') is None, 'Visible project label is overridden'
+    assert link.get_attribute('href')==host.locator('.work-visit').get_attribute('href')
+    link.focus()
+    assert link.evaluate("n=>getComputedStyle(n).outlineStyle!=='none'")
     detail=host.locator('.work-details')
     assert detail.evaluate('''n=>{const b=n.getBoundingClientRect();return [...n.querySelectorAll('h3,p,li,a')].every(x=>{const r=document.createRange();r.selectNodeContents(x);const t=r.getBoundingClientRect();return t.left>=b.left-1&&t.right<=b.right+1})}'''),'Project copy escapes its glass layer'
    checks.append({'width':width,'scene':source.rsplit('/',1)[-1],'full_section':True})
