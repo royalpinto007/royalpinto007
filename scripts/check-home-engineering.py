@@ -85,7 +85,7 @@ with sync_playwright() as p:
   page.get_by_role('link',name=label,exact=True).first.click();page.wait_for_url(BASE+route)
   width=page.locator('.header-inner').bounding_box()['width']
   expect(width>1800 if route=='/' else width==1400,f'{route}: header width scope leaked ({width})')
-  expect(page.locator('.brand-link small').inner_text()==('Software engineer & open-source builder' if route=='/' else 'Software engineer & creative developer'),f'{route}: header text scope leaked')
+  expect(page.locator('.brand-link small').inner_text()=='Software engineer & open-source builder',f'{route}: shared header identity missing')
  context.close()
  # The diagrams and case selection remain functional with no JavaScript.
  context=b.new_context(java_script_enabled=False,viewport={'width':390,'height':900})

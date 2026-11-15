@@ -53,6 +53,10 @@ export function MotionReel() {
 
   return (
     <section className="motion-reel" aria-labelledby="reel-title">
+      <p className="section-marker">
+        <span>03 / In motion</span>
+        <span>Press play. Get the feeling.</span>
+      </p>
       <div className="reel-heading">
         <h2 id="reel-title">
           Built to <span>move.</span>

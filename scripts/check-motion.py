@@ -115,7 +115,7 @@ with sync_playwright() as p:
         assert page.locator('.hero-cinema').evaluate("n=>!n.style.getPropertyValue('--scene-x')")
         page.get_by_role('link',name='Discover my work').tap()
         page.wait_for_function("getComputedStyle(document.querySelector('.section-intro')).opacity==='1'")
-        page.wait_for_function("(()=>{const h=document.querySelector('#work h2').getBoundingClientRect();return h.top>=document.querySelector('.site-header').getBoundingClientRect().bottom && h.top<240})()")
+        page.wait_for_function("(()=>{const h=document.querySelector('#work h2').getBoundingClientRect();return h.top>=document.querySelector('.site-header').getBoundingClientRect().bottom && h.bottom<innerHeight*.7})()")
         page.screenshot(path=str(OUT/f'mobile-{width}.png'))
         context.close()
     checks.append('coarse touch devices at 320/390/768 skip pointer effects and keep working anchor navigation')

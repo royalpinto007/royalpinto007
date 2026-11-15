@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Anton, Geist } from "next/font/google";
 import { PortfolioMotion } from "@/components/PortfolioMotion";
 import { Header } from "@/components/Header";
 import { CoffeeTicker } from "@/components/CoffeeTicker";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
+import "./coastal-theme.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+const display = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-coastal-display",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://royalpinto007.com"),
@@ -47,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geist.className} ${geist.variable} ${mono.variable} bg-bg text-ink antialiased`}
+        className={`${geist.className} ${geist.variable} ${display.variable} bg-bg text-ink antialiased`}
       >
         <PortfolioMotion />
         <div className="sunset-atmosphere" aria-hidden="true">

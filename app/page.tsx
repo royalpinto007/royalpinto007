@@ -1,9 +1,9 @@
 import { readFileSync } from "node:fs";
 import "./home.css";
 import "./home-experience.css";
+import "./coastal-home.css";
 import path from "node:path";
 import Image from "next/image";
-import { Anton } from "next/font/google";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
 import { DesignGallery } from "@/components/DesignGallery";
@@ -54,15 +54,9 @@ const work = [
   },
 ];
 
-const display = Anton({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-display",
-});
-
 export default function HomePage() {
   return (
-    <div className={`portfolio-shell home-page ${display.variable}`}>
+    <div className="portfolio-shell home-page">
       <CinematicHero>
         <div className="hero-copy">
           <p className="intro-name">
@@ -105,16 +99,22 @@ export default function HomePage() {
       <KineticBand />
 
       <section className="selected-work" id="work">
+        <p className="section-marker">
+          <span>01 / Selected work</span>
+          <span>From idea to everyday use</span>
+        </p>
         <div className="section-intro work-heading">
           <h2>
-            A few things <span>I’ve built.</span>
+            Ideas,
+            <br />
+            <span>shipped.</span>
           </h2>
           <Link className="quiet-link" href="/projects">
             All projects <ArrowRight size={17} />
           </Link>
         </div>
         <div className="work-grid">
-          {work.map((project) => (
+          {work.map((project, i) => (
             <article className="work-piece" key={project.name}>
               <a
                 className="work-preview"
@@ -126,6 +126,9 @@ export default function HomePage() {
                 <ProjectVisual product={project.image} />
               </a>
               <div className="work-details">
+                <p className="work-index">
+                  <span>0{i + 1}</span> {project.kind}
+                </p>
                 <div className="work-meta">
                   <h3>
                     <a
@@ -136,7 +139,6 @@ export default function HomePage() {
                       {project.name} <ArrowUpRight size={19} />
                     </a>
                   </h3>
-                  <span>{project.kind}</span>
                 </div>
                 <p>{project.description}</p>
                 <ul
@@ -147,6 +149,15 @@ export default function HomePage() {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
+                <a
+                  className="work-visit"
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Explore {project.name}
+                  <ArrowUpRight size={20} />
+                </a>
               </div>
             </article>
           ))}
@@ -234,19 +245,30 @@ export default function HomePage() {
       </section>
 
       <section className="playground" id="frontend">
+        <p className="section-marker">
+          <span>04 / The playground</span>
+          <span>Made to be played with</span>
+        </p>
         <div className="section-intro">
-          <h2>Go on. Play with it.</h2>
+          <h2>
+            A little
+            <br />
+            <span>browser magic.</span>
+          </h2>
           <p>Physics. Light. A little browser magic.</p>
         </div>
         <ExperimentPlayground />
-        <a
-          className="quiet-link"
-          href="https://royalpinto007.com/facetworks"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Explore Facetworks <ArrowUpRight size={17} />
-        </a>
+        <div className="gallery-heading">
+          <h3>More from Facetworks.</h3>
+          <a
+            className="quiet-link"
+            href="https://royalpinto007.com/facetworks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore Facetworks <ArrowUpRight size={17} />
+          </a>
+        </div>
         <DesignGallery compact />
       </section>
     </div>

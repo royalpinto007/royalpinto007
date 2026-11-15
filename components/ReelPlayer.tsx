@@ -19,32 +19,32 @@ const scenes = [
     category: "Creative development",
     name: "Facetworks / Magnetic sand",
     image: "magnetic-sand",
-    color: "#a8d5fa",
-    accent: "#255b91",
+    color: "#9dc2dc",
+    accent: "#173f59",
   },
   {
     title: ["Real problems.", "Useful products."],
     category: "Product engineering",
     name: "SignalizeAI / Research in the browser",
     image: "signalizeai",
-    color: "#d9baf5",
-    accent: "#5c4d87",
+    color: "#b8cddd",
+    accent: "#3b536e",
   },
   {
     title: ["Small details.", "Big difference."],
     category: "Interaction design",
     name: "Facetworks / Jelly iPhone",
     image: "jelly-iphone",
-    color: "#ffb7d4",
-    accent: "#864a68",
+    color: "#dfb1c2",
+    accent: "#70445c",
   },
   {
     title: ["A little play.", "A new perspective."],
     category: "Browser experiments",
     name: "Facetworks / Fogged glass",
     image: "fogged-glass",
-    color: "#ffc99f",
-    accent: "#885037",
+    color: "#edc3a6",
+    accent: "#734f43",
   },
 ];
 const SCENE_FRAMES = 150;
@@ -77,7 +77,7 @@ export function ProjectReelComposition() {
     >
       <AbsoluteFill
         style={{
-          background: `linear-gradient(130deg, transparent 25%, ${scene.accent}18)`,
+          background: `linear-gradient(110deg, ${scene.color}ee 15%, ${scene.color}66), url('/scene/sunset-coast.webp') center / cover`,
           opacity: interpolate(local, [0, 80], [0.4, 1], clamp),
         }}
       />
@@ -98,10 +98,12 @@ export function ProjectReelComposition() {
           left: compact ? 46 : 72,
           top: compact ? 100 : 190,
           zIndex: 2,
-          fontSize: compact ? 67 : 79,
-          fontWeight: 550,
-          lineHeight: 1.06,
-          letterSpacing: "-0.04em",
+          fontFamily: "var(--font-coastal-display), sans-serif",
+          textTransform: "uppercase",
+          fontSize: compact ? 74 : 86,
+          fontWeight: 400,
+          lineHeight: 1,
+          letterSpacing: "-0.015em",
         }}
       >
         {scene.title.map((line, n) => (

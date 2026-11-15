@@ -17,14 +17,7 @@ export function DesignGallery({
         : [...siteConfig.frontendSites, ...siteConfig.gpuSites];
   const selected = compact
     ? projects.filter((p) =>
-        [
-          "Ledger",
-          "Atlas",
-          "Frequency",
-          "Mochimo",
-          "Magnetic Sand",
-          "Fogged Glass",
-        ].includes(p.name),
+        ["Ledger", "Atlas", "Frequency", "Mochimo"].includes(p.name),
       )
     : projects;
   return (

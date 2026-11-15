@@ -19,11 +19,7 @@ export function Header() {
           aria-label="Royal Simpson Pinto home"
         >
           <span>Royal Simpson Pinto</span>
-          <small>
-            {pathname === "/"
-              ? "Software engineer & open-source builder"
-              : "Software engineer & creative developer"}
-          </small>
+          <small>Software engineer & open-source builder</small>
         </Link>
         <nav className="site-nav" aria-label="Main navigation">
           {navLinks.map((link) => (
@@ -49,39 +45,37 @@ export function Header() {
             Hire me <ArrowUpRight size={15} />
           </a>
         </div>
-        {pathname === "/" && (
-          <details
-            className="home-mobile-menu"
-            onKeyDown={(event) => {
-              if (event.key === "Escape") {
-                event.currentTarget.open = false;
-                event.currentTarget.querySelector("summary")?.focus();
-              }
-            }}
-          >
-            <summary>
-              Explore <Plus size={16} />
-            </summary>
-            <nav aria-label="Mobile navigation">
-              {navLinks.map((link) => (
-                <Link
-                  href={link.href}
-                  key={link.href}
-                  onClick={(event) => {
-                    const menu = event.currentTarget.closest("details");
-                    if (menu) menu.open = false;
-                  }}
-                >
-                  {link.label}
-                  <ArrowUpRight size={15} />
-                </Link>
-              ))}
-              <a href={siteConfig.hireUrl}>
-                Hire me <ArrowUpRight size={15} />
-              </a>
-            </nav>
-          </details>
-        )}
+        <details
+          className="home-mobile-menu"
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              event.currentTarget.open = false;
+              event.currentTarget.querySelector("summary")?.focus();
+            }
+          }}
+        >
+          <summary>
+            Explore <Plus size={16} />
+          </summary>
+          <nav aria-label="Mobile navigation">
+            {navLinks.map((link) => (
+              <Link
+                href={link.href}
+                key={link.href}
+                onClick={(event) => {
+                  const menu = event.currentTarget.closest("details");
+                  if (menu) menu.open = false;
+                }}
+              >
+                {link.label}
+                <ArrowUpRight size={15} />
+              </Link>
+            ))}
+            <a href={siteConfig.hireUrl}>
+              Hire me <ArrowUpRight size={15} />
+            </a>
+          </nav>
+        </details>
       </div>
     </header>
   );

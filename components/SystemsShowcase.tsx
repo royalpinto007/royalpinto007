@@ -120,9 +120,15 @@ export function SystemsShowcase() {
       id="systems"
       aria-labelledby="systems-title"
     >
+      <p className="section-marker">
+        <span>02 / Under the hood</span>
+        <span>Follow the decisions, not just the arrows</span>
+      </p>
       <div className="systems-heading section-intro">
         <h2 id="systems-title">
-          System design. <span>In motion.</span>
+          Beyond
+          <br />
+          <span>the interface.</span>
         </h2>
       </div>
       <fieldset className="system-picker">
@@ -136,7 +142,10 @@ export function SystemsShowcase() {
               value={system.id}
               defaultChecked={i === 0}
             />
-            <span>{system.name}</span>
+            <span>
+              <small aria-hidden="true">0{i + 1}</small>
+              {system.name}
+            </span>
           </label>
         ))}
       </fieldset>

@@ -59,7 +59,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="relative max-w-[1240px] mx-auto px-5 sm:px-8 py-20">
+    <div className="contact-page relative max-w-[1240px] mx-auto px-5 sm:px-8 py-20">
       <div className="glow" aria-hidden />
       <SectionHeader
         title="Let's"
