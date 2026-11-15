@@ -68,6 +68,19 @@ with sync_playwright() as p:
         assert all(page.locator('#' + fragment).count() == 1 for fragment in local)
         assert page.locator('#project-agent-suite h3').is_visible()
         page.goto(BASE, wait_until='networkidle')
+        # Observe the short entrance in the renderer before scrolling. Remote
+        # reads can otherwise start after this one-shot animation has finished.
+        page.evaluate('''()=>{
+          window.calendarMotionSamples=[];
+          window.calendarSamplingDone=false;
+          const sample=()=>{
+            const n=document.querySelector('.contribution-week');
+            if(n && n.closest('.contribution-wall').dataset.active==='true')
+              window.calendarMotionSamples.push(new DOMMatrix(getComputedStyle(n).transform).m42);
+            if(!window.calendarSamplingDone) requestAnimationFrame(sample);
+          };
+          requestAnimationFrame(sample);
+        }''')
         page.locator('#oss').evaluate('n=>n.scrollIntoView({block:"start"})')
         page.wait_for_selector('.calendar-art svg')
         calendar = page.locator('.contribution-wall')
@@ -77,9 +90,8 @@ with sync_playwright() as p:
         calendar.evaluate('n=>n.scrollIntoView({block:"center"})')
         page.wait_for_function("document.querySelector('.contribution-wall').dataset.active==='true'")
         column = calendar.locator('.contribution-week').first
-        before = pose(column)
-        page.wait_for_timeout(120)
-        assert pose(column) != before, 'Calendar wave was not visible'
+        page.wait_for_function('window.calendarMotionSamples.some(y=>y < -0.1)')
+        page.evaluate('window.calendarSamplingDone=true')
         page.evaluate("Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'))")
         page.wait_for_function("document.querySelector('.contribution-wall').dataset.active==='false'")
         page.evaluate('()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
