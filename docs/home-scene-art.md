@@ -1,5 +1,25 @@
 # Home scene art
 
+## Distinct chapter artwork
+
+The studio is reserved for Home's selected work. Projects has an original arcade cabinet; Contact has an original glass telephone. The reel uses procedural celluloid/aperture graphics shared only between its static and playing states. The footer is an open coastal horizon and original illustrated sailboat, with independent wave/reflection and boat movement. These have distinct silhouettes and motion, within the same light blue/rose/peach identity. No scene defaults to studio: callers explicitly select a kind.
+
+The built-in image-generation tool created the arcade, telephone and sailboat. Original PNGs remain outside the repository. Production assets are `public/scene/arcade.webp`, `arcade-mobile.webp`, `telephone.webp`, `telephone-mobile.webp`, `sailboat.webp` and `sailboat-mobile.webp`. Responsive renditions preserve transparency, use native lazy loading, and do not add requests to the Home hero. The final prompts are below.
+
+### Final arcade prompt
+
+> Use case: stylized-concept. Asset type: original transparent foreground key art for the Projects page of a LIGHT cinematic software engineer and game-developer portfolio. Primary request: a single beautiful retro-futurist arcade cabinet in a striking three-quarter view, one blue translucent acrylic side panel and warm ivory front, rose-magenta edging, precise small chrome joystick and luminous peach buttons. Its large screen contains an original abstract coastal sunset scene of geometric sea and sun, NO characters, NO words, NO logos, no recognizable game imagery. Beside the cabinet a small hovering glass game cartridge and a curled coral power cable, arranged as one visually balanced sculpture. Composition: full cabinet and all objects entirely visible centered, strong sculptural silhouette, generous true transparent margins. No island, no floating platform, no palm tree, no desk, no chair, no laptop, no disco balls. Premium polished cinematic 3D game key-art style with painterly material detail, daylight from upper left, bright yet properly exposed, crisp defined edges, controlled reflections. Palette deep jacket blue, ivory, vivid rose, peach, faint lavender; object has confident contrast suitable over white/sky surfaces. Not a webpage, no text, no rectangular background, no watermarks. Actual transparent background.
+
+### Final telephone prompt
+
+> Use case: stylized-concept. Asset type: original transparent foreground key art for the Contact page of a LIGHT cinematic software engineer portfolio. Primary request: a sculptural retro desk telephone in rose-tinted translucent acrylic, with an elegant lifted handset floating diagonally above its compact ivory and chrome base, connected by a beautifully looping glossy coral coiled cord. Precise chrome details, pearlescent reflections, a few glossy peach buttons with NO labels, no numbers. One tiny unmarked blue glass envelope hovering nearby adds visual balance. Composition a dynamic close three-quarter view of the entire object, all cord and handset visible with generous truly transparent margins, organic sweeping cord silhouette. No island, no platform, no desk/table scene, no palm tree, no laptop, no lounge chair, no disco spheres, no typography. Same sophisticated sunlit coastal cinematic 3D style as a light GTA VI-inspired gaming-developer portfolio, original not game artwork. Warm ivory, rose acrylic, jacket blue, peach light, precise saturated but restrained accents. Sharp material detail, confident readable shadows, no haze or washed-out highlights, no bloom fog. No people, no logos, no text, no rectangular backdrop, no watermarks. Actual transparent background.
+
+### Final sailboat prompt
+
+> Use case: stylized-concept. Asset type: original transparent foreground illustration for the closing horizon of a LIGHT cinematic game-developer portfolio. Create one exquisite small coastal sailboat with two pearlescent sculptural sails, warm ivory on one side and rose translucent silk on the other, a deep jacket-blue hull with thin chrome trim and a subtle magenta reflected edge, finely detailed mast and rigging. Three-quarter side view, bow pointing right. Full boat centered with generous genuinely transparent margins, no cropping. A little sharply rendered turquoise water wake directly beneath the hull only, as a small separate sculptural ripple, NOT a rectangular ocean backdrop. Premium cinematic 3D key art with detailed physical materials, peach sunlight, natural sharp reflections, confident contrast, polished game-art model quality. Sophisticated realistic proportions, neither a flat vector nor a cartoon toy. Palette blue, ivory, rose, peach and subtle lavender, properly exposed daylight. No sun or sky in the image, these are supplied in code. No palm, no island, no platform, no floating office, no furniture, no people, no text/logos, no game assets, no rectangular background, no dark vignette. Preserve true transparent background. Complete clean boat silhouette, entire object.
+
+## Original hero environment
+
 The built-in image-generation tool created the sunset environment. Royal's original illustrated portrait served only as the style and palette reference; the portrait itself remains unchanged. The environment is rendered separately from the original portrait, whose silhouette is clipped in CSS.
 
 Production assets:
@@ -26,7 +46,7 @@ The built-in image-generation tool produced two original transparent scene illus
 - `public/scene/studio-island.webp` and `public/scene/studio-island-mobile.webp`
 - `public/scene/engine-island.webp` and `public/scene/engine-island-mobile.webp`
 
-The studio accompanies selected work, Projects, Contact, the reel and the unboxed footer invitation. The engineering sculpture accompanies the real architecture explorer; it is decorative, not a claim about a project's infrastructure. A procedural chrome scene accompanies the playground without another raster download. All scene artwork uses empty alternative text and is separate from meaningful content. Scroll-linked camera movement and reflections use the existing GSAP lifecycle, with static reduced-motion and no-JavaScript alternatives.
+The studio accompanies selected work on Home. The engineering sculpture accompanies the real architecture explorer; it is decorative, not a claim about a project's infrastructure. A procedural chrome scene accompanies the playground without another raster download. Other chapters use their own distinct artwork, detailed below. All scene artwork uses empty alternative text and is separate from meaningful content. Scroll-linked camera movement and reflections use the existing GSAP lifecycle, with static reduced-motion and no-JavaScript alternatives.
 
 ### Final studio prompt
 

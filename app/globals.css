@@ -1367,7 +1367,7 @@ html {
   padding: 5%;
   background: linear-gradient(130deg, #abd6fa, #f6b4d8);
 }
-.reel-poster > div:not(.world-scene) {
+.reel-poster-copy {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -1460,7 +1460,7 @@ html {
     gap: 20px;
     padding: 6%;
   }
-  .reel-poster > div:not(.world-scene) {
+  .reel-poster-copy {
     gap: 12px;
   }
   .reel-poster strong {

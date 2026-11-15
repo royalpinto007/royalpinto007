@@ -1,6 +1,6 @@
 "use client";
 
-import { WorldScene } from "./WorldScene";
+import { ReelBackdrop } from "./ReelBackdrop";
 import Image from "next/image";
 import { useEffect, useRef, useState, type ComponentType } from "react";
 import type { ReelPlayerProps } from "./ReelPlayer";
@@ -66,8 +66,8 @@ export function MotionReel() {
       </div>
       <div className="reel-stage" ref={host}>
         <div className="reel-poster" aria-hidden="true">
-          <WorldScene />
-          <div>
+          <ReelBackdrop />
+          <div className="reel-poster-copy">
             <span>Creative development</span>
             <strong>
               Less ordinary.

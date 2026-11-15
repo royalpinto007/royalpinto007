@@ -303,14 +303,43 @@ export function mountPortfolioMotion(root: HTMLElement) {
           });
 
         root.querySelectorAll<HTMLElement>(".world-scene").forEach((scene) => {
+          const boat = scene.querySelector(".horizon-boat");
+          if (boat) {
+            const crossing = gsap.timeline({
+              scrollTrigger: {
+                trigger: scene,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.9,
+              },
+            });
+            crossing.fromTo(
+              boat,
+              { xPercent: -9, rotation: -3 },
+              { xPercent: 9, rotation: 2, ease: "none" },
+              0,
+            );
+            crossing.fromTo(
+              scene.querySelector(".horizon-reflection"),
+              { scaleX: 0.7 },
+              { scaleX: 1.3, ease: "none" },
+              0,
+            );
+            return;
+          }
           const subject = scene.querySelector("img, .chrome-stage");
           if (!subject) return;
+          const arcade = scene.classList.contains("world-arcade");
+          const telephone = scene.classList.contains("world-telephone");
           gsap.fromTo(
             subject,
-            { yPercent: 5, rotation: -1 },
             {
-              yPercent: -5,
-              rotation: 1,
+              yPercent: arcade ? 2 : 5,
+              rotation: arcade ? 5 : telephone ? -6 : -1,
+            },
+            {
+              yPercent: arcade ? -2 : -5,
+              rotation: arcade ? -3 : telephone ? 4 : 1,
               ease: "none",
               scrollTrigger: {
                 trigger: scene,

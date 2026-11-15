@@ -65,19 +65,18 @@ export default function ContactPage() {
       <SectionHeader
         title="Let's"
         titleEm="talk"
-        subtitle="Have a product to build, a tricky engineering problem, or an idea worth trying? I’d like to hear about it."
+        subtitle="A product, a collaboration, or a good question. Start a conversation."
       />
 
       {/* Main CTA Card */}
       <div className="contact-invitation reveal mt-14 relative overflow-hidden rounded-2xl border border-line bg-panel p-10 sm:p-14">
-        <WorldScene />
+        <WorldScene kind="telephone" />
         <div className="mono flex items-center gap-2 mb-5 text-xs text-accent">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
           Available now
         </div>
         <h2 className="display text-3xl sm:text-4xl text-ink mb-3">
-          Your next idea.{" "}
-          <span className="display-em text-accent">Let’s build it.</span>
+          An idea? <span className="display-em text-accent">I’m all ears.</span>
         </h2>
         <p className="text-mute mb-8 max-w-md leading-relaxed">
           Tell me what you&apos;re making, where you are now, and what you need
@@ -113,9 +112,12 @@ export default function ContactPage() {
 
       {/* Direct channels */}
       <div className="reveal mt-14">
-        <div className="eyebrow text-faint mb-5">Direct channels</div>
+        <div className="contact-section-label">
+          <span>01 / Say hello</span>
+          <span>Pick what works for you</span>
+        </div>
         <div className="contact-channels grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {channels.map(({ icon: Icon, label, desc, href, cta }) => (
+          {channels.map(({ icon: Icon, label, desc, href, cta }, index) => (
             <a
               key={label}
               href={href}
@@ -123,15 +125,18 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="group p-6 rounded-2xl border border-line bg-panel hover:border-accent/50 transition-colors duration-200"
             >
+              <span className="contact-channel-index" aria-hidden="true">
+                0{index + 1}
+              </span>
               <div className="w-11 h-11 rounded-full border border-line flex items-center justify-center mb-4 group-hover:border-accent transition-colors">
                 <Icon className="w-4 h-4 text-accent" />
               </div>
-              <div className="display text-lg text-ink">{label}</div>
+              <h3 className="display text-lg text-ink">{label}</h3>
               <div className="mono text-[11px] text-faint mt-1 mb-4 break-all">
                 {desc}
               </div>
-              <span className="text-xs font-medium text-accent group-hover:text-accent-hover transition-colors">
-                {cta} &rarr;
+              <span className="contact-channel-action text-xs font-medium text-accent group-hover:text-accent-hover transition-colors">
+                {cta} <ArrowUpRight size={17} />
               </span>
             </a>
           ))}
@@ -140,8 +145,11 @@ export default function ContactPage() {
 
       {/* Socials */}
       <div className="reveal mt-14">
-        <div className="eyebrow text-faint mb-5">Find me online</div>
-        <div className="grid sm:grid-cols-3 gap-4">
+        <div className="contact-section-label">
+          <span>02 / Elsewhere</span>
+          <span>Follow what I’m building</span>
+        </div>
+        <div className="contact-socials grid sm:grid-cols-3 gap-4">
           {socials.map(({ icon: Icon, label, href }) => (
             <a
               key={label}
@@ -156,13 +164,14 @@ export default function ContactPage() {
               <span className="text-sm text-ink group-hover:text-accent transition-colors">
                 {label}
               </span>
+              <ArrowUpRight className="contact-social-arrow" size={18} />
             </a>
           ))}
         </div>
       </div>
 
       {/* Logistics */}
-      <div className="reveal mt-14 rounded-2xl border border-line bg-panel p-8">
+      <div className="contact-logistics reveal mt-14 rounded-2xl border border-line bg-panel p-8">
         <div className="eyebrow text-faint mb-6">Where to find me</div>
         <div className="grid sm:grid-cols-3 gap-8">
           {[

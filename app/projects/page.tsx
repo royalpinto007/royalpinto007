@@ -7,6 +7,7 @@ import { siteConfig } from "@/data/site";
 import { projectCategories, categoryFor } from "@/data/project-categories";
 import { ProjectCard } from "@/components/ProjectCard";
 import { DesignGallery } from "@/components/DesignGallery";
+import { CategoryMenu } from "@/components/CategoryMenu";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -18,17 +19,25 @@ export default function ProjectsPage() {
   return (
     <div className="portfolio-shell projects-page">
       <header className="projects-heading world-heading" data-motion-intro>
-        <WorldScene />
+        <WorldScene kind="arcade" />
         <h1>
           Many ideas.
           <br />
           <span>Made real.</span>
         </h1>
         <p>
-          Apps that solve a problem. Tools that save a step. Websites that make
-          you look twice. Explore what I build, and how I build it.
+          Useful products. Unexpected experiments. A collection built out of
+          curiosity.
         </p>
       </header>
+      <div className="project-directory-bar">
+        <p>
+          <span aria-hidden="true">↘</span> Pick a world. Look around.
+        </p>
+        <CategoryMenu
+          items={projectCategories.map(({ id, title }) => ({ id, title }))}
+        />
+      </div>
       <nav className="project-jumps" aria-label="Project categories">
         {projectCategories.map((category) => (
           <a key={category.id} href={`#${category.id}`}>
@@ -36,7 +45,7 @@ export default function ProjectsPage() {
           </a>
         ))}
       </nav>
-      {projectCategories.map((category) => {
+      {projectCategories.map((category, index) => {
         const hasPreview = (id: string) =>
           existsSync(path.join(process.cwd(), "public/work", id + ".webp"));
         const items = siteConfig.projects
@@ -49,6 +58,9 @@ export default function ProjectsPage() {
             data-project-category={category.id}
           >
             <div className="section-intro">
+              <span className="chapter-index">
+                Collection / {String(index + 1).padStart(2, "0")}
+              </span>
               <h2>{category.title}</h2>
               <p>{category.description}</p>
             </div>

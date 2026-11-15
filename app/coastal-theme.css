@@ -471,3 +471,221 @@ body {
 .home-page .world-heading {
   align-items: center;
 }
+
+/* Each chapter has a different silhouette, scale and material treatment. */
+.projects-heading > .world-arcade {
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 1.1;
+}
+.world-arcade img {
+  filter: drop-shadow(0 24px 22px #315b7130);
+}
+.contact-invitation > .world-telephone {
+  width: 48%;
+  height: calc(100% - 24px);
+  aspect-ratio: auto;
+  right: 0;
+  bottom: 12px;
+}
+
+/* The closing horizon is open scenery, never a card behind the invitation. */
+.horizon-stage {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 12% 94%, transparent);
+}
+.horizon-sun {
+  position: absolute;
+  width: 23%;
+  aspect-ratio: 1;
+  left: 58%;
+  top: 10%;
+  border-radius: 50%;
+  background: linear-gradient(#f2b56e, #ed95a7 75%, #dc9ec8);
+  box-shadow: 0 0 70px 18px #f8cdad55;
+}
+.horizon-water {
+  position: absolute;
+  inset: 52% 0 0;
+  border-top: 1px solid #749ab69c;
+  background:
+    repeating-linear-gradient(180deg, #a5cddd66 0 1px, transparent 1px 12px),
+    linear-gradient(#cce1edbb, #e6eff400);
+  mask-image: linear-gradient(#000, transparent);
+}
+.horizon-reflection {
+  position: absolute;
+  left: 56%;
+  top: 53%;
+  width: 28%;
+  height: 35%;
+  background: repeating-linear-gradient(
+    180deg,
+    #fff3cfaa 0 3px,
+    transparent 3px 8px
+  );
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+  mask-image: linear-gradient(#000, transparent);
+}
+.horizon-stage .horizon-boat {
+  position: absolute;
+  width: 88%;
+  height: 100%;
+  left: 0;
+  bottom: -1%;
+  filter: drop-shadow(0 10px 8px #3b709b18);
+}
+.horizon-shore {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 22%;
+  height: 10%;
+  background: linear-gradient(20deg, #8caec3, #c4d0df);
+  clip-path: polygon(
+    0 40%,
+    35% 32%,
+    56% 5%,
+    73% 19%,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+.footer-invitation > .world-horizon {
+  width: 110%;
+  margin-left: -5%;
+  aspect-ratio: 1.5;
+}
+
+/* Celluloid, perforations and aperture are reserved for the motion chapter. */
+.reel-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.28;
+}
+.reel-poster > .reel-poster-copy,
+.reel-poster > img {
+  position: relative;
+  z-index: 1;
+}
+.film-track {
+  position: absolute;
+  width: 26%;
+  height: 180%;
+  top: -22%;
+  right: 0;
+  padding: 8% 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+  background: #9a436b;
+  border: 1px solid #fff9;
+  transform: rotate(-19deg);
+  box-shadow:
+    12px 0 0 #f8eddf66,
+    24px 0 0 #9a436b44;
+}
+.film-track::before,
+.film-track::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5%;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0 12px,
+    #fffaf5 12px 22px,
+    transparent 22px 28px
+  );
+}
+.film-track::before {
+  left: 3%;
+}
+.film-track::after {
+  right: 3%;
+}
+.film-track > i {
+  flex: 1;
+  min-height: 0;
+  border: 1px solid #f9f4e9;
+  background: linear-gradient(
+    145deg,
+    #aed6e8,
+    #f7e8cd 45%,
+    #d07aa2 65%,
+    #6b89b6
+  );
+}
+.film-track > i:nth-child(even) {
+  background: linear-gradient(25deg, #769ac2, #f6b7ab 55%, #c7d2e9);
+}
+.film-aperture {
+  position: absolute;
+  width: 28%;
+  aspect-ratio: 1;
+  right: -7%;
+  top: -11%;
+  border-radius: 50%;
+  border: 1px solid #7c647f;
+  background: radial-gradient(
+    circle,
+    #7793b1 0 8%,
+    #f2e7db 8% 11%,
+    #bec8d8 11% 65%,
+    #fff5e9 65% 69%,
+    #9a8caa 70%
+  );
+  box-shadow:
+    inset 0 0 30px #fff8,
+    0 10px 20px #455b7733;
+}
+.film-aperture > i {
+  position: absolute;
+  width: 22%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #7b8ead;
+  border: 1px solid #fffa;
+  left: 24%;
+  top: 20%;
+}
+.film-aperture > i:nth-child(2) {
+  left: 54%;
+  top: 35%;
+}
+.film-aperture > i:nth-child(3) {
+  left: 28%;
+  top: 59%;
+}
+@media (max-width: 767px) {
+  .projects-heading > .world-arcade {
+    aspect-ratio: 1.15;
+    max-height: 380px;
+  }
+  .contact-invitation > .world-telephone {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.5;
+    right: auto;
+    bottom: auto;
+    margin-block: -8px 22px;
+  }
+  .footer-invitation > .world-horizon {
+    width: 100%;
+    margin: 0;
+  }
+  .reel-poster .film-track {
+    width: 40%;
+  }
+  .reel-poster .film-aperture {
+    width: 44%;
+  }
+}

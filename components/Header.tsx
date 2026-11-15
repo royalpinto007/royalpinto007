@@ -6,6 +6,7 @@ import { siteConfig } from "@/data/site";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
+  { label: "Calendar", href: "/calendar" },
   { label: "Contact", href: "/contact" },
 ];
 export function Header() {
@@ -60,7 +61,7 @@ export function Header() {
             Explore <Plus size={16} />
           </summary>
           <nav aria-label="Mobile navigation">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
                 href={link.href}
                 prefetch={false}
@@ -70,7 +71,10 @@ export function Header() {
                   if (menu) menu.open = false;
                 }}
               >
-                {link.label}
+                <span className="menu-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span>{link.label}</span>
                 <ArrowUpRight size={15} />
               </Link>
             ))}

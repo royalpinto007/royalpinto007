@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-invitation">
-        <WorldScene />
+        <WorldScene kind="horizon" />
         <div>
           <h2>
             Have something

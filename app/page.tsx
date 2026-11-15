@@ -105,7 +105,7 @@ export default function HomePage() {
             <br />
             <span>shipped.</span>
           </h2>
-          <WorldScene />
+          <WorldScene kind="studio" />
           <Link className="quiet-link" href="/projects" prefetch={false}>
             All projects <ArrowRight size={17} />
           </Link>

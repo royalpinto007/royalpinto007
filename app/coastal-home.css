@@ -801,14 +801,6 @@ body:has(.home-page) .site-header {
 .home-page .reel-poster {
   isolation: isolate;
 }
-.home-page .reel-poster > .world-scene {
-  position: absolute;
-  right: -7%;
-  bottom: -5%;
-  width: 65%;
-  opacity: 0.55;
-  z-index: -1;
-}
 
 @keyframes mobile-hero-in {
   from {

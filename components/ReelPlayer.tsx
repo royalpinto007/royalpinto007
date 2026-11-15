@@ -1,6 +1,7 @@
 "use client";
 
 import { Player, type PlayerRef } from "@remotion/player";
+import { ReelBackdrop } from "./ReelBackdrop";
 import {
   AbsoluteFill,
   Easing,
@@ -81,16 +82,7 @@ export function ProjectReelComposition() {
           opacity: interpolate(local, [0, 80], [0.4, 1], clamp),
         }}
       />
-      <Img
-        src="/scene/studio-island-mobile.webp"
-        style={{
-          position: "absolute",
-          width: compact ? 950 : 960,
-          right: compact ? -160 : -120,
-          bottom: 0,
-          opacity: 0.7,
-        }}
-      />
+      <ReelBackdrop offset={interpolate(local, [0, 149], [0, -100])} />
       <div
         style={{
           position: "absolute",

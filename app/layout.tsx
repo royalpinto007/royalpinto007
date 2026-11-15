@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 import "./coastal-theme.css";
+import "./interface-polish.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const display = Anton({
