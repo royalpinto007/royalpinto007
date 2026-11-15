@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ArrowDownRight, Pause, Play, Sun } from "lucide-react";
+import { ArrowDownRight, Pause, Play, Sun, ScanLine } from "lucide-react";
 
 import { CoastalAtmosphere } from "./CoastalAtmosphere";
 
@@ -20,6 +20,7 @@ export function CinematicHero({ children }: { children: ReactNode }) {
   const [active, setActive] = useState(false);
   const [enabled, setEnabled] = useState(false);
   const [light, setLight] = useState(0);
+  const [orbitOpen, setOrbitOpen] = useState(false);
   useEffect(() => {
     const element = host.current;
     if (!element) return;
@@ -82,6 +83,7 @@ export function CinematicHero({ children }: { children: ReactNode }) {
       data-active={active}
       data-effects-enabled={enabled}
       data-light={light}
+      data-orbit-open={orbitOpen}
     >
       <div className="hero-landscape" aria-hidden="true">
         <picture>
@@ -102,6 +104,30 @@ export function CinematicHero({ children }: { children: ReactNode }) {
       </div>
       <CoastalAtmosphere />
       <div className="hero-sunset" aria-hidden="true" />
+      <div className="hero-orbits" aria-hidden="true">
+        {["outer", "inner"].map((layer) => (
+          <div className={`hero-orbit-layer hero-orbit-${layer}`} key={layer}>
+            <div className="hero-orbit-drift">
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcSet={`/scene/hero-orbit-${layer}-mobile.webp`}
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/scene/hero-orbit-${layer}.webp`}
+                  width={960}
+                  height={1000}
+                  alt=""
+                  loading="lazy"
+                  fetchPriority="low"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+          </div>
+        ))}
+      </div>
       <div className="hero-lightbeam" aria-hidden="true" />
       <div className="hero-glitter" aria-hidden="true">
         {glints.map((glint, i) => (
@@ -129,6 +155,17 @@ export function CinematicHero({ children }: { children: ReactNode }) {
           role="group"
           aria-label="Scene controls"
         >
+          {enabled && (
+            <button
+              type="button"
+              className="hero-reframe"
+              aria-pressed={orbitOpen}
+              onClick={() => setOrbitOpen(!orbitOpen)}
+            >
+              <ScanLine size={17} />
+              <span>{orbitOpen ? "Bring it together" : "Open the scene"}</span>
+            </button>
+          )}
           <button
             type="button"
             className="scene-light"

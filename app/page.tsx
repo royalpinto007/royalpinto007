@@ -5,6 +5,7 @@ import "./home-environments.css";
 import "./coastal-motion.css";
 import "./ambient-coast.css";
 import "./kinetic-opening.css";
+import "./orbital-hero.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
