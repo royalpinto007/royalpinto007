@@ -28,7 +28,7 @@ with sync_playwright() as p:
  assert page.locator('.wall-svg rect').evaluate_all('ns=>ns.reduce((s,n)=>s+Number(n.dataset.count),0)')==int(page.locator('.contribution-summary strong').inner_text().split(' contributions')[0].replace(',',''))
  assert page.locator('.wall-svg rect').first.locator('title').text_content()
  assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
- for selector in ['.work-heading .world-scene','.systems-heading .world-scene','.playground-heading .world-scene']:
+ for selector in ['.systems-heading .world-scene','.playground-heading .world-scene']:
   scene=page.locator(selector);scene.scroll_into_view_if_needed();r=scene.bounding_box();assert r['width']>250 and r['height']>150
  page.screenshot(path=str(OUT/'world-mobile.png'));context.close()
  context=b.new_context(viewport={'width':390,'height':844},java_script_enabled=False)

@@ -59,16 +59,12 @@ export function MotionReel() {
       aria-labelledby="reel-title"
     >
       <SceneEnvironment scene="cinema" />
-      <p className="section-marker">
-        <span>03 / In motion</span>
-        <span>Press play. Get the feeling.</span>
-      </p>
-      <div className="reel-heading">
+      <header className="reel-heading chapter-heading">
         <h2 id="reel-title">
           Built to <span>move.</span>
         </h2>
-        <p>A 20-second look at my work.</p>
-      </div>
+        <p>20 seconds. In my element.</p>
+      </header>
       <div className="reel-stage" ref={host}>
         <div className="reel-poster" aria-hidden="true">
           <ReelBackdrop />

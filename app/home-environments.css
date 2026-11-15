@@ -93,47 +93,42 @@
 .home-page .work-world:nth-child(even) {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
 }
-.home-page .work-world > .section-marker,
 .home-page .work-world > .work-heading {
   grid-column: 1 / -1;
   margin-bottom: 0;
 }
-.home-page .work-world > .section-marker {
-  position: relative;
-  z-index: 2;
-  align-self: start;
-  padding: 10px 12px;
-  border: 0;
-  color: #12394e;
-  background: #fff9eceb;
-  border-radius: 4px;
-  font-weight: 600;
-}
 .home-page .work-world .work-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
   position: relative;
   isolation: isolate;
-  padding-block: 15px 30px;
+  padding: 0 0 20px;
+  gap: 24px;
 }
 .home-page .work-world .work-heading::before {
   content: "";
   position: absolute;
-  inset: -30px 40% -15px -70px;
+  inset: -120px auto -120px -180px;
+  width: min(1000px, calc(100% + 360px));
   z-index: -1;
   background: radial-gradient(
-    ellipse at 35% 50%,
-    #fff9e9ee 20%,
-    #fff3e3b8 55%,
-    transparent 76%
+    ellipse closest-side,
+    #fff9e9b8 65%,
+    #fff3e38f 80%,
+    transparent 100%
   );
 }
 .home-page .work-world .work-heading h2 span {
   color: #8a2e5e;
 }
 .home-page .work-world .work-heading > .quiet-link {
-  background: #fffaf1d9;
-  padding: 0 18px;
-  border: 1px solid #728da5;
-  border-radius: 6px;
+  background: transparent;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  margin-bottom: 8px;
 }
 .home-page .work-world .work-preview {
   position: relative;
@@ -299,20 +294,29 @@
 .home-page .immersive-chapter .chapter-environment {
   z-index: -2;
 }
-.home-page .immersive-chapter > .section-marker {
-  color: #193c52;
-  border-color: #52718c88;
-  background: #fff9eceb;
-  padding: 10px 12px;
-  border-radius: 4px;
-  border-top: 0;
-  font-weight: 600;
+.home-page .chapter-heading h2 {
+  text-wrap: balance;
 }
 .home-page .immersive-chapter .systems-heading,
 .home-page .immersive-chapter .reel-heading,
 .home-page .immersive-chapter .playground-heading {
   position: relative;
   isolation: isolate;
+}
+.home-page .immersive-chapter .systems-heading,
+.home-page .immersive-chapter .playground-heading {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 12px 5%;
+  margin-bottom: 32px;
+}
+.home-page .systems-heading > .world-scene,
+.home-page .playground-heading > .world-scene {
+  width: min(100%, 380px);
+  margin: 0;
+  justify-self: end;
+}
+.home-page .systems-heading > .world-scene {
+  grid-row: 1;
 }
 .home-page .immersive-chapter .section-intro h2,
 .home-page .immersive-chapter .reel-heading h2 {
@@ -327,31 +331,38 @@
 .home-page .immersive-chapter .playground-heading::before {
   content: "";
   position: absolute;
-  inset: -30px 40% -25px -60px;
+  inset: -120px auto -120px -180px;
+  width: min(1000px, calc(100% + 360px));
   z-index: -1;
   background: radial-gradient(
-    ellipse at 35% 50%,
-    #fff9eae8 25%,
-    #fff4e1b8 55%,
-    transparent 76%
+    ellipse closest-side,
+    #fff9eab8 65%,
+    #fff4e18f 80%,
+    transparent 100%
   );
 }
-.home-page .immersive-chapter .reel-heading::before {
-  right: -25px;
-}
 .home-page .immersive-chapter .reel-heading > p {
-  color: #173d53;
-  background: #fff6e9db;
-  padding: 9px 12px;
-  border-radius: 4px;
-  font-size: 13px;
+  color: #061c29;
+  padding: 0 0 8px;
+  max-width: 22ch;
 }
 .home-page .immersive-chapter .playground-heading > p {
   width: fit-content;
-  padding: 9px 12px;
-  color: #173d53;
-  background: #fff9eceb;
-  border-radius: 4px;
+  padding: 0;
+  color: #061c29;
+  margin: 0;
+  align-self: start;
+}
+.home-page .immersive-chapter .chapter-heading > p {
+  position: relative;
+  isolation: isolate;
+}
+.home-page .immersive-chapter .chapter-heading > p::before {
+  content: "";
+  position: absolute;
+  inset: -25px -45px;
+  z-index: -1;
+  background: radial-gradient(ellipse closest-side, #fff9eab8 65%, transparent);
 }
 .home-page .immersive-chapter .system-picker {
   background: #fffaf0df;
@@ -404,7 +415,6 @@
     min-height: 0;
     padding-block: 60px 65px;
   }
-  .home-page .work-world > .section-marker,
   .home-page .work-world > .work-heading {
     grid-column: 1;
   }
@@ -431,17 +441,14 @@
     aspect-ratio: 1.15;
   }
   .home-page .work-world .work-heading::before {
-    inset: -40px -40px -20px;
-    background: radial-gradient(
-      ellipse at 40% 30%,
-      #fff8e8dc,
-      #fff0dc6b 52%,
-      transparent 76%
-    );
+    inset: -80px -120px;
+    width: auto;
   }
   .home-page .work-world .work-heading {
-    padding-top: 15px;
-    padding-bottom: 22px;
+    align-items: start;
+    flex-direction: column;
+    padding: 0 0 12px;
+    gap: 18px;
   }
   .home-page .work-world .work-heading h2 {
     text-shadow: 0 2px 24px #fff3df;
@@ -498,20 +505,29 @@
   .home-page .immersive-chapter {
     padding-block: 55px 65px;
   }
+  .home-page .immersive-chapter .systems-heading,
+  .home-page .immersive-chapter .playground-heading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .home-page .systems-heading > .world-scene,
+  .home-page .playground-heading > .world-scene {
+    grid-column: 1;
+    grid-row: 2;
+    width: min(75%, 260px);
+    max-height: 180px;
+    margin: 0;
+    justify-self: end;
+  }
+  .home-page .playground-heading > p {
+    grid-column: 1;
+    grid-row: 3;
+  }
   .home-page .immersive-chapter .systems-heading::before,
   .home-page .immersive-chapter .playground-heading::before {
-    inset: -30px -30px 35%;
-    background: radial-gradient(
-      ellipse at 40% 30%,
-      #fff8e8ed,
-      #fff4e1b8 55%,
-      transparent 85%
-    );
-  }
-  .home-page .immersive-chapter .section-marker {
-    background: #fff9ece0;
-    padding: 10px 12px;
-    border-radius: 4px;
+    inset: -80px -120px 20%;
+    width: auto;
   }
   .home-page .immersive-chapter .reel-caption {
     gap: 18px;
@@ -519,8 +535,8 @@
     font-size: 10px;
   }
   .home-page .immersive-chapter .reel-heading::before {
-    inset: -25px -25px;
-    background: radial-gradient(ellipse, #fff9eae8 40%, transparent 85%);
+    inset: -80px -120px;
+    width: auto;
   }
   .home-page .immersive-chapter .reel-heading > p {
     padding-left: 0;

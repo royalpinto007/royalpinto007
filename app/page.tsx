@@ -91,7 +91,11 @@ export default function HomePage() {
 
       <KineticBand />
 
-      <section className="selected-work immersive-work" id="work">
+      <section
+        className="selected-work immersive-work"
+        id="work"
+        aria-labelledby="work-title"
+      >
         <div className="work-grid">
           {work.map((project, i) => (
             <article
@@ -100,27 +104,20 @@ export default function HomePage() {
             >
               <SceneEnvironment scene={project.scene} />
               {i === 0 && (
-                <>
-                  <p className="section-marker">
-                    <span>01 / Selected work</span>
-                    <span>From idea to everyday use</span>
-                  </p>
-                  <div className="section-intro work-heading world-heading">
-                    <h2>
-                      Ideas,
-                      <br />
-                      <span>shipped.</span>
-                    </h2>
-                    <WorldScene kind="studio" />
-                    <Link
-                      className="quiet-link"
-                      href="/projects"
-                      prefetch={false}
-                    >
-                      All projects <ArrowRight size={17} />
-                    </Link>
-                  </div>
-                </>
+                <header className="section-intro work-heading chapter-heading">
+                  <h2 id="work-title">
+                    Ideas,
+                    <br />
+                    <span>shipped.</span>
+                  </h2>
+                  <Link
+                    className="quiet-link"
+                    href="/projects"
+                    prefetch={false}
+                  >
+                    All projects <ArrowRight size={17} />
+                  </Link>
+                </header>
               )}
               <div className="work-preview">
                 <ProjectVisual product={project.image} />
@@ -248,21 +245,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="playground immersive-chapter" id="frontend">
+      <section
+        className="playground immersive-chapter"
+        id="frontend"
+        aria-labelledby="playground-title"
+      >
         <SceneEnvironment scene="tidal" />
-        <p className="section-marker">
-          <span>04 / The playground</span>
-          <span>Made to be played with</span>
-        </p>
-        <div className="section-intro world-heading playground-heading">
-          <h2>
+        <header className="section-intro world-heading playground-heading chapter-heading">
+          <h2 id="playground-title">
             A little
             <br />
             <span>browser magic.</span>
           </h2>
-          <p>Physics. Light. A little browser magic.</p>
+          <p>Touch, drag, explore.</p>
           <WorldScene kind="play" />
-        </div>
+        </header>
         <ExperimentPlayground />
         <div className="gallery-heading">
           <h3>More from Facetworks.</h3>

@@ -26,7 +26,9 @@ with sync_playwright() as p:
             images = page.locator('.world-scene img').evaluate_all('ns=>ns.map(n=>n.currentSrc)')
             assert len(images) == len(set(images)), (width, route, 'Repeated chapter artwork')
             if route == '/':
-                assert sum('/studio-island' in src for src in images) == 1
+                assert not any('/studio-island' in src for src in images)
+                assert sum('/engine-island' in src for src in images) == 1
+                assert sum('/liquid-chrome' in src for src in images) == 1
                 assert page.locator('.reel-poster .reel-backdrop').count() == 1
                 assert page.locator('.reel-poster .world-scene').count() == 0
             else:

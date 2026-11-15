@@ -55,3 +55,7 @@ The playground's liquid-chrome artwork is an original Blender 5.2 Cycles render,
 ## Original portrait fidelity
 
 The hero uses `public/portrait-original.webp`, a lossless format conversion whose decoded pixels match the supplied `portrait-sky.png` exactly. Portrait color filters are removed. `public/scene/portrait-outline.svg` follows the original hairline, face and phone corner instead of the previous eroded contour. The original PNG and previous outline remain unchanged for reference. `scripts/check-portrait-fidelity.py` checks pixel identity in the browser, no stretch or color filter, connected silhouette geometry and the retained hair/phone frame at five widths.
+
+## Chapter composition
+
+Each Home scene opens with one semantic heading instead of a numbered banner and repeated tagline. Selected work uses a compact heading/link composition and leads directly into the real product visual; its duplicate foreground studio is removed while the marina background stays. Engineering and the playground use smaller foreground sculptures alongside their headings, with native diagrams and playable experiments immediately below. The reel pairs its title with its duration. The discipline ticker is a slimmer transition. Existing heading entrances, responsive backgrounds, keyboard controls and reduced-motion alternatives retain their lifecycle.
