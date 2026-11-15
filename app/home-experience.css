@@ -380,21 +380,6 @@ html[data-motion="static"] .home-page .experiment-play {
   .home-page .portrait {
     margin-top: 0;
   }
-  .home-page .portrait figcaption {
-    font-size: 9px;
-    padding-inline: 6%;
-  }
-  .home-page .portrait-tools {
-    bottom: 0;
-  }
-  .home-page .portrait-tools button {
-    font-size: 10px;
-    padding-inline: 11px;
-  }
-  .home-page .portrait-play-hint {
-    top: 0;
-    font-size: 9px;
-  }
   .home-page .work-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -419,10 +404,6 @@ html[data-motion="static"] .home-page .experiment-play {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .home-page .portrait-fallback,
-  .home-page .portrait-canvas {
-    transition: none;
-  }
   .home-page .map-node,
   .home-page .architecture-wires > g {
     transition: none;
@@ -922,9 +903,6 @@ html[data-motion="static"] .home-page .experiment-play {
     right: -57%;
     bottom: 0;
   }
-  .home-page .portrait figcaption {
-    display: none;
-  }
   .home-page .hero-landscape img {
     object-position: 72% center;
   }
@@ -961,6 +939,25 @@ html[data-motion="static"] .home-page .experiment-play {
   .home-page .hero-lightbeam {
     width: 130%;
     right: -85%;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .home-page .hero-cinema {
+    min-height: 720px;
+  }
+  .home-page .portfolio-hero h1 {
+    font-size: 17vw;
+  }
+  .home-page .portrait {
+    width: min(120vw, 760px);
+    right: -30%;
+    bottom: 80px;
+  }
+  .home-page .hero-description {
+    max-width: 24ch;
+  }
+  .home-page .hero-details {
+    max-width: 28ch;
   }
 }
 @media (max-width: 359px) {
