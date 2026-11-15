@@ -1,3 +1,4 @@
+import { WorldScene } from "@/components/WorldScene";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { existsSync } from "node:fs";
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <div className="portfolio-shell projects-page">
-      <header className="projects-heading" data-motion-intro>
+      <header className="projects-heading world-heading" data-motion-intro>
+        <WorldScene />
         <h1>
           Many ideas.
           <br />

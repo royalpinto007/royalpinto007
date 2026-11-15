@@ -84,7 +84,7 @@ export function CinematicHero({ children }: { children: ReactNode }) {
         <picture>
           <source
             media="(max-width: 767px)"
-            srcSet="/scene/sunset-coast-mobile.webp"
+            srcSet="/scene/coast-mobile.webp"
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

@@ -1,3 +1,4 @@
+import { WorldScene } from "./WorldScene";
 import { ArchitectureMap } from "./ArchitectureMap";
 import {
   ArrowRight,
@@ -124,12 +125,13 @@ export function SystemsShowcase() {
         <span>02 / Under the hood</span>
         <span>Follow the decisions, not just the arrows</span>
       </p>
-      <div className="systems-heading section-intro">
+      <div className="systems-heading section-intro world-heading">
         <h2 id="systems-title">
           Beyond
           <br />
           <span>the interface.</span>
         </h2>
+        <WorldScene kind="engine" />
       </div>
       <fieldset className="system-picker">
         <legend className="sr-only">Choose a system to explore</legend>

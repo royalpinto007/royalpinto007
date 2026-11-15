@@ -19,32 +19,32 @@ const scenes = [
     category: "Creative development",
     name: "Facetworks / Magnetic sand",
     image: "magnetic-sand",
-    color: "#25394e",
-    accent: "#9bdae6",
+    color: "#b8dbee",
+    accent: "#225173",
   },
   {
     title: ["Real problems.", "Useful products."],
     category: "Product engineering",
     name: "SignalizeAI / Research in the browser",
     image: "signalizeai",
-    color: "#30243f",
-    accent: "#ffbba9",
+    color: "#c8d6ec",
+    accent: "#64467a",
   },
   {
     title: ["Small details.", "Big difference."],
     category: "Interaction design",
     name: "Facetworks / Jelly iPhone",
     image: "jelly-iphone",
-    color: "#5c2f4d",
-    accent: "#ffcedc",
+    color: "#e9c1d3",
+    accent: "#843858",
   },
   {
     title: ["A little play.", "A new perspective."],
     category: "Browser experiments",
     name: "Facetworks / Fogged glass",
     image: "fogged-glass",
-    color: "#553637",
-    accent: "#ffd0ad",
+    color: "#efcfb5",
+    accent: "#744838",
   },
 ];
 const SCENE_FRAMES = 150;
@@ -70,15 +70,25 @@ export function ProjectReelComposition() {
       data-reel-frame={frame}
       style={{
         background: scene.color,
-        color: "#fff0dc",
+        color: "#17344d",
         overflow: "hidden",
         fontFamily: "inherit",
       }}
     >
       <AbsoluteFill
         style={{
-          background: `linear-gradient(110deg, ${scene.color}ee 15%, ${scene.color}66), url('/scene/sunset-coast.webp') center / cover`,
+          background: `linear-gradient(110deg, ${scene.color}, #fff8)`,
           opacity: interpolate(local, [0, 80], [0.4, 1], clamp),
+        }}
+      />
+      <Img
+        src="/scene/studio-island-mobile.webp"
+        style={{
+          position: "absolute",
+          width: compact ? 950 : 960,
+          right: compact ? -160 : -120,
+          bottom: 0,
+          opacity: 0.7,
         }}
       />
       <div
@@ -128,7 +138,7 @@ export function ProjectReelComposition() {
           aspectRatio: "1.44",
           borderRadius: 8,
           overflow: "hidden",
-          boxShadow: "0 24px 50px -26px #fff0dc55",
+          boxShadow: "0 24px 50px -26px #17344d55",
           clipPath: `inset(0 ${interpolate(local, [4, 38], [100, 0], clamp)}% 0 0)`,
           translate: `0 ${interpolate(local, [4, 45], [38, 0], clamp)}px`,
         }}
@@ -166,7 +176,7 @@ export function ProjectReelComposition() {
         }}
       >
         {scenes.map((s, n) => (
-          <div key={s.name} style={{ flex: 1, background: "#fff0dc15" }}>
+          <div key={s.name} style={{ flex: 1, background: "#17344d15" }}>
             <div
               style={{
                 height: "100%",

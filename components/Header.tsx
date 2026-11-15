@@ -15,6 +15,7 @@ export function Header() {
       <div className="header-inner">
         <Link
           href="/"
+          prefetch={false}
           className="brand-link"
           aria-label="Royal Simpson Pinto home"
         >
@@ -26,6 +27,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
+              prefetch={false}
               aria-current={
                 (
                   link.href === "/"
@@ -61,6 +63,7 @@ export function Header() {
             {navLinks.map((link) => (
               <Link
                 href={link.href}
+                prefetch={false}
                 key={link.href}
                 onClick={(event) => {
                   const menu = event.currentTarget.closest("details");

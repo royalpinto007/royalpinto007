@@ -1,8 +1,6 @@
-import { readFileSync } from "node:fs";
 import "./home.css";
 import "./home-experience.css";
 import "./coastal-home.css";
-import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
@@ -10,15 +8,13 @@ import { DesignGallery } from "@/components/DesignGallery";
 import { MotionReel } from "@/components/MotionReel";
 import { KineticBand } from "@/components/KineticBand";
 import { ExperimentPlayground } from "@/components/ExperimentPlayground";
+import { WorldScene } from "@/components/WorldScene";
+import { ContributionWall } from "@/components/ContributionWall";
 import { CinematicHero } from "@/components/CinematicHero";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { SystemsShowcase } from "@/components/SystemsShowcase";
 import { siteConfig } from "@/data/site";
 
-const wallSvg = readFileSync(
-  path.join(process.cwd(), "public", "wall2026.svg"),
-  "utf8",
-);
 const work = [
   {
     name: "SignalizeAI",
@@ -82,7 +78,7 @@ export default function HomePage() {
         <figure className="portrait">
           <div className="portrait-scene portrait-person">
             <picture>
-              <source srcSet="/portrait-sky.webp" type="image/webp" />
+              <source srcSet="/portrait-display.webp" type="image/webp" />
               <Image
                 src={siteConfig.avatar}
                 alt="Illustrated portrait of Royal Simpson Pinto against a blue and pink sunset sky"
@@ -103,13 +99,14 @@ export default function HomePage() {
           <span>01 / Selected work</span>
           <span>From idea to everyday use</span>
         </p>
-        <div className="section-intro work-heading">
+        <div className="section-intro work-heading world-heading">
           <h2>
             Ideas,
             <br />
             <span>shipped.</span>
           </h2>
-          <Link className="quiet-link" href="/projects">
+          <WorldScene />
+          <Link className="quiet-link" href="/projects" prefetch={false}>
             All projects <ArrowRight size={17} />
           </Link>
         </div>
@@ -187,13 +184,7 @@ export default function HomePage() {
           </a>
         </div>
         <div className="contribution-calendar">
-          <div
-            className="contribution-wall"
-            role="region"
-            aria-label="GitHub contribution calendar, scroll horizontally to explore the year"
-            tabIndex={0}
-            dangerouslySetInnerHTML={{ __html: wallSvg }}
-          />
+          <ContributionWall />
           <div className="contribution-legend">
             <span>
               Every square is a day on GitHub.
@@ -249,13 +240,14 @@ export default function HomePage() {
           <span>04 / The playground</span>
           <span>Made to be played with</span>
         </p>
-        <div className="section-intro">
+        <div className="section-intro world-heading playground-heading">
           <h2>
             A little
             <br />
             <span>browser magic.</span>
           </h2>
           <p>Physics. Light. A little browser magic.</p>
+          <WorldScene kind="play" />
         </div>
         <ExperimentPlayground />
         <div className="gallery-heading">

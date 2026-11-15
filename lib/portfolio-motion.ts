@@ -39,7 +39,7 @@ export function mountPortfolioMotion(root: HTMLElement) {
         >();
 
         let finishEntrance = () => {};
-        if (hero && window.scrollY < 80) {
+        if (hero && window.scrollY < 80 && fine) {
           const entrance = gsap.timeline({ defaults: { ease: "power3.out" } });
           finishEntrance = () => {
             entrance.progress(1);
@@ -80,7 +80,7 @@ export function mountPortfolioMotion(root: HTMLElement) {
             0.1,
           );
         }
-        if (intro.length && window.scrollY < 80) {
+        if (intro.length && window.scrollY < 80 && fine) {
           gsap.from(intro, {
             y: 22,
             opacity: 0,
@@ -104,7 +104,10 @@ export function mountPortfolioMotion(root: HTMLElement) {
           ) {
             if (selected.has(parent)) return false;
           }
-          return node.getBoundingClientRect().bottom > 0;
+          const rect = node.getBoundingClientRect();
+          return (
+            rect.bottom > 0 && (fine || rect.top > window.innerHeight * 0.9)
+          );
         });
         targets.forEach((node) => {
           const index = node.parentElement
@@ -126,6 +129,11 @@ export function mountPortfolioMotion(root: HTMLElement) {
         root
           .querySelectorAll<HTMLElement>(".work-preview")
           .forEach((preview) => {
+            if (
+              !fine &&
+              preview.getBoundingClientRect().top <= window.innerHeight * 0.9
+            )
+              return;
             const wipe = gsap.from(preview, {
               clipPath: "inset(9% 14% 9% 0 round 8px)",
               duration: 1.05,
@@ -172,6 +180,11 @@ export function mountPortfolioMotion(root: HTMLElement) {
             ".section-intro h2, .capabilities h2, .reel-heading h2",
           )
           .forEach((title) => {
+            if (
+              !fine &&
+              title.getBoundingClientRect().top <= window.innerHeight * 0.9
+            )
+              return;
             gsap.from(title, {
               y: 28,
               clipPath: "inset(0 0 100% 0)",
@@ -289,18 +302,57 @@ export function mountPortfolioMotion(root: HTMLElement) {
             });
           });
 
-        const calendar = root.querySelector(".contribution-calendar");
-        if (calendar)
-          gsap.from(calendar.querySelectorAll(".wall-svg rect"), {
-            y: 6,
-            scale: 0.85,
-            transformOrigin: "50% 50%",
-            duration: 0.6,
-            stagger: 0.002,
-            ease: "power3.out",
-            clearProps: "transform,transformOrigin",
-            scrollTrigger: { trigger: calendar, start: "top 88%", once: true },
-          });
+        root.querySelectorAll<HTMLElement>(".world-scene").forEach((scene) => {
+          const subject = scene.querySelector("img, .chrome-stage");
+          if (!subject) return;
+          gsap.fromTo(
+            subject,
+            { yPercent: 5, rotation: -1 },
+            {
+              yPercent: -5,
+              rotation: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: scene,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.7,
+              },
+            },
+          );
+          const sphere = scene.querySelector(".chrome-sphere");
+          if (sphere)
+            gsap.fromTo(
+              sphere,
+              { rotation: -25 },
+              {
+                rotation: 35,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: scene,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 0.7,
+                },
+              },
+            );
+          gsap.fromTo(
+            scene.querySelectorAll(".world-glint"),
+            { opacity: 0.2, scale: 0.7 },
+            {
+              opacity: 1,
+              scale: 1.5,
+              stagger: 0.15,
+              ease: "sine.inOut",
+              scrollTrigger: {
+                trigger: scene,
+                start: "top 90%",
+                end: "bottom 25%",
+                scrub: 0.7,
+              },
+            },
+          );
+        });
 
         if (progress) {
           gsap.fromTo(

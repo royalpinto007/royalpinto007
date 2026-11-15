@@ -1,3 +1,4 @@
+import { WorldScene } from "./WorldScene";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
@@ -5,6 +6,7 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-invitation">
+        <WorldScene />
         <div>
           <h2>
             Have something
@@ -24,7 +26,9 @@ export function Footer() {
           © {new Date().getFullYear()} {siteConfig.name}
         </p>
         <nav aria-label="Footer navigation">
-          <Link href="/contact">Contact</Link>
+          <Link href="/contact" prefetch={false}>
+            Contact
+          </Link>
           <a href={siteConfig.github}>GitHub</a>
           <a href={siteConfig.linkedin}>LinkedIn</a>
           <a href={siteConfig.twitter}>X</a>

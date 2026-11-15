@@ -1,3 +1,4 @@
+import { WorldScene } from "@/components/WorldScene";
 import type { Metadata } from "next";
 import {
   Calendar,
@@ -69,7 +70,7 @@ export default function ContactPage() {
 
       {/* Main CTA Card */}
       <div className="contact-invitation reveal mt-14 relative overflow-hidden rounded-2xl border border-line bg-panel p-10 sm:p-14">
-        <div className="glow opacity-70" aria-hidden />
+        <WorldScene />
         <div className="mono flex items-center gap-2 mb-5 text-xs text-accent">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
           Available now

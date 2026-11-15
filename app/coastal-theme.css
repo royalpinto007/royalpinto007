@@ -1,33 +1,25 @@
-/* One dusk-coast identity across the portfolio, independent of OS appearance. */
+/* Always light. Color lives in the artwork; ink and surfaces stay readable. */
 :root {
-  --bg: #1e162e;
-  --panel: #30233e;
-  --panel-2: #423451;
-  --ink: #fff0dc;
-  --mute: #dfcedd;
-  --faint: #ccbdd0;
-  --line: #67566f;
-  --line-strong: #9d829b;
-  --accent: #ffbaaa;
-  --accent-hover: #ffd5b7;
-  --accent-soft: #49354b;
+  --bg: #f7f6f2;
+  --panel: #fffdf9;
+  --panel-2: #c1dcef;
+  --ink: #102f46;
+  --mute: #294659;
+  --faint: #44556b;
+  --line: #a4b9c6;
+  --line-strong: #69869b;
+  --accent: #9c3263;
+  --accent-hover: #732348;
+  --accent-soft: #efdae5;
   --font-geist-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
-  --heading-gradient: linear-gradient(110deg, #ffe3c0, #ff9bc4);
-  --button-gradient: linear-gradient(115deg, #ffb399, #ffc8a6);
-  --button-hover: linear-gradient(115deg, #ffd1b0, #ffb2c3);
-  --button-ink: #291d35;
+  --heading-gradient: linear-gradient(110deg, #143d58, #75465f);
+  --button-gradient: linear-gradient(115deg, #153e56, #24495d);
+  --button-hover: linear-gradient(115deg, #0a2b40, #17384c);
+  --button-ink: #fff9ef;
 }
 body {
   background: var(--bg);
-  background-image:
-    radial-gradient(ellipse at 100% 2%, #b5537950, transparent 42%),
-    linear-gradient(180deg, #24182de8, #1e162ef7 1300px),
-    url("/scene/sunset-coast.webp");
-  background-size:
-    auto,
-    auto,
-    100% 1500px;
-  background-repeat: no-repeat;
+  background-image: linear-gradient(180deg, #ecf4f8, #f7f6f2 850px);
   background-attachment: scroll;
 }
 .sunset-atmosphere {
@@ -38,8 +30,8 @@ body {
 }
 .site-header,
 .site-header.is-scrolled {
-  background: #24192eea;
-  border-bottom: 1px solid #ffb5c333;
+  background: #f5f6f1ed;
+  border-bottom: 1px solid #23485b26;
   backdrop-filter: blur(20px);
 }
 .coffee-ticker {
@@ -58,7 +50,7 @@ body {
   color: var(--ink);
 }
 .site-nav a::after {
-  background: #ffb5c3;
+  background: #a23868;
 }
 .home-mobile-menu {
   display: none;
@@ -69,7 +61,7 @@ body {
   gap: 24px;
   margin-bottom: 28px;
   padding-top: 18px;
-  border-top: 1px solid #f2bec643;
+  border-top: 1px solid #284d6340;
   font-size: 10px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -79,7 +71,6 @@ body {
 .projects-heading h1,
 .contact-page h1,
 .footer-invitation h2 {
-  text-shadow: 0 10px 60px #f8819d19;
   font-family: var(--font-coastal-display), sans-serif;
   font-size: clamp(70px, 9.5vw, 160px);
   text-transform: uppercase;
@@ -90,7 +81,7 @@ body {
 }
 .projects-heading h1 span,
 .contact-page h1 span {
-  color: #ffbaaa;
+  color: #9c3263;
   background: none;
   -webkit-text-fill-color: currentColor;
 }
@@ -111,17 +102,17 @@ body {
 }
 .project-jumps {
   gap: 8px;
-  border-color: #f2bec643;
+  border-color: #1e425b40;
 }
 .project-jumps a:nth-child(n) {
-  background: #55374980;
+  background: #fffaf5d9;
   border-radius: 4px;
   padding-inline: 16px;
   color: var(--ink);
-  border: 1px solid #ffb6ce45;
+  border: 1px solid #fff7;
 }
 .project-jumps a:nth-child(n):hover {
-  background: #66445e;
+  background: #e6d4e4;
 }
 .category-project > a,
 .design-tile img {
@@ -131,7 +122,7 @@ body {
   color: var(--ink);
 }
 .category-project {
-  border-color: #f2bec638;
+  border-color: #2b516c38;
 }
 .project-card-links a {
   min-height: 44px;
@@ -146,11 +137,10 @@ body {
 }
 .contact-page .contact-invitation {
   background:
-    linear-gradient(105deg, #302039f2 25%, #713c67a8),
-    url("/scene/sunset-coast.webp") center 68% / cover;
-  border: 1px solid #f7c0c570;
+    radial-gradient(ellipse at 100% 15%, #f1c2b6, transparent 65%), #b9d5e8;
+  border: 1px solid #6e93ac66;
   border-radius: 16px;
-  box-shadow: inset 0 1px #f5b7d43d;
+  box-shadow: inset 0 1px #fff9;
 }
 .contact-page .contact-invitation h2 {
   font-family: var(--font-coastal-display), sans-serif;
@@ -160,16 +150,15 @@ body {
 }
 .contact-page .contact-channels > a,
 .contact-page .bg-panel {
-  background-color: #39253fbe;
-  border-color: #806477;
+  background-color: #edf2f1c9;
+  border-color: #9cb7c8;
 }
 .contact-page .contact-invitation {
-  background-color: #44314d;
+  background-color: #b9d5e8;
 }
 .site-footer {
-  background: radial-gradient(ellipse at 90% 100%, #9d466349, transparent 65%);
   position: relative;
-  border-top: 1px solid #f7b9c63b;
+  border-top: 1px solid #1e425b35;
 }
 .footer-invitation {
   padding-block: 90px;
@@ -178,7 +167,6 @@ body {
   border-radius: 0;
 }
 .footer-invitation h2 {
-  text-shadow: 0 10px 60px #f8819d19;
   font-size: clamp(64px, 8vw, 128px);
 }
 .footer-invitation p {
@@ -188,7 +176,7 @@ body {
   border-radius: 5px;
 }
 .footer-bottom {
-  border-color: #f7b9c63b;
+  border-color: #1e425b35;
   color: var(--mute);
 }
 .home-mobile-menu summary {
@@ -212,11 +200,11 @@ body {
   right: 0;
   width: 220px;
   padding: 12px 18px;
-  border: 1px solid #f5b7d43d;
-  background: #302039f5;
+  border: 1px solid #fff9;
+  background: #fffaf5f5;
   backdrop-filter: blur(18px);
   border-radius: 12px;
-  box-shadow: 0 20px 50px -25px #110a2480;
+  box-shadow: 0 20px 50px -25px #18344980;
 }
 .home-mobile-menu nav a {
   display: flex;
@@ -270,28 +258,216 @@ body {
     padding-block: 60px;
   }
   .footer-invitation h2 {
-    text-shadow: 0 10px 60px #f8819d19;
     font-size: clamp(52px, 12vw, 86px);
   }
 }
 
-.projects-heading,
-.contact-page > header {
+/* Scene objects stay outside the text layer, with no boxed footer invitation. */
+.world-scene {
   position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 1.5;
+  pointer-events: none;
+  min-width: 0;
 }
-.projects-page .category-project,
-.projects-page .design-tile {
-  border-color: var(--line);
+.world-scene picture,
+.world-scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
-.projects-page .project-card {
-  background: transparent;
+.world-scene img {
+  object-fit: contain;
 }
-.projects-page .design-tile img,
-.projects-page .category-project > a {
-  box-shadow: 0 24px 60px -30px #080918;
-  border: 1px solid #edafc24a;
+.world-glint {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px 2px #fff8;
+  left: 35%;
+  top: 53%;
 }
-:where(a, button, summary):focus-visible {
-  outline: 2px solid #ffcd9b;
-  outline-offset: 5px;
+.world-glint:nth-last-child(2) {
+  left: 58%;
+  top: 40%;
+  width: 3px;
+  height: 3px;
+}
+.world-glint:last-child {
+  left: 71%;
+  top: 66%;
+}
+.world-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 12px 3%;
+}
+.world-heading > .world-scene {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+.world-heading > h1,
+.world-heading > h2,
+.world-heading > p,
+.world-heading > a {
+  grid-column: 1;
+}
+.world-heading > .quiet-link {
+  justify-self: start;
+}
+.projects-heading > h1 {
+  margin-bottom: 8px;
+}
+.projects-heading > p {
+  grid-row: 2;
+}
+.projects-heading > .world-scene {
+  width: 115%;
+  margin-left: -8%;
+}
+.footer-invitation {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 26px 4%;
+  align-items: center;
+}
+.footer-invitation > .world-scene {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 112%;
+  margin-left: -6%;
+}
+.footer-invitation > div:not(.world-scene) {
+  grid-column: 1;
+}
+.footer-invitation > .primary-link {
+  grid-column: 1;
+  justify-self: start;
+  align-self: start;
+}
+.footer-invitation h2 {
+  font-size: clamp(62px, 7vw, 112px);
+}
+.site-footer {
+  background: linear-gradient(180deg, transparent, #e5eff5 80%);
+}
+.contact-page .contact-invitation {
+  background: linear-gradient(130deg, #e6f2fa, #fae5df);
+  isolation: isolate;
+}
+.contact-invitation > .world-scene {
+  position: absolute;
+  right: -4%;
+  bottom: -8%;
+  width: 49%;
+  z-index: -1;
+}
+.contact-invitation > :not(.world-scene) {
+  position: relative;
+  max-width: 50%;
+}
+.contact-invitation > h2 {
+  font-size: clamp(36px, 4vw, 58px);
+}
+.project-jumps a:nth-child(n) {
+  border-color: #a3aebd;
+}
+.projects-page .category-project > a,
+.projects-page .design-tile img {
+  box-shadow: 0 22px 40px -28px #2e4f7460;
+}
+.calendar-art {
+  min-width: 700px;
+  width: 100%;
+  aspect-ratio: 690 / 119;
+}
+.calendar-art > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.calendar-pending {
+  min-width: 0;
+  min-height: 120px;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  text-align: center;
+  font-size: 12px;
+}
+.calendar-pending button {
+  padding: 10px 18px;
+  border: 1px solid #657e71;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.calendar-static {
+  display: block;
+  width: 100%;
+  min-width: 700px;
+  height: auto;
+}
+@media (scripting: none) {
+  .calendar-pending {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .world-heading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .world-heading > .world-scene,
+  .projects-heading > .world-scene {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    margin: 0;
+    max-height: 300px;
+  }
+  .world-heading > p,
+  .world-heading > a {
+    grid-row: 3;
+  }
+  .projects-heading > p {
+    grid-row: 3;
+  }
+  .footer-invitation {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .footer-invitation > .world-scene {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    margin: 0;
+  }
+  .footer-invitation > .primary-link {
+    grid-row: 3;
+  }
+  .contact-invitation > .world-scene {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    z-index: 0;
+    margin-block: -20px 16px;
+    max-width: none;
+  }
+  .contact-invitation > :not(.world-scene) {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-invitation > p {
+    max-width: min(42ch, 50%);
+  }
+}
+.home-page .world-heading {
+  align-items: center;
 }

@@ -49,6 +49,7 @@ with sync_playwright() as p:
   graph=page.locator('.contribution-calendar');graph.scroll_into_view_if_needed()
   page.wait_for_function("getComputedStyle(document.querySelector('.contribution-wall')).opacity==='1'")
   page.wait_for_function("getComputedStyle(document.querySelector('#oss h2')).clipPath==='none'")
+  page.locator('.wall-svg rect').first.wait_for()
   rects=page.locator('.wall-svg rect')
   assert rects.count()>300
   active_days=page.locator('.wall-svg rect:not(.l0)').count()

@@ -51,8 +51,8 @@ with sync_playwright() as p:
         stage.scroll_into_view_if_needed()
         page.emulate_media(reduced_motion='reduce')
         page.wait_for_function("document.querySelector('.reel-player')===null")
-        page.wait_for_function("document.querySelector('.reel-poster img').complete && document.querySelector('.reel-poster img').naturalWidth>0")
-        assert page.locator('.reel-poster img').evaluate('n=>n.complete && n.naturalWidth>0')
+        page.wait_for_function("document.querySelector('.reel-poster > img').complete && document.querySelector('.reel-poster > img').naturalWidth>0")
+        assert page.locator('.reel-poster > img').evaluate('n=>n.complete && n.naturalWidth>0')
         checks.append(f'{width}px: real animation, keyboard play/pause, offscreen pause, unboxed footer, live reduced-motion fallback')
         print('PASS', checks[-1], flush=True)
         context.close()
@@ -64,8 +64,8 @@ with sync_playwright() as p:
     page.goto(BASE, wait_until='networkidle')
     page.locator('.reel-stage').scroll_into_view_if_needed()
     assert page.locator('.reel-player').count() == 0
-    page.wait_for_function("document.querySelector('.reel-poster img').complete && document.querySelector('.reel-poster img').naturalWidth>0")
-    assert page.locator('.reel-poster img').evaluate('n=>n.complete && n.naturalWidth>0')
+    page.wait_for_function("document.querySelector('.reel-poster > img').complete && document.querySelector('.reel-poster > img').naturalWidth>0")
+    assert page.locator('.reel-poster > img').evaluate('n=>n.complete && n.naturalWidth>0')
     checks.append('initial reduced motion uses the static composition')
     context.close()
 
@@ -73,8 +73,8 @@ with sync_playwright() as p:
     page = context.new_page()
     page.goto(BASE, wait_until='networkidle')
     page.locator('.reel-stage').scroll_into_view_if_needed()
-    page.wait_for_function("document.querySelector('.reel-poster img').complete && document.querySelector('.reel-poster img').naturalWidth>0")
-    assert page.locator('.reel-poster img').evaluate('n=>n.complete && n.naturalWidth>0')
+    page.wait_for_function("document.querySelector('.reel-poster > img').complete && document.querySelector('.reel-poster > img').naturalWidth>0")
+    assert page.locator('.reel-poster > img').evaluate('n=>n.complete && n.naturalWidth>0')
     assert page.locator('.work-piece').count() == 4
     checks.append('without JavaScript, static reel and all four project entries remain available')
     context.close()
@@ -87,8 +87,8 @@ with sync_playwright() as p:
     page.goto(BASE, wait_until='networkidle')
     page.locator('.reel-stage').scroll_into_view_if_needed()
     assert page.locator('.reel-player').count() == 0
-    page.wait_for_function("document.querySelector('.reel-poster img').complete && document.querySelector('.reel-poster img').naturalWidth>0")
-    assert page.locator('.reel-poster img').evaluate('n=>n.complete && n.naturalWidth>0')
+    page.wait_for_function("document.querySelector('.reel-poster > img').complete && document.querySelector('.reel-poster > img').naturalWidth>0")
+    assert page.locator('.reel-poster > img').evaluate('n=>n.complete && n.naturalWidth>0')
     checks.append('failed optional player download preserves the static composition and project links')
     browser.close()
 

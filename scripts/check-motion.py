@@ -120,6 +120,41 @@ with sync_playwright() as p:
         context.close()
     checks.append('coarse touch devices at 320/390/768 skip pointer effects and keep working anchor navigation')
 
+    context=browser.new_context(viewport={'width':390,'height':844},has_touch=True,is_mobile=True,reduced_motion='no-preference')
+    page=context.new_page()
+    watch(page)
+    html=page.request.get(BASE).text()
+    initial_scripts={urlparse(src).path for src in re.findall(r'<script[^>]+src="([^"]+)"',html)}
+    held=[]
+    released=False
+    def defer_optional(route):
+        if released or urlparse(route.request.url).path in initial_scripts:
+            route.continue_()
+        else:
+            held.append(route)
+    context.route('**/_next/static/chunks/*.js',defer_optional)
+    page.goto(BASE,wait_until='domcontentloaded')
+    page.wait_for_function("document.documentElement.dataset.motion==='loading'")
+    page.locator('#work h2').evaluate("n=>n.scrollIntoView({block:'center'})")
+    page.wait_for_timeout(250)
+    assert held, 'Optional motion bundle was not held for the slow-network regression'
+    page.evaluate("""()=>{
+      window.headingHidden=false;
+      const title=document.querySelector('#work h2');
+      new MutationObserver(()=>{
+        if(title.style.clipPath && title.style.clipPath!=='none') window.headingHidden=true;
+      }).observe(title,{attributes:true,attributeFilter:['style']});
+    }""")
+    released=True
+    for route in held: route.continue_()
+    ready(page)
+    page.wait_for_timeout(1000)
+    assert not page.evaluate('window.headingHidden'), 'Late optional motion clipped an already visible heading'
+    assert page.locator('#work .section-intro').evaluate("n=>getComputedStyle(n).opacity==='1'")
+    context.close()
+    checks.append('delayed mobile motion never re-hides the section the visitor is already reading')
+
+
     context=browser.new_context(reduced_motion='reduce')
     page=context.new_page()
     watch(page)
