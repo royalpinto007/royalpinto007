@@ -1,3 +1,4 @@
+import "./projects.css";
 import { WorldScene } from "@/components/WorldScene";
 import type { Metadata } from "next";
 import Image from "next/image";

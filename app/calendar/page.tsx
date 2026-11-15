@@ -1,3 +1,4 @@
+import "./calendar.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";

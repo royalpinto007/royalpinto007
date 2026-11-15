@@ -1,3 +1,4 @@
+import "./contact.css";
 import { WorldScene } from "@/components/WorldScene";
 import type { Metadata } from "next";
 import {
