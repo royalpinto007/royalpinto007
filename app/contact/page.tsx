@@ -66,7 +66,7 @@ export default function ContactPage() {
       <SectionHeader
         title="Let's"
         titleEm="talk"
-        subtitle="A product, a collaboration, or a good question. Start a conversation."
+        subtitle="Freelance development, a developer role, or an open-source collaboration."
       />
 
       {/* Main CTA Card */}
@@ -74,14 +74,14 @@ export default function ContactPage() {
         <WorldScene kind="telephone" />
         <div className="mono flex items-center gap-2 mb-5 text-xs text-accent">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          Available now
+          Available for freelance work
         </div>
         <h2 className="display text-3xl sm:text-4xl text-ink mb-3">
-          An idea? <span className="display-em text-accent">I’m all ears.</span>
+          Need a <span className="display-em text-accent">developer?</span>
         </h2>
         <p className="text-mute mb-8 max-w-md leading-relaxed">
-          Tell me what you&apos;re making, where you are now, and what you need
-          next. I usually reply within 24 hours.
+          Send the brief, repo, or bug. Tell me what needs shipping. I usually
+          reply within 24 hours.
         </p>
         <div className="flex flex-wrap gap-4">
           <a
@@ -91,22 +91,6 @@ export default function ContactPage() {
             className="primary-link"
           >
             Hire me <ArrowUpRight className="w-4 h-4" />
-          </a>
-          <a
-            href={siteConfig.calendarLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-line-strong text-ink text-sm px-6 py-3 rounded-full hover:border-accent hover:text-accent transition-colors"
-          >
-            <Calendar className="w-4 h-4" /> Book a 30-min call
-          </a>
-          <a
-            href={siteConfig.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-mute text-sm px-4 py-3 hover:text-ink transition-colors"
-          >
-            <MessageSquare className="w-4 h-4" /> WhatsApp me
           </a>
         </div>
       </div>

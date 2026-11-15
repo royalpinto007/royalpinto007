@@ -21,7 +21,7 @@ export function Header() {
           aria-label="Royal Simpson Pinto home"
         >
           <span>Royal Simpson Pinto</span>
-          <small>Software engineer & open-source builder</small>
+          <small>Indie dev · Freelancer · Open source</small>
         </Link>
         <nav className="site-nav" aria-label="Main navigation">
           {navLinks.map((link) => (

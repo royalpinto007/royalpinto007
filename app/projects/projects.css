@@ -131,6 +131,7 @@
   gap: 35px 28px;
 }
 .projects-page .category-project {
+  scroll-margin-top: 110px;
   border: 1px solid #c6d1d9;
   border-radius: 13px;
   padding: 10px 10px 0;

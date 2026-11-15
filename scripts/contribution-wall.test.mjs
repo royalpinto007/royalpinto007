@@ -36,4 +36,7 @@ test("calendar retains recorded counts and levels and excludes future days", () 
   assert.match(svg, /class="l4" fill="#216e39"/);
   assert.doesNotMatch(svg, /data-date="2026-01-03"/);
   assert.match(svg, />Jan<\/text>/);
+  assert.doesNotMatch(svg, />Mon<|>Wed<|>Fri</);
+  assert.match(svg, /class="contribution-week"/);
+  assert.match(svg, /<rect x="4" y="80"/);
 });

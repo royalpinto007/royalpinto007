@@ -96,6 +96,7 @@ export function SceneEnvironment({ scene }: { scene: Environment }) {
           type="button"
           onClick={() => setPaused(!paused)}
           aria-label={`${paused ? "Play" : "Pause"} scenery: ${scene}`}
+          title={`${paused ? "Play" : "Pause"} scenery`}
         >
           {paused ? (
             <Play size={15} aria-hidden="true" />

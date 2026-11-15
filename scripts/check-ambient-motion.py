@@ -68,7 +68,7 @@ with sync_playwright() as p:
  ctx.close()
  ctx=b.new_context(viewport={'width':390,'height':900},java_script_enabled=False);page=ctx.new_page();page.goto(BASE,wait_until='networkidle')
  assert page.locator('.scene-ambient-toggle').count()==0
- assert page.get_by_role('link',name='Discover my work').is_visible()
+ assert page.get_by_role('link',name='View projects').is_visible()
  assert page.locator('.coastal-atmosphere').evaluate_all('ns=>ns.every(n=>n.getAnimations({subtree:true}).every(a=>a.playState!=="running"))')
  ctx.close();b.close()
 assert not errors,errors

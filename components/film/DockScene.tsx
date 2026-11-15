@@ -12,10 +12,10 @@ export function DockScene({
   const step = Math.min(3, Math.floor(frame / 36));
   const local = frame - step * 36;
   const message = [
-    "a spark.",
-    "a working app.",
-    "a smarter flow.",
-    "something new.",
+    "an AI agent.",
+    "a full-stack app.",
+    "an automation.",
+    "a Web3 tool.",
   ][step];
   const jump = [
     [29, 39],
@@ -74,9 +74,9 @@ export function DockScene({
           transform: `translateY(${(1 - enter) * 45}px)`,
         }}
       >
-        Think it.
+        Code it.
         <br />
-        <span style={{ color: "#922f60" }}>Build it.</span>
+        <span style={{ color: "#922f60" }}>Ship it.</span>
       </div>
       <div
         data-film-typed

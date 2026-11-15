@@ -20,7 +20,7 @@ with sync_playwright() as p:
    expect(hero['x']<=width*.05 and width-hero['x']-hero['width']<=width*.05,f'{width}: unused lateral gutters')
 
   headline=page.locator('h1').inner_text().lower()
-  expect('build' in headline and 'beyond' in headline,f'{width}: cinematic headline missing')
+  expect('i build' in headline and 'software' in headline,f'{width}: clear developer headline missing')
   expect('Royal Simpson Pinto' in page.locator('.brand-link').inner_text(),f'{width}: personal identity absent')
   for i,line in enumerate(page.locator('.hero-line').all()):
    expect(line.evaluate('n=>n.getBoundingClientRect().height<=parseFloat(getComputedStyle(n).lineHeight)*1.3'),f'{width}: headline line {i+1} wraps')
@@ -29,12 +29,12 @@ with sync_playwright() as p:
   expect(len(description.split())<25,f'{width}: hero too wordy')
   expect(page.locator('#systems').evaluate('n=>n.compareDocumentPosition(document.querySelector(".motion-reel")) & Node.DOCUMENT_POSITION_FOLLOWING'),f'{width}: creative reel precedes system design')
   expect('Where it started' in page.locator('.journey-start').inner_text(),f'{width}: programmes not framed as the beginning')
-  expect('Contribute. Create. Maintain.' in page.locator('.open-source-heading').inner_text(),f'{width}: ongoing open source missing')
+  expect('Write code. Review PRs. Maintain projects.' in page.locator('.open-source-heading').inner_text(),f'{width}: ongoing open source missing')
   expect('Qdrant' not in page.locator('#oss').inner_text(),f'{width}: named contribution reference remains')
   expect(page.locator('#system-tenantq,#system-vaultrag').count()==0,f'{width}: retired architecture cases remain')
   page.screenshot(path=str(OUT/f'hero-{width}.png'))
   if width in [1920,320]:
-   page.locator('.hero-open-source').click()
+   page.locator('#oss').evaluate('n=>n.scrollIntoView({block:"start"})')
    expect(page.locator('#oss h2').bounding_box()['y']>=page.locator('.site-header').bounding_box()['height'],f'{width}: open-source anchor hidden behind header')
    page.screenshot(path=str(OUT/f'open-source-{width}.png'))
   page.locator('#systems').scroll_into_view_if_needed()

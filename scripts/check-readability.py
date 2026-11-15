@@ -21,10 +21,10 @@ with sync_playwright() as p:
    assert nav.get_by_role('link',name='Home',exact=True).get_attribute('aria-current')=='page'
    assert nav.evaluate('n=>{const b=n.getBoundingClientRect();return b.left>=0&&b.right<=innerWidth&&b.bottom<=innerHeight}')
    page.keyboard.press('Escape')
-  for selector in ['.hero-description','.hero-open-source','.work-stack li','.work-visit','.programme-strip span','.system-picker label > span']:
+  for selector in ['.hero-description','.work-stack li','.work-visit','.programme-strip span','.system-picker label > span']:
    assert font(selector)>=14,(width,selector,font(selector))
   if width<=430:
-   portrait=page.locator('.portrait img').bounding_box();copy=page.locator('.hero-open-source').bounding_box()
+   portrait=page.locator('.portrait img').bounding_box();copy=page.locator('.skill-rail-live').bounding_box()
    assert portrait['y']+portrait['height']*.18>=copy['y']+copy['height']+8,(width,'portrait covers copy')
   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
   page.screenshot(path=str(OUT/f'hero-{width}.png'))

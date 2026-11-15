@@ -99,6 +99,82 @@
   width: 22px;
   height: 22px;
 }
+.skill-rail-live {
+  width: 256px;
+}
+.skill-rail-live .skill-rail-track {
+  gap: 6px;
+  padding: 6px;
+  border-radius: 19px;
+  background: linear-gradient(140deg, #fff8f0b8, #d8e7f2a8);
+  border: 1px solid #ffffffd9;
+  box-shadow:
+    inset 0 1px 1px #fff,
+    0 2px 0 #6a829958,
+    0 12px 28px #12374e2b;
+  backdrop-filter: blur(18px);
+  transform: none;
+}
+.skill-rail-live .skill-tile {
+  min-height: 50px;
+  padding: 3px 0;
+  border: 0;
+  border-radius: 13px;
+  background: none;
+  box-shadow: none;
+  text-decoration: none;
+}
+.skill-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(150deg, #ffe8f0, #c579a3);
+  border: 1px solid #ffffffd9;
+  box-shadow:
+    inset 0 1px 1px #fff,
+    0 2px 3px #15394f25;
+  transform-origin: 50% 85%;
+}
+.skill-tile:nth-child(2) .skill-icon {
+  background: linear-gradient(150deg, #e8f6ff, #76b2df);
+}
+.skill-tile:nth-child(3) .skill-icon {
+  background: linear-gradient(150deg, #fff2d5, #eaa56c);
+}
+.skill-tile:nth-child(4) .skill-icon {
+  background: linear-gradient(150deg, #f1e9ff, #aa8ed1);
+}
+.skill-icon > svg {
+  width: 27px;
+  height: 27px;
+  stroke-width: 1.65;
+}
+.skill-rail-live .skill-tile:focus-visible {
+  outline: 2px solid #173b50;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skill-icon {
+    transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1.2);
+  }
+  .skill-tile:focus-visible .skill-icon {
+    transform: translateY(-7px) scale(1.18);
+  }
+  .skill-rail-live .skill-tile:active .skill-icon {
+    transform: translateY(1px) scale(0.94);
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .skill-tile:hover .skill-icon {
+    transform: translateY(-7px) scale(1.18);
+  }
+  .skill-tile:has(+ .skill-tile:hover) .skill-icon,
+  .skill-tile:hover + .skill-tile .skill-icon {
+    transform: translateY(-3px) scale(1.07);
+  }
+}
 .skill-rail-orbit {
   position: absolute;
   inset: -40px 0 -10px;
@@ -199,49 +275,6 @@
     transform: translateX(0);
   }
 }
-@keyframes rail-hop {
-  0%,
-  20% {
-    transform: translate3d(0, 0, 0);
-  }
-  22.5% {
-    transform: translate3d(12.5%, -24px, 0);
-  }
-  25%,
-  45% {
-    transform: translate3d(25%, 0, 0);
-  }
-  47.5% {
-    transform: translate3d(37.5%, -24px, 0);
-  }
-  50%,
-  70% {
-    transform: translate3d(50%, 0, 0);
-  }
-  72.5% {
-    transform: translate3d(62.5%, -24px, 0);
-  }
-  75%,
-  92% {
-    transform: translate3d(75%, 0, 0);
-  }
-  96% {
-    transform: translate3d(37.5%, -28px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes tile-press {
-  0%,
-  20% {
-    transform: translateY(3px) scale(0.97);
-  }
-  25%,
-  100% {
-    transform: none;
-  }
-}
 @media (prefers-reduced-motion: no-preference) {
   .typing-word {
     animation: type-word 8s step-end infinite paused;
@@ -255,49 +288,14 @@
     animation: type-caret 8s steps(var(--letters), end) infinite paused;
     animation-delay: var(--phase);
   }
-  .skill-rail-live .skill-rail-ball-route {
-    animation: rail-hop 8s linear infinite paused;
-  }
-  .skill-rail-live .skill-tile {
-    animation: tile-press 8s var(--ease-out) infinite paused;
-    animation-delay: var(--phase);
-  }
   .hero-cinema[data-active="true"]
-    :is(
-      .typing-word,
-      .typing-reveal,
-      .typing-caret,
-      .skill-rail-live .skill-rail-ball-route,
-      .skill-rail-live .skill-tile
-    ) {
+    :is(.typing-word, .typing-reveal, .typing-caret) {
     animation-play-state: running;
   }
 }
 @media (max-width: 1023px) {
   .hero-proof-row {
     gap: 12px;
-  }
-  .skill-rail-live {
-    width: 128px;
-  }
-  .skill-rail-live .skill-rail-track {
-    gap: 4px;
-    padding: 4px;
-  }
-  .skill-rail-live .skill-tile {
-    padding: 5px 1px;
-  }
-  .skill-rail-live .skill-tile > svg {
-    width: 19px;
-    height: 19px;
-  }
-  .skill-rail-live .skill-tile > span {
-    display: none;
-  }
-  .skill-rail-live .skill-rail-ball {
-    width: 20px;
-    height: 20px;
-    margin-left: -10px;
   }
 }
 @media (max-width: 767px) {
@@ -306,9 +304,6 @@
   }
   .hero-proof-row {
     gap: 4px;
-  }
-  .hero-proof-row .hero-open-source {
-    flex: 0 0 auto;
   }
 }
 @media (prefers-reduced-motion: reduce) {

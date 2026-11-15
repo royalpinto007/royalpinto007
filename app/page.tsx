@@ -8,10 +8,9 @@ import "./kinetic-opening.css";
 import "./orbital-hero.css";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { DesignGallery } from "@/components/DesignGallery";
 import { MotionReel } from "@/components/MotionReel";
-import { KineticBand } from "@/components/KineticBand";
 import { ExperimentPlayground } from "@/components/ExperimentPlayground";
 import { CoastalSculpture } from "@/components/CoastalSculpture";
 import { BoardDemo } from "@/components/BoardDemo";
@@ -60,23 +59,19 @@ export default function HomePage() {
       <CinematicHero>
         <div className="hero-copy">
           <p className="intro-name">
-            Software engineer <span>Independent builder</span>
+            Indie dev <span>Freelancer</span>
           </p>
           <h1>
             <span className="hero-line">
-              <span>Build</span>
+              <span>I build</span>
             </span>
             <span className="hero-line">
-              <span className="hero-title-accent">beyond.</span>
+              <span className="hero-title-accent">software.</span>
             </span>
           </h1>
           <div className="hero-details">
             <TypingDescriptor />
             <div className="hero-proof-row">
-              <a className="hero-open-source" href="#oss">
-                <GitBranch size={13} /> Built in the open{" "}
-                <ArrowRight size={13} />
-              </a>
               <SkillRail />
             </div>
           </div>
@@ -98,8 +93,6 @@ export default function HomePage() {
         </figure>
       </CinematicHero>
 
-      <KineticBand />
-
       <section
         className="selected-work immersive-work"
         id="work"
@@ -115,9 +108,9 @@ export default function HomePage() {
               {i === 0 && (
                 <header className="section-intro work-heading chapter-heading">
                   <h2 id="work-title">
-                    Ideas,
+                    Selected
                     <br />
-                    <span>shipped.</span>
+                    <span>projects.</span>
                   </h2>
                   <Link
                     className="quiet-link"
@@ -175,7 +168,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Explore {project.name}
+                  View {project.name}
                   <ArrowUpRight size={20} />
                 </a>
               </div>
@@ -195,9 +188,9 @@ export default function HomePage() {
         <div className="section-intro open-source-heading">
           <h2 id="source-title">Open by default.</h2>
           <p>
-            Contribute. Create. Maintain.
+            Write code. Review PRs. Maintain projects.
             <br />
-            Keep the good ideas moving.
+            Open source is part of the work.
           </p>
         </div>
         <div className="contribution-summary">
@@ -228,7 +221,7 @@ export default function HomePage() {
           <p>
             Where it started.
             <br />
-            <strong>Still building, well beyond the programmes.</strong>
+            <strong>Still contributing, building and maintaining.</strong>
           </p>
           <ul
             className="programme-strip"
@@ -266,11 +259,11 @@ export default function HomePage() {
         <SceneEnvironment scene="tidal" />
         <header className="section-intro world-heading playground-heading chapter-heading">
           <h2 id="playground-title">
-            A little
+            Browser
             <br />
-            <span>browser magic.</span>
+            <span>experiments.</span>
           </h2>
-          <p>Touch, drag, explore.</p>
+          <p>Physics, graphics and interactions. Try them in your browser.</p>
           <CoastalSculpture />
         </header>
         <ExperimentPlayground />

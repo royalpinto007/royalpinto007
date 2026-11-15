@@ -147,7 +147,7 @@ export function CinematicHero({ children }: { children: ReactNode }) {
       {children}
       <div className="hero-bottom">
         <a className="hero-work-link hero-actions" href="#work">
-          <span>Discover my work</span>
+          <span>View projects</span>
           <ArrowDownRight size={24} />
         </a>
         <div
@@ -160,10 +160,13 @@ export function CinematicHero({ children }: { children: ReactNode }) {
               type="button"
               className="hero-reframe"
               aria-pressed={orbitOpen}
+              aria-label={
+                orbitOpen ? "Reassemble scene" : "Separate scene layers"
+              }
+              title={orbitOpen ? "Reassemble scene" : "Separate scene layers"}
               onClick={() => setOrbitOpen(!orbitOpen)}
             >
               <ScanLine size={17} />
-              <span>{orbitOpen ? "Bring it together" : "Open the scene"}</span>
             </button>
           )}
           <button

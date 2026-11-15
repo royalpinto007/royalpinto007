@@ -9,12 +9,13 @@ export function Footer() {
         <WorldScene kind="horizon" />
         <div>
           <h2>
-            Have something
+            Need a
             <br />
-            in mind?
+            developer?
           </h2>
           <p>
-            A first idea, a new product, or the next chapter. Let’s build it.
+            Freelance projects, developer roles and open-source collaborations.
+            Let’s talk.
           </p>
         </div>
         <a className="primary-link" href={siteConfig.hireUrl}>

@@ -52,9 +52,9 @@ export function ReelPlayer({ visible, compact }: ReelPlayerProps) {
       </div>
       <div className="film-chapters" role="group" aria-label="Film chapters">
         {[
-          ["Wonder", 32],
-          ["Make", 270],
-          ["Beyond", 465],
+          ["Code", 32],
+          ["Convert", 270],
+          ["Ship", 465],
         ].map(([name, frame]) => (
           <button
             key={name}

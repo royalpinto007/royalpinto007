@@ -43,7 +43,7 @@ with sync_playwright() as p:
         before = pose(drift)
         page.wait_for_timeout(250)
         assert pose(drift) == before, 'Orbit continued after pause'
-        control = page.get_by_role('button', name='Open the scene', exact=True)
+        control = page.get_by_role('button', name='Separate scene layers', exact=True)
         assert control.evaluate('n=>{const r=n.getBoundingClientRect(),h=n.closest("section").getBoundingClientRect();return r.width>=44&&r.height>=44&&r.left>=0&&r.right<=innerWidth&&r.top>=h.top&&r.bottom<=h.bottom}')
         assert control.evaluate('n=>{const a=n.getBoundingClientRect();return [...document.querySelectorAll(".hero-work-link,.scene-light,.hero-effects-toggle,.hero-open-source")].every(x=>{const b=x.getBoundingClientRect();return Math.min(a.right,b.right)<=Math.max(a.left,b.left)||Math.min(a.bottom,b.bottom)<=Math.max(a.top,b.top)})}')
         layer = page.locator('.hero-orbit-outer')

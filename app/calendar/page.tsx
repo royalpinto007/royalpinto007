@@ -13,11 +13,9 @@ export default function CalendarPage() {
   return (
     <div className="portfolio-shell calendar-page">
       <header className="calendar-heading" data-motion-intro>
-        <p className="chapter-index">A little space for what’s next</p>
-        <h1>
-          On the <span>calendar.</span>
-        </h1>
-        <p>This chapter is taking shape. More details soon.</p>
+        <p className="chapter-index">Coming soon</p>
+        <h1>Calendar.</h1>
+        <p>Availability and scheduling details will be added here.</p>
       </header>
       <section
         className="calendar-preview"
@@ -46,11 +44,11 @@ export default function CalendarPage() {
         <div className="calendar-preview-copy">
           <span className="chapter-index">Coming soon</span>
           <h2 id="calendar-preview-title">
-            Good things
+            Scheduling
             <br />
-            take a little planning.
+            details soon.
           </h2>
-          <p>Nothing scheduled here just yet.</p>
+          <p>No events are published yet.</p>
           <Link href="/projects" className="quiet-link" prefetch={false}>
             Explore the work <ArrowUpRight size={17} />
           </Link>

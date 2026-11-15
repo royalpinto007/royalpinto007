@@ -51,16 +51,18 @@ export function renderContributionWall(
   weeks.forEach((week, i) => {
     const month = Number(week.contributionDays[0].date.slice(5, 7)) - 1;
     if (!months.has(month)) {
-      labels += `<text x="${32 + i * 14}" y="12">${monthNames[month]}</text>`;
+      labels += `<text x="${4 + i * 14}" y="12">${monthNames[month]}</text>`;
       months.add(month);
     }
+    let column = "";
     week.contributionDays.forEach((day) => {
       const level = levels[day.contributionLevel];
       const count = day.contributionCount;
       const title = `${count} contribution${count === 1 ? "" : "s"} on ${day.date}`;
-      cells += `<rect x="${32 + i * 14}" y="${24 + day.weekday * 14}" width="11" height="11" rx="2" class="l${level}" fill="${contributionColors[level]}" data-date="${day.date}" data-count="${count}" data-level="${level}"><title>${title}</title></rect>`;
+      column += `<rect x="${4 + i * 14}" y="${24 + day.weekday * 14}" width="11" height="11" rx="2" class="l${level}" fill="${contributionColors[level]}" data-date="${day.date}" data-count="${count}" data-level="${level}"><title>${title}</title></rect>`;
     });
+    cells += `<g class="contribution-week" style="--week:${i}">${column}</g>`;
   });
-  const width = 32 + weeks.length * 14;
-  return `<svg viewBox="0 0 ${width} 119" width="100%" role="img" aria-label="Royal Simpson Pinto's GitHub contributions in ${year}, through ${through}" xmlns="http://www.w3.org/2000/svg" class="wall-svg"><g fill="#57606a" font-family="system-ui,sans-serif" font-size="10">${labels}<text x="0" y="47">Mon</text><text x="0" y="75">Wed</text><text x="0" y="103">Fri</text></g>${cells}</svg>`;
+  const width = 4 + weeks.length * 14;
+  return `<svg viewBox="0 0 ${width} 119" width="100%" role="img" aria-label="Royal Simpson Pinto's GitHub contributions in ${year}, through ${through}" xmlns="http://www.w3.org/2000/svg" class="wall-svg"><g fill="#57606a" font-family="system-ui,sans-serif" font-size="10">${labels}</g>${cells}</svg>`;
 }

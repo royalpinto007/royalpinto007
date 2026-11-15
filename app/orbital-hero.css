@@ -32,22 +32,17 @@
   transform: translate(11%, 8%) rotate(24deg) scale(1.12);
 }
 .home-page .scene-controls .hero-reframe {
-  position: absolute;
-  right: 0;
-  bottom: calc(100% + 22px);
-  gap: 9px;
-  padding-inline: 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  background: #fff5e8e8;
-  border-color: #244b6170;
-  box-shadow: 0 4px 0 #22435930;
+  position: relative;
+  padding: 0;
+  border-radius: 10px;
 }
-.home-page .hero-reframe[aria-pressed="true"] {
+.home-page .scene-controls .hero-reframe[aria-pressed="true"] {
   color: #fff6ed;
   background: #8f305f;
 }
 .home-page .hero-title-accent {
+  font-size: 0.83em;
+  line-height: 1.1;
   color: #fff0df;
   -webkit-text-stroke: 1.5px #082b43;
   text-shadow:
@@ -115,11 +110,6 @@
     text-shadow:
       3px 3px 0 #082b43,
       5px 6px 0 #a63c6d;
-  }
-  .home-page .scene-controls .hero-reframe {
-    font-size: 14px;
-    padding-inline: 12px;
-    bottom: calc(100% + 14px);
   }
 }
 @media (prefers-reduced-motion: reduce) {

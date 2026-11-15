@@ -34,7 +34,7 @@ with sync_playwright() as p:
         assert page.locator('.typing-visual').get_attribute('aria-hidden') == 'true'
         assert page.locator('.typing-description [aria-live]').count() == 0
         assert page.locator('.typing-static').inner_text() == 'AI agents. Full-stack. Automation. Web3.'
-        link = page.get_by_role('link', name='Built in the open')
+        link = page.get_by_role('link', name='Agents projects', exact=True)
         assert link.evaluate('n=>n.getBoundingClientRect().height>=44')
         before_link = link.bounding_box()
         # Wait for a real typing phase, without setting animation times or input.
@@ -46,10 +46,11 @@ with sync_playwright() as p:
         page.wait_for_timeout(160)
         assert (pose(reveal), pose(caret)) != before, 'Typing did not advance automatically'
         assert link.bounding_box() == before_link, 'Typing moved the primary proof link'
-        ball = page.locator('.skill-rail-live .skill-rail-ball-route')
+        # The app dock responds to interaction; visible scenery owns idle motion.
+        ball = page.locator('.hero-orbit-outer .hero-orbit-drift')
         before = pose(ball)
-        page.wait_for_timeout(2100)
-        assert pose(ball) != before, 'Chrome cursor did not move without input'
+        page.wait_for_timeout(350)
+        assert pose(ball) != before, 'Hero scenery did not move without input'
         page.get_by_role('button', name='Pause hero effects').click()
         page.wait_for_function("document.querySelector('.hero-cinema').dataset.active==='false'")
         settle(page)
@@ -72,7 +73,7 @@ with sync_playwright() as p:
         page.wait_for_selector('[data-reel-frame]')
         page.wait_for_function("Number(document.querySelector('[data-reel-frame]').dataset.reelFrame)>35")
         page.get_by_role('button', name='Pause reel').click()
-        page.get_by_role('button', name='Watch Wonder chapter').click()
+        page.get_by_role('button', name='Watch Code chapter').click()
         film = page.locator('.skill-rail-film')
         assert film.evaluate('n=>n.getAnimations({subtree:true}).length') == 0, 'Film has an independent CSS clock'
         before = pose(film.locator('.skill-rail-ball-route'))
@@ -91,7 +92,7 @@ with sync_playwright() as p:
         assert page.locator('.typing-static').evaluate('n=>getComputedStyle(n).position') == 'static'
         assert not page.locator('.typing-visual').is_visible()
         assert page.locator('.skill-rail-live').evaluate('n=>n.getAnimations({subtree:true}).length') == 0
-        rows.append({'width': width, 'automatic_typing': True, 'stable_link': True, 'idle_cursor': True, 'pause_hidden_offscreen': True, 'frame_driven_film': True, 'reduced_motion': True})
+        rows.append({'width': width, 'automatic_typing': True, 'stable_dock_link': True, 'idle_scene': True, 'pause_hidden_offscreen': True, 'frame_driven_film': True, 'reduced_motion': True})
         context.close()
         print('PASS kinetic opening', width, flush=True)
     context = browser.new_context(java_script_enabled=False, viewport={'width': 390, 'height': 1000})
@@ -100,7 +101,7 @@ with sync_playwright() as p:
     assert not page.locator('.typing-visual').is_visible()
     assert page.locator('.typing-static').is_visible()
     assert page.locator('.skill-rail-live').evaluate('n=>n.getAnimations({subtree:true}).every(a=>a.playState!=="running")')
-    assert page.get_by_role('link', name='Discover my work').is_visible()
+    assert page.get_by_role('link', name='View projects').is_visible()
     context.close()
     browser.close()
 

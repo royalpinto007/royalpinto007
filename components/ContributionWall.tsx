@@ -8,6 +8,27 @@ export function ContributionWall() {
   const [svg, setSvg] = useState("");
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
+  const [active, setActive] = useState(false);
+  useEffect(() => {
+    const element = host.current;
+    if (!element) return;
+    let visible = false;
+    const preference = matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () =>
+      setActive(visible && !document.hidden && !preference.matches);
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      sync();
+    });
+    observer.observe(element);
+    document.addEventListener("visibilitychange", sync);
+    preference.addEventListener("change", sync);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", sync);
+      preference.removeEventListener("change", sync);
+    };
+  }, []);
   useEffect(() => {
     const element = host.current;
     if (!element) return;
@@ -47,6 +68,7 @@ export function ContributionWall() {
     <div
       ref={host}
       className="contribution-wall"
+      data-active={active}
       role="region"
       aria-label="GitHub contribution calendar, scroll horizontally to explore the year"
       tabIndex={0}
@@ -83,7 +105,7 @@ export function ContributionWall() {
             className="calendar-static"
             src="/wall2026.svg"
             alt="Royal Simpson Pinto’s 2026 GitHub contribution calendar. Open the linked SVG for dates and daily counts."
-            width="690"
+            width="662"
             height="119"
             loading="lazy"
           />

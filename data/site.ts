@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "Royal Simpson Pinto",
   initials: "RSP",
-  role: "Software Engineer",
+  role: "Software Developer",
   location: "Mangaluru, India",
   timezone: "IST (UTC+5:30)",
-  bio: "Royal Simpson Pinto builds AI products, full-stack apps, and expressive web experiences. Explore the projects, open-source work, and browser experiments.",
+  bio: "Royal Simpson Pinto, indie dev and freelancer. AI agents, full-stack apps, backend systems, automation, Web3 and open source.",
   shortBio:
-    "Software engineer building AI-first products and contributing to open source.",
+    "Indie dev and freelancer building software and contributing to open source.",
   email: "royalpinto007@gmail.com",
   phone: "[removed]",
   whatsappLink: "https://wa.me/[removed]",
@@ -18,7 +18,7 @@ export const siteConfig = {
   mediumFeedUrl: "https://medium.com/feed/@royalpinto007",
   hireUrl: "https://hire.royalpinto007.com",
   availability:
-    "Open to new opportunities — AI, full-stack, and open source work",
+    "Open to freelance projects, developer roles and open-source work",
   availabilityStatus: true,
   replyTime: "Within 24 hours",
   avatar: "/portrait-sky.png",
@@ -38,7 +38,11 @@ export const siteConfig = {
   ],
 
   frontendSites: [
-    { name: "Ledger", genre: "Fintech", url: "https://royalpinto007.com/facetworks/ledger" },
+    {
+      name: "Ledger",
+      genre: "Fintech",
+      url: "https://royalpinto007.com/facetworks/ledger",
+    },
     {
       name: "Atlas",
       genre: "Architecture",
@@ -69,8 +73,16 @@ export const siteConfig = {
       genre: "Studio",
       url: "https://royalpinto007.com/facetworks/vantage",
     },
-    { name: "Halcyon", genre: "Audio", url: "https://royalpinto007.com/facetworks/halcyon" },
-    { name: "Fable", genre: "Portfolio", url: "https://royalpinto007.com/facetworks/fable" },
+    {
+      name: "Halcyon",
+      genre: "Audio",
+      url: "https://royalpinto007.com/facetworks/halcyon",
+    },
+    {
+      name: "Fable",
+      genre: "Portfolio",
+      url: "https://royalpinto007.com/facetworks/fable",
+    },
     {
       name: "Pulse",
       genre: "Conference",
@@ -209,13 +221,21 @@ export const siteConfig = {
       genre: "Reaction-diffusion",
       url: "https://royalpinto007.com/facetworks/lichen",
     },
-    { name: "Abyss", genre: "Fractal", url: "https://royalpinto007.com/facetworks/abyss" },
+    {
+      name: "Abyss",
+      genre: "Fractal",
+      url: "https://royalpinto007.com/facetworks/abyss",
+    },
     {
       name: "Drift",
       genre: "Flow field",
       url: "https://royalpinto007.com/facetworks/drift",
     },
-    { name: "Gummy", genre: "Soft body", url: "https://royalpinto007.com/facetworks/gummy" },
+    {
+      name: "Gummy",
+      genre: "Soft body",
+      url: "https://royalpinto007.com/facetworks/gummy",
+    },
   ],
   services: [
     {

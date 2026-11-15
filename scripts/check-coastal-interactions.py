@@ -93,11 +93,11 @@ with sync_playwright() as p:
  ctx=b.new_context(viewport={'width':390,'height':900},java_script_enabled=False);page=ctx.new_page();page.goto(BASE,wait_until='networkidle')
  assert page.get_by_role('button',name='Make it yours').count()==0
  assert page.get_by_role('button',name='See the editable version').is_hidden()
- assert page.get_by_role('link',name='Explore BoardEject',exact=True).last.is_visible()
+ assert page.get_by_role('link',name='View BoardEject',exact=True).last.is_visible()
  ctx.close()
  ctx=b.new_context(viewport={'width':390,'height':1000},reduced_motion='no-preference');page=ctx.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.goto(BASE,wait_until='networkidle');page.locator('.reel-stage').scroll_into_view_if_needed()
  page.get_by_role('button',name='Pause reel').click()
- for name,index in [('Wonder','0'),('Make','1'),('Beyond','2')]:
+ for name,index in [('Code','0'),('Convert','1'),('Ship','2')]:
   page.get_by_role('button',name=f'Watch {name} chapter').click();page.wait_for_function('(index)=>document.querySelector("[data-reel-scene]").dataset.reelScene===index',arg=index)
   page.locator('.reel-stage').screenshot(path=str(OUT/f'film-{name}.png'))
  ctx.close();b.close()

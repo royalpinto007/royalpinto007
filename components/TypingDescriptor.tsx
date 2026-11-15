@@ -15,7 +15,7 @@ export function TypingDescriptor() {
         AI agents. Full-stack. Automation. Web3.
       </span>
       <span className="typing-visual" aria-hidden="true">
-        <span>I build</span>
+        <span>Working across</span>
         <span className="typing-words">
           {phrases.map((phrase, i) => (
             <span

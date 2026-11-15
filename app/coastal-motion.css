@@ -238,13 +238,17 @@
   left: 20px;
   bottom: 18px;
   display: flex;
-  gap: 5px;
+  gap: 0;
+  padding: 3px;
+  background: #fff7eeef;
+  border: 1px solid #7e96a7;
+  border-radius: 9px;
 }
 .film-chapters button {
   min-height: 44px;
   padding: 8px 13px;
-  background: #fff7eeef;
-  border: 1px solid #7e96a7;
+  background: transparent;
+  border: 0;
   color: #15394f;
   font: inherit;
   font-size: 14px;
@@ -255,7 +259,7 @@
   .film-chapters {
     left: 10px;
     bottom: 14px;
-    gap: 3px;
+    gap: 0;
   }
   .film-chapters button {
     font-size: 12px;

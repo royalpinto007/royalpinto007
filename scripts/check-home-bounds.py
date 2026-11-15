@@ -16,7 +16,7 @@ with sync_playwright() as p:
     const visible=n=>{const r=n.getBoundingClientRect();return r.width>0&&r.height>0&&getComputedStyle(n).visibility!=='hidden'};
     const inside=(r,b)=>r.left>=b.left-2&&r.right<=b.right+2&&r.top>=b.top-2&&r.bottom<=b.bottom+2;
     const copy=document.querySelector('.hero-copy');
-    const blocks=[...copy.querySelectorAll('.intro-name,h1,.hero-description,.hero-open-source,.hero-actions')];
+    const blocks=[...copy.querySelectorAll('.intro-name,h1,.hero-description,.skill-rail-live,.hero-actions')];
     for(let i=0;i<blocks.length;i++) {
      const r=blocks[i].getBoundingClientRect(),bound=copy.getBoundingClientRect();
      if(!inside(r,bound))issues.push({kind:'hero content escapes',text:blocks[i].textContent});

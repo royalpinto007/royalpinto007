@@ -60,20 +60,16 @@ export function MotionReel() {
       <SceneEnvironment scene="cinema" />
       <header className="reel-heading chapter-heading">
         <h2 id="reel-title">
-          Built to <span>move.</span>
+          Code in <span>motion.</span>
         </h2>
-        <p>20 seconds. In my element.</p>
+        <p>A 20-second demo of code, UI and motion.</p>
       </header>
       <div className="reel-stage" ref={host}>
         <div className="reel-poster" aria-hidden="true">
           <div className="reel-poster-copy">
             <span>A film by Royal Simpson Pinto</span>
-            <strong>
-              A little wonder.
-              <br />
-              Built into something real.
-            </strong>
-            <span>Code. Craft. A new perspective.</span>
+            <strong>Code. Test. Ship.</strong>
+            <span>AI agents. Apps. Automation. Web3.</span>
           </div>
           <Image
             src="/scene/sunset-coast.webp"

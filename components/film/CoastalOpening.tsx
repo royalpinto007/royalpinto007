@@ -84,9 +84,9 @@ export function CoastalOpening({
         >
           {closing ? (
             <>
-              Build
+              I build
               <br />
-              <span style={{ color: "#922f60" }}>beyond.</span>
+              <span style={{ color: "#922f60" }}>software.</span>
             </>
           ) : (
             <>

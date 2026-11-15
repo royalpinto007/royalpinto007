@@ -21,19 +21,15 @@ export default function ProjectsPage() {
     <div className="portfolio-shell projects-page">
       <header className="projects-heading world-heading" data-motion-intro>
         <WorldScene kind="arcade" />
-        <h1>
-          Many ideas.
-          <br />
-          <span>Made real.</span>
-        </h1>
+        <h1>Projects.</h1>
         <p>
-          Useful products. Unexpected experiments. A collection built out of
-          curiosity.
+          Apps, agents, APIs, extensions and experiments. Code I build, deploy
+          and maintain.
         </p>
       </header>
       <div className="project-directory-bar">
         <p>
-          <span aria-hidden="true">↘</span> Pick a world. Look around.
+          <span aria-hidden="true">↘</span> Browse by category.
         </p>
         <CategoryMenu
           items={projectCategories.map(({ id, title }) => ({ id, title }))}
@@ -85,6 +81,7 @@ export default function ProjectsPage() {
                     <div
                       key={project.id}
                       className="category-project"
+                      id={`project-${project.id}`}
                       data-project-id={project.id}
                     >
                       {screenshot && (
