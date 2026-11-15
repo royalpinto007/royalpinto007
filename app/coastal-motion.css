@@ -1,0 +1,277 @@
+/* A real optional object, with the authored image as the initial composition. */
+.home-page .playground-heading > .coastal-sculpture {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: min(100%, 380px);
+  justify-self: end;
+}
+.coastal-sculpture .world-scene {
+  width: 100%;
+  margin: 0;
+}
+.sculpture-launch,
+.sculpture-close,
+.sculpture-lights button,
+.board-demo-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 14px;
+  color: #173b50;
+  background: #fff8eeef;
+  border: 1px solid #658399;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.sculpture-launch {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  margin: -8px auto 0;
+}
+.home-page .playground-heading > .coastal-sculpture:not([data-state="poster"]) {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  width: 100%;
+  max-width: 100%;
+  justify-self: stretch;
+}
+.coastal-sculpture:not([data-state="poster"]) > .world-scene {
+  display: none;
+}
+.coastal-sculpture[data-state="error"] > .world-scene {
+  display: block;
+  max-width: 360px;
+  margin: auto;
+}
+.sculpture-lab {
+  position: relative;
+  padding: 20px;
+  background: #fffaf0d9;
+  border: 1px solid #90aabe;
+  border-radius: 18px;
+}
+.sculpture-lab canvas {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 36vw, 480px);
+  touch-action: pan-y;
+  cursor: grab;
+}
+.sculpture-lab canvas:active {
+  cursor: grabbing;
+}
+.sculpture-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  width: 44px;
+  padding: 0;
+}
+.sculpture-status {
+  margin: 4px 0 14px;
+  font-size: 15px;
+  text-align: center;
+  color: #173b50;
+}
+.sculpture-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 24px;
+}
+.sculpture-controls > label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #173b50;
+  font-size: 15px;
+}
+.sculpture-controls input {
+  width: min(220px, 45vw);
+  min-height: 44px;
+  accent-color: #9c3263;
+}
+.sculpture-lights {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sculpture-lights button[aria-pressed="true"] {
+  background: #1b4259;
+  border-color: #1b4259;
+  color: #fffaf0;
+}
+.home-page .work-world:nth-child(n) .product-art.board-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  aspect-ratio: auto;
+  min-height: 340px;
+  padding-bottom: 60px;
+}
+.board-artifact {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.board-demo-action {
+  align-self: start;
+  background: #1b4259;
+  color: #fffaf0;
+  border-color: #1b4259;
+  font-size: 15px;
+}
+.board-demo p,
+.board-demo small {
+  color: #173b50;
+  background: #fffaf0e8;
+  padding: 6px 10px;
+  border-radius: 4px;
+  width: fit-content;
+}
+.board-demo p {
+  font-size: 15px;
+}
+.board-demo small {
+  font-size: 13px;
+}
+.home-page .work-world-boardeject .work-preview-link {
+  inset: auto 0 0 auto;
+  width: fit-content;
+  min-height: 44px;
+}
+.home-page .work-world-boardeject .work-preview-link > span {
+  position: static;
+}
+.home-page .motion-reel .reel-poster {
+  display: block;
+  padding: 0;
+  background: #c6deed;
+}
+.home-page .motion-reel .reel-poster > img {
+  position: absolute;
+  inset: 0;
+  max-height: none;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+.home-page .motion-reel .reel-poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #fff5e4e8, transparent);
+}
+.home-page .motion-reel .reel-poster-copy {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  z-index: 1;
+  max-width: 58%;
+}
+.home-page .motion-reel .reel-poster-copy strong {
+  font-size: clamp(38px, 6vw, 100px);
+}
+.home-page .motion-reel .reel-poster .film-poster-sculpture {
+  position: absolute;
+  width: 58%;
+  right: -1%;
+  bottom: -12%;
+  z-index: 1;
+}
+.home-page .reel-toggle {
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .home-page .playground-heading > .coastal-sculpture {
+    grid-column: 1;
+    grid-row: 2;
+    width: min(75%, 260px);
+  }
+  .home-page
+    .playground-heading
+    > .coastal-sculpture:not([data-state="poster"]) {
+    grid-row: 4;
+  }
+  .sculpture-lab {
+    padding: 12px;
+  }
+  .sculpture-lights button {
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+  .home-page .motion-reel .reel-poster-copy {
+    max-width: 85%;
+    top: 8%;
+  }
+  .home-page .motion-reel .reel-poster-copy strong {
+    font-size: clamp(42px, 12vw, 78px);
+  }
+  .home-page .motion-reel .reel-poster .film-poster-sculpture {
+    width: 110%;
+    right: -12%;
+    bottom: 0;
+  }
+  .home-page .work-world:nth-child(n) .product-art.board-demo {
+    min-height: 0;
+  }
+}
+
+.film-poster-sculpture img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.film-chapters {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  display: flex;
+  gap: 5px;
+}
+.film-chapters button {
+  min-height: 44px;
+  padding: 8px 13px;
+  background: #fff7eeef;
+  border: 1px solid #7e96a7;
+  color: #15394f;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+@media (max-width: 479px) {
+  .film-chapters {
+    left: 10px;
+    bottom: 14px;
+    gap: 3px;
+  }
+  .film-chapters button {
+    font-size: 12px;
+    padding-inline: 7px;
+  }
+  .home-page .reel-toggle {
+    right: 10px;
+    bottom: 14px;
+    padding-inline: 10px;
+    font-size: 12px;
+  }
+}
+
+.board-demo-action {
+  display: none;
+}
+html[data-motion] .board-demo-action {
+  display: inline-flex;
+}

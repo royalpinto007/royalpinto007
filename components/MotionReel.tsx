@@ -1,6 +1,5 @@
 "use client";
 
-import { ReelBackdrop } from "./ReelBackdrop";
 import { SceneEnvironment } from "./SceneEnvironment";
 import Image from "next/image";
 import { useEffect, useRef, useState, type ComponentType } from "react";
@@ -67,27 +66,34 @@ export function MotionReel() {
       </header>
       <div className="reel-stage" ref={host}>
         <div className="reel-poster" aria-hidden="true">
-          <ReelBackdrop />
           <div className="reel-poster-copy">
-            <span>Creative development</span>
+            <span>A film by Royal Simpson Pinto</span>
             <strong>
-              Less ordinary.
+              A little wonder.
               <br />
-              More feeling.
+              Built into something real.
             </strong>
-            <span>Facetworks / Browser experiments</span>
+            <span>Code. Craft. A new perspective.</span>
           </div>
           <Image
-            src="/work/magnetic-sand.webp"
+            src="/scene/sunset-coast.webp"
             alt=""
             width={960}
             height={640}
           />
+          <picture className="film-poster-sculpture">
+            <Image
+              src="/scene/film-sculpture.webp"
+              alt=""
+              width={1200}
+              height={1000}
+            />
+          </picture>
         </div>
         {Player && !reduced && <Player visible={visible} compact={compact} />}
       </div>
       <div className="reel-caption">
-        <span>Products, interfaces & experiments by Royal</span>
+        <span>A coastal short, with an illustrated BoardEject workflow</span>
         <a href="/facetworks/">
           Explore the experiments <span aria-hidden="true">↗</span>
         </a>

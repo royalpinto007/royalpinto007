@@ -50,7 +50,7 @@ The current Home selects SignalizeAI, AashiNyra and BoardEject. AgentPostmortem 
 
 Navigation, calls to action, captions and supporting copy use a larger shared type scale, with responsive spacing and retained native keyboard controls. The light coastal palette remains drawn from the supplied portrait.
 
-The playground's liquid-chrome artwork is an original Blender 5.2 Cycles render, built from a procedural trefoil, reflective silver, jacket-blue and rose glass, and warm porcelain steps. The script `scripts/render-coastal-chrome.py` regenerates the transparent PNG and editable Blender scene at a supplied output path. Responsive production assets are `public/scene/liquid-chrome.webp` and `public/scene/liquid-chrome-mobile.webp`. The web page serves optimized images and existing GSAP motion, with no Blender or extra 3D runtime in the browser.
+The playground's liquid-chrome artwork is an original Blender 5.2 Cycles render, built from a procedural trefoil, reflective silver, jacket-blue and rose glass, and warm porcelain steps. The script `scripts/render-coastal-chrome.py` regenerates the transparent PNG and editable Blender scene at a supplied output path. Responsive production assets are `public/scene/liquid-chrome.webp` and `public/scene/liquid-chrome-mobile.webp`. The initial page serves optimized images and existing GSAP motion. The optional live object described below loads its Three.js runtime only after a visitor chooses to open it.
 
 ## Original portrait fidelity
 
@@ -59,3 +59,16 @@ The hero uses `public/portrait-original.webp`, a lossless format conversion whos
 ## Chapter composition
 
 Each Home scene opens with one semantic heading instead of a numbered banner and repeated tagline. Selected work uses a compact heading/link composition and leads directly into the real product visual; its duplicate foreground studio is removed while the marina background stays. Engineering and the playground use smaller foreground sculptures alongside their headings, with native diagrams and playable experiments immediately below. The reel pairs its title with its duration. The discipline ticker is a slimmer transition. Existing heading entrances, responsive backgrounds, keyboard controls and reduced-motion alternatives retain their lifecycle.
+
+
+## Coastal film and playable sculpture
+
+The 20-second Remotion composition has three authored acts: a coastal chrome opening, a deterministic BoardEject illustration that rearranges shapes into an editable board, and an original-portrait closing. Chapter buttons seek the same timeline. Playback stops offscreen or when the tab is hidden; pause, reduced motion, no JavaScript and failed-chunk poster alternatives remain available. This is a browser composition, not a newly exported video. The BoardEject illustration also has a native before/after control beside its real project link; it explicitly identifies itself as a sample workflow and does not convert uploaded files.
+
+`scripts/render-coastal-film.py` renders the film foreground from the original editable Blender scene. The optimized transparent foreground is `public/scene/film-sculpture.webp` (63,012 bytes). It does not alter the supplied portrait.
+
+“Make it yours” explicitly opens an optional Three.js version of the authored chrome/glass sculpture. `scripts/export-coastal-sculpture.py` exports its own meshes and materials to `public/scene/coastal-sculpture.glb` (304,960 bytes); it has no external textures or lighting downloads. Horizontal touch/pointer dragging, the native keyboard range, three lighting choices and reset change the actual rendered object. Vertical touch scrolling is retained. There is no continuous render loop: input, resize or visibility changes request a frame. Closing, navigation, context loss, failed setup and interrupted loading release resources and retain the artwork fallback. Escape closes and restores focus.
+
+Interactive containers stay outside decorative entrance translations so a focus reveal cannot move a button between pointerdown and pointerup. Expanding the sculpture refreshes scroll-trigger layout. On mobile its active panel occupies its own grid row below the subtitle.
+
+`scripts/check-coastal-interactions.py` exercises deferred loading, real pixel changes from keyboard rotation and lighting, mouse/touch drag, idle rendering, disposal/focus restoration, loading/ready/error containment, native BoardEject illustration states, failed model/chunk alternatives, no JavaScript and all three film chapter seeks. Existing bounds, loading, motion, scene and portrait checks still apply.

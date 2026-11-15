@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { attachPointerMotion } from "./pointer-motion";
 
 const revealSelector = [
-  ".section-intro",
+  ".section-intro:not(.playground-heading)",
   ".work-piece:not(.work-world)",
   ".work-world .work-details",
   ".capability-list article",
@@ -226,7 +226,7 @@ export function mountPortfolioMotion(root: HTMLElement) {
               },
             });
           root
-            .querySelectorAll<HTMLElement>(".product-art")
+            .querySelectorAll<HTMLElement>(".product-art:not(.board-demo)")
             .forEach((art, i) => {
               const light = art.querySelector(".product-light");
               if (light)
@@ -450,6 +450,7 @@ export function mountPortfolioMotion(root: HTMLElement) {
         };
         systems?.addEventListener("toggle", refreshSystemLayout, true);
         systems?.addEventListener("change", refreshSystemLayout);
+        window.addEventListener("portfolio:layout", refreshSystemLayout);
         if (systems)
           ScrollTrigger.create({
             trigger: systems,
@@ -477,6 +478,7 @@ export function mountPortfolioMotion(root: HTMLElement) {
           cancelAnimationFrame(layoutFrame);
           systems?.removeEventListener("toggle", refreshSystemLayout, true);
           systems?.removeEventListener("change", refreshSystemLayout);
+          window.removeEventListener("portfolio:layout", refreshSystemLayout);
           root.removeEventListener("focusin", revealFocus);
           header?.classList.remove("is-scrolled");
           removePointer();

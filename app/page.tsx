@@ -2,6 +2,7 @@ import "./home.css";
 import "./home-experience.css";
 import "./coastal-home.css";
 import "./home-environments.css";
+import "./coastal-motion.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, GitBranch } from "lucide-react";
@@ -9,7 +10,8 @@ import { DesignGallery } from "@/components/DesignGallery";
 import { MotionReel } from "@/components/MotionReel";
 import { KineticBand } from "@/components/KineticBand";
 import { ExperimentPlayground } from "@/components/ExperimentPlayground";
-import { WorldScene } from "@/components/WorldScene";
+import { CoastalSculpture } from "@/components/CoastalSculpture";
+import { BoardDemo } from "@/components/BoardDemo";
 import { ContributionWall } from "@/components/ContributionWall";
 import { CinematicHero } from "@/components/CinematicHero";
 import { ProjectVisual } from "@/components/ProjectVisual";
@@ -120,7 +122,11 @@ export default function HomePage() {
                 </header>
               )}
               <div className="work-preview">
-                <ProjectVisual product={project.image} />
+                {project.image === "boardeject" ? (
+                  <BoardDemo />
+                ) : (
+                  <ProjectVisual product={project.image} />
+                )}
                 <a
                   className="work-preview-link"
                   href={project.href}
@@ -258,7 +264,7 @@ export default function HomePage() {
             <span>browser magic.</span>
           </h2>
           <p>Touch, drag, explore.</p>
-          <WorldScene kind="play" />
+          <CoastalSculpture />
         </header>
         <ExperimentPlayground />
         <div className="gallery-heading">

@@ -29,7 +29,7 @@ with sync_playwright() as p:
                 assert not any('/studio-island' in src for src in images)
                 assert sum('/engine-island' in src for src in images) == 1
                 assert sum('/liquid-chrome' in src for src in images) == 1
-                assert page.locator('.reel-poster .reel-backdrop').count() == 1
+                assert page.locator('.reel-poster .film-poster-sculpture').count() == 1
                 assert page.locator('.reel-poster .world-scene').count() == 0
             else:
                 assert not any('studio-island' in src for src in images)
