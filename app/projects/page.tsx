@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { projectCollections } from "@/data/project-collections";
 import { ProjectCollage } from "@/components/ProjectCollage";
 import { CategoryMenu } from "@/components/CategoryMenu";
+import { collectionAliases } from "@/data/project-categories";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -42,6 +43,16 @@ export default function ProjectsPage() {
             id={category.id}
             data-project-category={category.id}
           >
+            {Object.entries(collectionAliases)
+              .filter(([, target]) => target === category.id)
+              .map(([alias]) => (
+                <span
+                  id={alias}
+                  className="collection-alias"
+                  aria-hidden="true"
+                  key={alias}
+                />
+              ))}
             <div className="collection-section-heading">
               <div className="section-intro">
                 <h2>{category.title}</h2>

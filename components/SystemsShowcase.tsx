@@ -125,9 +125,9 @@ export function SystemsShowcase() {
       <SceneEnvironment scene="atrium" />
       <header className="systems-heading section-intro world-heading chapter-heading">
         <h2 id="systems-title">
-          System
+          Under the
           <br />
-          <span>design.</span>
+          <span>hood.</span>
         </h2>
         <WorldScene kind="engine" />
       </header>

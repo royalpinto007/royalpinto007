@@ -2,7 +2,7 @@
   display: none;
 }
 .typing-description {
-  min-height: 3.2em;
+  min-height: 1.6em;
 }
 .hero-proof-row {
   display: flex;
@@ -22,10 +22,14 @@
   white-space: nowrap;
 }
 .hero-cinema[data-effects-enabled="true"] .typing-visual {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  gap: 0.45em;
+  white-space: nowrap;
 }
 .typing-words {
   display: grid;
+  min-width: 0;
   font-family: ui-monospace, monospace;
   font-variant-ligatures: none;
 }

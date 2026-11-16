@@ -2,6 +2,7 @@
 
 import { SceneEnvironment } from "./SceneEnvironment";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState, type ComponentType } from "react";
 import type { ReelPlayerProps } from "./ReelPlayer";
 
@@ -90,9 +91,9 @@ export function MotionReel() {
       </div>
       <div className="reel-caption">
         <span>A coastal short, with an illustrated BoardEject workflow</span>
-        <a href="/facetworks/">
+        <Link href="/projects#experiments" prefetch={false}>
           Explore the experiments <span aria-hidden="true">↗</span>
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ with sync_playwright() as p:
   page=b.new_page(viewport={'width':width,'height':1000},reduced_motion='reduce')
   page.goto(BASE,wait_until='networkidle')
   assert not page.locator('main a[href*="agentpostmortem"]').count()
-  assert [x.inner_text() for x in page.locator('.work-meta h3').all()]==['SignalizeAI','AashiNyra','BoardEject']
+  assert [x.inner_text() for x in page.locator('.work-meta h3').all()]==['BoardEject','SignalizeAI','AashiNyra']
   font=lambda s:page.locator(s).first.evaluate('n=>parseFloat(getComputedStyle(n).fontSize)')
   assert font('.site-nav a')>=17
   assert font('.brand-link>span')>=16
@@ -24,11 +24,11 @@ with sync_playwright() as p:
   for selector in ['.hero-description','.work-stack li','.work-visit','.programme-strip span','.system-picker label > span']:
    assert font(selector)>=14,(width,selector,font(selector))
   if width<=430:
-   portrait=page.locator('.portrait img').bounding_box();copy=page.locator('.skill-rail-live').bounding_box()
+   portrait=page.locator('.portrait img').bounding_box();copy=page.locator('.hero-details').bounding_box()
    assert portrait['y']+portrait['height']*.18>=copy['y']+copy['height']+8,(width,'portrait covers copy')
   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
   page.screenshot(path=str(OUT/f'hero-{width}.png'))
-  for label,selector in [('work','.work-details'),('systems','.systems-heading'),('playground','.playground-heading')]:
+  for label,selector in [('work','.work-details'),('systems','.systems-heading'),('explore','.discovery-heading')]:
    page.locator(selector).first.evaluate('n=>n.scrollIntoView({block:"center"})')
    visible=page.locator('.chapter-environment img').all()
    for img in visible:img.evaluate('async n=>await n.decode()')
@@ -37,8 +37,12 @@ with sync_playwright() as p:
    page.goto(BASE+route,wait_until='networkidle')
    assert font('.site-nav a')>=17 and page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(width,route)
    if route=='/projects':
-    for slug in ['agentpostmortem','tenantq','vaultrag','casebook-mcp']:
-     assert page.locator(f'[data-project-id="{slug}"]').count()==1,slug
+    # The overview shows four previews per group; the full external collection
+    # retains all tools, verified separately by the collection inventory check.
+    section=page.locator('#agentpostmortem')
+    assert section.locator('[data-project-group]').count()==3
+    assert section.locator('[data-project-id]').count()==12
+    assert section.locator('.collection-all').get_attribute('href')=='https://www.agentpostmortem.com/tools'
   rows.append({'width':width,'typography':True,'home_curated':True,'projects_preserved':True,'route_bounds':True});page.close()
  b.close()
 (OUT/'readability.json').write_text(json.dumps(rows,indent=2)+'\n');print('PASS readable type across nine widths/all routes; three curated Home projects; AgentPostmortem and related work retained in Projects')

@@ -1,0 +1,278 @@
+/* A quieter hero and a visual index made from the real collection previews. */
+.home-page .intro-name {
+  align-items: baseline;
+  gap: 6px 16px;
+}
+.home-page .intro-name strong {
+  font-size: clamp(16px, 1.4vw, 21px);
+  font-weight: 650;
+}
+.home-page .intro-name > span {
+  padding: 0;
+  border: 0;
+}
+.home-page .intro-name > span::before {
+  content: none;
+}
+.home-page .hero-details,
+.home-page .hero-description {
+  max-width: none;
+}
+.home-page .typing-description {
+  font-size: clamp(14px, 1.55vw, 20px);
+}
+.home-page .home-discovery {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding: clamp(60px, 7vw, 110px) var(--chapter-gutter);
+  margin-inline: calc(var(--chapter-gutter) * -1);
+  color: #16394c;
+  background: #dceaf0;
+}
+.home-discovery > .chapter-environment::after {
+  background: #f7f4edbf;
+}
+.discovery-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.discovery-heading h2 {
+  margin: 0;
+  font-family: var(--font-coastal-display), sans-serif;
+  font-size: clamp(48px, 6vw, 104px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.discovery-heading h2 span,
+.web3-copy h3 span {
+  color: #97375f;
+}
+.discovery-heading p {
+  margin: 18px 0 0;
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.6;
+}
+.discovery-heading > a {
+  flex-shrink: 0;
+}
+.discovery-shelves {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+}
+.discovery-shelf {
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+.shelf-art {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 1.75;
+  border-radius: 8px;
+  background:
+    radial-gradient(ellipse at 25% 15%, #fff6e1, transparent 70%), #abcddd;
+}
+.shelf-games .shelf-art {
+  background:
+    radial-gradient(ellipse at 70% 0%, #fff1cf, transparent 65%), #e9b7bf;
+}
+.shelf-apps .shelf-art {
+  background:
+    radial-gradient(ellipse at 35% 10%, #fdf8e7, transparent 70%), #b8cedd;
+}
+.shelf-websites .shelf-art {
+  background:
+    radial-gradient(ellipse at 65% 10%, #fff5dc, transparent 70%), #d2bfda;
+}
+.shelf-art img {
+  position: absolute;
+  display: block;
+  width: 58%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 16px 25px -13px #173c5075;
+  border: 1px solid #ffffff85;
+  transform: translateY(var(--shelf-lift, 0px)) rotate(var(--shelf-angle));
+}
+.shelf-art img:nth-child(1) {
+  --shelf-angle: -10deg;
+  top: 26%;
+  left: -5%;
+}
+.shelf-art img:nth-child(2) {
+  --shelf-angle: 8deg;
+  top: 18%;
+  right: -4%;
+}
+.shelf-art img:nth-child(3) {
+  --shelf-angle: -1deg;
+  top: 34%;
+  left: 22%;
+  z-index: 1;
+}
+.shelf-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-block: 20px 4px;
+}
+.shelf-caption h3 {
+  font-size: clamp(23px, 2.4vw, 37px);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin: 5px 0 7px;
+}
+.shelf-caption p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.shelf-count {
+  font-size: 13px;
+  color: #475969;
+}
+.home-web3 {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+  margin-top: clamp(60px, 6vw, 100px);
+  padding-block: 40px;
+  border-block: 1px solid #637d8d6b;
+}
+.web3-label {
+  font:
+    14px/1.5 ui-monospace,
+    monospace;
+}
+.web3-copy h3 {
+  font-size: clamp(34px, 4.3vw, 69px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  margin: 15px 0 20px;
+}
+.web3-copy > p:not(.web3-label) {
+  max-width: 38ch;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.web3-copy > a {
+  margin-top: 14px;
+}
+.web3-previews {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.web3-preview {
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+.web3-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 15px 25px -20px #16394c;
+}
+.web3-preview > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 6px;
+  font-size: 19px;
+}
+.web3-preview small {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.discovery-more {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 40px;
+  padding-top: 28px;
+}
+.discovery-more a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding-block: 18px;
+  border-bottom: 1px solid #637d8d4d;
+  color: inherit;
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 1.5;
+}
+.home-discovery a:focus-visible {
+  outline: 3px solid #8f305f;
+  outline-offset: 5px;
+}
+.home-discovery a:hover {
+  color: #8f305f;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .shelf-art img,
+  .shelf-caption > svg,
+  .web3-preview img {
+    transition: transform 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .discovery-shelf:is(:hover, :focus-visible) .shelf-art img {
+    --shelf-lift: -12px;
+  }
+  .discovery-shelf:is(:hover, :focus-visible) .shelf-caption > svg {
+    transform: translate(3px, -3px);
+  }
+  .web3-preview:is(:hover, :focus-visible) img {
+    transform: translateY(-6px);
+  }
+}
+@media (max-width: 767px) {
+  .home-page .intro-name {
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 22px;
+  }
+  .home-page .intro-name > span {
+    font-size: 13px;
+  }
+  .home-page .typing-description {
+    font-size: clamp(14px, 3.65vw, 17px);
+  }
+  .discovery-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+  .discovery-shelves {
+    gap: 32px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .shelf-art {
+    aspect-ratio: 1.8;
+  }
+  .home-web3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .web3-previews {
+    gap: 12px;
+  }
+  .web3-preview > span {
+    font-size: 17px;
+  }
+  .discovery-more {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

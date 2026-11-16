@@ -88,6 +88,16 @@ export const projectCollections: ProjectCollection[] =
     } else {
       const items: PreviewProject[] = siteConfig.projects
         .filter((p) => categoryFor(p) === category.id)
+        .sort((a, b) => {
+          if (category.id !== "open-source") return 0;
+          const order = [
+            "d-errors-docs",
+            "dent-docs",
+            "text-generation",
+            "drupal-chatbot",
+          ];
+          return order.indexOf(a.id) - order.indexOf(b.id);
+        })
         .map((p) => ({
           id: p.id,
           name: p.name,

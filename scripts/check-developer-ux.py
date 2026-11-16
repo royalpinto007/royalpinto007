@@ -1,8 +1,7 @@
-"""Exercise the compact controls, real app-dock navigation and honest calendar."""
+"""Exercise compact scene controls, the simplified hero and honest calendar."""
 import json
 import os
 from pathlib import Path
-from urllib.parse import urlsplit
 
 from playwright.sync_api import sync_playwright
 
@@ -32,42 +31,10 @@ with sync_playwright() as p:
         boxes = [node.bounding_box() for node in controls.all()]
         assert max(b['y'] + b['height']/2 for b in boxes) - min(b['y'] + b['height']/2 for b in boxes) <= 1
         assert all(b['width'] >= 44 and b['height'] >= 44 and b['x'] >= 0 and b['x'] + b['width'] <= width for b in boxes)
-        dock = page.get_by_role('navigation', name='Explore projects by area')
-        links = dock.get_by_role('link')
-        assert links.count() == 4
-        assert dock.locator('.skill-rail-track').evaluate('n=>getComputedStyle(n).transform') == 'none'
-        assert dock.locator('.skill-rail-ball-route').count() == 0
-        local = []
-        for link in links.all():
-            assert link.evaluate('n=>{const r=n.getBoundingClientRect();return r.width>=44&&r.height>=44}')
-            href = link.get_attribute('href')
-            if href.startswith('/'): local.append(urlsplit(href).fragment)
-        first = links.first
-        icon = first.locator('.skill-icon')
-        before_box = first.bounding_box()
-        first.focus()
-        page.wait_for_timeout(260)
-        assert icon.evaluate('n=>new DOMMatrix(getComputedStyle(n).transform).a') > 1.1
-        assert first.bounding_box() == before_box, 'Magnification moved the link hit target'
-        assert first.get_attribute('title') == first.get_attribute('aria-label')
-        assert page.locator('.dock-label,.hero-reframe > span').count() == 0, 'Custom tooltips could obscure the copy'
-        assert first.evaluate('n=>getComputedStyle(n).outlineStyle') != 'none'
-        if width >= 768:
-            page.mouse.move(before_box['x'] + before_box['width']/2, before_box['y'] + before_box['height']/2)
-            page.mouse.down()
-            page.wait_for_timeout(240)
-            assert icon.evaluate('n=>new DOMMatrix(getComputedStyle(n).transform).a') < 1, 'Press feedback lost to the hover state'
-            # Dragging off before release cancels navigation, like a real user.
-            page.mouse.move(5, 5)
-            page.mouse.up()
+        assert 'Software engineer' in page.locator('.intro-name').inner_text()
+        assert page.locator('.skill-rail-live').count() == 0
+        assert page.locator('.hero-proof-row').count() == 0
         page.screenshot(path=str(OUT/f'hero-{width}.png'))
-        if width < 768: first.tap()
-        else: first.click()
-        page.wait_for_url(BASE + '/projects#project-agent-suite')
-        page.wait_for_function("document.querySelector('#project-agent-suite').getBoundingClientRect().top>=document.querySelector('.site-header').getBoundingClientRect().bottom")
-        assert all(page.locator('#' + fragment).count() == 1 for fragment in local)
-        assert page.locator('#project-agent-suite h3').is_visible()
-        page.goto(BASE, wait_until='networkidle')
         # Observe the short entrance in the renderer before scrolling. Remote
         # reads can otherwise start after this one-shot animation has finished.
         page.evaluate('''()=>{
@@ -115,21 +82,19 @@ with sync_playwright() as p:
         page.emulate_media(reduced_motion='reduce')
         assert calendar.evaluate('n=>n.getAnimations({subtree:true}).length') == 0
         page.locator('.hero-cinema').evaluate('n=>n.scrollIntoView({block:"start"})')
-        links = page.locator('.skill-rail-live a')
-        links.first.focus()
-        assert links.first.locator('.skill-icon').evaluate('n=>getComputedStyle(n).transform') == 'none'
+        assert page.locator('.skill-rail-live').count() == 0
         assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
-        rows.append({'width': width, 'compact_baseline': True, 'stable_dock_targets': True, 'native_dock_navigation': True, 'honest_finite_calendar_wave': True, 'hidden_tab': True, 'reduced_motion': True})
+        rows.append({'width': width, 'compact_baseline': True, 'simplified_hero': True, 'honest_finite_calendar_wave': True, 'hidden_tab': True, 'reduced_motion': True})
         context.close()
         print('PASS developer UX', width, flush=True)
 
     context = browser.new_context(java_script_enabled=False, viewport={'width': 390, 'height': 1000})
     page = context.new_page()
     page.goto(BASE, wait_until='networkidle')
-    assert page.locator('.skill-rail-live a').count() == 4
-    page.locator('.skill-rail-live a').first.click()
-    page.wait_for_url(BASE + '/projects#project-agent-suite')
-    assert page.locator('#project-agent-suite h3').is_visible()
+    assert page.locator('.skill-rail-live').count() == 0
+    page.locator('.discovery-more a').last.click()
+    page.wait_for_url(BASE + '/projects/browser-extensions')
+    assert page.locator('[data-project-id]').count() == 5
     page.goto(BASE, wait_until='networkidle')
     page.locator('#oss').evaluate('n=>n.scrollIntoView({block:"center"})')
     assert page.locator('.calendar-static').is_visible()

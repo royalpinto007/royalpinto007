@@ -6,24 +6,31 @@ import "./coastal-motion.css";
 import "./ambient-coast.css";
 import "./kinetic-opening.css";
 import "./orbital-hero.css";
+import "./home-discovery.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { DesignGallery } from "@/components/DesignGallery";
 import { MotionReel } from "@/components/MotionReel";
-import { ExperimentPlayground } from "@/components/ExperimentPlayground";
-import { CoastalSculpture } from "@/components/CoastalSculpture";
 import { BoardDemo } from "@/components/BoardDemo";
 import { ContributionWall } from "@/components/ContributionWall";
 import { CinematicHero } from "@/components/CinematicHero";
 import { TypingDescriptor } from "@/components/TypingDescriptor";
-import { SkillRail } from "@/components/SkillRail";
+import { HomeProjectExplorer } from "@/components/HomeProjectExplorer";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { SystemsShowcase } from "@/components/SystemsShowcase";
 import { SceneEnvironment } from "@/components/SceneEnvironment";
 import { siteConfig } from "@/data/site";
 
 const work = [
+  {
+    name: "BoardEject",
+    kind: "Developer tool",
+    image: "boardeject",
+    scene: "pavilion",
+    href: "https://boardeject.dev",
+    description: "Apple Freeform to editable Excalidraw. Processed locally.",
+    stack: ["Browser conversion", "macOS helper"],
+  },
   {
     name: "SignalizeAI",
     kind: "AI product",
@@ -42,15 +49,6 @@ const work = [
     description: "Tracked deals. Real price drops. UPI cashback.",
     stack: ["PostgreSQL", "D1", "R2"],
   },
-  {
-    name: "BoardEject",
-    kind: "Developer tool",
-    image: "boardeject",
-    scene: "pavilion",
-    href: "https://boardeject.dev",
-    description: "Apple Freeform to editable Excalidraw. Processed locally.",
-    stack: ["Browser conversion", "macOS helper"],
-  },
 ] as const;
 
 export default function HomePage() {
@@ -59,7 +57,8 @@ export default function HomePage() {
       <CinematicHero>
         <div className="hero-copy">
           <p className="intro-name">
-            Indie dev <span>Freelancer</span>
+            <strong>Software engineer</strong>
+            <span>Indie dev · Freelancer</span>
           </p>
           <h1>
             <span className="hero-line">
@@ -71,9 +70,6 @@ export default function HomePage() {
           </h1>
           <div className="hero-details">
             <TypingDescriptor />
-            <div className="hero-proof-row">
-              <SkillRail />
-            </div>
           </div>
         </div>
         <figure className="portrait">
@@ -92,6 +88,79 @@ export default function HomePage() {
           </div>
         </figure>
       </CinematicHero>
+
+      <MotionReel />
+
+      <section
+        className="open-source open-source-experience"
+        id="oss"
+        aria-labelledby="source-title"
+      >
+        <div className="section-intro open-source-heading">
+          <h2 id="source-title">Open by default.</h2>
+          <p>
+            Write code. Review PRs. Maintain projects.
+            <br />
+            Open source is part of the work.
+          </p>
+        </div>
+        <div className="contribution-summary">
+          <strong>12,529 contributions in 2026</strong>
+          <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
+            View GitHub profile <ArrowUpRight size={16} />
+          </a>
+        </div>
+        <div className="contribution-calendar">
+          <ContributionWall />
+          <div className="contribution-legend">
+            <span>
+              Every square is a day on GitHub.
+              <small className="calendar-scroll-hint">
+                Scroll to explore the year.
+              </small>
+            </span>
+            <div aria-label="Contribution intensity from fewer to more">
+              <span>Less</span>
+              {[0, 1, 2, 3, 4].map((level) => (
+                <i key={level} data-level={level} aria-hidden="true" />
+              ))}
+              <span>More</span>
+            </div>
+          </div>
+        </div>
+        <div className="source-origin journey-start">
+          <p>
+            Where it started.
+            <br />
+            <strong>Still contributing, building and maintaining.</strong>
+          </p>
+          <ul
+            className="programme-strip"
+            aria-label="Programmes that started my open-source journey"
+          >
+            <li>
+              <strong>GSoC</strong>
+              <span>Google Summer of Code</span>
+            </li>
+            <li>
+              <strong>LFX</strong>
+              <span>Linux Foundation’s LFX Mentorship</span>
+            </li>
+            <li>
+              <strong>SAoC</strong>
+              <span>Symmetry Autumn of Code</span>
+            </li>
+          </ul>
+        </div>
+        <div className="experience-facts">
+          {siteConfig.stats.slice(1).map((stat) => (
+            <div key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section
         className="selected-work immersive-work"
@@ -178,108 +247,8 @@ export default function HomePage() {
       </section>
 
       <SystemsShowcase />
-      <MotionReel />
 
-      <section
-        className="open-source open-source-experience"
-        id="oss"
-        aria-labelledby="source-title"
-      >
-        <div className="section-intro open-source-heading">
-          <h2 id="source-title">Open by default.</h2>
-          <p>
-            Write code. Review PRs. Maintain projects.
-            <br />
-            Open source is part of the work.
-          </p>
-        </div>
-        <div className="contribution-summary">
-          <strong>12,529 contributions in 2026</strong>
-          <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
-            View GitHub profile <ArrowUpRight size={16} />
-          </a>
-        </div>
-        <div className="contribution-calendar">
-          <ContributionWall />
-          <div className="contribution-legend">
-            <span>
-              Every square is a day on GitHub.
-              <small className="calendar-scroll-hint">
-                Scroll to explore the year.
-              </small>
-            </span>
-            <div aria-label="Contribution intensity from fewer to more">
-              <span>Less</span>
-              {[0, 1, 2, 3, 4].map((level) => (
-                <i key={level} data-level={level} aria-hidden="true" />
-              ))}
-              <span>More</span>
-            </div>
-          </div>
-        </div>
-        <div className="source-origin journey-start">
-          <p>
-            Where it started.
-            <br />
-            <strong>Still contributing, building and maintaining.</strong>
-          </p>
-          <ul
-            className="programme-strip"
-            aria-label="Programmes that started my open-source journey"
-          >
-            <li>
-              <strong>GSoC</strong>
-              <span>Google Summer of Code</span>
-            </li>
-            <li>
-              <strong>LFX</strong>
-              <span>Linux Foundation’s LFX Mentorship</span>
-            </li>
-            <li>
-              <strong>SAoC</strong>
-              <span>Symmetry Autumn of Code</span>
-            </li>
-          </ul>
-        </div>
-        <div className="experience-facts">
-          {siteConfig.stats.slice(1).map((stat) => (
-            <div key={stat.label}>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section
-        className="playground immersive-chapter"
-        id="frontend"
-        aria-labelledby="playground-title"
-      >
-        <SceneEnvironment scene="tidal" />
-        <header className="section-intro world-heading playground-heading chapter-heading">
-          <h2 id="playground-title">
-            Browser
-            <br />
-            <span>experiments.</span>
-          </h2>
-          <p>Physics, graphics and interactions. Try them in your browser.</p>
-          <CoastalSculpture />
-        </header>
-        <ExperimentPlayground />
-        <div className="gallery-heading">
-          <h3>More from Facetworks.</h3>
-          <a
-            className="quiet-link"
-            href="https://royalpinto007.com/facetworks"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Explore Facetworks <ArrowUpRight size={17} />
-          </a>
-        </div>
-        <DesignGallery compact />
-      </section>
+      <HomeProjectExplorer />
     </div>
   );
 }

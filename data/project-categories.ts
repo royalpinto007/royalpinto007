@@ -3,22 +3,10 @@ import agentpostmortemTools from "./agentpostmortem.json";
 
 export const projectCategories = [
   {
-    id: "products",
-    title: "Products",
+    id: "experiments",
+    title: "Interactive Graphics",
     description:
-      "AashiNyra, SignalizeAI and Stoccoin. Products spanning shopping, account research and markets.",
-  },
-  {
-    id: "apps",
-    title: "Apps",
-    description:
-      "Web and mobile products, from AI workspaces to offline-first tools.",
-  },
-  {
-    id: "productivity-apps",
-    title: "Productivity Apps",
-    description:
-      "Mobile and desktop apps for planning, money, offline messaging and keeping a record of your work.",
+      "3D scenes, physics, generative visuals and playful interactions. Open an experiment and play.",
   },
   {
     id: "games",
@@ -27,28 +15,28 @@ export const projectCategories = [
       "Six game projects, from delivery challenges and football to shared-device board games.",
   },
   {
-    id: "web3",
-    title: "Solana & Web3",
+    id: "apps",
+    title: "Apps",
     description:
-      "Open-source tools for token permissions, transactions, payments and on-chain receipts.",
-  },
-  {
-    id: "browser-extensions",
-    title: "Browser extensions",
-    description:
-      "Chrome and Firefox tools for research, reading, accessibility, and everyday browser work.",
+      "Web, mobile and desktop apps for creating, planning, money and offline communication.",
   },
   {
     id: "websites",
-    title: "Designs Facetworks",
+    title: "Designs",
     description:
       "Studios, products, places and storefronts. Nineteen distinct website concepts.",
   },
   {
-    id: "experiments",
-    title: "Interactive Graphics",
+    id: "products",
+    title: "Products",
     description:
-      "3D scenes, physics, generative visuals and playful interactions. Open an experiment and play.",
+      "AashiNyra, SignalizeAI and Stoccoin. Products spanning shopping, account research and markets.",
+  },
+  {
+    id: "web3",
+    title: "Solana & Web3",
+    description:
+      "Open-source tools for token permissions, transactions, payments and on-chain receipts.",
   },
   {
     id: "packages",
@@ -69,21 +57,21 @@ export const projectCategories = [
       "Tools that bring useful context directly into the development environment.",
   },
   {
-    id: "drupal",
-    title: "Drupal Modules",
-    description: "Text generation inside Drupal's content editor.",
-  },
-  {
     id: "d-language",
     title: "D Language",
-    description:
-      "Web servers, source analysis, compiler fundamentals and documentation in D.",
+    description: "Web servers, source analysis and compiler fundamentals in D.",
   },
   {
     id: "open-source",
     title: "Open-source contributions & systems",
     description:
       "Shared engineering work across compilers, networking, AI, retrieval, documentation, and developer infrastructure.",
+  },
+  {
+    id: "browser-extensions",
+    title: "Browser extensions",
+    description:
+      "Chrome and Firefox tools for research, reading, accessibility, and everyday browser work.",
   },
 ] as const;
 export type ProjectCategory = (typeof projectCategories)[number]["id"];
@@ -94,7 +82,16 @@ const browser = new Set([
   "bellrope",
   "cribsheet",
 ]);
-const systems = new Set(["drupal-chatbot", "dent-docs"]);
+const systems = new Set([
+  "d-errors-docs",
+  "dent-docs",
+  "text-generation",
+  "drupal-chatbot",
+]);
+export const collectionAliases: Record<string, ProjectCategory> = {
+  "productivity-apps": "apps",
+  drupal: "open-source",
+};
 const agentpostmortem = new Set([
   "agentpostmortem",
   "agent-suite",
@@ -104,15 +101,14 @@ export function categoryFor(
   project: (typeof siteConfig.projects)[number],
 ): ProjectCategory {
   if (agentpostmortem.has(project.id)) return "agentpostmortem";
-  if (project.section === "Drupal") return "drupal";
+  if (systems.has(project.id)) return "open-source";
   if (project.section === "D Language") return "d-language";
   if (project.section === "Products") return "products";
   if (project.section === "Games") return "games";
-  if (project.section === "Productivity Apps") return "productivity-apps";
+  if (project.section === "Productivity Apps") return "apps";
   if (project.section === "Solana & Web3") return "web3";
   if (browser.has(project.id)) return "browser-extensions";
   if (project.id === "water") return "editor-tools";
-  if (systems.has(project.id)) return "open-source";
   if (
     /npmjs.com|pypi.org/.test(project.liveUrl) ||
     ["distro-skills", "casebook-mcp"].includes(project.id)

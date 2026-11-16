@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { projectCollections } from "@/data/project-collections";
+import { collectionAliases } from "@/data/project-categories";
 import { ProjectCollage } from "@/components/ProjectCollage";
 import "../projects.css";
 
@@ -10,12 +11,17 @@ export const dynamicParams = false;
 const collections = projectCollections.filter((c) => !c.external);
 
 export function generateStaticParams() {
-  return collections.map((c) => ({ collection: c.id }));
+  return [
+    ...collections.map((c) => ({ collection: c.id })),
+    ...Object.keys(collectionAliases).map((collection) => ({ collection })),
+  ];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { collection } = await params;
-  const details = collections.find((c) => c.id === collection);
+  const details = collections.find(
+    (c) => c.id === (collectionAliases[collection] ?? collection),
+  );
   if (!details) notFound();
   return {
     title: details.title,
@@ -26,7 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CollectionPage({ params }: Props) {
   const { collection } = await params;
-  const details = collections.find((c) => c.id === collection);
+  const details = collections.find(
+    (c) => c.id === (collectionAliases[collection] ?? collection),
+  );
   if (!details) notFound();
   return (
     <div className="portfolio-shell projects-page collection-page">
