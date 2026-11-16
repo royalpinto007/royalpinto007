@@ -23,6 +23,7 @@ export function ProjectCard({
   githubUrl,
   compact = false,
 }: ProjectCardProps) {
+  const hasLinks = [liveUrl, githubUrl].some((url) => url && url !== "#");
   return (
     <article className="project-card">
       <div className="project-card-head">
@@ -39,20 +40,24 @@ export function ProjectCard({
         </ul>
       )}
       <div className="project-card-tech">{tech.slice(0, 3).join(" / ")}</div>
-      <div className="project-card-links">
-        {liveUrl && liveUrl !== "#" && (
-          <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-            <ExternalLink size={14} />
-            {/npmjs.com|pypi.org/.test(liveUrl) ? "View package" : "Live site"}
-          </a>
-        )}
-        {githubUrl && githubUrl !== "#" && (
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-            <GithubIcon className="w-3.5 h-3.5" />
-            Source
-          </a>
-        )}
-      </div>
+      {hasLinks && (
+        <div className="project-card-links">
+          {liveUrl && liveUrl !== "#" && (
+            <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+              <ExternalLink size={14} />
+              {/npmjs.com|pypi.org/.test(liveUrl)
+                ? "View package"
+                : "Live site"}
+            </a>
+          )}
+          {githubUrl && githubUrl !== "#" && (
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <GithubIcon className="w-3.5 h-3.5" />
+              Source
+            </a>
+          )}
+        </div>
+      )}
     </article>
   );
 }

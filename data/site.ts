@@ -1,4 +1,5 @@
 import { web3Projects } from "./web3-projects";
+import { gameProjects } from "./game-projects";
 
 export const siteConfig = {
   name: "Royal Simpson Pinto",
@@ -169,9 +170,9 @@ export const siteConfig = {
       url: "https://rentmyscreen.xyz",
     },
     {
-      name: "Internet CEO",
-      genre: "Social web experiment · Redesigned",
-      url: "https://internetceo.lol",
+      name: "SIGNAL_07",
+      genre: "Interactive radio experiment",
+      url: "https://royalpinto007.com/facetworks/signal-07",
     },
     {
       name: "Paint Manchester Red",
@@ -281,6 +282,7 @@ export const siteConfig = {
 
   projects: [
     ...web3Projects,
+    ...gameProjects,
     {
       id: "boardeject",
       name: "BoardEject",
@@ -340,7 +342,7 @@ export const siteConfig = {
     {
       id: "aashinyra",
       name: "AashiNyra Deals",
-      category: "Frontend",
+      category: "Fashion & cashback",
       status: "Production",
       description:
         "Live women's fashion deals platform that tracks 16+ retailers nightly for genuine price drops, with cashback paid to UPI.",
@@ -351,9 +353,9 @@ export const siteConfig = {
       ],
       tech: ["Next.js", "Cloudflare Workers", "Supabase", "D1/R2"],
       featured: true,
-      section: "AI Products",
+      section: "Products",
       liveUrl: "https://aashinyra.com",
-      githubUrl: "https://github.com/royalpinto007",
+      githubUrl: "#",
     },
     {
       id: "tenantq",

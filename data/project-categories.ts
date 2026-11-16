@@ -2,6 +2,11 @@ import { siteConfig } from "./site";
 
 export const projectCategories = [
   {
+    id: "products",
+    title: "Products",
+    description: "AashiNyra, a fashion deals and cashback platform.",
+  },
+  {
     id: "apps",
     title: "Apps",
     description:
@@ -12,6 +17,12 @@ export const projectCategories = [
     title: "Productivity Apps",
     description:
       "Mobile and desktop apps for planning, money, offline messaging and keeping a record of your work.",
+  },
+  {
+    id: "games",
+    title: "Games",
+    description:
+      "Six game projects, from delivery challenges and football to shared-device board games.",
   },
   {
     id: "web3",
@@ -69,6 +80,8 @@ const systems = new Set(["drupal-chatbot", "dent-docs", "tenantq", "vaultrag"]);
 export function categoryFor(
   project: (typeof siteConfig.projects)[number],
 ): ProjectCategory {
+  if (project.section === "Products") return "products";
+  if (project.section === "Games") return "games";
   if (project.section === "Productivity Apps") return "productivity-apps";
   if (project.section === "Solana & Web3") return "web3";
   if (browser.has(project.id)) return "browser-extensions";
