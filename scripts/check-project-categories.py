@@ -31,7 +31,9 @@ def check_layout(page):
 
 
 def previews(page):
+    assert page.locator(".project-overview").count() == 0, "A project is missing its preview image"
     for item in page.locator("[data-project-id]").all():
+        assert item.locator(".project-window-image img").count() == 1
         assert item.locator(".project-preview-caption :is(h3,h4)").inner_text().strip()
         assert item.locator(".project-preview-caption p").inner_text().strip()
         links = item.locator("a.project-preview-link")
@@ -43,6 +45,12 @@ def previews(page):
         else:
             assert item.locator(".preview-only").inner_text() == "Preview only"
     assert page.locator("a.project-collage").count() == 0
+
+
+def loaded_images(page):
+    page.locator("img").evaluate_all("ns=>ns.forEach(n=>n.loading='eager')")
+    page.wait_for_function("Array.from(document.images).every(i=>i.complete)")
+    assert page.locator("img").evaluate_all("ns=>ns.every(n=>n.naturalWidth>0)")
 
 
 with sync_playwright() as p:
@@ -72,9 +80,7 @@ with sync_playwright() as p:
         assert page.locator('#agentpostmortem .collection-all').get_attribute("href") == "https://www.agentpostmortem.com/tools"
         previews(page)
         check_layout(page)
-        page.locator("img").evaluate_all("ns=>ns.forEach(n=>n.loading='eager')")
-        page.wait_for_function("Array.from(document.images).every(i=>i.complete)")
-        assert page.locator("img").evaluate_all("ns=>ns.every(n=>n.naturalWidth>0)")
+        loaded_images(page)
         if width in [390, 1440] and os.getenv("PROJECTS_SCREENSHOTS"):
             page.screenshot(path=f"{os.environ['PROJECTS_SCREENSHOTS']}/projects-{width}.png", full_page=True)
         page.close()
@@ -85,7 +91,13 @@ with sync_playwright() as p:
         shown = page.locator("[data-project-id]").evaluate_all("ns=>ns.map(n=>n.dataset.projectId)")
         assert set(shown) == set(ids) and len(shown) == len(ids), category
         previews(page)
+        loaded_images(page)
         check_layout(page)
+        if category in ["drupal", "d-language"]:
+            expected = 1 if category == "drupal" else 3
+            assert page.locator(".project-window-bar", has_text="Workflow preview").count() == expected
+        if category == "productivity-apps":
+            assert page.locator('[data-project-id="tiny-day"] .project-window-bar').inner_text() == "Design reference"
         if category == "games":
             assert page.locator("a.project-preview-link").count() == 0
         if category == "productivity-apps":
@@ -97,6 +109,7 @@ with sync_playwright() as p:
         assert page.locator("[data-facetworks-project]").count() == count
         for group, size in GROUPS[category].items():
             assert page.locator(f'[data-facetworks-group="{group}"] [data-facetworks-project]').count() == size
+        loaded_images(page)
         check_layout(page)
     # The full list and a project are distinct navigation targets, even without JS.
     context = browser.new_context(java_script_enabled=False, viewport={"width": 390, "height": 900})

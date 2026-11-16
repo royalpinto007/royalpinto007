@@ -36,15 +36,17 @@ export function ProjectPreview({
           </span>
           <span>
             {project.image
-              ? project.illustration
-                ? "Workflow preview"
-                : target
+              ? project.previewKind === "design"
+                ? "Design reference"
+                : project.previewKind === "workflow"
+                  ? "Workflow preview"
+                  : target
               : "Project overview"}
           </span>
           <ArrowUpRight size={14} />
         </div>
         <div
-          className={`project-window-image ${project.illustration ? "is-workflow" : ""}`}
+          className={`project-window-image ${project.previewKind === "workflow" ? "is-workflow" : ""}`}
         >
           {project.image ? (
             <Image

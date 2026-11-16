@@ -4,6 +4,9 @@ import { siteConfig } from "./site";
 import { projectCategories, categoryFor } from "./project-categories";
 import { facetworksGroups } from "./facetworks-groups";
 import tools from "./agentpostmortem.json";
+import projectPreviews from "./project-previews.json";
+const previews: Record<string, { image: string; kind: string }> =
+  projectPreviews;
 
 export type PreviewProject = {
   id: string;
@@ -14,7 +17,7 @@ export type PreviewProject = {
   href?: string;
   source?: string;
   tech: readonly string[];
-  illustration?: boolean;
+  previewKind?: "screenshot" | "workflow" | "design";
 };
 export type PreviewGroup = {
   id: string;
@@ -79,7 +82,7 @@ export const projectCollections: ProjectCollection[] =
             kind: p.output,
             description: p.description,
             tech: [],
-            illustration: p.preview !== "screenshot",
+            previewKind: p.preview === "screenshot" ? "screenshot" : "workflow",
           })),
       }));
     } else {
@@ -90,11 +93,17 @@ export const projectCollections: ProjectCollection[] =
           name: p.name,
           kind: p.category,
           description: p.description.replaceAll("—", ","),
-          image: existsSync(
-            path.join(process.cwd(), "public/work", p.id + ".webp"),
-          )
-            ? `/work/${p.id}.webp`
-            : undefined,
+          previewKind:
+            previews[p.id]?.kind === "workflow"
+              ? "workflow"
+              : previews[p.id]?.kind === "design"
+                ? "design"
+                : "screenshot",
+          image:
+            previews[p.id]?.image ??
+            (existsSync(path.join(process.cwd(), "public/work", p.id + ".webp"))
+              ? `/work/${p.id}.webp`
+              : undefined),
           href: destination(p.liveUrl) ?? destination(p.githubUrl),
           source: destination(p.githubUrl),
           tech: p.tech,
