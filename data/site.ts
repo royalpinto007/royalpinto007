@@ -949,7 +949,7 @@ export const siteConfig = {
       featured: false,
       section: "Open Source & Tools",
       liveUrl: "https://docs.dent.dev",
-      githubUrl: "https://github.com/royalpinto007/docs.dent.dev",
+      githubUrl: "https://github.com/dentproject/docs.dent.dev",
     },
     {
       id: "frontend-showcase",
