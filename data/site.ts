@@ -748,7 +748,7 @@ export const siteConfig = {
     {
       id: "pennyrush",
       name: "PennyRush",
-      category: "Frontend",
+      category: "Personal finance",
       status: "Open Source",
       description:
         "A private money hub: activity, receipt scans, imports, plans, and spending insights. Statements and receipts are parsed in memory and discarded, only the extracted fields are ever stored.",
@@ -759,14 +759,14 @@ export const siteConfig = {
       ],
       tech: ["Kotlin", "Jetpack Compose", "Android"],
       featured: false,
-      section: "Open Source & Tools",
+      section: "Productivity Apps",
       liveUrl: "#",
       githubUrl: "https://github.com/royalpinto007/PennyRush",
     },
     {
       id: "holdfast",
       name: "Holdfast",
-      category: "Open Source",
+      category: "Photo records",
       status: "Open Source",
       description:
         "Photo records that cannot be quietly changed. Every entry is hashed together with its note, its time and the hash of the entry before it, so a reworded note, a deleted entry, a reordered pair or a swapped photo shows as a broken seal at the exact entry it went wrong.",
@@ -777,7 +777,7 @@ export const siteConfig = {
       ],
       tech: ["Kotlin", "Jetpack Compose", "Android"],
       featured: false,
-      section: "Open Source & Tools",
+      section: "Productivity Apps",
       liveUrl: "#",
       githubUrl: "https://github.com/royalpinto007/Holdfast",
     },
@@ -874,7 +874,7 @@ export const siteConfig = {
     {
       id: "kabootar",
       name: "Kabootar",
-      category: "Open Source",
+      category: "Offline messaging",
       status: "Open Source",
       description:
         "Offline mesh messenger: chat with no internet, no servers, no SIM. Messages hop phone to phone over Bluetooth and Wi-Fi as a delay-tolerant network.",
@@ -886,7 +886,7 @@ export const siteConfig = {
       ],
       tech: ["Flutter", "Dart", "Bluetooth / Wi-Fi", "Mesh Networking"],
       featured: true,
-      section: "Open Source & Tools",
+      section: "Productivity Apps",
       liveUrl: "#",
       githubUrl: "https://github.com/royalpinto007/Kabootar",
     },
@@ -1038,7 +1038,7 @@ export const siteConfig = {
     {
       id: "tiny-day",
       name: "Tiny Day",
-      category: "Frontend",
+      category: "Daily planning",
       status: "Open Source",
       description:
         "A cozy, offline-first daily planner for Android: gentle scheduling, focus, replanning, and no accounts.",
@@ -1047,11 +1047,29 @@ export const siteConfig = {
         "Gentle scheduling, focus sessions, and easy replanning",
         "Private by design, data stays on the device",
       ],
-      tech: ["TypeScript", "Android", "Offline-first"],
+      tech: ["React Native", "Expo", "TypeScript"],
       featured: false,
-      section: "Open Source & Tools",
+      section: "Productivity Apps",
       liveUrl: "#",
       githubUrl: "https://github.com/royalpinto007/Tiny-Day",
+    },
+    {
+      id: "agentday",
+      name: "AgentDay",
+      category: "Developer productivity",
+      status: "Desktop app",
+      description:
+        "Turn a day of building with coding agents into a shareable receipt. Review your work, edit the details and keep a small record of what you made.",
+      features: [
+        "Daily work receipts from connected coding-agent sessions",
+        "Edit and export receipts as images",
+        "Local by default, with no account required",
+      ],
+      tech: ["Desktop", "Local-first"],
+      featured: false,
+      section: "Productivity Apps",
+      liveUrl: "https://agentday.live",
+      githubUrl: "#",
     },
     {
       id: "water",
