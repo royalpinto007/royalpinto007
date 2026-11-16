@@ -19,6 +19,10 @@ with sync_playwright() as p:
         assert page.locator('#websites a[href="https://royalpinto007.com/facetworks/designs"]').count() == 1
         assert page.locator('#experiments a[href="https://royalpinto007.com/facetworks/graphics"]').count() == 1
         assert page.locator('a[href="https://internetceo.lol"]').count() == 0
+        assert page.locator("#agentpostmortem .agentpostmortem-collage").count() == 1
+        assert page.locator("#agentpostmortem .collage-screen").count() == 26
+        assert page.locator('#agentpostmortem a[href="https://www.agentpostmortem.com/tools"]').count() == 1
+        assert page.locator('#agentpostmortem [data-project-id],#packages').count() == 0
         for category, ids in {
             "apps":["boardeject"],
             "products":["aashinyra"],
@@ -28,7 +32,6 @@ with sync_playwright() as p:
             "drupal":["text-generation"],
             "d-language":["d-simple-server", "phobos-nogc-checker", "toy-compiler", "d-errors-docs"],
             "browser-extensions":["signalizeai", "pagefold", "stowlane", "glasswing", "bellrope", "cribsheet"],
-            "packages":["ctxtrim", "tokencut", "ctxlens", "distro-skills"],
             "editor-tools":["water"],
             "open-source":["drupal-chatbot", "dent-docs"],
         }.items():

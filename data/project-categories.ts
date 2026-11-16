@@ -1,4 +1,5 @@
 import { siteConfig } from "./site";
+import agentpostmortemTools from "./agentpostmortem.json";
 
 export const projectCategories = [
   {
@@ -55,6 +56,12 @@ export const projectCategories = [
       "Installable libraries, command-line utilities, MCP integrations, and reusable skills.",
   },
   {
+    id: "agentpostmortem",
+    title: "AgentPostmortem",
+    description:
+      "Agents, context tools, security checks and evaluations. Explore the toolkit through demos and workflow previews.",
+  },
+  {
     id: "editor-tools",
     title: "Editor tools",
     description:
@@ -87,10 +94,16 @@ const browser = new Set([
   "bellrope",
   "cribsheet",
 ]);
-const systems = new Set(["drupal-chatbot", "dent-docs", "tenantq", "vaultrag"]);
+const systems = new Set(["drupal-chatbot", "dent-docs"]);
+const agentpostmortem = new Set([
+  "agentpostmortem",
+  "agent-suite",
+  ...agentpostmortemTools.map((tool) => tool.id),
+]);
 export function categoryFor(
   project: (typeof siteConfig.projects)[number],
 ): ProjectCategory {
+  if (agentpostmortem.has(project.id)) return "agentpostmortem";
   if (project.section === "Drupal") return "drupal";
   if (project.section === "D Language") return "d-language";
   if (project.section === "Products") return "products";

@@ -8,6 +8,7 @@ import { siteConfig } from "@/data/site";
 import { projectCategories, categoryFor } from "@/data/project-categories";
 import { ProjectCard } from "@/components/ProjectCard";
 import { FacetworksCollage } from "@/components/FacetworksCollage";
+import { AgentPostmortemCollage } from "@/components/AgentPostmortemCollage";
 import { CategoryMenu } from "@/components/CategoryMenu";
 
 export const metadata: Metadata = {
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
     "Explore apps, Solana and Web3 tools, browser extensions, websites, interactive experiments and open-source work by Royal Pinto.",
 };
 export default function ProjectsPage() {
+  const collections = new Set(["websites", "experiments", "agentpostmortem"]);
+  const categories = projectCategories.filter(
+    (category) =>
+      collections.has(category.id) ||
+      siteConfig.projects.some(
+        (project) => categoryFor(project) === category.id,
+      ),
+  );
   return (
     <div className="portfolio-shell projects-page">
       <header className="projects-heading world-heading" data-motion-intro>
@@ -32,17 +41,17 @@ export default function ProjectsPage() {
           <span aria-hidden="true">↘</span> Browse by category.
         </p>
         <CategoryMenu
-          items={projectCategories.map(({ id, title }) => ({ id, title }))}
+          items={categories.map(({ id, title }) => ({ id, title }))}
         />
       </div>
       <nav className="project-jumps" aria-label="Project categories">
-        {projectCategories.map((category) => (
+        {categories.map((category) => (
           <a key={category.id} href={`#${category.id}`}>
             {category.title}
           </a>
         ))}
       </nav>
-      {projectCategories.map((category, index) => {
+      {categories.map((category, index) => {
         const hasPreview = (id: string) =>
           existsSync(path.join(process.cwd(), "public/work", id + ".webp"));
         const items = siteConfig.projects
@@ -65,6 +74,8 @@ export default function ProjectsPage() {
               <FacetworksCollage collection="designs" />
             ) : category.id === "experiments" ? (
               <FacetworksCollage collection="graphics" />
+            ) : category.id === "agentpostmortem" ? (
+              <AgentPostmortemCollage />
             ) : (
               <div className="category-projects">
                 {items.map((project) => {
