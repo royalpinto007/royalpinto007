@@ -8,6 +8,12 @@ export const projectCategories = [
       "Web and mobile products, from AI workspaces to offline-first tools.",
   },
   {
+    id: "web3",
+    title: "Solana & Web3",
+    description:
+      "Open-source tools for token permissions, transactions, payments and on-chain receipts.",
+  },
+  {
     id: "browser-extensions",
     title: "Browser extensions",
     description:
@@ -57,6 +63,7 @@ const systems = new Set(["drupal-chatbot", "dent-docs", "tenantq", "vaultrag"]);
 export function categoryFor(
   project: (typeof siteConfig.projects)[number],
 ): ProjectCategory {
+  if (project.section === "Solana & Web3") return "web3";
   if (browser.has(project.id)) return "browser-extensions";
   if (project.id === "water") return "editor-tools";
   if (systems.has(project.id)) return "open-source";

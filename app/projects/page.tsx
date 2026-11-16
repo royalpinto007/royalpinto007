@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Projects",
   alternates: { canonical: "/projects" },
   description:
-    "Browse apps, browser extensions, websites, interactive experiments, packages, and open-source contributions by Royal Pinto.",
+    "Explore apps, Solana and Web3 tools, browser extensions, websites, interactive experiments and open-source work by Royal Pinto.",
 };
 export default function ProjectsPage() {
   return (

@@ -23,8 +23,8 @@ const skills = [
   {
     label: "Web3",
     Icon: Hexagon,
-    href: "https://github.com/royalpinto007?tab=repositories&q=solana",
-    name: "Web3 repositories on GitHub",
+    href: "/projects#web3",
+    name: "Solana and Web3 projects",
   },
 ];
 

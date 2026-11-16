@@ -1,3 +1,5 @@
+import { web3Projects } from "./web3-projects";
+
 export const siteConfig = {
   name: "Royal Simpson Pinto",
   initials: "RSP",
@@ -278,6 +280,7 @@ export const siteConfig = {
   },
 
   projects: [
+    ...web3Projects,
     {
       id: "boardeject",
       name: "BoardEject",

@@ -191,6 +191,9 @@
   font-size: 11px;
   font-weight: 550;
 }
+.projects-page #web3 .project-card-links a {
+  min-height: 44px;
+}
 .projects-page .design-gallery {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 42px 28px;
