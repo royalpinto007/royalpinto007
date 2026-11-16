@@ -1,22 +1,50 @@
 "use client";
 
-import { Player, type PlayerRef } from "@remotion/player";
+import {
+  Player,
+  type PlayerRef,
+  type CallbackListener,
+} from "@remotion/player";
 import { ProjectReelComposition, FILM_DURATION } from "./film/CoastalFilm";
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-export type ReelPlayerProps = { visible: boolean; compact: boolean };
-export function ReelPlayer({ visible, compact }: ReelPlayerProps) {
+export type ReelPlayerProps = {
+  visible: boolean;
+  compact: boolean;
+  onFailure: () => void;
+};
+
+function ReelFailure({ onFailure }: { onFailure: () => void }) {
+  useEffect(onFailure, [onFailure]);
+  return null;
+}
+
+export function ReelPlayer({ visible, compact, onFailure }: ReelPlayerProps) {
   const player = useRef<PlayerRef>(null);
   const [paused, setPaused] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [failed, setFailed] = useState(false);
+  const [ready, setReady] = useState(false);
+  const [chapter, setChapter] = useState(0);
   useEffect(() => {
     const current = player.current;
-    const fail = () => setFailed(true);
-    current?.addEventListener("error", fail);
-    return () => current?.removeEventListener("error", fail);
-  }, []);
+    const update: CallbackListener<"frameupdate"> = ({ detail: { frame } }) => {
+      if (frame > 0) setReady(true);
+      setChapter(frame < 150 ? 0 : frame < 390 ? 1 : 2);
+    };
+    const waiting = () => setReady(false);
+    const resume = () => setReady((current?.getCurrentFrame() ?? 0) > 0);
+    current?.addEventListener("frameupdate", update);
+    current?.addEventListener("waiting", waiting);
+    current?.addEventListener("resume", resume);
+    current?.addEventListener("error", onFailure);
+    return () => {
+      current?.removeEventListener("frameupdate", update);
+      current?.removeEventListener("waiting", waiting);
+      current?.removeEventListener("resume", resume);
+      current?.removeEventListener("error", onFailure);
+    };
+  }, [onFailure]);
   useEffect(() => {
     const sync = () => setHidden(document.hidden);
     sync();
@@ -28,10 +56,22 @@ export function ReelPlayer({ visible, compact }: ReelPlayerProps) {
     else player.current?.pause();
   }, [visible, paused, hidden]);
 
-  if (failed) return null;
+  const toggle = () => {
+    if (!ready) {
+      // A fresh play request also recovers a player whose initial clock stalled.
+      player.current?.pause();
+      player.current?.play();
+      setPaused(false);
+    } else setPaused(!paused);
+  };
+  const playing = visible && !paused && !hidden;
   return (
-    <div className="reel-player" data-playing={visible && !paused && !hidden}>
-      <div aria-hidden="true">
+    <div
+      className="reel-player"
+      data-playing={playing && ready}
+      data-ready={ready}
+    >
+      <div className="reel-canvas" aria-hidden="true">
         <Player
           ref={player}
           component={ProjectReelComposition}
@@ -39,7 +79,7 @@ export function ReelPlayer({ visible, compact }: ReelPlayerProps) {
           fps={30}
           compositionWidth={compact ? 760 : 1440}
           compositionHeight={compact ? 900 : 760}
-          autoPlay={visible && !paused && !hidden}
+          autoPlay={playing}
           loop
           controls={false}
           clickToPlay={false}
@@ -47,37 +87,36 @@ export function ReelPlayer({ visible, compact }: ReelPlayerProps) {
           spaceKeyToPlayOrPause={false}
           numberOfSharedAudioTags={0}
           style={{ width: "100%" }}
-          errorFallback={() => null}
+          errorFallback={() => <ReelFailure onFailure={onFailure} />}
         />
       </div>
-      <div className="film-chapters" role="group" aria-label="Film chapters">
-        {[
-          ["Code", 32],
-          ["Convert", 270],
-          ["Ship", 465],
-        ].map(([name, frame]) => (
-          <button
-            key={name}
-            type="button"
-            onClick={() => player.current?.seekTo(Number(frame))}
-            aria-label={`Watch ${name} chapter`}
-          >
-            {name}
-          </button>
-        ))}
+      <div className="reel-controls">
+        <div className="film-chapters" role="group" aria-label="Film chapters">
+          {[
+            ["Code", 32],
+            ["Convert", 270],
+            ["Ship", 465],
+          ].map(([name, frame], index) => (
+            <button
+              key={name}
+              type="button"
+              onClick={() => player.current?.seekTo(Number(frame))}
+              aria-label={`Watch ${name} chapter`}
+              aria-pressed={chapter === index}
+            >
+              {name}
+            </button>
+          ))}
+        </div>
+        <button className="reel-toggle" type="button" onClick={toggle}>
+          {paused || !ready ? (
+            <Play size={15} aria-hidden="true" />
+          ) : (
+            <Pause size={15} aria-hidden="true" />
+          )}
+          <span>{paused || !ready ? "Play reel" : "Pause reel"}</span>
+        </button>
       </div>
-      <button
-        className="reel-toggle"
-        type="button"
-        onClick={() => setPaused(!paused)}
-      >
-        {paused ? (
-          <Play size={15} aria-hidden="true" />
-        ) : (
-          <Pause size={15} aria-hidden="true" />
-        )}
-        <span>{paused ? "Play reel" : "Pause reel"}</span>
-      </button>
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import { AbsoluteFill, Easing, Img, interpolate, spring } from "remotion";
+import { AbsoluteFill, Easing, interpolate, spring } from "remotion";
+import { FilmImage } from "./FilmImage";
 import { SkillRail } from "../SkillRail";
 
 /** A frame-driven camera follows the original chrome cursor across four tiles. */
@@ -37,7 +38,7 @@ export function DockScene({
     <AbsoluteFill
       style={{ background: "#c9dfed", overflow: "hidden", color: "#12374e" }}
     >
-      <Img
+      <FilmImage
         src={compact ? "/scene/coast-mobile.webp" : "/scene/sunset-coast.webp"}
         style={{
           width: "100%",

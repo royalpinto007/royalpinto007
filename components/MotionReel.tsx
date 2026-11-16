@@ -3,7 +3,13 @@
 import { SceneEnvironment } from "./SceneEnvironment";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState, type ComponentType } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ComponentType,
+} from "react";
 import type { ReelPlayerProps } from "./ReelPlayer";
 
 /** The static composition is also the no-JS and reduced-motion experience. */
@@ -15,6 +21,8 @@ export function MotionReel() {
   const [visible, setVisible] = useState(false);
   const [reduced, setReduced] = useState(true);
   const [compact, setCompact] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const onFailure = useCallback(() => setFailed(true), []);
 
   useEffect(() => {
     const preference = matchMedia("(prefers-reduced-motion: reduce)");
@@ -39,19 +47,19 @@ export function MotionReel() {
   }, []);
 
   useEffect(() => {
-    if (!visible || reduced || Player) return;
+    if (!visible || reduced || Player || failed) return;
     let active = true;
     import("./ReelPlayer")
       .then((module) => {
         if (active) setPlayer(() => module.ReelPlayer);
       })
       .catch(() => {
-        /* The server-rendered composition remains usable. */
+        if (active) setFailed(true);
       });
     return () => {
       active = false;
     };
-  }, [visible, reduced, Player]);
+  }, [visible, reduced, Player, failed]);
 
   return (
     <section
@@ -63,34 +71,43 @@ export function MotionReel() {
         <h2 id="reel-title">
           Code in <span>motion.</span>
         </h2>
-        <p>A 20-second demo of code, UI and motion.</p>
+        <p>From first commit to working software.</p>
       </header>
-      <div className="reel-stage" ref={host}>
-        <div className="reel-poster" aria-hidden="true">
-          <div className="reel-poster-copy">
-            <span>A film by Royal Simpson Pinto</span>
-            <strong>Code. Test. Ship.</strong>
-            <span>AI agents. Apps. Automation. Web3.</span>
-          </div>
-          <Image
-            src="/scene/sunset-coast.webp"
-            alt=""
-            width={960}
-            height={640}
-          />
-          <picture className="film-poster-sculpture">
+      <div
+        className="reel-shell"
+        ref={host}
+        data-player={Boolean(Player && !reduced && !failed)}
+      >
+        <div className="reel-stage">
+          <div className="reel-poster" aria-hidden="true">
+            <div className="reel-poster-copy">
+              <span>Royal Simpson Pinto</span>
+              <strong>Code. Test. Ship.</strong>
+              <span>AI agents. Apps. Automation. Web3.</span>
+            </div>
             <Image
-              src="/scene/film-sculpture.webp"
+              src="/scene/sunset-coast.webp"
               alt=""
-              width={1200}
-              height={1000}
+              width={960}
+              height={640}
             />
-          </picture>
+            <picture className="film-poster-sculpture">
+              <Image
+                src="/scene/film-sculpture.webp"
+                alt=""
+                width={1200}
+                height={1000}
+              />
+            </picture>
+          </div>
         </div>
-        {Player && !reduced && <Player visible={visible} compact={compact} />}
+        <span className="reel-static-note">Code. Convert. Ship.</span>
+        {Player && !reduced && !failed && (
+          <Player visible={visible} compact={compact} onFailure={onFailure} />
+        )}
       </div>
       <div className="reel-caption">
-        <span>A coastal short, with an illustrated BoardEject workflow</span>
+        <span>20-second loop</span>
         <Link href="/projects#experiments" prefetch={false}>
           Explore the experiments <span aria-hidden="true">↗</span>
         </Link>

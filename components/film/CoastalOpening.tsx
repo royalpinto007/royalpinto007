@@ -1,4 +1,5 @@
-import { AbsoluteFill, Img, interpolate } from "remotion";
+import { AbsoluteFill, interpolate } from "remotion";
+import { FilmImage } from "./FilmImage";
 
 export function CoastalOpening({
   frame,
@@ -15,7 +16,7 @@ export function CoastalOpening({
   });
   return (
     <AbsoluteFill style={{ overflow: "hidden", background: "#a8cee8" }}>
-      <Img
+      <FilmImage
         src={compact ? "/scene/coast-mobile.webp" : "/scene/sunset-coast.webp"}
         style={{
           width: "100%",
@@ -30,7 +31,7 @@ export function CoastalOpening({
         }}
       />
       {closing ? (
-        <Img
+        <FilmImage
           src="/portrait-original.webp"
           style={{
             position: "absolute",
@@ -42,7 +43,7 @@ export function CoastalOpening({
           }}
         />
       ) : (
-        <Img
+        <FilmImage
           src="/scene/film-sculpture.webp"
           style={{
             position: "absolute",

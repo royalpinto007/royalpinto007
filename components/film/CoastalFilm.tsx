@@ -15,7 +15,7 @@ export function ProjectReelComposition() {
   const compact = useVideoConfig().width < 1000;
   const index = frame < 150 ? 0 : frame < 390 ? 1 : 2;
   const local = frame < 150 ? frame : frame < 390 ? frame - 150 : frame - 390;
-  const wipe = interpolate(local, [0, 8], [100, 0], {
+  const sweep = interpolate(local, [0, 12], [-120, 520], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -34,12 +34,19 @@ export function ProjectReelComposition() {
       <Sequence from={390} durationInFrames={210}>
         <CoastalOpening frame={local} compact={compact} closing />
       </Sequence>
-      <AbsoluteFill
+      <div
+        aria-hidden="true"
         style={{
+          position: "absolute",
+          top: 0,
+          bottom: 0,
+          left: 0,
+          width: "28%",
           pointerEvents: "none",
-          background: "#fff1dd",
-          transform: `translateX(${-100 + wipe}%)`,
-          opacity: local < 8 ? 1 : 0,
+          background:
+            "linear-gradient(90deg, transparent, #fff1dd90, transparent)",
+          transform: `translateX(${sweep}%) skewX(-12deg)`,
+          opacity: local < 12 ? 0.45 : 0,
         }}
       />
       <div
