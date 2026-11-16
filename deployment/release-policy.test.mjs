@@ -110,3 +110,46 @@ test("review HTML bypasses cache; robots and sitemap never call the production s
   );
   assert.equal(sitemap.status, 404);
 });
+
+test("building mode holds nested collection HTML and navigation payloads", async () => {
+  for (const path of [
+    "/projects/games",
+    "/projects/games/",
+    "/projects/games.html",
+    "/projects/games.txt",
+    "/projects/web3/__next._full.txt",
+    "/projects/products?_rsc=review",
+  ]) {
+    const response = buildingResponse(
+      new Request("https://royalpinto007.com" + path),
+      "building",
+    );
+    assert.ok(response, path);
+    assert.equal(response.status, 200);
+    assert.match(await response.text(), /Currently building/);
+    assert.equal(response.headers.get("cache-control"), "no-store");
+  }
+  assert.equal(
+    buildingResponse(
+      new Request("https://royalpinto007.com/projects-old/games"),
+      "building",
+    ),
+    null,
+  );
+  assert.equal(
+    buildingResponse(
+      new Request("https://dev.royalpinto007.com/projects/games"),
+      "portfolio",
+    ),
+    null,
+  );
+  assert.equal(
+    buildingResponse(
+      new Request("https://royalpinto007.com/projects/games", {
+        method: "POST",
+      }),
+      "building",
+    ).status,
+    405,
+  );
+});

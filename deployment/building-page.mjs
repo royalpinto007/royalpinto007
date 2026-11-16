@@ -16,7 +16,8 @@ export function buildingResponse(request, mode) {
     );
   if (
     mode !== "building" ||
-    (!navigationPayload &&
+    (!pathname.startsWith("/projects/") &&
+      !navigationPayload &&
       !portfolioPaths.includes(pathname) &&
       !portfolioPaths.includes(canonical))
   )
