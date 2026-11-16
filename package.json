@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test scripts/contribution-wall.test.mjs deployment/release-policy.test.mjs"
+    "test": "node --test scripts/contribution-wall.test.mjs deployment/release-policy.test.mjs deployment/stoccoin-policy.test.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

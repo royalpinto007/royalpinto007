@@ -5,7 +5,8 @@ export const projectCategories = [
   {
     id: "products",
     title: "Products",
-    description: "AashiNyra, a fashion deals and cashback platform.",
+    description:
+      "AashiNyra, SignalizeAI and Stoccoin. Products spanning shopping, account research and markets.",
   },
   {
     id: "apps",
@@ -87,7 +88,6 @@ export const projectCategories = [
 ] as const;
 export type ProjectCategory = (typeof projectCategories)[number]["id"];
 const browser = new Set([
-  "signalizeai",
   "pagefold",
   "stowlane",
   "glasswing",

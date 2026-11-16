@@ -25,13 +25,13 @@ with sync_playwright() as p:
         assert page.locator('#agentpostmortem [data-project-id],#packages').count() == 0
         for category, ids in {
             "apps":["boardeject"],
-            "products":["aashinyra"],
+            "products":["aashinyra", "signalizeai", "stoccoin"],
             "productivity-apps":["pennyrush", "tiny-day", "holdfast", "kabootar", "agentday"],
             "games":["bumblecrate", "megoblin", "jollybound", "revlap", "tablewink", "hushmallow"],
             "web3":["ack", "delegate-inspector", "hookview", "paylint", "settled", "solana-authority-inspector", "txray", "v1check"],
             "drupal":["text-generation"],
             "d-language":["d-simple-server", "phobos-nogc-checker", "toy-compiler", "d-errors-docs"],
-            "browser-extensions":["signalizeai", "pagefold", "stowlane", "glasswing", "bellrope", "cribsheet"],
+            "browser-extensions":["pagefold", "stowlane", "glasswing", "bellrope", "cribsheet"],
             "editor-tools":["water"],
             "open-source":["drupal-chatbot", "dent-docs"],
         }.items():
