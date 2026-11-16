@@ -191,7 +191,10 @@
   font-size: 11px;
   font-weight: 550;
 }
-.projects-page :is(#web3, #productivity-apps, #products) .project-card-links a {
+.projects-page
+  :is(#web3, #productivity-apps, #products, #drupal, #d-language)
+  .project-card-links
+  a {
   min-height: 44px;
 }
 .projects-page .design-gallery {

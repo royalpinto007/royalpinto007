@@ -61,6 +61,17 @@ export const projectCategories = [
       "Tools that bring useful context directly into the development environment.",
   },
   {
+    id: "drupal",
+    title: "Drupal Modules",
+    description: "Text generation inside Drupal's content editor.",
+  },
+  {
+    id: "d-language",
+    title: "D Language",
+    description:
+      "Web servers, source analysis, compiler fundamentals and documentation in D.",
+  },
+  {
     id: "open-source",
     title: "Open-source contributions & systems",
     description:
@@ -80,6 +91,8 @@ const systems = new Set(["drupal-chatbot", "dent-docs", "tenantq", "vaultrag"]);
 export function categoryFor(
   project: (typeof siteConfig.projects)[number],
 ): ProjectCategory {
+  if (project.section === "Drupal") return "drupal";
+  if (project.section === "D Language") return "d-language";
   if (project.section === "Products") return "products";
   if (project.section === "Games") return "games";
   if (project.section === "Productivity Apps") return "productivity-apps";

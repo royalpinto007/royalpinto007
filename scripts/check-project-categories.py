@@ -10,7 +10,7 @@ with sync_playwright() as p:
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         assert page.goto(URL, wait_until="networkidle").status == 200
-        assert page.locator("[data-project-category]").count() == 11
+        assert page.locator("[data-project-category]").count() == 13
         assert page.locator("#websites .design-tile").count() == 18
         assert page.locator("#experiments .design-tile").count() == 21
         assert page.locator('#experiments a[href="https://rentmyscreen.xyz"]').count() == 1
@@ -22,6 +22,8 @@ with sync_playwright() as p:
             "productivity-apps":["pennyrush", "tiny-day", "holdfast", "kabootar", "agentday"],
             "games":["bumblecrate", "megoblin", "jollybound", "revlap", "tablewink", "hushmallow"],
             "web3":["ack", "delegate-inspector", "hookview", "paylint", "settled", "solana-authority-inspector", "txray", "v1check"],
+            "drupal":["text-generation"],
+            "d-language":["d-simple-server", "phobos-nogc-checker", "toy-compiler", "d-errors-docs"],
             "browser-extensions":["signalizeai", "pagefold", "stowlane", "glasswing", "bellrope", "cribsheet"],
             "packages":["ctxtrim", "tokencut", "ctxlens", "distro-skills"],
             "editor-tools":["water"],
@@ -38,4 +40,4 @@ with sync_playwright() as p:
         assert not errors, errors
         page.close()
     browser.close()
-print("PASS: eleven categories, correct grouping, unique entries, images and responsive layouts.")
+print("PASS: thirteen categories, correct grouping, unique entries, images and responsive layouts.")

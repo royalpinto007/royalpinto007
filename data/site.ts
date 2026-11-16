@@ -1,5 +1,6 @@
 import { web3Projects } from "./web3-projects";
 import { gameProjects } from "./game-projects";
+import { drupalProjects, dLanguageProjects } from "./drupal-and-d-projects";
 
 export const siteConfig = {
   name: "Royal Simpson Pinto",
@@ -283,6 +284,8 @@ export const siteConfig = {
   projects: [
     ...web3Projects,
     ...gameProjects,
+    ...drupalProjects,
+    ...dLanguageProjects,
     {
       id: "boardeject",
       name: "BoardEject",
