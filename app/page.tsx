@@ -10,7 +10,7 @@ import "./home-discovery.css";
 import "./reel.css";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Coffee, Star } from "lucide-react";
 import { MotionReel } from "@/components/MotionReel";
 import { BoardDemo } from "@/components/BoardDemo";
 import { ContributionWall } from "@/components/ContributionWall";
@@ -71,6 +71,23 @@ export default function HomePage() {
           </h1>
           <div className="hero-details">
             <TypingDescriptor />
+            <div className="hero-support" aria-label="Support my work">
+              <a
+                href="https://www.buymeacoffee.com/royalpinto007"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Coffee size={18} aria-hidden="true" /> Buy me a coffee
+              </a>
+              <a
+                href="https://github.com/royalpinto007/royalpinto007"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Star size={18} aria-hidden="true" /> Like this site? Star it on
+                GitHub
+              </a>
+            </div>
           </div>
         </div>
         <figure className="portrait">
@@ -130,11 +147,14 @@ export default function HomePage() {
           </div>
         </div>
         <div className="source-origin journey-start">
-          <p>
-            Where it started.
-            <br />
-            <strong>Still contributing, building and maintaining.</strong>
-          </p>
+          {siteConfig.stats
+            .filter((stat) => stat.label === "Students mentored")
+            .map((stat) => (
+              <p className="mentoring-fact" key={stat.label}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </p>
+            ))}
           <ul
             className="programme-strip"
             aria-label="Programmes that started my open-source journey"
@@ -152,14 +172,6 @@ export default function HomePage() {
               <span>Symmetry Autumn of Code</span>
             </li>
           </ul>
-        </div>
-        <div className="experience-facts">
-          {siteConfig.stats.slice(1).map((stat) => (
-            <div key={stat.label}>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </div>
-          ))}
         </div>
       </section>
 

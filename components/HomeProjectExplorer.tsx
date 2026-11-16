@@ -97,53 +97,70 @@ export function HomeProjectExplorer() {
           );
         })}
       </div>
-      <div className="home-web3" data-home-collection="web3">
+      <section
+        className="home-web3"
+        data-home-collection="web3"
+        aria-labelledby="web3-title"
+      >
         <div className="web3-copy">
           <p className="web3-label">Solana & Web3</p>
-          <h3>
-            Know what
+          <h3 id="web3-title">
+            On-chain data.
             <br />
-            <span>you’re signing.</span>
+            <span>Human-readable.</span>
           </h3>
           <p>
-            Token permissions, payment requests and transaction debugging.
-            Open-source tools for the chain.
+            Open-source tools to inspect permissions, trace transactions and
+            debug payments on Solana.
           </p>
           <Link className="quiet-link" href="/projects/web3" prefetch={false}>
             Explore all {web3.count} tools{" "}
             <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
-        <div className="web3-previews">
-          {["delegate-inspector", "txray"].map((id) => {
-            const project = tools.find((item) => item.id === id);
-            if (!project?.image || !project.href)
-              throw new Error(`Missing Web3 preview: ${id}`);
-            return (
-              <a
-                key={id}
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="web3-preview"
-              >
-                <Image
-                  src={project.image}
-                  alt=""
-                  width={960}
-                  height={640}
-                  sizes="(max-width: 767px) 45vw, 25vw"
-                />
-                <span>
-                  <strong>{project.name}</strong>
-                  <ArrowUpRight size={17} aria-hidden="true" />
-                </span>
-                <small>{project.kind}</small>
-              </a>
-            );
-          })}
+        <div className="web3-workbench">
+          <p className="web3-workbench-label">
+            <span aria-hidden="true">›_</span> Read-only developer tools
+          </p>
+          <div className="web3-previews">
+            {["delegate-inspector", "txray"].map((id) => {
+              const project = tools.find((item) => item.id === id);
+              if (!project?.image || !project.href)
+                throw new Error(`Missing Web3 preview: ${id}`);
+              return (
+                <a
+                  key={id}
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="web3-preview"
+                >
+                  <div className="web3-window-bar" aria-hidden="true">
+                    <i />
+                    <i />
+                    <i />
+                    <span>
+                      {project.id === "txray" ? "txray" : "delegate?"}
+                    </span>
+                  </div>
+                  <Image
+                    src={project.image}
+                    alt=""
+                    width={960}
+                    height={640}
+                    sizes="(max-width: 767px) 80vw, 25vw"
+                  />
+                  <span>
+                    <strong>{project.name}</strong>
+                    <ArrowUpRight size={17} aria-hidden="true" />
+                  </span>
+                  <small>{project.kind}</small>
+                </a>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
       <nav className="discovery-more" aria-label="More project collections">
         {[
           "open-source",

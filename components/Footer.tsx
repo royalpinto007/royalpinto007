@@ -13,10 +13,7 @@ export function Footer() {
             <br />
             developer?
           </h2>
-          <p>
-            Freelance projects, developer roles and open-source collaborations.
-            Let’s talk.
-          </p>
+          <p>Freelance, full-time or open source. Let’s talk.</p>
         </div>
         <a className="primary-link" href={siteConfig.hireUrl}>
           Hire me <ArrowUpRight size={18} />

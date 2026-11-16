@@ -85,9 +85,9 @@ export function CoastalOpening({
         >
           {closing ? (
             <>
-              I build
+              Built to
               <br />
-              <span style={{ color: "#922f60" }}>software.</span>
+              <span style={{ color: "#922f60" }}>ship.</span>
             </>
           ) : (
             <>

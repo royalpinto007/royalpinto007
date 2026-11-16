@@ -2,7 +2,6 @@
 
 import { SceneEnvironment } from "./SceneEnvironment";
 import Image from "next/image";
-import Link from "next/link";
 import {
   useCallback,
   useEffect,
@@ -105,12 +104,6 @@ export function MotionReel() {
         {Player && !reduced && !failed && (
           <Player visible={visible} compact={compact} onFailure={onFailure} />
         )}
-      </div>
-      <div className="reel-caption">
-        <span>20-second loop</span>
-        <Link href="/projects#experiments" prefetch={false}>
-          Explore the experiments <span aria-hidden="true">↗</span>
-        </Link>
       </div>
     </section>
   );

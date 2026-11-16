@@ -152,6 +152,7 @@ body {
   letter-spacing: 0.035em;
 }
 .footer-invitation p {
+  max-width: none;
   font-size: 17px;
   line-height: 1.65;
 }
