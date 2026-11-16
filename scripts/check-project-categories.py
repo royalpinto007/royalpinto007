@@ -104,6 +104,7 @@ with sync_playwright() as p:
     assert plain.goto(URL).status == 200
     assert plain.locator('#experiments [data-project-id="abyss"] a').get_attribute("href").rstrip("/").endswith("/facetworks/graphics/abyss")
     plain.locator('#products .collection-all').click()
+    plain.wait_for_load_state("networkidle")
     assert urlsplit(plain.url).path == "/projects/products"
     assert plain.locator("[data-project-id]").count() == 3
     check_layout(plain)
