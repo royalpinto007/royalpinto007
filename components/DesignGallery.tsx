@@ -23,10 +23,7 @@ export function DesignGallery({
   return (
     <div className="design-gallery">
       {selected.map((project) => {
-        const url = new URL(project.url);
-        const slug =
-          url.pathname.match(/^\/facetworks\/([^/]+)/)?.[1] ??
-          url.hostname.split(".")[0];
+        const slug = project.slug;
         return (
           <a
             className="design-tile"

@@ -3,8 +3,10 @@ import { CoastalHorizon } from "./CoastalHorizon";
 /** Choose a section's own artwork explicitly, rather than repeating a default. */
 export function WorldScene({
   kind,
+  priority = false,
 }: {
   kind: "studio" | "engine" | "play" | "arcade" | "telephone" | "horizon";
+  priority?: boolean;
 }) {
   const asset =
     kind === "studio" || kind === "engine"
@@ -28,9 +30,9 @@ export function WorldScene({
             width={1200}
             height={kind === "play" ? 960 : 800}
             alt=""
-            loading="lazy"
+            loading={priority ? "eager" : "lazy"}
             decoding="async"
-            fetchPriority="low"
+            fetchPriority={priority ? "high" : "low"}
           />
         </picture>
       )}

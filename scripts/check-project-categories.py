@@ -11,10 +11,13 @@ with sync_playwright() as p:
         page.on("pageerror", lambda error: errors.append(str(error)))
         assert page.goto(URL, wait_until="networkidle").status == 200
         assert page.locator("[data-project-category]").count() == 13
-        assert page.locator("#websites .design-tile").count() == 18
-        assert page.locator("#experiments .design-tile").count() == 21
-        assert page.locator('#experiments a[href="https://rentmyscreen.xyz"]').count() == 1
-        assert page.locator('#experiments a[href="https://royalpinto007.com/facetworks/signal-07"]').count() == 1
+        assert page.locator("#websites .facetworks-collage").count() == 1
+        assert page.locator("#experiments .facetworks-collage").count() == 1
+        assert page.locator("#websites .collage-screen").count() == 19
+        assert page.locator("#experiments .collage-screen").count() == 24
+        assert page.locator("#websites .design-tile, #experiments .design-tile").count() == 0
+        assert page.locator('#websites a[href="https://royalpinto007.com/facetworks/designs"]').count() == 1
+        assert page.locator('#experiments a[href="https://royalpinto007.com/facetworks/graphics"]').count() == 1
         assert page.locator('a[href="https://internetceo.lol"]').count() == 0
         for category, ids in {
             "apps":["boardeject"],

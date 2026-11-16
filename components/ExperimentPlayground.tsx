@@ -45,7 +45,7 @@ export function ExperimentPlayground() {
             {active === slug ? (
               <>
                 <iframe
-                  src={`/facetworks/${slug}/`}
+                  src={`/facetworks/graphics/${slug}/`}
                   title={`Interactive ${name} experiment`}
                   loading="lazy"
                   onLoad={(event) =>
@@ -82,7 +82,7 @@ export function ExperimentPlayground() {
             )}
           </div>
           <a
-            href={`/facetworks/${slug}/`}
+            href={`/facetworks/graphics/${slug}/`}
             target="_blank"
             rel="noopener noreferrer"
           >

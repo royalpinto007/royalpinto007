@@ -9,17 +9,24 @@
 
 ## Projects
 
-* [BoardEject](https://boardeject.dev) | Apple Freeform → editable Excalidraw
-* [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI) | AI prospecting Chrome extension
-* [AashiNyra Deals](https://aashinyra.com) | fashion deals + cashback platform
-* [Kabootar](https://github.com/royalpinto007/Kabootar) | offline Bluetooth/Wi-Fi mesh messenger
-* [Tiny Day](https://github.com/royalpinto007/Tiny-Day) | offline-first Android planner
-* [PennyRush](https://github.com/royalpinto007/PennyRush) | private money hub
-* [AgentPostmortem](https://github.com/AgentPostmortem/agentpostmortem) | AI agent failure registry + tooling
-* [Facetworks](https://royalpinto007.com/facetworks) | 39 web design and interactive experiments
+- [BoardEject](https://boardeject.dev) | Apple Freeform → editable Excalidraw
+- [SignalizeAI](https://github.com/SignalizeAI/SignalizeAI) | AI prospecting Chrome extension
+- [AashiNyra Deals](https://aashinyra.com) | fashion deals + cashback platform
+- [Kabootar](https://github.com/royalpinto007/Kabootar) | offline Bluetooth/Wi-Fi mesh messenger
+- [Tiny Day](https://github.com/royalpinto007/Tiny-Day) | offline-first Android planner
+- [PennyRush](https://github.com/royalpinto007/PennyRush) | private money hub
+- [AgentPostmortem](https://github.com/AgentPostmortem/agentpostmortem) | AI agent failure registry + tooling
+- [Facetworks](https://royalpinto007.com/facetworks) | 43 web design and interactive experiments
 
 ## I also build
 
 🧪 AI evals · agent security · MCP tooling · RAG · agent memory · token optimization · local-first apps · Chrome extensions
 
 🌐 [Facetworks](https://royalpinto007.com/facetworks) · ☕ [Buy me a coffee](https://buymeacoffee.com/royalpinto007) · ✉️ [royalpinto007@gmail.com](mailto:royalpinto007@gmail.com)
+
+## Facetworks collections
+
+- [Designs](https://royalpinto007.com/facetworks/designs): 19 website concepts.
+- [Graphics](https://royalpinto007.com/facetworks/graphics): 24 experiments in physics, 3D, light and sound.
+
+The portfolio Projects page links to these collections through two preview collages. Individual builds use `/facetworks/designs/<name>/` or `/facetworks/graphics/<name>/`. The shared catalogue is in `data/facetworks.json`; deployment tooling rebases independent static builds and redirects the previous demo paths.

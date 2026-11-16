@@ -38,15 +38,15 @@ export const projectCategories = [
   },
   {
     id: "websites",
-    title: "Websites",
+    title: "Designs Facetworks",
     description:
-      "Eighteen independent website concepts, each with its own visual direction.",
+      "Nineteen websites. Different ideas, different identities. One collection.",
   },
   {
     id: "experiments",
-    title: "Interactive experiments",
+    title: "Interactive Graphics",
     description:
-      "Interactive studies in physics, light, motion, sound, and the unexpected things a browser can do.",
+      "Twenty-four experiments in physics, 3D, particles, light and sound. Open the collection and play.",
   },
   {
     id: "packages",

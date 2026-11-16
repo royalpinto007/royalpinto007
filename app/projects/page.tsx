@@ -7,7 +7,7 @@ import path from "node:path";
 import { siteConfig } from "@/data/site";
 import { projectCategories, categoryFor } from "@/data/project-categories";
 import { ProjectCard } from "@/components/ProjectCard";
-import { DesignGallery } from "@/components/DesignGallery";
+import { FacetworksCollage } from "@/components/FacetworksCollage";
 import { CategoryMenu } from "@/components/CategoryMenu";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function ProjectsPage() {
   return (
     <div className="portfolio-shell projects-page">
       <header className="projects-heading world-heading" data-motion-intro>
-        <WorldScene kind="arcade" />
+        <WorldScene kind="arcade" priority />
         <h1>Projects.</h1>
         <p>
           Apps, agents, APIs, extensions and experiments. Code I build, deploy
@@ -62,9 +62,9 @@ export default function ProjectsPage() {
               <p>{category.description}</p>
             </div>
             {category.id === "websites" ? (
-              <DesignGallery kind="websites" />
+              <FacetworksCollage collection="designs" />
             ) : category.id === "experiments" ? (
-              <DesignGallery kind="experiments" />
+              <FacetworksCollage collection="graphics" />
             ) : (
               <div className="category-projects">
                 {items.map((project) => {
@@ -107,14 +107,6 @@ export default function ProjectsPage() {
                   );
                 })}
               </div>
-            )}
-            {category.id === "websites" && (
-              <a
-                className="quiet-link"
-                href="https://royalpinto007.com/facetworks/"
-              >
-                Explore Facetworks ↗
-              </a>
             )}
           </section>
         );
