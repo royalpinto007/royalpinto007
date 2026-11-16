@@ -2,131 +2,287 @@
   {
     "id": "resolvd",
     "name": "Resolvd",
-    "image": "/agentpostmortem/resolvd.webp"
+    "image": "/agentpostmortem/resolvd.webp",
+    "href": "https://resolvd.agentpostmortem.com",
+    "group": "agents",
+    "kind": "Live",
+    "description": "Support inbox operator that auto-resolves within policy and escalates the rest with a proposed action.",
+    "output": "Resolve or escalate",
+    "preview": "screenshot"
   },
   {
     "id": "greenlite",
     "name": "Greenlite",
-    "image": "/agentpostmortem/greenlite.webp"
+    "image": "/agentpostmortem/greenlite.webp",
+    "href": "https://greenlite.agentpostmortem.com",
+    "group": "agents",
+    "kind": "Live",
+    "description": "One-tap human-in-the-loop approval cockpit for agent escalations, on web and mobile.",
+    "output": "Approve, edit or deny",
+    "preview": "screenshot"
   },
   {
     "id": "relayg",
     "name": "RelayG",
-    "image": "/agentpostmortem/relayg.webp"
+    "image": "/agentpostmortem/relayg.webp",
+    "href": "https://relayg.agentpostmortem.com",
+    "group": "agents",
+    "kind": "Live",
+    "description": "Support triage as a LangGraph state machine: typed state, checkpointing, and a human interrupt for risky actions.",
+    "output": "Pause for approval",
+    "preview": "screenshot"
   },
   {
     "id": "webhands",
     "name": "Webhands",
-    "image": "/agentpostmortem/webhands.webp"
+    "image": "/agentpostmortem/webhands.webp",
+    "href": "https://webhands.agentpostmortem.com",
+    "group": "agents",
+    "kind": "Live",
+    "description": "Computer-use agent for tools with no API: it drives a real browser and refuses any write until you confirm it.",
+    "output": "Structured result",
+    "preview": "screenshot"
   },
   {
     "id": "bridgekit",
     "name": "Bridgekit",
-    "image": "/agentpostmortem/bridgekit.webp"
+    "image": "/agentpostmortem/bridgekit.webp",
+    "href": "https://bridgekit.agentpostmortem.com",
+    "group": "agents",
+    "kind": "Live",
+    "description": "Scoped MCP server that exposes company tools to agents with per-client permission boundaries and an audit log.",
+    "output": "Audited tool access",
+    "preview": "screenshot"
   },
   {
     "id": "tracecase",
     "name": "Tracecase",
-    "image": "/agentpostmortem/tracecase.webp"
+    "image": "/agentpostmortem/tracecase.webp",
+    "href": "https://tracecase.agentpostmortem.com",
+    "group": "agents",
+    "kind": "Live",
+    "description": "CI for AI agents: record real runs, replay them against prompt and model changes, and catch regressions before they ship.",
+    "output": "Regression report",
+    "preview": "screenshot"
   },
   {
     "id": "casebook-mcp",
     "name": "Casebook MCP",
-    "image": "/agentpostmortem/casebook-mcp.webp"
+    "image": "/agentpostmortem/casebook-mcp.webp",
+    "href": "https://mcp.agentpostmortem.com",
+    "group": "agents",
+    "kind": "Live",
+    "description": "Live Model Context Protocol server that makes this failure registry queryable by any agent.",
+    "output": "Cited failure evidence",
+    "preview": "workflow"
   },
   {
     "id": "casebook-chat",
     "name": "Casebook Chat",
-    "image": "/agentpostmortem/casebook-chat.webp"
+    "image": "/agentpostmortem/casebook-chat.webp",
+    "href": "https://chat.agentpostmortem.com",
+    "group": "agents",
+    "kind": "Live",
+    "description": "Streaming investigation assistant that tool-calls the MCP server and answers with cited real case IDs.",
+    "output": "Answer with case IDs",
+    "preview": "screenshot"
   },
   {
     "id": "injection-arena",
     "name": "Injection Arena",
-    "image": "/agentpostmortem/injection-arena.webp"
+    "image": "/agentpostmortem/injection-arena.webp",
+    "href": "https://injection-arena.agentpostmortem.com",
+    "group": "agents",
+    "kind": "Live",
+    "description": "Self-hostable prompt-injection challenge: ten levels stack real defenses and a server-side judge scores every crack.",
+    "output": "Challenge result",
+    "preview": "screenshot"
   },
   {
     "id": "tokencut",
     "name": "tokencut",
-    "image": "/agentpostmortem/tokencut.webp"
+    "image": "/agentpostmortem/tokencut.webp",
+    "href": "https://www.npmjs.com/package/tokencut",
+    "group": "tooling",
+    "kind": "npm",
+    "description": "Measure and cut the token cost of an LLM or agent message payload before you send it: truncate bloated tool results, drop duplicate context, trim to a budget. Zero model calls.",
+    "output": "Context within budget",
+    "preview": "workflow"
   },
   {
     "id": "mcp-audit",
     "name": "MCP-audit",
-    "image": "/agentpostmortem/mcp-audit.webp"
+    "image": "/agentpostmortem/mcp-audit.webp",
+    "href": "https://www.npmjs.com/package/@royalpinto007/mcp-audit",
+    "group": "tooling",
+    "kind": "npm",
+    "description": "Security scanner for MCP servers, like npm audit for the Model Context Protocol: 18 rules, SARIF output.",
+    "output": "Findings + SARIF",
+    "preview": "workflow"
   },
   {
     "id": "skill-audit",
     "name": "Skill-audit",
-    "image": "/agentpostmortem/skill-audit.webp"
+    "image": "/agentpostmortem/skill-audit.webp",
+    "href": "https://www.npmjs.com/package/@royalpinto007/skill-audit",
+    "group": "tooling",
+    "kind": "npm",
+    "description": "Security scanner for agent skills: flags prompt-injection, dangerous shell, secret access, and exfiltration before you install a Claude/agent Skill. 31 rules, SARIF.",
+    "output": "Findings + SARIF",
+    "preview": "workflow"
   },
   {
     "id": "ctxtrim",
     "name": "Ctxtrim",
-    "image": "/agentpostmortem/ctxtrim.webp"
+    "image": "/agentpostmortem/ctxtrim.webp",
+    "href": "https://www.npmjs.com/package/ctxtrim",
+    "group": "tooling",
+    "kind": "npm",
+    "description": "Trims AI-context bloat: finds the files ballooning your Claude Code, Cursor, and Codex token cost and writes the ignore files to cut it.",
+    "output": "Ignore-file suggestions",
+    "preview": "workflow"
   },
   {
     "id": "evalgate",
     "name": "Evalgate",
-    "image": "/agentpostmortem/evalgate.webp"
+    "image": "/agentpostmortem/evalgate.webp",
+    "href": "https://www.npmjs.com/package/@royalpinto007/evalgate",
+    "group": "tooling",
+    "kind": "npm",
+    "description": "Prompt and agent regression CI: the build fails when your prompt gets dumber, with a per-PR quality delta.",
+    "output": "Quality delta in CI",
+    "preview": "workflow"
   },
   {
     "id": "ctxlens",
     "name": "Ctxlens",
-    "image": "/agentpostmortem/ctxlens.webp"
+    "image": "/agentpostmortem/ctxlens.webp",
+    "href": "https://pypi.org/project/ctxlens-cli/",
+    "group": "tooling",
+    "kind": "PyPI",
+    "description": "Context-window profiler for agents: shows what is eating your context per turn and recommends what to cut.",
+    "output": "Waste + recommendations",
+    "preview": "workflow"
   },
   {
     "id": "answerproof",
     "name": "Answerproof",
-    "image": "/agentpostmortem/answerproof.webp"
+    "image": "/agentpostmortem/answerproof.webp",
+    "href": "https://pypi.org/project/answerproof/",
+    "group": "tooling",
+    "kind": "PyPI",
+    "description": "Verifiable, tamper-evident receipts for RAG answers: Merkle inclusion proofs and Ed25519 signatures.",
+    "output": "Independently verifiable",
+    "preview": "workflow"
   },
   {
     "id": "agentrace",
     "name": "Agentrace",
-    "image": "/agentpostmortem/agentrace.webp"
+    "image": "/agentpostmortem/agentrace.webp",
+    "href": "https://github.com/AgentPostmortem/Agentrace",
+    "group": "tooling",
+    "kind": "GitHub",
+    "description": "Observability for AI agents: parses session transcripts with no instrumentation and flags results you should not trust.",
+    "output": "Suspicious-result flags",
+    "preview": "workflow"
   },
   {
     "id": "voiceeval",
     "name": "Voiceeval",
-    "image": "/agentpostmortem/voiceeval.webp"
+    "image": "/agentpostmortem/voiceeval.webp",
+    "href": "https://github.com/AgentPostmortem/Voiceeval",
+    "group": "tooling",
+    "kind": "GitHub",
+    "description": "Evaluation for voice agents: catches misheard numbers, missing confirmations, and blown latency budgets.",
+    "output": "Voice failure report",
+    "preview": "workflow"
   },
   {
     "id": "vaultrag",
     "name": "VaultRAG",
-    "image": "/agentpostmortem/vaultrag.webp"
+    "image": "/agentpostmortem/vaultrag.webp",
+    "href": "https://github.com/AgentPostmortem/VaultRAG",
+    "group": "tooling",
+    "kind": "GitHub",
+    "description": "Permission-aware RAG where the access-control check lives inside the retrieval query; CI fails on any leak.",
+    "output": "Authorized documents",
+    "preview": "workflow"
   },
   {
     "id": "tenantq",
     "name": "Tenantq",
-    "image": "/agentpostmortem/tenantq.webp"
+    "image": "/agentpostmortem/tenantq.webp",
+    "href": "https://github.com/AgentPostmortem/Tenantq",
+    "group": "tooling",
+    "kind": "GitHub",
+    "description": "Multi-tenant hybrid search on Qdrant: payload tenant isolation, dense and sparse RRF, HNSW tuning, and benchmarks.",
+    "output": "Tenant-isolated results",
+    "preview": "workflow"
   },
   {
     "id": "awesome-mcp-security",
     "name": "Awesome MCP Security",
-    "image": "/agentpostmortem/awesome-mcp-security.webp"
+    "image": "/agentpostmortem/awesome-mcp-security.webp",
+    "href": "https://mcp-security.agentpostmortem.com",
+    "group": "resources",
+    "kind": "List",
+    "description": "Curated, auto-updating directory of tools, standards, and research for securing Model Context Protocol servers, organized by what each one defends against.",
+    "output": "Tools, standards, research",
+    "preview": "screenshot"
   },
   {
     "id": "awesome-context-engineering",
     "name": "Awesome Context Engineering",
-    "image": "/agentpostmortem/awesome-context-engineering.webp"
+    "image": "/agentpostmortem/awesome-context-engineering.webp",
+    "href": "https://context-engineering.agentpostmortem.com",
+    "group": "resources",
+    "kind": "List",
+    "description": "Practitioner-first directory for context engineering: fitting the right tokens in the window, and fighting context rot with the tool that mitigates each failure mode.",
+    "output": "Practical references",
+    "preview": "screenshot"
   },
   {
     "id": "awesome-agent-memory",
     "name": "Awesome Agent Memory",
-    "image": "/agentpostmortem/awesome-agent-memory.webp"
+    "image": "/agentpostmortem/awesome-agent-memory.webp",
+    "href": "https://agent-memory.agentpostmortem.com",
+    "group": "resources",
+    "kind": "List",
+    "description": "Vendor-neutral directory of frameworks, stores, benchmarks, and papers for AI agent memory, with benchmarks as a first-class category.",
+    "output": "Frameworks + benchmarks",
+    "preview": "screenshot"
   },
   {
     "id": "awesome-agent-skills",
     "name": "Awesome Agent Skills",
-    "image": "/agentpostmortem/awesome-agent-skills.webp"
+    "image": "/agentpostmortem/awesome-agent-skills.webp",
+    "href": "https://agent-skills.agentpostmortem.com",
+    "group": "resources",
+    "kind": "List",
+    "description": "A small, verified, security-aware directory of Agent Skills (SKILL.md), curated for trust with a first-class security section the volume lists skip.",
+    "output": "Verified skill references",
+    "preview": "screenshot"
   },
   {
     "id": "ship-skills",
     "name": "ship-skills",
-    "image": "/agentpostmortem/ship-skills.webp"
+    "image": "/agentpostmortem/ship-skills.webp",
+    "href": "https://github.com/royalpinto007/ship-skills",
+    "group": "resources",
+    "kind": "Skills",
+    "description": "Authored Agent Skills that make a repo shippable: tests, CI, packaging, release, and repo hygiene. Run ship-context, then ship-checklist sequences the rest.",
+    "output": "Shipping workflow",
+    "preview": "workflow"
   },
   {
     "id": "distro-skills",
     "name": "distro-skills",
-    "image": "/agentpostmortem/distro-skills.webp"
+    "image": "/agentpostmortem/distro-skills.webp",
+    "href": "https://github.com/royalpinto007/distro-skills",
+    "group": "resources",
+    "kind": "Skills",
+    "description": "Authored Agent Skills that distribute a dev or indie product across GitHub, Hacker News, Reddit, dev.to, and more. The distribution counterpart to ship-skills.",
+    "output": "Distribution workflow",
+    "preview": "workflow"
   }
 ]

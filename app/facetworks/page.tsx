@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { FacetworksCollage } from "@/components/FacetworksCollage";
+import { ProjectCollage } from "@/components/ProjectCollage";
+import { projectCollections } from "@/data/project-collections";
+import { ArrowUpRight } from "lucide-react";
 import { WorldScene } from "@/components/WorldScene";
-import { facetworksCollections } from "@/data/facetworks";
 import "@/components/facetworks.css";
 
 export const metadata: Metadata = {
@@ -24,16 +25,34 @@ export default function FacetworksPage() {
           Different visual worlds. One browser. Pick a collection and explore.
         </p>
       </header>
-      {(["designs", "graphics"] as const).map((collection) => (
-        <section
-          className="facetworks-index-section"
-          id={collection === "designs" ? "sites" : "experiments"}
-          key={collection}
-        >
-          <h2>{facetworksCollections[collection].title}</h2>
-          <FacetworksCollage collection={collection} />
-        </section>
-      ))}
+      {projectCollections
+        .filter(
+          (category) =>
+            category.id === "websites" || category.id === "experiments",
+        )
+        .map((category) => (
+          <section
+            className="facetworks-index-section"
+            id={category.id === "websites" ? "sites" : "experiments"}
+            key={category.id}
+          >
+            <div className="collection-section-heading">
+              <h2>{category.title}</h2>
+              <a
+                className="collection-view-all collection-all"
+                href={category.href}
+              >
+                View all {category.count}
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+            </div>
+            <div className="collection-boards">
+              {category.groups.map((group) => (
+                <ProjectCollage key={group.id} group={group} />
+              ))}
+            </div>
+          </section>
+        ))}
     </div>
   );
 }

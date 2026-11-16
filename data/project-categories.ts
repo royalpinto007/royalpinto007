@@ -42,13 +42,13 @@ export const projectCategories = [
     id: "websites",
     title: "Designs Facetworks",
     description:
-      "Nineteen websites. Different ideas, different identities. One collection.",
+      "Studios, products, places and storefronts. Nineteen distinct website concepts.",
   },
   {
     id: "experiments",
     title: "Interactive Graphics",
     description:
-      "Twenty-four experiments in physics, 3D, particles, light and sound. Open the collection and play.",
+      "3D scenes, physics, generative visuals and playful interactions. Open an experiment and play.",
   },
   {
     id: "packages",
