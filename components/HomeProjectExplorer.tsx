@@ -175,22 +175,25 @@ export function HomeProjectExplorer() {
           </div>
         </div>
       </section>
+      {/* Apps & products already has a shelf above; only link what Home does not preview. */}
       <nav className="discovery-more" aria-label="More project collections">
-        {["open-source", "apps"].map((id) => {
-          const collection = findCollection(id);
+        {(() => {
+          const collection = findCollection("open-source");
           return (
             <Link
               href={collection.href}
               prefetch={false}
-              key={id}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {collection.title}
+              <span>
+                <strong>{collection.title}</strong>
+                <small>Docs, modules and compilers, built in the open.</small>
+              </span>
               <ArrowUpRight size={18} aria-hidden="true" />
             </Link>
           );
-        })}
+        })()}
       </nav>
     </section>
   );

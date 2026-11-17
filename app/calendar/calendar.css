@@ -182,3 +182,21 @@
   font-size: 17px;
   line-height: 1.65;
 }
+
+/* A quiet coastal plate keeps Calendar in the same world as the other routes. */
+.calendar-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.calendar-stage > .projects-scenery::after {
+  background: linear-gradient(
+    100deg,
+    #fff8efeb 0%,
+    #fff6ecc7 45%,
+    #fff3e670 100%
+  );
+}
+.calendar-preview-copy h2 {
+  margin-top: 0;
+}

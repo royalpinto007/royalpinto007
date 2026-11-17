@@ -189,11 +189,22 @@
   flex-shrink: 0;
   margin-top: 3px;
 }
+/* The label sits beside the title when there is room and drops below it on narrow cards. */
+.project-preview-caption:has(.preview-only) {
+  flex-wrap: wrap;
+}
+.project-preview-caption:has(.preview-only) > div {
+  flex: 1 1 11ch;
+}
 .preview-only {
-  font-size: 11px;
+  flex-shrink: 0;
+  padding: 3px 9px;
+  border: 1px solid #b9c6cf;
+  border-radius: 999px;
+  font-size: 12px;
   line-height: 1.4;
-  color: #5a6570;
-  max-width: 6ch;
+  white-space: nowrap;
+  color: #4d5a66;
 }
 .project-overview {
   position: relative;

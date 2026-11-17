@@ -35,7 +35,7 @@ with sync_playwright() as p:
         assert page.locator("[data-home-collection]").evaluate_all("ns=>ns.map(n=>n.dataset.homeCollection)") == ["experiments", "games", "apps", "websites", "web3"]
         assert page.locator(".home-web3 .web3-preview").count() == 2
         assert page.locator(".web3-copy a").get_attribute("href") == "/projects/web3"
-        assert page.locator(".discovery-more a").last.get_attribute("href") == "/projects/apps"
+        assert page.locator(".discovery-more a").evaluate_all("ns=>ns.map(n=>n.getAttribute('href'))") == ["/projects/open-source"]
         assert page.locator(".home-discovery .project-collage").count() == 0
         page.screenshot(path=str(OUT/f"hero-{width}.png"))
         page.emulate_media(reduced_motion="reduce")

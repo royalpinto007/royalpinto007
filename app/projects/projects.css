@@ -454,7 +454,9 @@
     margin-bottom: 12px;
     font-size: clamp(66px, 16vw, 110px);
   }
+  /* Copy sits directly under the title; the arcade art follows in its own row. */
   .projects-page .projects-heading > p {
+    grid-row: 2;
     font-size: 17px;
   }
   .projects-page .collection-section-heading {
@@ -504,4 +506,17 @@
   .project-preview-caption
   p {
   font-size: 16px;
+}
+
+/* On narrow screens copy spans the full width, so the veil must cover the right side too. */
+@media (max-width: 767px) {
+  .projects-heading .projects-scenery::after,
+  .collection-page-heading .projects-scenery::after {
+    background: linear-gradient(
+      90deg,
+      #fff6eaf0,
+      #fff4e9c4 55%,
+      #fff0e08a 100%
+    );
+  }
 }

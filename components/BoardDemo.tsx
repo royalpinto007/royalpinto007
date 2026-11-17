@@ -19,12 +19,14 @@ export function BoardDemo() {
         {converted ? <RotateCcw size={17} /> : <ArrowRight size={17} />}
         {converted ? "See the original" : "See the editable version"}
       </button>
-      <p role="status">
-        {converted
-          ? "Three shapes and two connections, ready to edit."
-          : "A small idea, ready for a new canvas."}
-      </p>
-      <small>Sample workflow. Open BoardEject to convert a file.</small>
+      <div className="board-demo-note">
+        <p role="status">
+          {converted
+            ? "Three shapes and two connections, ready to edit."
+            : "A small idea, ready for a new canvas."}
+        </p>
+        <small>Sample workflow. Open BoardEject to convert a file.</small>
+      </div>
     </div>
   );
 }

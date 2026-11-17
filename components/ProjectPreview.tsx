@@ -18,8 +18,11 @@ export function ProjectPreview({
     "tablewink",
     "hushmallow",
   ].includes(project.id);
+  // The caption already says "Preview only"; the window bar names what is shown.
   const target = !project.href
-    ? "Preview only"
+    ? isGame
+      ? "Game preview"
+      : "Preview"
     : /npmjs.com|pypi.org/.test(project.href)
       ? "Package"
       : project.href.includes("github.com")
@@ -43,7 +46,7 @@ export function ProjectPreview({
                   : target
               : "Project overview"}
           </span>
-          <ArrowUpRight size={14} />
+          {project.href && <ArrowUpRight size={14} />}
         </div>
         <div
           className={`project-window-image ${project.previewKind === "workflow" ? "is-workflow" : ""}`}

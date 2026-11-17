@@ -109,7 +109,7 @@ export const siteConfig = {
     {
       id: "signalizeai",
       name: "SignalizeAI",
-      category: "AI",
+      category: "AI browser extension",
       status: "Production",
       description:
         "Account research, change detection and outreach, in a browser extension for Chrome and Firefox.",
@@ -609,7 +609,7 @@ export const siteConfig = {
     {
       id: "pagefold",
       name: "Pagefold",
-      category: "Open Source",
+      category: "Offline reading",
       status: "Open Source",
       description:
         "Save any article to read offline later. The readable text is extracted in the page and kept on your own machine, with no account and no network requests at all.",
@@ -627,7 +627,7 @@ export const siteConfig = {
     {
       id: "stowlane",
       name: "Stowlane",
-      category: "Open Source",
+      category: "Tab lanes",
       status: "Open Source",
       description:
         "Close forty tabs without losing them. A window is stowed into a lane named after the site you were mostly on, and comes back whenever you want it.",
@@ -645,7 +645,7 @@ export const siteConfig = {
     {
       id: "glasswing",
       name: "Glasswing",
-      category: "Open Source",
+      category: "Accessibility checks",
       status: "Open Source",
       description:
         "Ten accessibility checks on any page, each explained in a sentence you can act on rather than a WCAG criterion number. Runs locally, sends nothing anywhere.",
@@ -663,7 +663,7 @@ export const siteConfig = {
     {
       id: "bellrope",
       name: "Bellrope",
-      category: "Open Source",
+      category: "Page change alerts",
       status: "Open Source",
       description:
         "Watch one part of a page and get told when it changes. Checks run in your own browser on a schedule you set, and the only server involved is the one you are watching.",
@@ -681,7 +681,7 @@ export const siteConfig = {
     {
       id: "cribsheet",
       name: "Cribsheet",
-      category: "Open Source",
+      category: "Local decoder",
       status: "Open Source",
       description:
         "Decode a timestamp, cron line, JWT, UUID or hash in the page you found it, so it never goes to a stranger's website. A token pasted into an online decoder has been handed to whoever runs that site.",
@@ -899,7 +899,7 @@ export const siteConfig = {
     {
       id: "water",
       name: "Water",
-      category: "Open Source",
+      category: "VS Code extension",
       status: "Production",
       description:
         "VS Code extension that estimates the water footprint of your AI usage — making the environmental cost of LLM calls visible in the editor.",
@@ -935,7 +935,7 @@ export const siteConfig = {
     {
       id: "dent-docs",
       name: "DENT Network OS — Docs & Automation",
-      category: "Open Source",
+      category: "Network docs",
       status: "Open Source",
       description:
         "Network documentation and Ansible automation for the DENT Network Operating System at the Linux Foundation.",

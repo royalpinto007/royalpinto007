@@ -258,9 +258,18 @@
 }
 .discovery-more {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 40px;
+  grid-template-columns: minmax(0, 1fr);
   padding-top: 28px;
+}
+.discovery-more strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 600;
+}
+.discovery-more small {
+  display: block;
+  font-size: 15px;
+  opacity: 0.82;
 }
 .discovery-more a {
   display: flex;

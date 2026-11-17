@@ -130,13 +130,23 @@
   border-color: #1b4259;
   font-size: 15px;
 }
+/* One note panel instead of two detached label chips over the scenery. */
+.board-demo-note {
+  display: grid;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fffaf0ed;
+  box-shadow: 0 10px 24px -18px #173b5080;
+}
 .board-demo p,
 .board-demo small {
   color: #173b50;
-  background: #fffaf0e8;
-  padding: 6px 10px;
-  border-radius: 4px;
-  width: fit-content;
+}
+.board-demo small {
+  color: #4b6172;
 }
 .board-demo p {
   font-size: 15px;
