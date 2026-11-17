@@ -35,7 +35,7 @@ with sync_playwright() as p:
     page.screenshot(path=str(OUT/f'projects-menu-{w}.png'));page.keyboard.press('Escape')
    elif route=='contact':
     assert page.locator('.contact-actions > a').count()==2
-    assert page.locator('.contact-socials > a').count()==2
+    assert page.locator('.contact-socials a').count()==2 and page.locator('.contact-socials a').evaluate_all("ns=>ns.map(n=>n.getAttribute('aria-label'))")==['GitHub','X']
     hrefs=page.locator('main a').evaluate_all('ns=>ns.map(n=>n.href)')
     assert not any('linkedin.com' in href or href.startswith(('tel:','https://wa.me')) for href in hrefs)
     assert page.locator('.contact-actions a[href^="mailto:"]').count()==1

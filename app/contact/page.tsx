@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Contact",
   path: "/contact",
   description:
-    "Hire Royal Simpson Pinto for software, AI agent and full-stack work. Email or book a call to talk freelance projects, roles and open source.",
+    "Contact Royal Simpson Pinto about software, AI agent and full-stack work. Email or book a call to talk freelance projects, roles and open source.",
 });
 
 export default function ContactPage() {
@@ -56,13 +56,26 @@ export default function ContactPage() {
       </section>
       <nav className="contact-socials" aria-label="Follow my work">
         <p>Code, experiments and what’s next.</p>
-        <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
-          <GithubIcon /> GitHub <ArrowUpRight size={18} aria-hidden="true" />
-        </a>
-        <a href={siteConfig.twitter} target="_blank" rel="noopener noreferrer">
-          <TwitterIcon /> X / Twitter{" "}
-          <ArrowUpRight size={18} aria-hidden="true" />
-        </a>
+        <div className="contact-social-icons">
+          <a
+            href={siteConfig.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <GithubIcon />
+          </a>
+          <a
+            href={siteConfig.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X"
+            title="X"
+          >
+            <TwitterIcon />
+          </a>
+        </div>
       </nav>
     </div>
   );
