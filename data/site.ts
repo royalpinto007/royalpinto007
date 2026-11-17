@@ -1,87 +1,15 @@
-import { facetworksProjects } from "./facetworks";
+import { profile } from "./profile";
 import { web3Projects } from "./web3-projects";
 import { gameProjects } from "./game-projects";
 import { drupalProjects, dLanguageProjects } from "./drupal-and-d-projects";
 
 export const siteConfig = {
-  name: "Royal Simpson Pinto",
-  initials: "RSP",
-  role: "Software Developer",
-  location: "Mangaluru, India",
-  timezone: "IST (UTC+5:30)",
-  bio: "Royal Simpson Pinto, indie dev and freelancer. AI agents, full-stack apps, backend systems, automation, Web3 and open source.",
-  shortBio:
-    "Indie dev and freelancer building software and contributing to open source.",
-  email: "royalpinto007@gmail.com",
-  phone: "[removed]",
-  whatsappLink: "https://wa.me/[removed]",
-  calendarLink: "https://cal.com/royalpinto007",
-  github: "https://github.com/royalpinto007",
-  linkedin: "https://linkedin.com/in/royalpinto007",
-  twitter: "https://twitter.com/royalpinto007",
-  mediumUsername: "royalpinto007",
-  mediumFeedUrl: "https://medium.com/feed/@royalpinto007",
-  hireUrl: "https://hire.royalpinto007.com",
-  availability:
-    "Open to freelance projects, developer roles and open-source work",
-  availabilityStatus: true,
-  replyTime: "Within 24 hours",
-  avatar: "/portrait-enhanced.webp",
+  ...profile,
 
   stats: [
     { label: "Open-source programmes", value: "3" },
     { label: "Students mentored", value: "500+" },
   ],
-
-  currently: [
-    "Building agentic AI workflows with n8n and Claude API for clients",
-    "Running a suite of eight live AI agents for triage, approvals, debugging, and ops",
-    "Growing SignalizeAI — a sales-research extension on Chrome and Firefox",
-    "Contributing to open-source systems, agent tooling, and developer tools",
-    "Contributing to open source compilers, networking systems, and AI tooling",
-  ],
-
-  frontendSites: facetworksProjects.filter((p) => p.collection === "designs"),
-  gpuSites: facetworksProjects.filter((p) => p.collection === "graphics"),
-  services: [
-    {
-      icon: "Brain",
-      title: "AI agents & automation",
-      description:
-        "AI features and workflows that turn a manual process into something people can use every day.",
-      tags: ["Claude API", "OpenAI", "n8n"],
-    },
-    {
-      icon: "Layers",
-      title: "Full-stack engineering",
-      description:
-        "From the first screen to the API, database, and deployment. One connected product, built to keep working.",
-      tags: ["Next.js", "TypeScript", "Node.js"],
-    },
-    {
-      icon: "Server",
-      title: "Open-source engineering",
-      description:
-        "Contributions to shared software, from compiler and networking code to AI tools, documentation, and developer workflows.",
-      tags: ["D", "C++", "Linux"],
-    },
-    {
-      icon: "Palette",
-      title: "Extensions & creative web",
-      description:
-        "Useful browser extensions and expressive websites, with careful attention to interaction, accessibility, and the details you feel.",
-      tags: ["Chrome APIs", "Cloudflare", "Supabase"],
-    },
-  ],
-
-  techStack: {
-    Frontend: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Vite.js"],
-    Backend: ["Node.js", "Express", "PHP", "REST APIs", "Drupal"],
-    "AI / Agents": ["Claude API", "OpenAI", "Gemini AI", "n8n", "SerpAPI"],
-    Databases: ["SQL", "Supabase", "Cloudflare Workers"],
-    Languages: ["JavaScript", "Python", "C++", "D", "PHP"],
-    Tools: ["Git", "Ansible", "GNS3", "Wrangler", "GitHub Actions"],
-  },
 
   projects: [
     ...web3Projects,
@@ -934,7 +862,7 @@ export const siteConfig = {
     },
     {
       id: "dent-docs",
-      name: "DENT Network OS — Docs & Automation",
+      name: "DENT Network OS Docs & Automation",
       category: "Network docs",
       status: "Open Source",
       description:
@@ -971,18 +899,4 @@ export const siteConfig = {
       liveUrl: "https://royalpinto007.com/facetworks",
     },
   ],
-
-  footerLinks: {
-    Pages: [
-      { label: "Home", href: "/" },
-      { label: "Projects", href: "/projects" },
-      { label: "Contact", href: "/contact" },
-    ],
-    Connect: [
-      { label: "GitHub", href: "https://github.com/royalpinto007" },
-      { label: "LinkedIn", href: "https://linkedin.com/in/royalpinto007" },
-      { label: "X / Twitter", href: "https://twitter.com/royalpinto007" },
-      { label: "Medium", href: "https://medium.com/@royalpinto007" },
-    ],
-  },
 };

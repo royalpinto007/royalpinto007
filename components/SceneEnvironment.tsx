@@ -59,7 +59,6 @@ export function SceneEnvironment({ scene }: { scene: Environment }) {
         media="(max-width: 767px)"
         srcSet={`/scene/environments/${scene}-mobile.webp`}
       />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/scene/environments/${scene}.webp`}
         width={1800}

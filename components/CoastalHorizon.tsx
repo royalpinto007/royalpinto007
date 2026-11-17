@@ -10,7 +10,6 @@ export function CoastalHorizon() {
           media="(max-width: 767px)"
           srcSet="/scene/sailboat-mobile.webp"
         />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="horizon-boat"
           src="/scene/sailboat.webp"

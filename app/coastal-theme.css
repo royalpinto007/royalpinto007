@@ -571,7 +571,8 @@ body {
   opacity: 0.28;
 }
 .reel-poster > .reel-poster-copy,
-.reel-poster > img {
+.reel-poster > img,
+.reel-poster > .reel-poster-backdrop > img {
   position: relative;
   z-index: 1;
 }

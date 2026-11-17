@@ -84,12 +84,20 @@ export function MotionReel() {
               <strong>Code. Test. Ship.</strong>
               <span>AI agents. Apps. Automation. Web3.</span>
             </div>
-            <Image
-              src="/scene/sunset-coast.webp"
-              alt=""
-              width={960}
-              height={640}
-            />
+            <picture className="reel-poster-backdrop">
+              <source
+                media="(max-width: 767px)"
+                srcSet="/scene/sunset-coast-mobile.webp"
+              />
+              <img
+                src="/scene/sunset-coast.webp"
+                alt=""
+                width={960}
+                height={640}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <picture className="film-poster-sculpture">
               <Image
                 src="/scene/film-sculpture.webp"

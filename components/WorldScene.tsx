@@ -24,7 +24,6 @@ export function WorldScene({
             media="(max-width: 767px)"
             srcSet={`/scene/${asset}-mobile.webp`}
           />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`/scene/${asset}.webp`}
             width={1200}

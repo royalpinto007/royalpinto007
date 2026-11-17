@@ -122,7 +122,12 @@ export function mountPortfolioMotion(root: HTMLElement) {
             delay: (index % 3) * 0.06,
             ease: "power3.out",
             clearProps: "transform,opacity,visibility",
-            scrollTrigger: { trigger: node, start: "top 92%", once: true },
+            scrollTrigger: {
+              // Reveal copy with its visible card, not after the empty card scrolls in.
+              trigger: node.closest(".collection-section-heading") ?? node,
+              start: "top 92%",
+              once: true,
+            },
           });
           revealTweens.set(node, tween);
         });
@@ -192,7 +197,11 @@ export function mountPortfolioMotion(root: HTMLElement) {
               duration: 0.85,
               ease: "power3.out",
               clearProps: "transform,clipPath",
-              scrollTrigger: { trigger: title, start: "top 92%", once: true },
+              scrollTrigger: {
+                trigger: title.closest(".collection-section-heading") ?? title,
+                start: "top 92%",
+                once: true,
+              },
             });
           });
 

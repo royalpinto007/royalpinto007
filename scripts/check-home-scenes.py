@@ -17,7 +17,7 @@ with sync_playwright() as p:
   assert page.locator('.portrait-canvas,.portrait-tools').count()==0
   if width<768:
    assert page.locator('.site-header').bounding_box()['height']<=65
-   page.get_by_text('Explore',exact=True).click()
+   page.locator('.home-mobile-menu summary').click()
    assert page.get_by_role('navigation',name='Mobile navigation').get_by_role('link',name='Projects').is_visible()
    page.keyboard.press('Escape');assert not page.locator('.home-mobile-menu').evaluate('n=>n.open')
   page.get_by_role('button',name='Pause hero effects').click()
@@ -62,7 +62,7 @@ with sync_playwright() as p:
  page=context.new_page();page.goto(BASE,wait_until='networkidle')
  assert page.locator('.portrait img').evaluate('n=>n.naturalWidth===460')
  assert page.locator('.experiment-play:visible').count()==0
- page.get_by_text('Explore',exact=True).click();assert page.get_by_role('navigation',name='Mobile navigation').is_visible()
+ page.locator('.home-mobile-menu summary').click();assert page.get_by_role('navigation',name='Mobile navigation').is_visible()
  for system in ['signalizeai','boardeject','aashinyra']:
   page.locator(f'label:has(#system-{system})').click();assert page.locator(f'[data-system={system}]').is_visible()
  context.close()

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: "/social-sky.jpg",
         width: 1200,
         height: 630,
-        alt: "Royal Pinto's portfolio with an illustrated blue-sky portrait",
+        alt: "Royal Simpson Pinto, software engineer, in the coastal sunset portfolio hero",
       },
     ],
   },

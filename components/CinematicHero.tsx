@@ -91,7 +91,6 @@ export function CinematicHero({ children }: { children: ReactNode }) {
             media="(max-width: 767px)"
             srcSet="/scene/coast-mobile.webp"
           />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/scene/sunset-coast.webp"
             width="1672"
@@ -113,7 +112,6 @@ export function CinematicHero({ children }: { children: ReactNode }) {
                   media="(max-width: 767px)"
                   srcSet={`/scene/hero-orbit-${layer}-mobile.webp`}
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/scene/hero-orbit-${layer}.webp`}
                   width={960}

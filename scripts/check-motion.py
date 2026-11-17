@@ -173,7 +173,7 @@ with sync_playwright() as p:
     visible_cards(page)
     assert page.locator('.portrait img').get_attribute('src')=='/portrait-sky.png'
     assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
-    page.get_by_text('Explore',exact=True).click()
+    page.locator('.home-mobile-menu summary').click()
     page.get_by_role('navigation',name='Mobile navigation').get_by_role('link',name='Projects',exact=True).click()
     assert page.locator('[data-project-category]').count()==7
     context.close()

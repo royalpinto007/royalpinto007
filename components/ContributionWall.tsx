@@ -96,11 +96,11 @@ export function ContributionWall() {
         </div>
       )}
       <noscript>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <a
           href="/wall2026.svg"
           aria-label="Open the contribution calendar with daily dates and counts"
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="calendar-static"
             src="/wall2026.svg"

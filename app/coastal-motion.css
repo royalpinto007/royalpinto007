@@ -167,7 +167,8 @@
   padding: 0;
   background: #c6deed;
 }
-.home-page .motion-reel .reel-poster > img {
+.home-page .motion-reel .reel-poster > img,
+.home-page .motion-reel .reel-poster > .reel-poster-backdrop > img {
   position: absolute;
   inset: 0;
   max-height: none;
@@ -288,4 +289,9 @@
 }
 html[data-motion] .board-demo-action {
   display: inline-flex;
+}
+
+/* The responsive backdrop wrapper must not change the poster's layout. */
+.reel-poster-backdrop {
+  display: contents;
 }

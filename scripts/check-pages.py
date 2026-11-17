@@ -51,7 +51,7 @@ with sync_playwright() as p:
     assert page.locator('iframe,input,select,form').count()==0
     assert page.locator('.calendar-preview a').get_attribute('href')=='/projects'
     if w<1024:
-     page.get_by_text('Explore',exact=True).click()
+     page.locator('.home-mobile-menu summary').click()
      nav=page.get_by_role('navigation',name='Mobile navigation')
      assert nav.get_by_role('link',name='Calendar',exact=True).get_attribute('aria-current')=='page'
      nav.get_by_role('link',name='Calendar',exact=True).click()

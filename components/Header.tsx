@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Plus } from "lucide-react";
-import { siteConfig } from "@/data/site";
+import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import { profile } from "@/data/profile";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
@@ -44,7 +44,7 @@ export function Header() {
           ))}
         </nav>
         <div className="header-actions">
-          <a className="primary-link" href={siteConfig.hireUrl}>
+          <a className="primary-link" href={profile.hireUrl}>
             Hire me <ArrowUpRight size={15} />
           </a>
         </div>
@@ -58,7 +58,7 @@ export function Header() {
           }}
         >
           <summary>
-            Explore <Plus size={16} />
+            Menu <Plus size={16} aria-hidden="true" />
           </summary>
           <nav aria-label="Mobile navigation">
             {navLinks.map((link, index) => (
@@ -84,11 +84,11 @@ export function Header() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span>{link.label}</span>
-                <ArrowUpRight size={15} />
+                <ArrowRight size={15} aria-hidden="true" />
               </Link>
             ))}
-            <a href={siteConfig.hireUrl}>
-              Hire me <ArrowUpRight size={15} />
+            <a href={profile.hireUrl}>
+              Hire me <ArrowUpRight size={15} aria-hidden="true" />
             </a>
           </nav>
         </details>
