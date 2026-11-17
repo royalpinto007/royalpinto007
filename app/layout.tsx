@@ -8,6 +8,7 @@ import { siteConfig } from "@/data/site";
 import "./globals.css";
 import "./coastal-theme.css";
 import "./interface-polish.css";
+import "./links.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const display = Anton({

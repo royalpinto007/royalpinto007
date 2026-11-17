@@ -51,8 +51,16 @@ export default function CalendarPage() {
               details soon.
             </h2>
             <p>No events are published yet.</p>
-            <Link href="/projects" className="quiet-link" prefetch={false}>
-              Explore the work <ArrowRight size={17} aria-hidden="true" />
+            <Link
+              href="/projects"
+              className="go-link"
+              data-direction="forward"
+              prefetch={false}
+            >
+              <span className="go-link-label">Explore the work</span>
+              <span className="go-link-icon" aria-hidden="true">
+                <ArrowRight />
+              </span>
             </Link>
           </div>
         </section>

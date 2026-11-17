@@ -51,13 +51,17 @@ export function HomeProjectExplorer() {
           <p>Useful, playful, open. There’s more than one way to build.</p>
         </div>
         <Link
-          className="quiet-link"
+          className="go-link go-link-surface"
+          data-direction="forward"
           href="/projects"
           prefetch={false}
           target="_blank"
           rel="noopener noreferrer"
         >
-          All projects <ArrowRight size={18} aria-hidden="true" />
+          <span className="go-link-label">All projects</span>
+          <span className="go-link-icon" aria-hidden="true">
+            <ArrowRight />
+          </span>
         </Link>
       </header>
       <div className="discovery-shelves">
@@ -122,14 +126,19 @@ export function HomeProjectExplorer() {
             debug payments on Solana.
           </p>
           <Link
-            className="quiet-link"
+            className="go-link"
+            data-direction="forward"
             href="/projects/web3"
             prefetch={false}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Explore all {web3.count} tools{" "}
-            <ArrowRight size={18} aria-hidden="true" />
+            <span className="go-link-label">
+              Explore all {web3.count} tools
+            </span>
+            <span className="go-link-icon" aria-hidden="true">
+              <ArrowRight />
+            </span>
           </Link>
         </div>
         <div className="web3-workbench">

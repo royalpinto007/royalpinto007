@@ -154,7 +154,10 @@
   [data-system="signalizeai"],
 .home-page
   .systems-showcase:has(#system-boardeject:checked)
-  [data-system="boardeject"] {
+  [data-system="boardeject"],
+.home-page
+  .systems-showcase:has(#system-kabootar:checked)
+  [data-system="kabootar"] {
   display: block;
 }
 .home-page .system-case-intro {
@@ -1465,4 +1468,12 @@ html[data-motion="ready"]
   .home-page .open-source-journey {
     margin-top: 32px;
   }
+}
+
+/* The reel is a video, not a document: its frame text should not select. */
+.home-page .reel-shell :is(.reel-stage, .reel-canvas, .reel-static-note),
+.home-page .reel-shell :is(.reel-stage, .reel-canvas) * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }

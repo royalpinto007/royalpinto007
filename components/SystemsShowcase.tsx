@@ -14,6 +14,10 @@ import {
   Clipboard,
   Download,
   ChevronDown,
+  Share2,
+  Lock,
+  Radio,
+  CheckCheck,
 } from "lucide-react";
 
 const systems = [
@@ -112,6 +116,38 @@ const systems = [
     scope:
       "Editable-export path for the verified Freeform 4.5 subset. No board uploads.",
   },
+  {
+    id: "kabootar",
+    name: "Kabootar",
+    icons: [Lock, Radio, Share2, CheckCheck],
+    title: "No server. Every phone relays.",
+    description:
+      "An offline Flutter messenger. Phones discover each other over Bluetooth and Wi-Fi with Nearby Connections, carry sealed envelopes for one another and deliver them hop by hop, with SQLite for messages and de-duplication.",
+    flow: [
+      { title: "Seal & store", detail: "Encrypt, sign, save as sending" },
+      { title: "Flood on contact", detail: "Hello + carry cache per link" },
+      { title: "Relay with limits", detail: "Dedup · TTL 8 · 500 for 24h" },
+      { title: "Ack flows back", detail: "Clears copies, marks delivered" },
+    ],
+    decisions: [
+      {
+        title: "One id end to end",
+        text: "The message id is also the envelope, de-duplication and acknowledgement key, so flooding is idempotent and an ack maps straight to its database row.",
+      },
+      {
+        title: "Routing core in plain Dart",
+        text: "The mesh engine depends only on small ports for transport, seen ids and delivery, and is unit-tested against an in-memory mesh.",
+      },
+      {
+        title: "Persist what must survive",
+        text: "The seen set lives in SQLite so a restarted phone does not re-flood, and unacknowledged outgoing messages are rebuilt from the database on launch.",
+      },
+    ],
+    href: "https://github.com/royalpinto007/Kabootar",
+    link: "Read the source",
+    scope:
+      "Best-effort epidemic delivery (TTL 8, 24 hours). Android and iOS each mesh within their own platform; carried copies live in memory.",
+  },
 ];
 
 /** Native radio controls keep architecture exploration usable without JavaScript. */
@@ -125,9 +161,9 @@ export function SystemsShowcase() {
       <SceneEnvironment scene="atrium" />
       <header className="systems-heading section-intro world-heading chapter-heading">
         <h2 id="systems-title">
-          Under the
+          How it’s
           <br />
-          <span>hood.</span>
+          <span>built.</span>
         </h2>
         <WorldScene kind="engine" />
       </header>
@@ -162,13 +198,15 @@ export function SystemsShowcase() {
                 <h3 id={`title-${system.id}`}>{system.title}</h3>
               </div>
               <a
-                className="quiet-link"
+                className="go-link go-link-surface"
                 href={system.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {system.link}
-                <ArrowUpRight size={17} />
+                <span className="go-link-label">{system.link}</span>
+                <span className="go-link-icon" aria-hidden="true">
+                  <ArrowUpRight />
+                </span>
               </a>
             </div>
             <fieldset className="architecture-walkthrough">

@@ -44,8 +44,15 @@ export default async function CollectionPage({ params }: Props) {
           scene={details.id === "open-source" ? "pavilion" : "marina"}
           priority
         />
-        <a className="collection-back" href={`/projects#${details.id}`}>
-          <ArrowLeft size={18} aria-hidden="true" /> All collections
+        <a
+          className="collection-back go-link"
+          data-direction="back"
+          href={`/projects#${details.id}`}
+        >
+          <span className="go-link-icon" aria-hidden="true">
+            <ArrowLeft />
+          </span>
+          <span className="go-link-label">All collections</span>
         </a>
         <p className="collection-page-count">{details.count} projects</p>
         <h1>{details.title}</h1>

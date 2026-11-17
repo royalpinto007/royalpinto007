@@ -149,8 +149,16 @@ export default function HomePage() {
         </div>
         <div className="contribution-summary">
           <strong>12,623 contributions in 2026</strong>
-          <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
-            View GitHub profile <ArrowUpRight size={16} />
+          <a
+            className="go-link"
+            href={siteConfig.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="go-link-label">View GitHub profile</span>
+            <span className="go-link-icon" aria-hidden="true">
+              <ArrowUpRight />
+            </span>
           </a>
         </div>
         <div className="contribution-calendar">
@@ -220,13 +228,17 @@ export default function HomePage() {
                     <span>projects.</span>
                   </h2>
                   <Link
-                    className="quiet-link"
+                    className="go-link go-link-surface"
+                    data-direction="forward"
                     href="/projects"
                     prefetch={false}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    All projects <ArrowRight size={17} />
+                    <span className="go-link-label">All projects</span>
+                    <span className="go-link-icon" aria-hidden="true">
+                      <ArrowRight />
+                    </span>
                   </Link>
                 </header>
               )}
@@ -272,13 +284,15 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <a
-                  className="work-visit"
+                  className="go-link"
                   href={project.href}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View {project.name}
-                  <ArrowUpRight size={20} />
+                  <span className="go-link-label">View {project.name}</span>
+                  <span className="go-link-icon" aria-hidden="true">
+                    <ArrowUpRight />
+                  </span>
                 </a>
               </div>
             </article>

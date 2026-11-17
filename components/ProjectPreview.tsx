@@ -111,8 +111,16 @@ export function ProjectPreview({
         <div className="project-preview-details">
           <p>{project.description}</p>
           {project.source && project.source !== project.href && (
-            <a href={project.source} target="_blank" rel="noopener noreferrer">
-              Source <ArrowUpRight size={16} aria-hidden="true" />
+            <a
+              className="go-link"
+              href={project.source}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="go-link-label">Source</span>
+              <span className="go-link-icon" aria-hidden="true">
+                <ArrowUpRight />
+              </span>
             </a>
           )}
         </div>

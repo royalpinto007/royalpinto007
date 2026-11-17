@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 type GraphNode = {
   id: string;
   x: number;
@@ -298,6 +300,94 @@ const graphs: Record<
       { path: "M500 444 H355 V309", dashed: true },
     ],
   },
+  kabootar: {
+    description:
+      "A message gets a uuid, is sealed to the recipient's key and signed, and is saved to SQLite as sending. The mesh engine marks the id as seen, keeps a carry copy and floods it through Nearby Connections over Bluetooth and Wi-Fi. Relay phones de-duplicate by id, lower the TTL from 8 and carry up to 500 envelopes for 24 hours. The recipient verifies, decrypts and stores the message, then floods an acknowledgement back that clears carried copies and marks the sender's row delivered. There is no server.",
+    nodes: [
+      {
+        id: "compose",
+        x: 20,
+        y: 48,
+        title: "Compose",
+        sub: "uuid id · ChatService",
+      },
+      {
+        id: "seal",
+        x: 260,
+        y: 48,
+        title: "Seal & sign",
+        sub: "X25519 · AES-GCM · Ed25519",
+        tone: "violet",
+      },
+      {
+        id: "mesh",
+        x: 500,
+        y: 48,
+        title: "Mesh engine",
+        sub: "Mark seen · carry · flood",
+        tone: "blue",
+      },
+      {
+        id: "nearby",
+        x: 760,
+        y: 48,
+        title: "Nearby transport",
+        sub: "Bluetooth + Wi-Fi P2P",
+        tone: "pink",
+      },
+      {
+        id: "relay",
+        x: 760,
+        y: 225,
+        title: "Relay phones",
+        sub: "Dedup · TTL 8 · 24h carry",
+        tone: "pink",
+      },
+      {
+        id: "recipient",
+        x: 500,
+        y: 225,
+        title: "Recipient phone",
+        sub: "Verify · decrypt · store",
+        tone: "blue",
+      },
+      {
+        id: "ack",
+        x: 260,
+        y: 225,
+        title: "End-to-end ack",
+        sub: "Floods back, clears copies",
+        tone: "peach",
+      },
+      {
+        id: "messages",
+        x: 20,
+        y: 402,
+        title: "SQLite messages",
+        sub: "sending → delivered → read",
+        tone: "violet",
+      },
+      {
+        id: "seen",
+        x: 500,
+        y: 402,
+        title: "SQLite seen set",
+        sub: "Dedup ids · kept 48h",
+        tone: "peach",
+      },
+    ],
+    edges: [
+      { path: "M210 90 H260" },
+      { path: "M450 90 H500" },
+      { path: "M690 90 H760" },
+      { path: "M855 132 V225", label: "hop", x: 866, y: 182 },
+      { path: "M760 267 H690", label: "flood", x: 702, y: 252 },
+      { path: "M500 267 H450" },
+      { path: "M355 309 V444 H210", label: "delivered", x: 365, y: 382 },
+      { path: "M115 132 V402", label: "persist", x: 128, y: 270 },
+      { path: "M595 309 V402", label: "dedup", x: 607, y: 360, dashed: true },
+    ],
+  },
 };
 
 export function ArchitectureMap({
@@ -326,11 +416,29 @@ export function ArchitectureMap({
       ["converter", "preview", "report"],
       ["download"],
     ],
+    kabootar: [
+      ["compose", "seal", "messages"],
+      ["mesh", "nearby"],
+      ["relay", "recipient", "seen"],
+      ["recipient", "ack", "messages"],
+    ],
   };
   const wirePhases: Record<string, number[][]> = {
     aashinyra: [[0], [1, 7], [2, 3], [4, 5, 6]],
     signalizeai: [[0], [1, 2], [3, 4, 6, 7, 8, 9], [5, 6]],
     boardeject: [[0, 1], [2, 3], [4, 5, 7, 8], [6]],
+    kabootar: [
+      [0, 7],
+      [1, 2],
+      [3, 4, 8],
+      [5, 6],
+    ],
+  };
+  const names: Record<string, string> = {
+    aashinyra: "AashiNyra",
+    signalizeai: "SignalizeAI",
+    boardeject: "BoardEject",
+    kabootar: "Kabootar",
   };
   const mapId = `${system}${instance}`;
   const graph = graphs[system];
@@ -341,9 +449,7 @@ export function ArchitectureMap({
       role="img"
       aria-labelledby={`${mapId}-map-title ${mapId}-map-desc`}
     >
-      <title
-        id={`${mapId}-map-title`}
-      >{`${system === "aashinyra" ? "AashiNyra" : system === "signalizeai" ? "SignalizeAI" : "BoardEject"} architecture`}</title>
+      <title id={`${mapId}-map-title`}>{`${names[system]} architecture`}</title>
       <desc id={`${mapId}-map-desc`}>{graph.description}</desc>
       <defs>
         <marker
@@ -370,6 +476,17 @@ export function ArchitectureMap({
             data-stages={wirePhases[system]
               .flatMap((indices, stage) => (indices.includes(i) ? [stage] : []))
               .join(" ")}
+            style={
+              {
+                // Full-system view staggers packets by the wire's first stage.
+                "--stage": Math.max(
+                  0,
+                  wirePhases[system].findIndex((indices) =>
+                    indices.includes(i),
+                  ),
+                ),
+              } as CSSProperties
+            }
           >
             <path
               className={edge.dashed ? "map-wire map-wire-dashed" : "map-wire"}

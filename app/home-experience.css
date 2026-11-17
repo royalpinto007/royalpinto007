@@ -980,3 +980,66 @@ html[data-motion="static"] .home-page .experiment-play {
     display: none;
   }
 }
+
+/* Full system: data keeps moving through every connection, stage by stage,
+   while the section is in view. Single-step views keep their focused replay. */
+@keyframes architecture-flow {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 100;
+  }
+  6% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  60%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-motion="ready"]
+    .home-page
+    .systems-showcase.is-in-view
+    .system-case:has(.architecture-walkthrough input[value="all"]:checked)
+    .map-packet {
+    animation: architecture-flow 4.8s linear infinite;
+    animation-delay: calc(var(--stage, 0) * 1.1s);
+  }
+}
+
+/* Phones show the step cards instead of the map: keep their connectors moving too. */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-motion="ready"]
+    .home-page
+    .systems-showcase.is-in-view
+    .system-case:has(.architecture-walkthrough input[value="all"]:checked)
+    .system-connector
+    i {
+    animation: system-request 2.4s var(--ease-out) infinite;
+  }
+  html[data-motion="ready"]
+    .home-page
+    .systems-showcase.is-in-view
+    .system-case:has(.architecture-walkthrough input[value="all"]:checked)
+    .system-flow
+    li:nth-child(2)
+    .system-connector
+    i {
+    animation-delay: 0.8s;
+  }
+  html[data-motion="ready"]
+    .home-page
+    .systems-showcase.is-in-view
+    .system-case:has(.architecture-walkthrough input[value="all"]:checked)
+    .system-flow
+    li:nth-child(3)
+    .system-connector
+    i {
+    animation-delay: 1.6s;
+  }
+}

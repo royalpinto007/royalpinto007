@@ -1,0 +1,117 @@
+/* One outbound-link style across the portfolio: a clear label and a round
+   arrow badge that fills and nudges on hover. Replaces the older underlined
+   quiet links, "View project" lines and Source links. */
+.go-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #12374e;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.go-link .go-link-label {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px
+    no-repeat;
+  padding-bottom: 2px;
+  transition:
+    background-size 260ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    color 200ms ease;
+}
+.go-link-icon {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #12374e40;
+  border-radius: 50%;
+  background: #fffaf2d9;
+  box-shadow: 0 6px 14px -10px #12374e99;
+  color: #9c3263;
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.go-link-icon svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.go-link:hover,
+.go-link:focus-visible {
+  color: #9c3263;
+}
+.go-link:hover .go-link-label,
+.go-link:focus-visible .go-link-label {
+  background-size: 100% 1.5px;
+}
+.go-link:hover .go-link-icon,
+.go-link:focus-visible .go-link-icon {
+  background: #9c3263;
+  border-color: #9c3263;
+  color: #fff8ef;
+}
+.go-link:focus-visible {
+  outline: 3px solid #9c3263;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .go-link:hover .go-link-icon svg {
+    transform: translate(2px, -2px);
+  }
+  .go-link[data-direction="forward"]:hover .go-link-icon svg {
+    transform: translateX(3px);
+  }
+  .go-link[data-direction="back"]:hover .go-link-icon svg {
+    transform: translateX(-3px);
+  }
+}
+
+/* Over detailed scenery the link sits on its own light surface. */
+.go-link.go-link-surface {
+  padding: 5px 6px 5px 18px;
+  border: 1px solid #12374e33;
+  border-radius: 999px;
+  background: #fffaf2f0;
+  box-shadow: 0 10px 24px -16px #12374e99;
+  backdrop-filter: blur(8px);
+}
+.go-link.go-link-surface:hover {
+  background: #fff;
+}
+
+/* Placement in existing layouts. */
+.world-heading > .go-link {
+  justify-self: start;
+}
+.work-heading > .go-link {
+  align-self: end;
+  margin-bottom: 8px;
+}
+.work-details > .go-link {
+  margin-top: 24px;
+}
+.project-preview-details > .go-link {
+  margin-top: 12px;
+  font-size: 15px;
+}
+.project-preview-details > .go-link .go-link-icon {
+  width: 30px;
+  height: 30px;
+}
+@media (max-width: 767px) {
+  .work-details > .go-link {
+    margin-top: 14px;
+  }
+}
