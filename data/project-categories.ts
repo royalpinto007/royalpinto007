@@ -1,7 +1,26 @@
 import { siteConfig } from "./site";
 import agentpostmortemTools from "./agentpostmortem.json";
 
+// Display order on Projects (Royal's choice): apps, open source, designs first.
 export const projectCategories = [
+  {
+    id: "apps",
+    title: "Apps & products",
+    description:
+      "Software for real workflows. AI research, offline messaging, creative tools and everyday apps.",
+  },
+  {
+    id: "open-source",
+    title: "Open source and systems",
+    description:
+      "Documentation, networking, modules and compilers. Code and knowledge built in the open.",
+  },
+  {
+    id: "websites",
+    title: "Designs",
+    description:
+      "Studios, products, places and storefronts. Nineteen distinct website concepts.",
+  },
   {
     id: "experiments",
     title: "Interactive Graphics",
@@ -13,18 +32,6 @@ export const projectCategories = [
     title: "Games",
     description:
       "Six game projects, from delivery challenges and football to shared-device board games.",
-  },
-  {
-    id: "apps",
-    title: "Apps & products",
-    description:
-      "Software for real workflows. AI research, offline messaging, creative tools and everyday apps.",
-  },
-  {
-    id: "websites",
-    title: "Designs",
-    description:
-      "Studios, products, places and storefronts. Nineteen distinct website concepts.",
   },
   {
     id: "web3",
@@ -49,12 +56,6 @@ export const projectCategories = [
     title: "Directories & skills",
     description:
       "Curated references and reusable skills for building, shipping and working with agents.",
-  },
-  {
-    id: "open-source",
-    title: "Open source and systems",
-    description:
-      "Documentation, networking, modules and compilers. Code and knowledge built in the open.",
   },
 ] as const;
 export type ProjectCategory = (typeof projectCategories)[number]["id"];

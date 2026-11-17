@@ -13,7 +13,7 @@ const scenery = {
   games: "observatory",
   apps: "marina",
   websites: "conservatory",
-  web3: "observatory",
+  web3: "atrium",
   packages: "atrium",
   agentpostmortem: "cinema",
   resources: "atrium",

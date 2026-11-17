@@ -56,8 +56,7 @@ with sync_playwright() as p:
         assert page.goto(URL, wait_until="networkidle").status == 200
         assert page.locator("[data-project-category]").count() == 8
         order = page.locator("[data-project-category]").evaluate_all("ns=>ns.map(n=>n.dataset.projectCategory)")
-        assert order[:4] == ["experiments", "games", "apps", "websites"]
-        assert order[-1] == "open-source"
+        assert order == ["apps", "open-source", "websites", "experiments", "games", "web3", "agentpostmortem", "resources"], order
         assert page.locator("[data-project-category='productivity-apps'], [data-project-category='drupal']").count() == 0
         assert page.locator("#packages").count() == 0
         menu = page.locator(".category-menu")
@@ -67,7 +66,7 @@ with sync_playwright() as p:
         page.wait_for_function("document.querySelector('.category-menu').dataset.side !== undefined")
         links = menu.get_by_role("link")
         assert links.count() == 8
-        assert "Open source and systems" in links.last.inner_text()
+        assert "Directories & skills" in links.last.inner_text()
         assert menu.locator("nav").evaluate("n=>{const b=n.getBoundingClientRect();return b.left>=0&&b.right<=innerWidth&&b.top>=0&&b.bottom<=innerHeight+1}")
         page.keyboard.press("Escape")
         assert not menu.evaluate("n=>n.open")

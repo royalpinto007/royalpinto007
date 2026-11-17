@@ -5,11 +5,6 @@ body:has(.home-page) {
 body:has(.home-page) .sunset-atmosphere {
   opacity: 0.2;
 }
-body:has(.home-page) .site-header {
-  background: #dceaf0e8;
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid #27335016;
-}
 body:has(.home-page) .coffee-ticker {
   display: none;
 }
@@ -797,9 +792,6 @@ html[data-motion="static"] .home-page .experiment-play {
   }
 }
 @media (max-width: 767px) {
-  body:has(.home-page) .site-header {
-    background: #d9e8ef;
-  }
   body:has(.home-page) .header-inner {
     display: flex;
     min-height: 64px;

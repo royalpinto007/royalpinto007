@@ -758,10 +758,11 @@ textarea {
   width: 100%;
   padding: 9px 0;
 }
+/* One header frame on every route, aligned with the page gutters. */
 .header-inner {
-  max-width: 1400px;
+  max-width: 1920px;
   margin: auto;
-  padding: 0 5%;
+  padding: 0 clamp(22px, 4vw, 88px);
   height: 76px;
   display: flex;
   justify-content: space-between;
