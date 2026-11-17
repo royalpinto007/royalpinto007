@@ -41,6 +41,8 @@ export default function FacetworksPage() {
               <a
                 className="collection-view-all collection-all"
                 href={category.href}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 View all {category.count}
                 <ArrowUpRight size={18} aria-hidden="true" />

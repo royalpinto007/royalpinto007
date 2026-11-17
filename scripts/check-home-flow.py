@@ -17,8 +17,10 @@ with sync_playwright() as p:
         assert page.goto(BASE, wait_until="networkidle").status == 200
         page.wait_for_function("document.querySelector('.hero-cinema').dataset.effectsEnabled==='true'")
         assert page.locator(".intro-name strong").inner_text() == "Software engineer"
-        assert "Indie dev" in page.locator(".intro-name").inner_text()
-        assert "Freelancer" in page.locator(".intro-name").inner_text()
+        assert "Indie dev" not in page.locator(".intro-name").inner_text()
+        assert "Freelancer" not in page.locator(".intro-name").inner_text()
+        assert "Indie dev" in page.locator(".brand-link").text_content()
+        assert page.locator(".portrait img").get_attribute("src") == "/portrait-enhanced.webp"
         assert page.locator(".hero-cinema .skill-rail, .hero-proof-row").count() == 0
         assert page.locator(".typing-visual").evaluate("""n=>{
           const a=n.firstElementChild.getBoundingClientRect(), b=n.lastElementChild.getBoundingClientRect();
@@ -33,7 +35,7 @@ with sync_playwright() as p:
         assert page.locator("[data-home-collection]").evaluate_all("ns=>ns.map(n=>n.dataset.homeCollection)") == ["experiments", "games", "apps", "websites", "web3"]
         assert page.locator(".home-web3 .web3-preview").count() == 2
         assert page.locator(".web3-copy a").get_attribute("href") == "/projects/web3"
-        assert page.locator(".discovery-more a").last.get_attribute("href") == "/projects/browser-extensions"
+        assert page.locator(".discovery-more a").last.get_attribute("href") == "/projects/apps"
         assert page.locator(".home-discovery .project-collage").count() == 0
         page.screenshot(path=str(OUT/f"hero-{width}.png"))
         page.emulate_media(reduced_motion="reduce")
@@ -55,18 +57,22 @@ with sync_playwright() as p:
     assert page.goto(BASE).status == 200
     assert page.locator(".intro-name strong").is_visible()
     assert page.locator(".typing-static").is_visible()
-    page.locator('[data-home-collection="apps"]').click()
-    page.wait_for_load_state("networkidle")
-    assert page.url == BASE + "/projects#apps"
-    assert page.locator("#apps .collection-all").get_attribute("href") == "/projects/apps"
-    page.locator("#apps .collection-all").click()
-    page.wait_for_load_state("networkidle")
-    assert page.locator("[data-project-id]").count() == 6
-    page.goto(BASE)
-    page.locator(".web3-copy a").click()
-    page.wait_for_load_state("networkidle")
-    assert page.url == BASE + "/projects/web3"
-    assert page.locator("[data-project-id]").count() == 8
+    with page.expect_popup() as popup:
+        page.locator('[data-home-collection="apps"]').click()
+    directory = popup.value
+    directory.wait_for_load_state("networkidle")
+    assert directory.url == BASE + "/projects#apps"
+    with directory.expect_popup() as popup:
+        directory.locator("#apps .collection-all").click()
+    apps = popup.value
+    apps.wait_for_load_state("networkidle")
+    assert apps.locator("[data-project-id]").count() == 15
+    with page.expect_popup() as popup:
+        page.locator(".web3-copy a").click()
+    web3 = popup.value
+    web3.wait_for_load_state("networkidle")
+    assert web3.url == BASE + "/projects/web3"
+    assert web3.locator("[data-project-id]").count() == 8
     context.close()
     browser.close()
 assert not errors, errors

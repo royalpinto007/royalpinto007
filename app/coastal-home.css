@@ -29,11 +29,19 @@ body:has(.home-page) .site-header {
 }
 .home-page .portrait-person img {
   clip-path: none;
-  mask: url("/scene/portrait-outline.svg") center / 100% 100% no-repeat;
+  mask-image:
+    url("/scene/portrait-enhanced-alpha.png"),
+    url("/scene/portrait-enhanced-outline.svg");
+  mask-size:
+    100% 100%,
+    100% 100%;
+  mask-repeat: no-repeat;
+  mask-composite: intersect;
   filter: none;
 }
 .home-page .portrait-person {
   mask-image: linear-gradient(0deg, transparent 0%, #000 11%);
+  filter: url(#portrait-clean-edge);
 }
 .home-page .hero-work-link,
 .home-page .scene-controls button {

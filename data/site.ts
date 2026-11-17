@@ -26,7 +26,7 @@ export const siteConfig = {
     "Open to freelance projects, developer roles and open-source work",
   availabilityStatus: true,
   replyTime: "Within 24 hours",
-  avatar: "/portrait-sky.png",
+  avatar: "/portrait-enhanced.webp",
 
   stats: [
     { label: "Open-source programmes", value: "3" },

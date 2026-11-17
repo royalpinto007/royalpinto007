@@ -1,7 +1,11 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { siteConfig } from "./site";
-import { projectCategories, categoryFor } from "./project-categories";
+import {
+  projectCategories,
+  categoryFor,
+  type ProjectCategory,
+} from "./project-categories";
 import { facetworksGroups } from "./facetworks-groups";
 import tools from "./agentpostmortem.json";
 import projectPreviews from "./project-previews.json";
@@ -26,12 +30,13 @@ export type PreviewGroup = {
   href: string;
 };
 export type ProjectCollection = {
-  id: string;
+  id: ProjectCategory;
   title: string;
   description: string;
   href: string;
   external: boolean;
   groups: PreviewGroup[];
+  overviewGroups?: PreviewGroup[];
   count: number;
 };
 
@@ -87,7 +92,9 @@ export const projectCollections: ProjectCollection[] =
       }));
     } else {
       const items: PreviewProject[] = siteConfig.projects
-        .filter((p) => categoryFor(p) === category.id)
+        .filter(
+          (p) => p.id !== "drupal-chatbot" && categoryFor(p) === category.id,
+        )
         .sort((a, b) => {
           if (category.id !== "open-source") return 0;
           const order = [
@@ -96,7 +103,11 @@ export const projectCollections: ProjectCollection[] =
             "text-generation",
             "drupal-chatbot",
           ];
-          return order.indexOf(a.id) - order.indexOf(b.id);
+          const rank = (id: string) => {
+            const index = order.indexOf(id);
+            return index === -1 ? order.length : index;
+          };
+          return rank(a.id) - rank(b.id);
         })
         .map((p) => ({
           id: p.id,
@@ -120,30 +131,87 @@ export const projectCollections: ProjectCollection[] =
         }));
       if (!items.length) return [];
       const splits =
-        category.id === "web3"
+        category.id === "apps"
           ? [
               {
-                id: "token-permissions",
-                title: "Token permissions",
+                id: "products",
+                title: "Products",
+                ids: ["signalizeai", "aashinyra", "stoccoin"],
+              },
+              {
+                id: "apps",
+                title: "Mobile, desktop & web apps",
+                ids: items
+                  .filter(
+                    (p) =>
+                      ![
+                        "signalizeai",
+                        "aashinyra",
+                        "stoccoin",
+                        "pagefold",
+                        "stowlane",
+                        "glasswing",
+                        "bellrope",
+                        "cribsheet",
+                        "water",
+                      ].includes(p.id),
+                  )
+                  .map((p) => p.id),
+              },
+              {
+                id: "browser-extensions",
+                title: "Browser extensions",
                 ids: [
-                  "delegate-inspector",
-                  "hookview",
-                  "solana-authority-inspector",
+                  "pagefold",
+                  "stowlane",
+                  "glasswing",
+                  "bellrope",
+                  "cribsheet",
                 ],
               },
-              {
-                id: "payments-transactions",
-                title: "Payments & transactions",
-                ids: ["ack", "paylint", "settled", "txray", "v1check"],
-              },
+              { id: "editor-tools", title: "Editor tools", ids: ["water"] },
             ]
-          : [
-              {
-                id: "projects",
-                title: category.title,
-                ids: items.map((p) => p.id),
-              },
-            ];
+          : category.id === "open-source"
+            ? [
+                {
+                  id: "contributions",
+                  title: "Contributions & modules",
+                  ids: ["d-errors-docs", "dent-docs", "text-generation"],
+                },
+                {
+                  id: "d-language",
+                  title: "D Language",
+                  ids: [
+                    "d-simple-server",
+                    "phobos-nogc-checker",
+                    "toy-compiler",
+                  ],
+                },
+              ]
+            : category.id === "web3"
+              ? [
+                  {
+                    id: "token-permissions",
+                    title: "Token permissions",
+                    ids: [
+                      "delegate-inspector",
+                      "hookview",
+                      "solana-authority-inspector",
+                    ],
+                  },
+                  {
+                    id: "payments-transactions",
+                    title: "Payments & transactions",
+                    ids: ["ack", "paylint", "settled", "txray", "v1check"],
+                  },
+                ]
+              : [
+                  {
+                    id: "projects",
+                    title: category.title,
+                    ids: items.map((p) => p.id),
+                  },
+                ];
       groups = splits.map((group) => ({
         id: group.id,
         title: group.title,
@@ -160,5 +228,28 @@ export const projectCollections: ProjectCollection[] =
       (total, group) => total + group.items.length,
       0,
     );
-    return [{ ...category, href, external, groups, count }];
+    const overviewIds =
+      category.id === "apps"
+        ? ["signalizeai", "kabootar", "boardeject", "aashinyra"]
+        : category.id === "open-source"
+          ? ["d-errors-docs", "dent-docs", "text-generation"]
+          : undefined;
+    const overviewGroups = overviewIds
+      ? [
+          {
+            id: "highlights",
+            title: category.title,
+            href,
+            items: overviewIds.map((id) => {
+              const item = groups
+                .flatMap((group) => group.items)
+                .find((p) => p.id === id);
+              if (!item)
+                throw new Error(`Missing ${category.id} highlight: ${id}`);
+              return item;
+            }),
+          },
+        ]
+      : undefined;
+    return [{ ...category, href, external, groups, overviewGroups, count }];
   });

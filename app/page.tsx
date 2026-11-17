@@ -59,7 +59,6 @@ export default function HomePage() {
         <div className="hero-copy">
           <p className="intro-name">
             <strong>Software engineer</strong>
-            <span>Indie dev · Freelancer</span>
           </p>
           <h1>
             <span className="hero-line">
@@ -93,17 +92,43 @@ export default function HomePage() {
         <figure className="portrait">
           <div className="portrait-scene portrait-person">
             <picture>
-              <source srcSet="/portrait-original.webp" type="image/webp" />
+              <source srcSet="/portrait-enhanced.webp" type="image/webp" />
               <Image
                 src={siteConfig.avatar}
                 alt="Illustrated portrait of Royal Simpson Pinto against a blue and pink sunset sky"
-                width={460}
-                height={460}
+                width={1254}
+                height={1254}
                 loading="eager"
                 fetchPriority="high"
               />
             </picture>
           </div>
+          <svg
+            width="0"
+            height="0"
+            aria-hidden="true"
+            style={{ position: "absolute" }}
+          >
+            <defs>
+              <filter
+                id="portrait-clean-edge"
+                x="-2%"
+                y="-2%"
+                width="104%"
+                height="104%"
+                colorInterpolationFilters="sRGB"
+              >
+                <feMorphology
+                  in="SourceAlpha"
+                  operator="erode"
+                  radius="0.8"
+                  result="tight"
+                />
+                <feGaussianBlur in="tight" stdDeviation=".15" result="soft" />
+                <feComposite in="SourceGraphic" in2="soft" operator="in" />
+              </filter>
+            </defs>
+          </svg>
         </figure>
       </CinematicHero>
 
@@ -198,6 +223,8 @@ export default function HomePage() {
                     className="quiet-link"
                     href="/projects"
                     prefetch={false}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     All projects <ArrowRight size={17} />
                   </Link>

@@ -50,7 +50,13 @@ export function HomeProjectExplorer() {
           </h2>
           <p>Useful, playful, open. There’s more than one way to build.</p>
         </div>
-        <Link className="quiet-link" href="/projects" prefetch={false}>
+        <Link
+          className="quiet-link"
+          href="/projects"
+          prefetch={false}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           All projects <ArrowRight size={18} aria-hidden="true" />
         </Link>
       </header>
@@ -63,6 +69,8 @@ export function HomeProjectExplorer() {
               className={`discovery-shelf shelf-${shelf.id}`}
               href={`/projects#${shelf.id}`}
               prefetch={false}
+              target="_blank"
+              rel="noopener noreferrer"
               key={shelf.id}
               data-home-collection={shelf.id}
             >
@@ -113,7 +121,13 @@ export function HomeProjectExplorer() {
             Open-source tools to inspect permissions, trace transactions and
             debug payments on Solana.
           </p>
-          <Link className="quiet-link" href="/projects/web3" prefetch={false}>
+          <Link
+            className="quiet-link"
+            href="/projects/web3"
+            prefetch={false}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Explore all {web3.count} tools{" "}
             <ArrowRight size={18} aria-hidden="true" />
           </Link>
@@ -162,15 +176,16 @@ export function HomeProjectExplorer() {
         </div>
       </section>
       <nav className="discovery-more" aria-label="More project collections">
-        {[
-          "open-source",
-          "d-language",
-          "editor-tools",
-          "browser-extensions",
-        ].map((id) => {
+        {["open-source", "apps"].map((id) => {
           const collection = findCollection(id);
           return (
-            <Link href={collection.href} prefetch={false} key={id}>
+            <Link
+              href={collection.href}
+              prefetch={false}
+              key={id}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {collection.title}
               <ArrowUpRight size={18} aria-hidden="true" />
             </Link>

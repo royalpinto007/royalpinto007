@@ -326,3 +326,189 @@
   height: 0;
   scroll-margin-top: 110px;
 }
+
+/* Coastal chapters use the same blue, rose and peach world as Home.
+   Scenery stays outside the readable glass surfaces, rather than competing with previews. */
+.projects-page {
+  --projects-gutter: clamp(22px, 4vw, 88px);
+  max-width: 1920px;
+  padding-inline: var(--projects-gutter);
+}
+.projects-page .projects-heading,
+.projects-page .collection-page-heading,
+.projects-page .project-chapter {
+  position: relative;
+  isolation: isolate;
+  margin-inline: calc(-1 * var(--projects-gutter));
+  padding-inline: var(--projects-gutter);
+  overflow: clip;
+}
+.projects-page .projects-heading {
+  min-height: 580px;
+  grid-template-rows: 1fr auto;
+  align-content: center;
+  padding-block: 50px 65px;
+  background: #cee4ef;
+}
+.projects-heading > .world-scene {
+  width: 100%;
+  margin-left: 0;
+  max-height: 520px;
+}
+.projects-page .projects-heading > h1 {
+  align-self: end;
+  margin-bottom: 22px;
+  font-size: clamp(74px, 10vw, 162px);
+}
+.projects-page .projects-heading > p {
+  align-self: start;
+  max-width: 32ch;
+  font-size: 19px;
+}
+.projects-scenery {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(145deg, #bbd9ee, #efd0df 55%, #f4d4ba);
+}
+.projects-scenery picture,
+.projects-scenery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.projects-scenery img {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.78) contrast(0.88) brightness(1.04);
+}
+.projects-scenery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #fff8edb8 0%,
+    #fff4e852 38%,
+    #fff7eb85 100%
+  );
+}
+.projects-heading .projects-scenery::after,
+.collection-page-heading .projects-scenery::after {
+  background: linear-gradient(90deg, #fff6eae8, #fff4e9a3 42%, #fff0e026 76%);
+}
+.projects-scene-light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 15% 20%, #fff6db66, transparent 62%);
+}
+.projects-page .project-chapter {
+  padding-block: clamp(52px, 6vw, 100px);
+  border-top: 1px solid #fff9eead;
+}
+.projects-page .project-directory-bar {
+  padding-block: 24px;
+  border-color: #a7b8c4;
+}
+.projects-page .project-jumps {
+  padding-block: 16px 28px;
+}
+.projects-page .collection-section-heading {
+  position: relative;
+  z-index: 1;
+  padding: 22px 26px;
+  border-radius: 14px;
+  background: #fff8eee8;
+  border: 1px solid #fffdf6;
+  box-shadow: 0 12px 30px -27px #3c5873;
+}
+.projects-page .section-intro h2 {
+  font-family: var(--font-coastal-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  font-size: clamp(36px, 4.2vw, 66px);
+}
+.projects-page .collection-section-heading p {
+  font-size: 17px;
+  max-width: 52ch;
+  color: #284b61;
+}
+.projects-page .collection-all {
+  background: #193e52;
+  border-color: #193e52;
+  color: #fff9f0;
+  padding: 13px 18px;
+  min-height: 48px;
+}
+.projects-page .collection-all:hover {
+  background: #82335d;
+  color: #fff9f0;
+}
+.projects-page .project-collage {
+  background: #fff8eee8;
+  border: 1px solid #fffbf3;
+  box-shadow: 0 20px 44px -34px #274b6b88;
+}
+.projects-page .collage-group-heading {
+  background: #fff9f1a6;
+}
+.projects-page .collage-single:not(.collage-full) .collage-group-heading {
+  display: none;
+}
+.projects-page .chapter-apps .collage-screens {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: clamp(18px, 3vw, 38px);
+  gap: 32px;
+}
+.projects-page .chapter-apps .project-window {
+  transform: none;
+}
+.projects-page .chapter-apps .project-preview-caption h4 {
+  font-size: clamp(23px, 2.3vw, 32px);
+}
+.projects-page .chapter-apps .project-window-image {
+  aspect-ratio: 16/10;
+}
+.projects-page .collection-page-heading {
+  padding-block: 42px 60px;
+  margin-bottom: 32px;
+}
+.projects-page .collection-full-groups .project-collage {
+  background: linear-gradient(130deg, #e8f1f8, #f9e9ee 68%, #f9ecdd);
+  border-color: #bcced8;
+}
+@media (max-width: 767px) {
+  .projects-page .projects-heading {
+    min-height: 0;
+    padding-block: 40px;
+  }
+  .projects-page .projects-heading > h1 {
+    margin-bottom: 12px;
+    font-size: clamp(66px, 16vw, 110px);
+  }
+  .projects-page .projects-heading > p {
+    font-size: 17px;
+  }
+  .projects-page .collection-section-heading {
+    padding: 20px;
+    gap: 20px;
+  }
+  .projects-page .collection-section-heading p {
+    font-size: 16px;
+  }
+  .projects-page .collection-all {
+    font-size: 15px;
+  }
+  .projects-page .chapter-apps .collage-screens {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .projects-page .projects-heading > .world-scene {
+    grid-row: 3;
+    grid-column: 1 / -1;
+    max-height: 340px;
+  }
+}

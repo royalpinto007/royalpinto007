@@ -6,6 +6,18 @@ import { projectCollections } from "@/data/project-collections";
 import { ProjectCollage } from "@/components/ProjectCollage";
 import { CategoryMenu } from "@/components/CategoryMenu";
 import { collectionAliases } from "@/data/project-categories";
+import { ProjectsScenery } from "@/components/ProjectsScenery";
+
+const scenery = {
+  experiments: "tidal",
+  games: "observatory",
+  apps: "marina",
+  websites: "conservatory",
+  web3: "observatory",
+  packages: "atrium",
+  agentpostmortem: "cinema",
+  "open-source": "pavilion",
+} as const;
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -17,6 +29,7 @@ export default function ProjectsPage() {
   return (
     <div className="portfolio-shell projects-page">
       <header className="projects-heading world-heading" data-motion-intro>
+        <ProjectsScenery scene="tidal" priority />
         <WorldScene kind="arcade" priority />
         <h1>Projects.</h1>
         <p>Products, tools and experiments. Pick a preview. Open the build.</p>
@@ -37,12 +50,15 @@ export default function ProjectsPage() {
         ))}
       </nav>
       {projectCollections.map((category) => {
+        const groups = category.overviewGroups ?? category.groups;
         return (
           <section
+            className={`project-chapter chapter-${category.id}`}
             key={category.id}
             id={category.id}
             data-project-category={category.id}
           >
+            <ProjectsScenery scene={scenery[category.id]} />
             {Object.entries(collectionAliases)
               .filter(([, target]) => target === category.id)
               .map(([alias]) => (
@@ -61,6 +77,8 @@ export default function ProjectsPage() {
               <a
                 className="collection-view-all collection-all"
                 href={category.href}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 View all {category.count}
                 <span className="sr-only"> {category.title}</span>
@@ -68,13 +86,14 @@ export default function ProjectsPage() {
               </a>
             </div>
             <div
-              className={`collection-boards ${category.groups.length === 1 ? "collection-boards-single" : ""}`}
+              className={`collection-boards ${groups.length === 1 ? "collection-boards-single" : ""}`}
             >
-              {category.groups.map((group) => (
+              {groups.map((group) => (
                 <ProjectCollage
                   key={group.id}
                   group={group}
-                  single={category.groups.length === 1}
+                  single={groups.length === 1}
+                  previewLimit={category.id === "games" ? 6 : 4}
                 />
               ))}
             </div>

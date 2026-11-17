@@ -16,21 +16,15 @@ export const projectCategories = [
   },
   {
     id: "apps",
-    title: "Apps",
+    title: "Apps & products",
     description:
-      "Web, mobile and desktop apps for creating, planning, money and offline communication.",
+      "Software for real workflows. AI research, offline messaging, creative tools and everyday apps.",
   },
   {
     id: "websites",
     title: "Designs",
     description:
       "Studios, products, places and storefronts. Nineteen distinct website concepts.",
-  },
-  {
-    id: "products",
-    title: "Products",
-    description:
-      "AashiNyra, SignalizeAI and Stoccoin. Products spanning shopping, account research and markets.",
   },
   {
     id: "web3",
@@ -51,27 +45,10 @@ export const projectCategories = [
       "Agents, context tools, security checks and evaluations. Explore the toolkit through demos and workflow previews.",
   },
   {
-    id: "editor-tools",
-    title: "Editor tools",
-    description:
-      "Tools that bring useful context directly into the development environment.",
-  },
-  {
-    id: "d-language",
-    title: "D Language",
-    description: "Web servers, source analysis and compiler fundamentals in D.",
-  },
-  {
     id: "open-source",
-    title: "Open-source contributions & systems",
+    title: "Open source and systems",
     description:
-      "Shared engineering work across compilers, networking, AI, retrieval, documentation, and developer infrastructure.",
-  },
-  {
-    id: "browser-extensions",
-    title: "Browser extensions",
-    description:
-      "Chrome and Firefox tools for research, reading, accessibility, and everyday browser work.",
+      "Documentation, networking, modules and compilers. Code and knowledge built in the open.",
   },
 ] as const;
 export type ProjectCategory = (typeof projectCategories)[number]["id"];
@@ -90,6 +67,10 @@ const systems = new Set([
 ]);
 export const collectionAliases: Record<string, ProjectCategory> = {
   "productivity-apps": "apps",
+  products: "apps",
+  "editor-tools": "apps",
+  "browser-extensions": "apps",
+  "d-language": "open-source",
   drupal: "open-source",
 };
 const agentpostmortem = new Set([
@@ -102,13 +83,13 @@ export function categoryFor(
 ): ProjectCategory {
   if (agentpostmortem.has(project.id)) return "agentpostmortem";
   if (systems.has(project.id)) return "open-source";
-  if (project.section === "D Language") return "d-language";
-  if (project.section === "Products") return "products";
+  if (project.section === "D Language") return "open-source";
+  if (project.section === "Products") return "apps";
   if (project.section === "Games") return "games";
   if (project.section === "Productivity Apps") return "apps";
   if (project.section === "Solana & Web3") return "web3";
-  if (browser.has(project.id)) return "browser-extensions";
-  if (project.id === "water") return "editor-tools";
+  if (browser.has(project.id)) return "apps";
+  if (project.id === "water") return "apps";
   if (
     /npmjs.com|pypi.org/.test(project.liveUrl) ||
     ["distro-skills", "casebook-mcp"].includes(project.id)

@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { projectCollections } from "@/data/project-collections";
 import { collectionAliases } from "@/data/project-categories";
 import { ProjectCollage } from "@/components/ProjectCollage";
+import { ProjectsScenery } from "@/components/ProjectsScenery";
 import "../projects.css";
 
 type Props = { params: Promise<{ collection: string }> };
@@ -39,6 +40,10 @@ export default async function CollectionPage({ params }: Props) {
   return (
     <div className="portfolio-shell projects-page collection-page">
       <header className="collection-page-heading">
+        <ProjectsScenery
+          scene={details.id === "open-source" ? "pavilion" : "marina"}
+          priority
+        />
         <a className="collection-back" href={`/projects#${details.id}`}>
           <ArrowLeft size={18} aria-hidden="true" /> All collections
         </a>

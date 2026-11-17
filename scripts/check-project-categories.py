@@ -6,14 +6,10 @@ from playwright.sync_api import sync_playwright
 URL = os.getenv("PROJECTS_URL", "http://127.0.0.1:8947/projects")
 BASE = URL.rsplit("/projects", 1)[0]
 MEMBERS = {
-    "products": ["aashinyra", "signalizeai", "stoccoin"],
-    "apps": ["boardeject", "pennyrush", "tiny-day", "holdfast", "kabootar", "agentday"],
+    "apps": ["signalizeai", "aashinyra", "stoccoin", "boardeject", "pennyrush", "tiny-day", "holdfast", "kabootar", "agentday", "pagefold", "stowlane", "glasswing", "bellrope", "cribsheet", "water"],
     "games": ["bumblecrate", "megoblin", "jollybound", "revlap", "tablewink", "hushmallow"],
     "web3": ["ack", "delegate-inspector", "hookview", "paylint", "settled", "solana-authority-inspector", "txray", "v1check"],
-    "browser-extensions": ["pagefold", "stowlane", "glasswing", "bellrope", "cribsheet"],
-    "editor-tools": ["water"],
-    "d-language": ["d-simple-server", "phobos-nogc-checker", "toy-compiler"],
-    "open-source": ["d-errors-docs", "dent-docs", "text-generation", "drupal-chatbot"],
+    "open-source": ["d-errors-docs", "dent-docs", "text-generation", "d-simple-server", "phobos-nogc-checker", "toy-compiler"],
 }
 GROUPS = {
     "websites": {"studios": 4, "products": 5, "places": 5, "culture": 5},
@@ -58,10 +54,10 @@ with sync_playwright() as p:
         page = browser.new_page(viewport={"width": width, "height": 900}, reduced_motion="reduce")
         page.on("pageerror", lambda error: errors.append(str(error)))
         assert page.goto(URL, wait_until="networkidle").status == 200
-        assert page.locator("[data-project-category]").count() == 11
+        assert page.locator("[data-project-category]").count() == 7
         order = page.locator("[data-project-category]").evaluate_all("ns=>ns.map(n=>n.dataset.projectCategory)")
         assert order[:4] == ["experiments", "games", "apps", "websites"]
-        assert order[-1] == "browser-extensions"
+        assert order[-1] == "open-source"
         assert page.locator("[data-project-category='productivity-apps'], [data-project-category='drupal']").count() == 0
         assert page.locator("#packages").count() == 0
         menu = page.locator(".category-menu")
@@ -70,8 +66,8 @@ with sync_playwright() as p:
         page.keyboard.press("Enter")
         page.wait_for_function("document.querySelector('.category-menu').dataset.side !== undefined")
         links = menu.get_by_role("link")
-        assert links.count() == 11
-        assert "Browser extensions" in links.last.inner_text()
+        assert links.count() == 7
+        assert "Open source and systems" in links.last.inner_text()
         assert menu.locator("nav").evaluate("n=>{const b=n.getBoundingClientRect();return b.left>=0&&b.right<=innerWidth&&b.top>=0&&b.bottom<=innerHeight+1}")
         page.keyboard.press("Escape")
         assert not menu.evaluate("n=>n.open")
@@ -86,8 +82,15 @@ with sync_playwright() as p:
         for category, ids in MEMBERS.items():
             shown = page.locator(f"#{category} [data-project-id]").evaluate_all("ns=>ns.map(n=>n.dataset.projectId)")
             assert set(shown) <= set(ids)
-        assert page.locator('#products [data-project-id="signalizeai"] a').get_attribute("href") == "https://signalizeai.org"
-        assert page.locator('#products [data-project-id="stoccoin"] a').get_attribute("href").rstrip("/").endswith("/stoccoin")
+        assert page.locator('#apps [data-project-id="signalizeai"] a').get_attribute("href") == "https://signalizeai.org"
+        assert page.locator('#apps [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == ["signalizeai", "kabootar", "boardeject", "aashinyra"]
+        assert page.locator('#games [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == MEMBERS["games"]
+        assert page.locator('#open-source [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == MEMBERS["open-source"][:3]
+        assert page.locator('[data-project-id="drupal-chatbot"]').count() == 0
+        for link in page.locator('.collection-view-all').all():
+            assert link.get_attribute('target') == '_blank'
+            assert 'noopener' in link.get_attribute('rel')
+        assert page.locator('.project-chapter .projects-scenery img').count() == 7
         assert page.locator('#apps [data-project-id="agentday"]').count() == 0  # retained in View all
         assert page.locator('#websites .collection-all').get_attribute("href") == "https://royalpinto007.com/facetworks/designs"
         assert page.locator('#experiments .collection-all').get_attribute("href") == "https://royalpinto007.com/facetworks/graphics"
@@ -109,8 +112,8 @@ with sync_playwright() as p:
         previews(page)
         loaded_images(page)
         check_layout(page)
-        if category in ["open-source", "d-language"]:
-            expected = 1 if category == "open-source" else 3
+        if category == "open-source":
+            expected = 4
             assert page.locator(".project-window-bar", has_text="Workflow preview").count() == expected
         if category == "apps":
             assert page.locator('[data-project-id="tiny-day"] .project-window-bar').inner_text() == "Design reference"
@@ -120,7 +123,7 @@ with sync_playwright() as p:
             assert page.locator('[data-project-id="agentday"] a.project-preview-link').get_attribute("href") == "https://agentday.live"
             for name in ["holdfast", "kabootar", "pennyrush", "tiny-day"]:
                 assert "github.com/" in page.locator(f'[data-project-id="{name}"] a.project-preview-link').get_attribute("href")
-    for alias, target in [("productivity-apps", "apps"), ("drupal", "open-source")]:
+    for alias, target in [("productivity-apps", "apps"), ("products", "apps"), ("browser-extensions", "apps"), ("editor-tools", "apps"), ("drupal", "open-source"), ("d-language", "open-source")]:
         assert page.goto(f"{BASE}/projects/{alias}", wait_until="networkidle").status == 200
         assert page.locator('link[rel="canonical"]').get_attribute("href").endswith("/projects/" + target)
         assert page.locator("[data-project-id]").count() == len(MEMBERS[target])
@@ -137,12 +140,15 @@ with sync_playwright() as p:
     plain = context.new_page()
     assert plain.goto(URL).status == 200
     assert plain.locator('#experiments [data-project-id="abyss"] a').get_attribute("href").rstrip("/").endswith("/facetworks/graphics/abyss")
-    plain.locator('#products .collection-all').click()
-    plain.wait_for_load_state("networkidle")
-    assert urlsplit(plain.url).path == "/projects/products"
-    assert plain.locator("[data-project-id]").count() == 3
-    check_layout(plain)
+    with plain.expect_popup() as popup:
+        plain.locator('#apps .collection-all').click()
+    all_apps = popup.value
+    all_apps.wait_for_load_state("networkidle")
+    assert urlsplit(all_apps.url).path == "/projects/apps"
+    assert all_apps.locator("[data-project-id]").count() == len(MEMBERS["apps"])
+    assert urlsplit(plain.url).path == "/projects"
+    check_layout(all_apps)
     context.close()
     assert not errors, errors
     browser.close()
-print("PASS: 11 collections; named direct previews; separate View all; full membership; grouped galleries; private boundaries; images; five responsive widths; no-JS navigation.")
+print("PASS: 7 collections; named direct previews; separate View all; full membership; grouped galleries; private boundaries; images; five responsive widths; no-JS navigation.")

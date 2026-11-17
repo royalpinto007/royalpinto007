@@ -7,12 +7,14 @@ export function ProjectCollage({
   group,
   full = false,
   single = false,
+  previewLimit = 4,
 }: {
   group: PreviewGroup;
   full?: boolean;
   single?: boolean;
+  previewLimit?: number;
 }) {
-  const items = full ? group.items : group.items.slice(0, 4);
+  const items = full ? group.items : group.items.slice(0, previewLimit);
   const Heading = full ? "h2" : "h3";
   return (
     <div
@@ -29,7 +31,12 @@ export function ProjectCollage({
           </span>
         </div>
         {!full && !single && (
-          <a className="collection-view-all" href={group.href}>
+          <a
+            className="collection-view-all"
+            href={group.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View all <span className="sr-only">{group.title}</span>
             <ArrowUpRight size={17} aria-hidden="true" />
           </a>
