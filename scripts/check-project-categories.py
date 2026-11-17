@@ -8,7 +8,7 @@ BASE = URL.rsplit("/projects", 1)[0]
 MEMBERS = {
     "resources": ["awesome-mcp-security", "awesome-context-engineering", "awesome-agent-memory", "awesome-agent-skills", "ship-skills", "distro-skills"],
     "apps": ["signalizeai", "aashinyra", "stoccoin", "boardeject", "pennyrush", "tiny-day", "holdfast", "kabootar", "agentday", "pagefold", "stowlane", "glasswing", "bellrope", "cribsheet", "water"],
-    "games": ["bumblecrate", "megoblin", "jollybound", "revlap", "tablewink", "hushmallow"],
+    "games": ["bumblecrate", "revlap", "tablewink", "megoblin", "jollybound", "hushmallow"],
     "web3": ["ack", "delegate-inspector", "hookview", "paylint", "settled", "solana-authority-inspector", "txray", "v1check"],
     "open-source": ["d-errors-docs", "dent-docs", "text-generation", "d-simple-server", "phobos-nogc-checker", "toy-compiler"],
 }

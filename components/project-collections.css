@@ -154,6 +154,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Screenshots start at the site's own navigation; crop from the bottom. */
+  object-position: top center;
 }
 .project-window-image.is-workflow img {
   object-fit: contain;
