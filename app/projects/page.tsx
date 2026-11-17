@@ -16,6 +16,7 @@ const scenery = {
   web3: "observatory",
   packages: "atrium",
   agentpostmortem: "cinema",
+  resources: "atrium",
   "open-source": "pavilion",
 } as const;
 

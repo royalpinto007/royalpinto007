@@ -1,0 +1,97 @@
+.site-footer.coastal-footer {
+  --footer-gutter: clamp(22px, 4vw, 88px);
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #f6f2ec;
+}
+.coastal-footer .footer-invitation {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: clamp(62px, 7vw, 110px) var(--footer-gutter);
+  border: 0;
+  overflow: clip;
+}
+.coastal-footer .footer-invitation .projects-scenery img {
+  object-position: center 65%;
+}
+.coastal-footer .footer-invitation .projects-scenery::after {
+  background: linear-gradient(
+    90deg,
+    #fff7ecef 0%,
+    #fff5e8d9 38%,
+    #fff0e045 73%,
+    #fff0e033
+  );
+}
+.coastal-footer .footer-copy {
+  position: relative;
+  min-width: 0;
+  max-width: min(100%, 680px);
+}
+.coastal-footer .footer-invitation h2 {
+  font-family: var(--font-coastal-display), sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(56px, 7vw, 104px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #15394f;
+  overflow-wrap: anywhere;
+}
+.coastal-footer .footer-invitation h2 span {
+  color: #90355e;
+}
+.coastal-footer .footer-invitation p {
+  max-width: 40ch;
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #264d62;
+}
+.coastal-footer .footer-copy .primary-link {
+  min-height: 52px;
+  margin-top: 28px;
+  font-size: 17px;
+}
+.coastal-footer .footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 28px;
+  padding: 24px var(--footer-gutter);
+  border-top: 1px solid #bccbd3;
+  background: #f7f5ef;
+  color: #315164;
+  font-size: 16px;
+}
+.coastal-footer .footer-bottom nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+}
+.coastal-footer .footer-bottom a {
+  min-height: 44px;
+  font-size: 16px;
+}
+@media (max-width: 767px) {
+  .coastal-footer .footer-invitation .projects-scenery::after {
+    background: linear-gradient(90deg, #fff7eceb, #fff5e8bd 65%, #fff0e085);
+  }
+  .coastal-footer .footer-invitation h2 {
+    font-size: clamp(52px, 13vw, 84px);
+  }
+  .coastal-footer .footer-invitation p {
+    font-size: 17px;
+  }
+  .coastal-footer .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

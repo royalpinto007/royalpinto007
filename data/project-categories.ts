@@ -45,6 +45,12 @@ export const projectCategories = [
       "Agents, context tools, security checks and evaluations. Explore the toolkit through demos and workflow previews.",
   },
   {
+    id: "resources",
+    title: "Directories & skills",
+    description:
+      "Curated references and reusable skills for building, shipping and working with agents.",
+  },
+  {
     id: "open-source",
     title: "Open source and systems",
     description:
@@ -78,9 +84,15 @@ const agentpostmortem = new Set([
   "agent-suite",
   ...agentpostmortemTools.map((tool) => tool.id),
 ]);
+const resources = new Set(
+  agentpostmortemTools
+    .filter((tool) => tool.group === "resources")
+    .map((tool) => tool.id),
+);
 export function categoryFor(
   project: (typeof siteConfig.projects)[number],
 ): ProjectCategory {
+  if (resources.has(project.id)) return "resources";
   if (agentpostmortem.has(project.id)) return "agentpostmortem";
   if (systems.has(project.id)) return "open-source";
   if (project.section === "D Language") return "open-source";

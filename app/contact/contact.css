@@ -1,177 +1,194 @@
-/* contact page styles, loaded with this route. */
-
-.contact-page h1 {
-  font-size: clamp(70px, 10vw, 150px);
+.contact-page {
+  --contact-gutter: clamp(22px, 4vw, 88px);
+  max-width: 1920px;
+  padding: 0 var(--contact-gutter) 64px;
 }
-.contact-page > .section-intro {
-  max-width: 720px;
-}
-.contact-page .contact-invitation {
-  border-radius: 14px;
-  box-shadow: inset 0 1px #fff;
-}
-.contact-page .contact-invitation > h2 {
-  max-width: 49%;
-  line-height: 1.04;
-  letter-spacing: -0.025em;
-  font-size: clamp(40px, 4.3vw, 66px);
-}
-.contact-page .contact-invitation > p {
-  font-size: 14px;
-  line-height: 1.7;
-}
-.contact-page .contact-invitation > div:last-child {
-  gap: 10px;
-}
-.contact-page .contact-invitation > div:last-child > a:not(.primary-link) {
-  min-height: 48px;
-  font-size: 12px;
-  border-radius: 7px;
-  padding-inline: 15px;
-}
-.contact-section-label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 20px;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: #4d6273;
-}
-.contact-section-label > span:last-child {
-  text-align: right;
-  color: #805273;
-}
-.contact-page .contact-channels > a {
+.contact-heading {
   position: relative;
-  overflow: hidden;
-  padding: 26px 24px 20px;
-  border-radius: 11px;
-  background: linear-gradient(140deg, #fffdf7, #e5edf2);
-  border: 1px solid #b8c8d5;
-  box-shadow: inset 0 1px #fff;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  min-height: 570px;
+  padding: 70px var(--contact-gutter) 100px;
+  margin-inline: calc(-1 * var(--contact-gutter));
+  overflow: clip;
 }
-.contact-page .contact-channels > a:nth-child(even) {
-  background: linear-gradient(140deg, #fffdf7, #efe2e8);
+.contact-heading .projects-scenery::after {
+  background: linear-gradient(90deg, #fff6eae8, #fff4e9ba 42%, #fff0e036 80%);
 }
-.contact-channel-index {
-  position: absolute;
-  right: 22px;
-  top: 26px;
-  font-family: var(--font-geist-mono);
-  font-size: 11px;
-  color: #66788b;
+.contact-copy {
+  min-width: 0;
 }
-.contact-page .contact-channels > a > div:first-of-type {
-  width: 48px;
-  height: 48px;
-  background: #fff9;
-  border-color: #b2c6d5;
-  border-radius: 13px;
-  margin-bottom: 32px;
+.contact-kicker {
+  font-size: 17px;
+  line-height: 1.5;
+  color: #6e3155;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+.contact-page h1 {
+  font-family: var(--font-coastal-display), sans-serif;
+  font-size: clamp(76px, 10vw, 150px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: #12364c;
+}
+.contact-page h1 span {
+  color: #95345f;
+}
+.contact-intro {
+  max-width: 35ch;
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.65;
+  margin-top: 28px;
+  color: #24495f;
+}
+.contact-heading > .world-scene {
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 1.2;
+  max-height: 500px;
+}
+.contact-actions {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 36px);
+  margin-top: -40px;
+  z-index: 1;
+}
+.contact-channel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 16px;
+  padding: clamp(26px, 3vw, 44px);
+  background: #fff9f1;
+  border: 1px solid #9cb9ca;
+  border-radius: 16px;
   box-shadow:
     inset 0 1px #fff,
-    0 5px 8px -7px #315878;
+    0 18px 40px -32px #31566e66;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease;
 }
-.contact-page .contact-channels h3 {
-  font-size: 24px;
-  font-weight: 600;
+.contact-channel:nth-child(2) {
+  background: linear-gradient(130deg, #fff9f1, #f6e7ee);
+}
+.contact-channel > svg {
+  color: #92365f;
+}
+.contact-channel h2 {
+  font-size: clamp(29px, 2.8vw, 42px);
+  line-height: 1.15;
+  font-weight: 650;
   letter-spacing: -0.04em;
 }
-.contact-page .contact-channels .mono {
-  font-family: var(--font-geist);
-  font-size: 11px;
+.contact-channel p {
+  font-size: clamp(17px, 1.6vw, 21px);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  color: #315367;
 }
 .contact-channel-action {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 44px;
-  border-top: 1px solid #b6c8d3;
-  margin-top: 25px;
-  padding-top: 12px;
-  font-size: 12px;
+  gap: 18px;
+  min-height: 50px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #becbd3;
+  font-size: 17px;
+  font-weight: 600;
+  color: #183f56;
 }
-.contact-page .contact-channels > a:hover {
-  border-color: #a06b92;
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  padding-block: 34px 12px;
 }
-.contact-socials > a {
-  border-radius: 9px;
-  border-color: #b5c7d4;
-  background: #eef3f3;
+.contact-socials p {
+  margin-right: auto;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #315367;
 }
-.contact-socials > a > div {
-  border: 0;
-  background: #fffaf5;
-  border-radius: 9px;
+.contact-socials a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 8px 0;
+  background: none;
+  color: #173e54;
 }
-.contact-socials > a > span {
-  font-weight: 550;
+.contact-socials a svg {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
 }
-.contact-social-arrow {
-  margin-left: auto;
-  color: #825076;
-}
-.contact-page .contact-logistics {
-  border: 0;
-  border-top: 1px solid #b0c5d2;
-  border-radius: 0;
-  background: transparent;
-  padding: 32px 0 0;
+.contact-channel:focus-visible,
+.contact-socials a:focus-visible {
+  outline: 3px solid #92365f;
+  outline-offset: 5px;
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .contact-channel-action svg,
-  .contact-social-arrow {
-    transition: transform 230ms ease;
+  .contact-channel:hover {
+    transform: translateY(-4px);
+    border-color: #92365f;
   }
-  .contact-channels a:hover .contact-channel-action svg,
-  .contact-socials a:hover .contact-social-arrow {
-    transform: translate(2px, -2px);
-  }
-}
-@media (max-width: 1023px) {
-  .contact-page .contact-invitation > h2 {
-    font-size: 46px;
+  .contact-socials a:hover {
+    color: #92365f;
   }
 }
 @media (max-width: 767px) {
-  .contact-page .contact-invitation {
-    padding: 28px 24px;
-  }
-  .contact-page .contact-invitation > h2 {
-    max-width: 100%;
-    font-size: clamp(36px, 9vw, 48px);
-  }
-  .contact-section-label {
-    font-size: 9px;
+  .contact-heading {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
+    padding-block: 44px 60px;
   }
-  .contact-page .contact-channels > a {
-    padding: 22px 22px 15px;
+  .contact-page h1 {
+    font-size: clamp(72px, 18vw, 120px);
   }
-  .contact-page .contact-channels > a > div:first-of-type {
-    margin-bottom: 24px;
+  .contact-heading > .world-scene {
+    max-width: 420px;
+    max-height: 290px;
+    justify-self: center;
+  }
+  .contact-kicker {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .contact-intro {
+    font-size: 18px;
+    margin-top: 18px;
+    max-width: 32ch;
+  }
+  .contact-actions {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: -24px;
+  }
+  .contact-socials {
+    gap: 14px 26px;
+    padding-top: 28px;
+  }
+  .contact-socials p {
+    flex-basis: 100%;
   }
 }
-
-.contact-page .contact-invitation > p {
-  font-size: 17px;
-}
-.contact-page .contact-invitation > div:last-child > a:not(.primary-link) {
-  font-size: 15px;
-}
-.contact-section-label {
-  font-size: 13px;
-}
-.contact-page .contact-channels .mono {
-  font-size: 14px;
-  overflow-wrap: anywhere;
-}
-.contact-channel-action {
-  font-size: 15px;
-}
-.contact-socials > a {
-  font-size: 16px;
+@media (prefers-reduced-motion: reduce) {
+  .contact-channel {
+    transition: none;
+  }
 }

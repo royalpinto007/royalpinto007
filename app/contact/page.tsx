@@ -1,179 +1,68 @@
 import "./contact.css";
-import { WorldScene } from "@/components/WorldScene";
 import type { Metadata } from "next";
-import {
-  Calendar,
-  MessageSquare,
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  Zap,
-  ArrowUpRight,
-} from "lucide-react";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/BrandIcons";
-import { SectionHeader } from "@/components/SectionHeader";
+import { ArrowUpRight, Calendar, Mail } from "lucide-react";
+import { GithubIcon, TwitterIcon } from "@/components/BrandIcons";
+import { ProjectsScenery } from "@/components/ProjectsScenery";
+import { WorldScene } from "@/components/WorldScene";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   alternates: { canonical: "/contact" },
   description:
-    "Get in touch for AI products, backend systems, freelance work, or collaborations.",
+    "Have a project in mind? Email Royal Pinto or book a call to talk software, freelance work and open source.",
 };
 
 export default function ContactPage() {
-  const channels = [
-    {
-      icon: Calendar,
-      label: "Book a call",
-      desc: "30-min intro call",
-      href: siteConfig.calendarLink,
-      cta: "Schedule",
-    },
-    {
-      icon: MessageSquare,
-      label: "WhatsApp",
-      desc: "Quick questions",
-      href: siteConfig.whatsappLink,
-      cta: "Message",
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      desc: siteConfig.email,
-      href: `mailto:${siteConfig.email}`,
-      cta: "Send email",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      desc: siteConfig.phone,
-      href: `tel:${siteConfig.phone.replace(/\s/g, "")}`,
-      cta: "Call",
-    },
-  ];
-
-  const socials = [
-    { icon: LinkedinIcon, label: "LinkedIn", href: siteConfig.linkedin },
-    { icon: GithubIcon, label: "GitHub", href: siteConfig.github },
-    { icon: TwitterIcon, label: "X / Twitter", href: siteConfig.twitter },
-  ];
-
   return (
-    <div className="contact-page relative max-w-[1240px] mx-auto px-5 sm:px-8 py-20">
-      <div className="glow" aria-hidden />
-      <SectionHeader
-        title="Let's"
-        titleEm="talk"
-        subtitle="Freelance development, a developer role, or an open-source collaboration."
-      />
-
-      {/* Main CTA Card */}
-      <div className="contact-invitation reveal mt-14 relative overflow-hidden rounded-2xl border border-line bg-panel p-10 sm:p-14">
-        <WorldScene kind="telephone" />
-        <div className="mono flex items-center gap-2 mb-5 text-xs text-accent">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          Available for freelance work
+    <div className="portfolio-shell contact-page">
+      <header className="contact-heading" data-motion-intro>
+        <ProjectsScenery scene="conservatory" priority />
+        <div className="contact-copy">
+          <p className="contact-kicker">Have something in mind?</p>
+          <h1>
+            Let’s <span>talk.</span>
+          </h1>
+          <p className="contact-intro">
+            Send the brief, the repo or the idea. Let’s figure out what to
+            build.
+          </p>
         </div>
-        <h2 className="display text-3xl sm:text-4xl text-ink mb-3">
-          Need a <span className="display-em text-accent">developer?</span>
-        </h2>
-        <p className="text-mute mb-8 max-w-md leading-relaxed">
-          Send the brief, repo, or bug. Tell me what needs shipping. I usually
-          reply within 24 hours.
-        </p>
-        <div className="flex flex-wrap gap-4">
-          <a
-            href={siteConfig.hireUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="primary-link"
-          >
-            Hire me <ArrowUpRight className="w-4 h-4" />
-          </a>
-        </div>
-      </div>
-
-      {/* Direct channels */}
-      <div className="reveal mt-14">
-        <div className="contact-section-label">
-          <span>01 / Say hello</span>
-          <span>Pick what works for you</span>
-        </div>
-        <div className="contact-channels grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {channels.map(({ icon: Icon, label, desc, href, cta }, index) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-6 rounded-2xl border border-line bg-panel hover:border-accent/50 transition-colors duration-200"
-            >
-              <span className="contact-channel-index" aria-hidden="true">
-                0{index + 1}
-              </span>
-              <div className="w-11 h-11 rounded-full border border-line flex items-center justify-center mb-4 group-hover:border-accent transition-colors">
-                <Icon className="w-4 h-4 text-accent" />
-              </div>
-              <h3 className="display text-lg text-ink">{label}</h3>
-              <div className="mono text-[11px] text-faint mt-1 mb-4 break-all">
-                {desc}
-              </div>
-              <span className="contact-channel-action text-xs font-medium text-accent group-hover:text-accent-hover transition-colors">
-                {cta} <ArrowUpRight size={17} />
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Socials */}
-      <div className="reveal mt-14">
-        <div className="contact-section-label">
-          <span>02 / Elsewhere</span>
-          <span>Follow what I’m building</span>
-        </div>
-        <div className="contact-socials grid sm:grid-cols-3 gap-4">
-          {socials.map(({ icon: Icon, label, href }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-4 p-5 rounded-2xl border border-line bg-panel hover:border-accent/50 transition-colors duration-300"
-            >
-              <div className="w-11 h-11 rounded-full border border-line flex items-center justify-center group-hover:border-accent transition-colors">
-                <Icon className="w-4 h-4 text-accent" />
-              </div>
-              <span className="text-sm text-ink group-hover:text-accent transition-colors">
-                {label}
-              </span>
-              <ArrowUpRight className="contact-social-arrow" size={18} />
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Logistics */}
-      <div className="contact-logistics reveal mt-14 rounded-2xl border border-line bg-panel p-8">
-        <div className="eyebrow text-faint mb-6">Where to find me</div>
-        <div className="grid sm:grid-cols-3 gap-8">
-          {[
-            { icon: MapPin, label: "Location", value: siteConfig.location },
-            { icon: Clock, label: "Timezone", value: siteConfig.timezone },
-            { icon: Zap, label: "Reply time", value: siteConfig.replyTime },
-          ].map(({ icon: Icon, label, value }) => (
-            <div key={label} className="flex items-start gap-3">
-              <Icon className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-              <div>
-                <div className="mono text-[11px] text-faint">{label}</div>
-                <div className="text-sm text-ink mt-0.5">{value}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+        <WorldScene kind="telephone" priority />
+      </header>
+      <section className="contact-actions" aria-label="Direct contact">
+        <a className="contact-channel" href={`mailto:${siteConfig.email}`}>
+          <Mail size={28} aria-hidden="true" />
+          <h2>Email me</h2>
+          <p>{siteConfig.email}</p>
+          <span className="contact-channel-action">
+            Send email <ArrowUpRight size={22} aria-hidden="true" />
+          </span>
+        </a>
+        <a
+          className="contact-channel"
+          href={siteConfig.calendarLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Calendar size={28} aria-hidden="true" />
+          <h2>Book a call</h2>
+          <p>Pick a time that works for you.</p>
+          <span className="contact-channel-action">
+            Choose a time <ArrowUpRight size={22} aria-hidden="true" />
+          </span>
+        </a>
+      </section>
+      <nav className="contact-socials" aria-label="Follow my work">
+        <p>Code, experiments and what’s next.</p>
+        <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
+          <GithubIcon /> GitHub <ArrowUpRight size={18} aria-hidden="true" />
+        </a>
+        <a href={siteConfig.twitter} target="_blank" rel="noopener noreferrer">
+          <TwitterIcon /> X / Twitter{" "}
+          <ArrowUpRight size={18} aria-hidden="true" />
+        </a>
+      </nav>
     </div>
   );
 }

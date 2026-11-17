@@ -1,23 +1,24 @@
-import { WorldScene } from "./WorldScene";
+import "./footer.css";
+import { ProjectsScenery } from "./ProjectsScenery";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
+
 export function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer coastal-footer">
       <div className="footer-invitation">
-        <WorldScene kind="horizon" />
-        <div>
+        <ProjectsScenery scene="marina" />
+        <div className="footer-copy">
           <h2>
-            Need a
-            <br />
-            developer?
+            Need a<br />
+            <span>developer?</span>
           </h2>
           <p>Freelance, full-time or open source. Let’s talk.</p>
+          <a className="primary-link" href={`mailto:${siteConfig.email}`}>
+            Send email <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
         </div>
-        <a className="primary-link" href={siteConfig.hireUrl}>
-          Hire me <ArrowUpRight size={18} />
-        </a>
       </div>
       <div className="footer-bottom">
         <p>
@@ -27,9 +28,16 @@ export function Footer() {
           <Link href="/contact" prefetch={false}>
             Contact
           </Link>
-          <a href={siteConfig.github}>GitHub</a>
-          <a href={siteConfig.linkedin}>LinkedIn</a>
-          <a href={siteConfig.twitter}>X</a>
+          <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          <a
+            href={siteConfig.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            X
+          </a>
           <a href={`mailto:${siteConfig.email}`}>Email</a>
         </nav>
       </div>

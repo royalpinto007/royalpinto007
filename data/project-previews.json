@@ -118,5 +118,9 @@
   "d-errors-docs": {
     "image": "/work/d-errors-docs.webp",
     "kind": "screenshot"
+  },
+  "signalizeai": {
+    "image": "/work/signalizeai-light.webp",
+    "kind": "screenshot"
   }
 }

@@ -45,7 +45,6 @@ const destination = (url: string | undefined) =>
 const apGroups = [
   { id: "agents", title: "Apps & integrations" },
   { id: "tooling", title: "CLI tools & libraries" },
-  { id: "resources", title: "Directories & skills" },
 ];
 
 export const projectCollections: ProjectCollection[] =
@@ -71,10 +70,19 @@ export const projectCollections: ProjectCollection[] =
           tech: p.stack,
         })),
       }));
-    } else if (category.id === "agentpostmortem") {
-      href = "https://www.agentpostmortem.com/tools";
-      external = true;
-      groups = apGroups.map((group) => ({
+    } else if (
+      category.id === "agentpostmortem" ||
+      category.id === "resources"
+    ) {
+      if (category.id === "agentpostmortem") {
+        href = "https://www.agentpostmortem.com/tools";
+        external = true;
+      }
+      const toolGroups =
+        category.id === "resources"
+          ? [{ id: "resources", title: category.title }]
+          : apGroups;
+      groups = toolGroups.map((group) => ({
         ...group,
         href: `${href}#${group.id}`,
         items: tools
@@ -230,10 +238,17 @@ export const projectCollections: ProjectCollection[] =
     );
     const overviewIds =
       category.id === "apps"
-        ? ["signalizeai", "kabootar", "boardeject", "aashinyra"]
-        : category.id === "open-source"
-          ? ["d-errors-docs", "dent-docs", "text-generation"]
-          : undefined;
+        ? ["boardeject", "kabootar", "signalizeai", "aashinyra"]
+        : category.id === "web3"
+          ? [
+              "delegate-inspector",
+              "txray",
+              "paylint",
+              "solana-authority-inspector",
+            ]
+          : category.id === "open-source"
+            ? ["d-errors-docs", "dent-docs", "text-generation"]
+            : undefined;
     const overviewGroups = overviewIds
       ? [
           {

@@ -1,4 +1,6 @@
-/** Native lazy-loaded coastal plates keep the directory visual without a 3D runtime. */
+import "./projects-scenery.css";
+
+/** Shared coastal plates use native image loading without a 3D runtime. */
 export function ProjectsScenery({
   scene,
   priority = false,

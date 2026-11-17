@@ -6,6 +6,7 @@ from playwright.sync_api import sync_playwright
 URL = os.getenv("PROJECTS_URL", "http://127.0.0.1:8947/projects")
 BASE = URL.rsplit("/projects", 1)[0]
 MEMBERS = {
+    "resources": ["awesome-mcp-security", "awesome-context-engineering", "awesome-agent-memory", "awesome-agent-skills", "ship-skills", "distro-skills"],
     "apps": ["signalizeai", "aashinyra", "stoccoin", "boardeject", "pennyrush", "tiny-day", "holdfast", "kabootar", "agentday", "pagefold", "stowlane", "glasswing", "bellrope", "cribsheet", "water"],
     "games": ["bumblecrate", "megoblin", "jollybound", "revlap", "tablewink", "hushmallow"],
     "web3": ["ack", "delegate-inspector", "hookview", "paylint", "settled", "solana-authority-inspector", "txray", "v1check"],
@@ -14,8 +15,7 @@ MEMBERS = {
 GROUPS = {
     "websites": {"studios": 4, "products": 5, "places": 5, "culture": 5},
     "experiments": {"3d-scenes": 7, "physics": 5, "generative": 7, "interactions": 5},
-    "agentpostmortem": {"agents": 9, "tooling": 11, "resources": 6},
-    "web3": {"token-permissions": 3, "payments-transactions": 5},
+    "agentpostmortem": {"agents": 9, "tooling": 11},
 }
 
 def check_layout(page):
@@ -54,7 +54,7 @@ with sync_playwright() as p:
         page = browser.new_page(viewport={"width": width, "height": 900}, reduced_motion="reduce")
         page.on("pageerror", lambda error: errors.append(str(error)))
         assert page.goto(URL, wait_until="networkidle").status == 200
-        assert page.locator("[data-project-category]").count() == 7
+        assert page.locator("[data-project-category]").count() == 8
         order = page.locator("[data-project-category]").evaluate_all("ns=>ns.map(n=>n.dataset.projectCategory)")
         assert order[:4] == ["experiments", "games", "apps", "websites"]
         assert order[-1] == "open-source"
@@ -66,7 +66,7 @@ with sync_playwright() as p:
         page.keyboard.press("Enter")
         page.wait_for_function("document.querySelector('.category-menu').dataset.side !== undefined")
         links = menu.get_by_role("link")
-        assert links.count() == 7
+        assert links.count() == 8
         assert "Open source and systems" in links.last.inner_text()
         assert menu.locator("nav").evaluate("n=>{const b=n.getBoundingClientRect();return b.left>=0&&b.right<=innerWidth&&b.top>=0&&b.bottom<=innerHeight+1}")
         page.keyboard.press("Escape")
@@ -83,14 +83,19 @@ with sync_playwright() as p:
             shown = page.locator(f"#{category} [data-project-id]").evaluate_all("ns=>ns.map(n=>n.dataset.projectId)")
             assert set(shown) <= set(ids)
         assert page.locator('#apps [data-project-id="signalizeai"] a').get_attribute("href") == "https://signalizeai.org"
-        assert page.locator('#apps [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == ["signalizeai", "kabootar", "boardeject", "aashinyra"]
+        assert page.locator('#apps [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == ["boardeject", "kabootar", "signalizeai", "aashinyra"]
         assert page.locator('#games [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == MEMBERS["games"]
         assert page.locator('#open-source [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == MEMBERS["open-source"][:3]
         assert page.locator('[data-project-id="drupal-chatbot"]').count() == 0
         for link in page.locator('.collection-view-all').all():
             assert link.get_attribute('target') == '_blank'
             assert 'noopener' in link.get_attribute('rel')
-        assert page.locator('.project-chapter .projects-scenery img').count() == 7
+        assert page.locator('.project-chapter .projects-scenery img').count() == 8
+        assert page.locator('#web3 [data-project-group]').count() == 1
+        assert page.locator('#web3 [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == ["delegate-inspector", "txray", "paylint", "solana-authority-inspector"]
+        assert page.locator('#apps [data-project-id="signalizeai"] img').get_attribute('src') == '/work/signalizeai-light.webp'
+        assert page.locator('#agentpostmortem [data-project-group="resources"]').count() == 0
+        assert page.locator('#resources .collection-all').get_attribute('href') == '/projects/resources'
         assert page.locator('#apps [data-project-id="agentday"]').count() == 0  # retained in View all
         assert page.locator('#websites .collection-all').get_attribute("href") == "https://royalpinto007.com/facetworks/designs"
         assert page.locator('#experiments .collection-all').get_attribute("href") == "https://royalpinto007.com/facetworks/graphics"
@@ -151,4 +156,4 @@ with sync_playwright() as p:
     context.close()
     assert not errors, errors
     browser.close()
-print("PASS: 7 collections; named direct previews; separate View all; full membership; grouped galleries; private boundaries; images; five responsive widths; no-JS navigation.")
+print("PASS: 8 collections; named direct previews; separate View all; full membership; grouped galleries; private boundaries; images; five responsive widths; no-JS navigation.")

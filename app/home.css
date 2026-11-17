@@ -3,8 +3,7 @@
   max-width: 2200px;
   padding-inline: clamp(22px, 4vw, 88px);
 }
-body:has(.home-page) .header-inner,
-body:has(.home-page) .site-footer {
+body:has(.home-page) .header-inner {
   max-width: 2200px;
   padding-inline: clamp(22px, 4vw, 88px);
 }
