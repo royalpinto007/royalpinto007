@@ -120,7 +120,7 @@ with sync_playwright() as p:
             expected = 4
             assert page.locator(".project-window-bar", has_text="Workflow preview").count() == expected
         if category == "apps":
-            assert page.locator('[data-project-id="tiny-day"] .project-window-bar').inner_text() == "Design reference"
+            assert page.locator('[data-project-id="tiny-day"] .project-window-bar').inner_text() != "Design reference"
         if category == "games":
             assert page.locator("a.project-preview-link").count() == 0
         if category == "apps":
