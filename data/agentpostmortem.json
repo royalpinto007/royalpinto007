@@ -226,8 +226,8 @@
     "href": "https://mcp-security.agentpostmortem.com",
     "group": "resources",
     "kind": "List",
-    "description": "Curated, auto-updating directory of tools, standards, and research for securing Model Context Protocol servers, organized by what each one defends against.",
-    "output": "Tools, standards, research",
+    "description": "Curated directory of 48 MCP security tools, standards and papers, grouped by the threat each one defends against: tool poisoning, rug pulls, over-scoped tools and exfiltration.",
+    "output": "48 tools, 12 categories",
     "preview": "screenshot"
   },
   {
@@ -237,8 +237,8 @@
     "href": "https://context-engineering.agentpostmortem.com",
     "group": "resources",
     "kind": "List",
-    "description": "Practitioner-first directory for context engineering: fitting the right tokens in the window, and fighting context rot with the tool that mitigates each failure mode.",
-    "output": "Practical references",
+    "description": "Practitioner-first directory of 40 context engineering tools and papers, organised around failure modes like context rot, bloat and lost-in-the-middle, each paired with what mitigates it.",
+    "output": "40 references, 12 categories",
     "preview": "screenshot"
   },
   {
@@ -248,8 +248,8 @@
     "href": "https://agent-memory.agentpostmortem.com",
     "group": "resources",
     "kind": "List",
-    "description": "Vendor-neutral directory of frameworks, stores, benchmarks, and papers for AI agent memory, with benchmarks as a first-class category.",
-    "output": "Frameworks + benchmarks",
+    "description": "Vendor-neutral directory of 45 agent memory frameworks, stores, benchmarks and papers, with benchmarks such as LoCoMo and LongMemEval as their own category so claims can be checked.",
+    "output": "45 frameworks and benchmarks",
     "preview": "screenshot"
   },
   {
@@ -259,8 +259,8 @@
     "href": "https://agent-skills.agentpostmortem.com",
     "group": "resources",
     "kind": "List",
-    "description": "A small, verified, security-aware directory of Agent Skills (SKILL.md), curated for trust with a first-class security section the volume lists skip.",
-    "output": "Verified skill references",
+    "description": "Small, security-aware directory of 46 Agent Skills (SKILL.md), curated for trust over volume, with a dedicated security section and 14 merged community submissions.",
+    "output": "46 vetted skills",
     "preview": "screenshot"
   },
   {
@@ -270,8 +270,8 @@
     "href": "https://github.com/royalpinto007/ship-skills",
     "group": "resources",
     "kind": "Skills",
-    "description": "Authored Agent Skills that make a repo shippable: tests, CI, packaging, release, and repo hygiene. Run ship-context, then ship-checklist sequences the rest.",
-    "output": "Shipping workflow",
+    "description": "15 Agent Skills that take a repo from works-on-my-machine to releasable: tests, CI, lint, security basics, npm and PyPI packaging, and releases. ship-checklist sequences the rest.",
+    "output": "15-skill shipping workflow",
     "preview": "workflow"
   },
   {
@@ -281,8 +281,8 @@
     "href": "https://github.com/royalpinto007/distro-skills",
     "group": "resources",
     "kind": "Skills",
-    "description": "Authored Agent Skills that distribute a dev or indie product across GitHub, Hacker News, Reddit, dev.to, and more. The distribution counterpart to ship-skills.",
-    "output": "Distribution workflow",
+    "description": "26 Agent Skills that distribute a dev or indie product across Show HN, Reddit, Product Hunt, dev.to, awesome-lists and npm or PyPI. The distribution counterpart to ship-skills.",
+    "output": "26-skill distribution workflow",
     "preview": "workflow"
   }
 ]

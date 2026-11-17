@@ -5,9 +5,9 @@ export const drupalProjects = [
     category: "Drupal module",
     status: "Open source",
     description:
-      "Prompt-based AI text generation inside Drupal's CKEditor 5 toolbar, powered by an open-source model.",
+      "Drupal 10 module, published on Drupal.org, that adds a CKEditor 5 toolbar button for prompt-based text generation. Runs GPT-2 on the server through TransformersPHP, so no API key is needed.",
     features: [],
-    tech: ["Drupal", "CKEditor 5", "JavaScript"],
+    tech: ["Drupal", "CKEditor 5", "TransformersPHP"],
     featured: false,
     section: "Drupal",
     liveUrl: "#",
@@ -22,7 +22,7 @@ export const dLanguageProjects = [
     category: "Web server",
     status: "Open source",
     description:
-      "A small web server built with D and vibe.d. Two example routes and a 404 handler keep the request flow easy to follow.",
+      "Minimal D web server on vibe.d with two routes and a 404 handler, kept small so the whole request flow is easy to read.",
     features: [],
     tech: ["D", "vibe.d", "Dub"],
     featured: false,
@@ -36,9 +36,9 @@ export const dLanguageProjects = [
     category: "Source analysis",
     status: "Prototype",
     description:
-      "Scan D source files for functions that appear to carry @nogc. A regex-based prototype that produces Markdown reports, rather than compiler-backed analysis.",
+      "Prototype that scans D source trees and prints a Markdown table of which functions carry @nogc, a first step toward measuring how much of Phobos works without the garbage collector.",
     features: [],
-    tech: ["D", "@nogc", "Source scanning"],
+    tech: ["D", "Dub", "Static analysis"],
     featured: false,
     section: "D Language",
     liveUrl: "#",
@@ -47,10 +47,10 @@ export const dLanguageProjects = [
   {
     id: "toy-compiler",
     name: "Toy Compiler",
-    category: "Compiler fundamentals",
+    category: "Lexer & parser",
     status: "Learning project",
     description:
-      "A lexer and parser for arithmetic expressions in D. Builds an abstract syntax tree with operator precedence, parentheses and error handling.",
+      "Lexer and recursive-descent parser in D for arithmetic expressions. Turns input into tokens and a typed AST with correct precedence, parentheses and error reporting.",
     features: [],
     tech: ["D", "Lexing", "Parsing"],
     featured: false,
@@ -61,12 +61,12 @@ export const dLanguageProjects = [
   {
     id: "d-errors-docs",
     name: "D Error Docs",
-    category: "Documentation",
+    category: "Documentation site",
     status: "Open source",
     description:
-      "D language error explanations, examples and debugging guides, with resources for contributors.",
+      "Unofficial guide to D compiler errors: 44 pages covering 20 common errors with causes and fixes, plus diagnostics, SARIF and debugging guides, with instant search.",
     features: [],
-    tech: ["Astro", "MDX", "Documentation"],
+    tech: ["Astro", "MDX", "Svelte"],
     featured: false,
     section: "D Language",
     liveUrl: "https://d-errors-docs.vercel.app",

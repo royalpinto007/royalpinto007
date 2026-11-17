@@ -22,11 +22,11 @@ with sync_playwright() as p:
   page.goto(BASE,wait_until='networkidle')
   assert not any('.glb' in x for x in requests),'Model competed with initial load'
   assert not any(x.split('?')[0].endswith('/'+chunk) for x in requests for chunk in graphics_chunks),'Three.js competed with initial load'
-  board=page.locator('.board-demo');board.scroll_into_view_if_needed();page.get_by_role('button',name='See the editable version').click()
+  board=page.locator('.board-demo');board.scroll_into_view_if_needed();page.get_by_role('button',name='Convert to Excalidraw').click()
   assert board.get_attribute('data-converted')=='true'
-  assert 'Three shapes and two connections' in board.locator('[role=status]').inner_text()
-  assert board.locator('svg.board-artifact').get_attribute('data-board-progress')=='1'
-  page.get_by_role('button',name='See the original').click();assert board.get_attribute('data-converted')=='false'
+  assert '3 shapes · 2 bound arrows' in board.locator('[role=status]').inner_text()
+  assert board.locator('svg.board-canvas .board-shape[role=button]').count()==3
+  page.get_by_role('button',name='Back to Freeform').click();assert board.get_attribute('data-converted')=='false'
   launch=page.get_by_role('button',name='Make it yours');launch.click()
   host=page.locator('.coastal-sculpture');assert_lab_separation(page);page.locator('.coastal-sculpture[data-state=ready]').wait_for(timeout=45000)
   assert_lab_separation(page);canvas=host.locator('canvas');canvas.scroll_into_view_if_needed()
@@ -92,7 +92,7 @@ with sync_playwright() as p:
  assert_lab_separation(page);ctx.close()
  ctx=b.new_context(viewport={'width':390,'height':900},java_script_enabled=False);page=ctx.new_page();page.goto(BASE,wait_until='networkidle')
  assert page.get_by_role('button',name='Make it yours').count()==0
- assert page.get_by_role('button',name='See the editable version').is_hidden()
+ assert page.get_by_role('button',name='Convert to Excalidraw').is_hidden()
  assert page.get_by_role('link',name='View BoardEject',exact=True).last.is_visible()
  ctx.close()
  ctx=b.new_context(viewport={'width':390,'height':1000},reduced_motion='no-preference');page=ctx.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.goto(BASE,wait_until='networkidle');page.locator('.reel-stage').scroll_into_view_if_needed()

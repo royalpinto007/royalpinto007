@@ -30,8 +30,9 @@ const work = [
     image: "boardeject",
     scene: "pavilion",
     href: "https://boardeject.dev",
-    description: "Apple Freeform to editable Excalidraw. Processed locally.",
-    stack: ["Browser conversion", "macOS helper"],
+    description:
+      "Freeform boards to editable Excalidraw, or a verified local archive. Nothing is uploaded.",
+    stack: ["Export + archive", "macOS helper"],
   },
   {
     name: "SignalizeAI",
@@ -39,8 +40,9 @@ const work = [
     image: "signalizeai",
     scene: "marina",
     href: "https://signalizeai.org",
-    description: "Account research, right inside your browser.",
-    stack: ["Browser extension", "AI workflows"],
+    description:
+      "Research any company once. Get told when its pricing, hiring or messaging changes.",
+    stack: ["Browser extension", "Change alerts"],
   },
   {
     name: "AashiNyra",
@@ -49,7 +51,7 @@ const work = [
     scene: "conservatory",
     href: "https://aashinyra.com",
     description: "Tracked deals. Real price drops. UPI cashback.",
-    stack: ["PostgreSQL", "D1", "R2"],
+    stack: ["Workers + D1", "Nightly price jobs"],
   },
 ] as const;
 

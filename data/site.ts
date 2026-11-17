@@ -19,16 +19,16 @@ export const siteConfig = {
     {
       id: "boardeject",
       name: "BoardEject",
-      category: "Open-source exporter",
+      category: "Freeform export & archive",
       status: "Early release",
       description:
-        "Turn supported Apple Freeform captures into editable Excalidraw files. Browser-local conversion, a macOS capture helper, and clear reports for unsupported content.",
+        "Exports Apple Freeform boards to editable Excalidraw and saves them as verified local archives you can inspect offline in the browser. Tested on 68 real Freeform captures, with no uploads or account.",
       features: [
         "Editable shapes, text, and supported connectors instead of flattened exports",
         "Native 2×2 table recovery validated against real macOS captures",
         "No board uploads or account; advanced table layouts and pressure-sensitive ink remain limited",
       ],
-      tech: ["TypeScript", "WebAssembly", "Swift"],
+      tech: ["TypeScript", "Swift", "Excalidraw"],
       featured: true,
       section: "Open Source & Tools",
       liveUrl: "https://boardeject.dev",
@@ -37,17 +37,17 @@ export const siteConfig = {
     {
       id: "signalizeai",
       name: "SignalizeAI",
-      category: "AI browser extension",
+      category: "Sales prospecting extension",
       status: "Production",
       description:
-        "Account research, change detection and outreach, in a browser extension for Chrome and Firefox.",
+        "Turns any company website into a sales brief and outreach emails, then re-checks saved accounts and alerts you when their pricing, hiring or messaging changes. Chrome and Firefox, with a web workspace.",
       features: [
         "Watch saved accounts for changes to pricing, hiring and website messaging",
         "Batch prospecting for file uploads and pasted URLs",
         "CSV and Excel export for bulk outreach generation",
         "Supabase and Cloudflare Workers backend with Google auth and plan limits",
       ],
-      tech: ["TypeScript", "Cloudflare Workers", "Supabase", "Chrome APIs"],
+      tech: ["TypeScript", "Cloudflare Workers", "Next.js"],
       featured: true,
       section: "Products",
       liveUrl: "https://signalizeai.org",
@@ -56,10 +56,10 @@ export const siteConfig = {
     {
       id: "stoccoin",
       name: "Stoccoin",
-      category: "Market research",
+      category: "Open-source market app",
       status: "Project demo",
       description:
-        "An open-source stock and crypto project, with market widgets, news and investment learning resources. Some views are still in development.",
+        "Stock and crypto learning app with TradingView market widgets, news and ten investing guides. Maintained as a GSSoC 2023 project with 39 listed contributors and 180+ merged pull requests.",
       features: [
         "Stock and cryptocurrency market widgets",
         "Market news and educational resources",
@@ -93,16 +93,16 @@ export const siteConfig = {
     {
       id: "aashinyra",
       name: "AashiNyra Deals",
-      category: "Fashion & cashback",
+      category: "Fashion deals & cashback",
       status: "Production",
       description:
-        "Live women's fashion deals platform that tracks 16+ retailers nightly for genuine price drops, with cashback paid to UPI.",
+        "A live fashion deals site that checks retailer prices every night and lists only genuine drops, with cashback paid to UPI. India, US and Japan catalogs, served from Cloudflare Workers.",
       features: [
         "Nightly price tracking with verified drops, not fake MRPs",
         "Affiliate conversion via Cuelinks and INRDeals, cashback to UPI",
         "Programmatic JSON-LD SEO over a 14,800+ product catalog",
       ],
-      tech: ["Next.js", "Cloudflare Workers", "Supabase", "D1/R2"],
+      tech: ["Next.js", "Cloudflare Workers", "Supabase"],
       featured: true,
       section: "Products",
       liveUrl: "https://aashinyra.com",
@@ -501,16 +501,16 @@ export const siteConfig = {
     {
       id: "pennyrush",
       name: "PennyRush",
-      category: "Personal finance",
+      category: "Personal finance tracker",
       status: "Open Source",
       description:
-        "A private money hub: activity, receipt scans, imports, plans, and spending insights. Statements and receipts are parsed in memory and discarded, only the extracted fields are ever stored.",
+        "Track spending on Android and the web from one Supabase backend. Receipts are read on-device with ML Kit and statements are parsed in the browser, so only the extracted entries are stored.",
       features: [
         "Receipt and statement parsing in memory, nothing raw is stored",
         "Activity, imports, plans, and spending insights",
         "Kotlin and Jetpack Compose Android app plus a web companion",
       ],
-      tech: ["Kotlin", "Jetpack Compose", "Android"],
+      tech: ["Kotlin + Compose", "Next.js", "Supabase"],
       featured: false,
       section: "Productivity Apps",
       liveUrl: "#",
@@ -519,16 +519,16 @@ export const siteConfig = {
     {
       id: "holdfast",
       name: "Holdfast",
-      category: "Photo records",
+      category: "Tamper-evident photo records",
       status: "Open Source",
       description:
-        "Photo records that cannot be quietly changed. Every entry is hashed together with its note, its time and the hash of the entry before it, so a reworded note, a deleted entry, a reordered pair or a swapped photo shows as a broken seal at the exact entry it went wrong.",
+        "Photo records sealed into a SHA-256 hash chain, so any edit, deletion or backdating shows at the exact entry. No internet permission, and exports can be verified without the app.",
       features: [
         "SHA-256 hash chain over field-separated entries, verified on every open",
         "No INTERNET permission at all, enforced by a CI gate alongside the backup flag and the hash separator",
         "Exports plain text stating the hashing rule, so a recipient can recompute the chain without the app",
       ],
-      tech: ["Kotlin", "Jetpack Compose", "Android"],
+      tech: ["Kotlin", "Jetpack Compose", "SHA-256"],
       featured: false,
       section: "Productivity Apps",
       liveUrl: "#",
@@ -537,10 +537,10 @@ export const siteConfig = {
     {
       id: "pagefold",
       name: "Pagefold",
-      category: "Offline reading",
+      category: "Offline reading archive",
       status: "Open Source",
       description:
-        "Save any article to read offline later. The readable text is extracted in the page and kept on your own machine, with no account and no network requests at all.",
+        "Save any article and read it offline in a clean side-panel reader with full-text search. Text is extracted in the page and kept in IndexedDB, and the extension makes no network requests.",
       features: [
         "Readability extractor scoring by prose density and link density, no dependencies",
         "IndexedDB archive with full-text search and JSON export",
@@ -555,10 +555,10 @@ export const siteConfig = {
     {
       id: "stowlane",
       name: "Stowlane",
-      category: "Tab lanes",
+      category: "Tab manager",
       status: "Open Source",
       description:
-        "Close forty tabs without losing them. A window is stowed into a lane named after the site you were mostly on, and comes back whenever you want it.",
+        "Close forty tabs without losing them. Stowlane saves a window into a lane named after the site you were on, searchable and restorable later, with three permissions and no network access.",
       features: [
         "Lanes named from the dominant site, so a week later they still mean something",
         "Write before close: tabs are never closed until the save has resolved",
@@ -573,10 +573,10 @@ export const siteConfig = {
     {
       id: "glasswing",
       name: "Glasswing",
-      category: "Accessibility checks",
+      category: "Accessibility checker",
       status: "Open Source",
       description:
-        "Ten accessibility checks on any page, each explained in a sentence you can act on rather than a WCAG criterion number. Runs locally, sends nothing anywhere.",
+        "Runs ten accessibility checks on any page and explains each failure in a plain sentence, with a button that outlines the exact element. Everything runs locally and nothing leaves the browser.",
       features: [
         "WCAG contrast computed as rendered: translucent text flattened, large text judged at 3:1",
         "Findings ordered by severity then by how often each rule is broken",
@@ -591,16 +591,16 @@ export const siteConfig = {
     {
       id: "bellrope",
       name: "Bellrope",
-      category: "Page change alerts",
+      category: "Page change monitor",
       status: "Open Source",
       description:
-        "Watch one part of a page and get told when it changes. Checks run in your own browser on a schedule you set, and the only server involved is the one you are watching.",
+        "Watch one part of a page and get a notification saying what changed, like a price drop and by how much. Checks run in your browser on your schedule, with no server and no account.",
       features: [
         "Notifications say what changed: a price move is reported as the delta",
         "Selectors built to survive a redesign, ignoring framework-generated ids",
         "Pages that render in the browser are refused at creation, with the reason",
       ],
-      tech: ["TypeScript", "Chrome MV3", "Alarms", "Offscreen"],
+      tech: ["TypeScript", "Chrome MV3", "Offscreen DOMParser"],
       featured: false,
       section: "Open Source & Tools",
       liveUrl: "#",
@@ -609,10 +609,10 @@ export const siteConfig = {
     {
       id: "cribsheet",
       name: "Cribsheet",
-      category: "Local decoder",
+      category: "In-page value decoder",
       status: "Open Source",
       description:
-        "Decode a timestamp, cron line, JWT, UUID or hash in the page you found it, so it never goes to a stranger's website. A token pasted into an online decoder has been handed to whoever runs that site.",
+        "Select a JWT, timestamp, cron line, UUID, hash or base64 string and see what it means right in the page. Fifteen decoders run locally, so tokens never go to a third-party website.",
       features: [
         "Sixteen readings, ranked, because one string is honestly several things at once",
         "Three permissions, no host permissions and no storage: nothing is kept anywhere",
@@ -627,17 +627,17 @@ export const siteConfig = {
     {
       id: "kabootar",
       name: "Kabootar",
-      category: "Offline messaging",
+      category: "Offline mesh messenger",
       status: "Open Source",
       description:
-        "Offline mesh messenger: chat with no internet, no servers, no SIM. Messages hop phone to phone over Bluetooth and Wi-Fi as a delay-tolerant network.",
+        "Chat with no internet, servers or SIM. End-to-end encrypted, signed messages hop phone to phone over Bluetooth and Wi-Fi, relaying up to 8 hops and waiting up to 24 hours for someone out of range.",
       features: [
         "Delay-tolerant mesh: messages relay hop to hop and deliver when the recipient is reachable",
         "Epidemic routing with id-based dedup, TTL bounds, and end-to-end delivery acks",
         "Bluetooth and Wi-Fi transport, built in Flutter for Android and iOS",
         "No accounts, no servers, no SIM: fully offline and serverless",
       ],
-      tech: ["Flutter", "Dart", "Bluetooth / Wi-Fi", "Mesh Networking"],
+      tech: ["Flutter", "Nearby Connections", "X25519 / Ed25519"],
       featured: true,
       section: "Productivity Apps",
       liveUrl: "#",
@@ -791,10 +791,10 @@ export const siteConfig = {
     {
       id: "tiny-day",
       name: "Tiny Day",
-      category: "Daily planning",
+      category: "Offline daily planner",
       status: "Open Source",
       description:
-        "A cozy, offline-first daily planner for Android: gentle scheduling, focus, replanning, and no accounts.",
+        "Type your day in plain words and Tiny Day builds a gentle timeline. When plans slip, one tap repairs the day. Fully offline with no account, and an illustrated room that follows the clock.",
       features: [
         "Offline-first: works fully without an account or a network connection",
         "Gentle scheduling, focus sessions, and easy replanning",
@@ -809,16 +809,16 @@ export const siteConfig = {
     {
       id: "agentday",
       name: "AgentDay",
-      category: "Developer productivity",
-      status: "Desktop app",
+      category: "Coding-agent day receipts",
+      status: "Early release",
       description:
-        "Turn a day of building with coding agents into a shareable receipt. Review your work, edit the details and keep a small record of what you made.",
+        "Desktop app that turns your Codex, Claude Code, Gemini CLI and OpenCode sessions into a shareable daily receipt. Logs are read locally and read-only, in a 13 MB Tauri app for macOS, Windows and Linux.",
       features: [
         "Daily work receipts from connected coding-agent sessions",
         "Edit and export receipts as images",
         "Local by default, with no account required",
       ],
-      tech: ["Desktop", "Local-first"],
+      tech: ["Rust", "Tauri", "React"],
       featured: false,
       section: "Productivity Apps",
       liveUrl: "https://agentday.live",
@@ -827,16 +827,16 @@ export const siteConfig = {
     {
       id: "water",
       name: "Water",
-      category: "VS Code extension",
-      status: "Production",
+      category: "AI footprint extension",
+      status: "Early release",
       description:
-        "VS Code extension that estimates the water footprint of your AI usage — making the environmental cost of LLM calls visible in the editor.",
+        "VS Code extension that reads your Claude Code and Codex logs on disk and shows the estimated water and energy use of today's AI coding in the status bar. Fully offline, no telemetry.",
       features: [
         "Live water-footprint estimates for AI-assisted coding",
         "Per-session and cumulative usage tracking",
         "Lightweight status bar integration",
       ],
-      tech: ["TypeScript", "VS Code API"],
+      tech: ["TypeScript", "VS Code API", "Node.js"],
       featured: false,
       section: "Open Source & Tools",
       liveUrl: "https://royalpinto007.com/facetworks/water",
@@ -862,17 +862,17 @@ export const siteConfig = {
     },
     {
       id: "dent-docs",
-      name: "DENT Network OS Docs & Automation",
-      category: "Network docs",
+      name: "DENT Network OS Docs",
+      category: "Network docs (LFX)",
       status: "Open Source",
       description:
-        "Network documentation and Ansible automation for the DENT Network Operating System at the Linux Foundation.",
+        "Linux Foundation LFX Mentorship work on the DENT network OS docs: 22 merged pull requests documenting ACLs, NAT, DHCP, OSPFv2 and v3, traffic policing, port mirroring and PoE, plus site CI.",
       features: [
         "Authored DENT documentation across the TCP/IP protocol stack",
         "Configured 30+ networking topologies in GNS3 and DENT Labs",
         "Top 6% globally (874/14,024) in LFX Mentorship 2023–24",
       ],
-      tech: ["Ansible", "GNS3", "Linux", "TCP/IP"],
+      tech: ["DENT OS", "GNS3", "Jekyll"],
       featured: false,
       section: "Open Source & Tools",
       liveUrl: "https://docs.dent.dev",
