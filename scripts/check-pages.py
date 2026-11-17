@@ -19,7 +19,7 @@ with sync_playwright() as p:
     summary=page.locator('.category-menu summary');summary.focus();page.keyboard.press('Enter')
     assert page.locator('.category-menu').evaluate('n=>n.open')
     links=page.get_by_role('navigation',name='Browse project categories').get_by_role('link')
-    assert links.count()==8
+    assert links.count()==7
     page.wait_for_function("(()=>{const m=document.querySelector('.category-menu');return m.open&&m.dataset.side&&!!m.querySelector('nav').style.maxHeight})()")
     box=page.get_by_role('navigation',name='Browse project categories').bounding_box()
     assert box['y'] >= 0 and box['y']+box['height'] <= 1001, 'Dropdown extends outside the viewport'

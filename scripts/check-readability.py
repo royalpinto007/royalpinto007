@@ -37,12 +37,8 @@ with sync_playwright() as p:
    page.goto(BASE+route,wait_until='networkidle')
    assert font('.site-nav a')>=17 and page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(width,route)
    if route=='/projects':
-    # The overview shows four previews per group; the full external collection
-    # retains all tools, verified separately by the collection inventory check.
-    section=page.locator('#agentpostmortem')
-    assert section.locator('[data-project-group]').count()==3
-    assert section.locator('[data-project-id]').count()==12
-    assert section.locator('.collection-all').get_attribute('href')=='https://www.agentpostmortem.com/tools'
+    # AgentPostmortem's earlier tools are archived while it is rebuilt as one product.
+    assert page.locator('#agentpostmortem').count()==0
   rows.append({'width':width,'typography':True,'home_curated':True,'projects_preserved':True,'route_bounds':True});page.close()
  b.close()
-(OUT/'readability.json').write_text(json.dumps(rows,indent=2)+'\n');print('PASS readable type across nine widths/all routes; three curated Home projects; AgentPostmortem and related work retained in Projects')
+(OUT/'readability.json').write_text(json.dumps(rows,indent=2)+'\n');print('PASS readable type across nine widths/all routes; three curated Home projects; archived AgentPostmortem tools kept off Projects')

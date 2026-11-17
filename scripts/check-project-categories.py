@@ -15,7 +15,6 @@ MEMBERS = {
 GROUPS = {
     "websites": {"studios": 4, "products": 5, "places": 5, "culture": 5},
     "experiments": {"3d-scenes": 7, "physics": 5, "generative": 7, "interactions": 5},
-    "agentpostmortem": {"agents": 9, "tooling": 11},
 }
 
 def check_layout(page):
@@ -54,9 +53,9 @@ with sync_playwright() as p:
         page = browser.new_page(viewport={"width": width, "height": 900}, reduced_motion="reduce")
         page.on("pageerror", lambda error: errors.append(str(error)))
         assert page.goto(URL, wait_until="networkidle").status == 200
-        assert page.locator("[data-project-category]").count() == 8
+        assert page.locator("[data-project-category]").count() == 7
         order = page.locator("[data-project-category]").evaluate_all("ns=>ns.map(n=>n.dataset.projectCategory)")
-        assert order == ["apps", "open-source", "websites", "experiments", "games", "web3", "agentpostmortem", "resources"], order
+        assert order == ["apps", "open-source", "websites", "experiments", "games", "web3", "resources"], order
         assert page.locator("[data-project-category='productivity-apps'], [data-project-category='drupal']").count() == 0
         assert page.locator("#packages").count() == 0
         menu = page.locator(".category-menu")
@@ -65,7 +64,7 @@ with sync_playwright() as p:
         page.keyboard.press("Enter")
         page.wait_for_function("document.querySelector('.category-menu').dataset.side !== undefined")
         links = menu.get_by_role("link")
-        assert links.count() == 8
+        assert links.count() == 7
         assert "Directories & skills" in links.last.inner_text()
         assert menu.locator("nav").evaluate("n=>{const b=n.getBoundingClientRect();return b.left>=0&&b.right<=innerWidth&&b.top>=0&&b.bottom<=innerHeight+1}")
         page.keyboard.press("Escape")
@@ -89,16 +88,15 @@ with sync_playwright() as p:
         for link in page.locator('.collection-view-all').all():
             assert link.get_attribute('target') == '_blank'
             assert 'noopener' in link.get_attribute('rel')
-        assert page.locator('.project-chapter .projects-scenery img').count() == 8
+        assert page.locator('.project-chapter .projects-scenery img').count() == 7
         assert page.locator('#web3 [data-project-group]').count() == 1
         assert page.locator('#web3 [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == ["delegate-inspector", "txray", "paylint", "solana-authority-inspector", "settled", "hookview"]
         assert page.locator('#apps [data-project-id="signalizeai"] img').get_attribute('src') == '/work/signalizeai-light.webp'
-        assert page.locator('#agentpostmortem [data-project-group="resources"]').count() == 0
+        assert page.locator('#agentpostmortem').count() == 0  # archived while rebuilt
         assert page.locator('#resources .collection-all').get_attribute('href') == '/projects/resources'
         assert page.locator('#apps [data-project-id="agentday"]').count() == 0  # retained in View all
         assert page.locator('#websites .collection-all').get_attribute("href") == "https://royalpinto007.com/facetworks/designs"
         assert page.locator('#experiments .collection-all').get_attribute("href") == "https://royalpinto007.com/facetworks/graphics"
-        assert page.locator('#agentpostmortem .collection-all').get_attribute("href") == "https://www.agentpostmortem.com/tools"
         previews(page)
         check_layout(page)
         loaded_images(page)
@@ -155,4 +153,4 @@ with sync_playwright() as p:
     context.close()
     assert not errors, errors
     browser.close()
-print("PASS: 8 collections; named direct previews; separate View all; full membership; grouped galleries; private boundaries; images; five responsive widths; no-JS navigation.")
+print("PASS: 7 collections; named direct previews; separate View all; full membership; grouped galleries; private boundaries; images; five responsive widths; no-JS navigation.")

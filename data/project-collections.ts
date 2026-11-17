@@ -42,10 +42,6 @@ export type ProjectCollection = {
 
 const destination = (url: string | undefined) =>
   url && url !== "#" ? url : undefined;
-const apGroups = [
-  { id: "agents", title: "Apps & integrations" },
-  { id: "tooling", title: "CLI tools & libraries" },
-];
 
 export const projectCollections: ProjectCollection[] =
   projectCategories.flatMap((category) => {
@@ -70,19 +66,8 @@ export const projectCollections: ProjectCollection[] =
           tech: p.stack,
         })),
       }));
-    } else if (
-      category.id === "agentpostmortem" ||
-      category.id === "resources"
-    ) {
-      if (category.id === "agentpostmortem") {
-        href = "https://www.agentpostmortem.com/tools";
-        external = true;
-      }
-      const toolGroups =
-        category.id === "resources"
-          ? [{ id: "resources", title: category.title }]
-          : apGroups;
-      groups = toolGroups.map((group) => ({
+    } else if (category.id === "resources") {
+      groups = [{ id: "resources", title: category.title }].map((group) => ({
         ...group,
         href: `${href}#${group.id}`,
         items: tools

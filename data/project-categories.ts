@@ -46,12 +46,6 @@ export const projectCategories = [
       "Installable libraries, command-line utilities, MCP integrations, and reusable skills.",
   },
   {
-    id: "agentpostmortem",
-    title: "AgentPostmortem",
-    description:
-      "Agents, context tools, security checks and evaluations. Explore the toolkit through demos and workflow previews.",
-  },
-  {
     id: "resources",
     title: "Directories & skills",
     description:
@@ -80,7 +74,9 @@ export const collectionAliases: Record<string, ProjectCategory> = {
   "d-language": "open-source",
   drupal: "open-source",
 };
-const agentpostmortem = new Set([
+// AgentPostmortem's earlier tools are archived while it is rebuilt as one product,
+// so they belong to no collection.
+const archivedAgentPostmortem = new Set([
   "agentpostmortem",
   "agent-suite",
   ...agentpostmortemTools.map((tool) => tool.id),
@@ -92,9 +88,9 @@ const resources = new Set(
 );
 export function categoryFor(
   project: (typeof siteConfig.projects)[number],
-): ProjectCategory {
+): ProjectCategory | null {
   if (resources.has(project.id)) return "resources";
-  if (agentpostmortem.has(project.id)) return "agentpostmortem";
+  if (archivedAgentPostmortem.has(project.id)) return null;
   if (systems.has(project.id)) return "open-source";
   if (project.section === "D Language") return "open-source";
   if (project.section === "Products") return "apps";
