@@ -1,6 +1,7 @@
 "use client";
+import { useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { profile } from "@/data/profile";
 const navLinks = [
@@ -10,12 +11,26 @@ const navLinks = [
 ];
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
+  // The mobile menu hides its links, so viewport prefetching never sees them.
+  // Fetch the other main pages once the browser is idle so a tap is instant.
+  useEffect(() => {
+    const prefetch = () =>
+      navLinks
+        .filter((link) => link.href !== pathname)
+        .forEach((link) => router.prefetch(link.href));
+    if (typeof window.requestIdleCallback === "function") {
+      const id = window.requestIdleCallback(prefetch, { timeout: 3000 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const timer = window.setTimeout(prefetch, 1500);
+    return () => window.clearTimeout(timer);
+  }, [pathname, router]);
   return (
     <header className="site-header">
       <div className="header-inner">
         <Link
           href="/"
-          prefetch={false}
           className="brand-link"
           aria-label="Royal Simpson Pinto home"
         >
@@ -27,7 +42,6 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              prefetch={false}
               aria-current={
                 (
                   link.href === "/"
@@ -63,7 +77,6 @@ export function Header() {
             {navLinks.map((link, index) => (
               <Link
                 href={link.href}
-                prefetch={false}
                 key={link.href}
                 aria-current={
                   (

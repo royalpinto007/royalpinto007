@@ -25,9 +25,7 @@ export function Footer() {
           © {new Date().getFullYear()} {siteConfig.name}
         </p>
         <nav aria-label="Footer navigation">
-          <Link href="/contact" prefetch={false}>
-            Contact
-          </Link>
+          <Link href="/contact">Contact</Link>
           <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
