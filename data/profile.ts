@@ -7,6 +7,6 @@ export const profile = {
   calendarLink: "https://cal.com/royalpinto007",
   github: "https://github.com/royalpinto007",
   twitter: "https://twitter.com/royalpinto007",
-  hireUrl: "https://hire.royalpinto007.com",
+  hireUrl: "/contact",
   avatar: "/portrait-enhanced.webp",
 } as const;

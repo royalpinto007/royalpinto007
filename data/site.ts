@@ -87,7 +87,7 @@ export const siteConfig = {
       tech: ["Claude API", "n8n", "Supabase", "Cloudflare Workers"],
       featured: true,
       section: "AI Products",
-      liveUrl: "https://hire.royalpinto007.com",
+      liveUrl: "https://www.agentpostmortem.com/tools",
       githubUrl: "https://github.com/AgentPostmortem",
     },
     {

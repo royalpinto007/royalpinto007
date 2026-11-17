@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
 import { profile } from "@/data/profile";
 const navLinks = [
   { label: "Home", href: "/" },
@@ -57,9 +57,9 @@ export function Header() {
           ))}
         </nav>
         <div className="header-actions">
-          <a className="primary-link" href={profile.hireUrl}>
-            Hire me <ArrowUpRight size={15} />
-          </a>
+          <Link className="primary-link" href={profile.hireUrl}>
+            Hire me <ArrowRight size={15} />
+          </Link>
         </div>
         <details
           className="home-mobile-menu"
@@ -99,9 +99,15 @@ export function Header() {
                 <ArrowRight size={15} aria-hidden="true" />
               </Link>
             ))}
-            <a href={profile.hireUrl}>
-              Hire me <ArrowUpRight size={15} aria-hidden="true" />
-            </a>
+            <Link
+              href={profile.hireUrl}
+              onClick={(event) => {
+                const menu = event.currentTarget.closest("details");
+                if (menu) menu.open = false;
+              }}
+            >
+              Hire me <ArrowRight size={15} aria-hidden="true" />
+            </Link>
           </nav>
         </details>
       </div>
