@@ -22,67 +22,36 @@ import {
 
 const systems = [
   {
-    id: "aashinyra",
-    name: "AashiNyra",
-    icons: [Workflow, Database, Layers, Monitor],
-    title: "One source. Fast reads.",
+    id: "kabootar",
+    name: "Kabootar",
+    icons: [Lock, Radio, Share2, CheckCheck],
+    title: "No server. Every phone relays.",
     description:
-      "A commerce platform with scheduled catalog updates, a PostgreSQL source of truth, and a D1 read model for the live site.",
+      "An offline Flutter messenger. Phones discover each other over Bluetooth and Wi-Fi with Nearby Connections, carry sealed envelopes for one another and deliver them hop by hop, with SQLite for messages and de-duplication.",
     flow: [
-      { title: "Scheduled jobs", detail: "Catalog & price updates" },
-      { title: "Source of truth", detail: "Supabase / PostgreSQL" },
-      { title: "Read model", detail: "Cloudflare D1" },
-      { title: "Live application", detail: "Next.js / Workers" },
+      { title: "Seal & store", detail: "Encrypt, sign, save as sending" },
+      { title: "Flood on contact", detail: "Hello + carry cache per link" },
+      { title: "Relay with limits", detail: "Dedup · TTL 8 · 500 for 24h" },
+      { title: "Ack flows back", detail: "Clears copies, marks delivered" },
     ],
     decisions: [
       {
-        title: "Separate reads from writes",
-        text: "Scheduled ingestion updates the source catalog; a published read model serves the storefront.",
+        title: "One id end to end",
+        text: "The message id is also the envelope, de-duplication and acknowledgement key, so flooding is idempotent and an ack maps straight to its database row.",
       },
       {
-        title: "Keep access explicit",
-        text: "Authentication and row-level security live with the PostgreSQL source of truth.",
+        title: "Routing core in plain Dart",
+        text: "The mesh engine depends only on small ports for transport, seen ids and delivery, and is unit-tested against an in-memory mesh.",
       },
       {
-        title: "Give media its own home",
-        text: "R2 stores media and the application’s incremental cache.",
+        title: "Persist what must survive",
+        text: "The seen set lives in SQLite so a restarted phone does not re-flood, and unacknowledged outgoing messages are rebuilt from the database on launch.",
       },
     ],
-    href: "https://aashinyra.com",
-    link: "Open the product",
-    scope: "Simplified catalog publication and serving flow. Live product.",
-  },
-  {
-    id: "signalizeai",
-    name: "SignalizeAI",
-    icons: [Monitor, ScanSearch, Workflow, Bell],
-    title: "Research once. Watch what changes.",
-    description:
-      "A Manifest V3 extension with a browser-side watch loop, structured page snapshots, and a Cloudflare Workers backend for research and change summaries.",
-    flow: [
-      { title: "Read the page", detail: "Browser-side extraction" },
-      { title: "Build the brief", detail: "Extension + Workers API" },
-      { title: "Watch & compare", detail: "Alarms · snapshots · diff" },
-      { title: "Surface changes", detail: "Alerts + outreach context" },
-    ],
-    decisions: [
-      {
-        title: "Keep fetching in the browser",
-        text: "The extension reads watched pages while the browser is running. The backend does not run a crawler.",
-      },
-      {
-        title: "Separate noise from change",
-        text: "Structured snapshot comparison suppresses whitespace, reordered navigation, tracking parameters, and failed price extraction.",
-      },
-      {
-        title: "Keep state across checks",
-        text: "Supabase handles authentication, saved prospects, and stored snapshots; the extension handles scheduling and extraction.",
-      },
-    ],
-    href: "https://github.com/SignalizeAI/SignalizeAI#how-change-detection-works",
-    link: "Read the architecture",
+    href: "https://github.com/royalpinto007/Kabootar",
+    link: "Read the source",
     scope:
-      "Research and watch paths, simplified. Watch checks require the browser to be running.",
+      "Best-effort epidemic delivery (TTL 8, 24 hours). Android and iOS each mesh within their own platform; carried copies live in memory.",
   },
   {
     id: "boardeject",
@@ -117,36 +86,67 @@ const systems = [
       "Editable-export path for the verified Freeform 4.5 subset. No board uploads.",
   },
   {
-    id: "kabootar",
-    name: "Kabootar",
-    icons: [Lock, Radio, Share2, CheckCheck],
-    title: "No server. Every phone relays.",
+    id: "signalizeai",
+    name: "SignalizeAI",
+    icons: [Monitor, ScanSearch, Workflow, Bell],
+    title: "Research once. Watch what changes.",
     description:
-      "An offline Flutter messenger. Phones discover each other over Bluetooth and Wi-Fi with Nearby Connections, carry sealed envelopes for one another and deliver them hop by hop, with SQLite for messages and de-duplication.",
+      "A Manifest V3 extension with a browser-side watch loop, structured page snapshots, and a Cloudflare Workers backend for research and change summaries.",
     flow: [
-      { title: "Seal & store", detail: "Encrypt, sign, save as sending" },
-      { title: "Flood on contact", detail: "Hello + carry cache per link" },
-      { title: "Relay with limits", detail: "Dedup · TTL 8 · 500 for 24h" },
-      { title: "Ack flows back", detail: "Clears copies, marks delivered" },
+      { title: "Read the page", detail: "Browser-side extraction" },
+      { title: "Build the brief", detail: "Extension + Workers API" },
+      { title: "Watch & compare", detail: "Alarms · snapshots · diff" },
+      { title: "Surface changes", detail: "Alerts + outreach context" },
     ],
     decisions: [
       {
-        title: "One id end to end",
-        text: "The message id is also the envelope, de-duplication and acknowledgement key, so flooding is idempotent and an ack maps straight to its database row.",
+        title: "Keep fetching in the browser",
+        text: "The extension reads watched pages while the browser is running. The backend does not run a crawler.",
       },
       {
-        title: "Routing core in plain Dart",
-        text: "The mesh engine depends only on small ports for transport, seen ids and delivery, and is unit-tested against an in-memory mesh.",
+        title: "Separate noise from change",
+        text: "Structured snapshot comparison suppresses whitespace, reordered navigation, tracking parameters, and failed price extraction.",
       },
       {
-        title: "Persist what must survive",
-        text: "The seen set lives in SQLite so a restarted phone does not re-flood, and unacknowledged outgoing messages are rebuilt from the database on launch.",
+        title: "Keep state across checks",
+        text: "Supabase handles authentication, saved prospects, and stored snapshots; the extension handles scheduling and extraction.",
       },
     ],
-    href: "https://github.com/royalpinto007/Kabootar",
-    link: "Read the source",
+    href: "https://github.com/SignalizeAI/SignalizeAI#how-change-detection-works",
+    link: "Read the architecture",
     scope:
-      "Best-effort epidemic delivery (TTL 8, 24 hours). Android and iOS each mesh within their own platform; carried copies live in memory.",
+      "Research and watch paths, simplified. Watch checks require the browser to be running.",
+  },
+  {
+    id: "aashinyra",
+    name: "AashiNyra",
+    icons: [Workflow, Database, Layers, Monitor],
+    title: "One source. Fast reads.",
+    description:
+      "A commerce platform with scheduled catalog updates, a PostgreSQL source of truth, and a D1 read model for the live site.",
+    flow: [
+      { title: "Scheduled jobs", detail: "Catalog & price updates" },
+      { title: "Source of truth", detail: "Supabase / PostgreSQL" },
+      { title: "Read model", detail: "Cloudflare D1" },
+      { title: "Live application", detail: "Next.js / Workers" },
+    ],
+    decisions: [
+      {
+        title: "Separate reads from writes",
+        text: "Scheduled ingestion updates the source catalog; a published read model serves the storefront.",
+      },
+      {
+        title: "Keep access explicit",
+        text: "Authentication and row-level security live with the PostgreSQL source of truth.",
+      },
+      {
+        title: "Give media its own home",
+        text: "R2 stores media and the application’s incremental cache.",
+      },
+    ],
+    href: "https://aashinyra.com",
+    link: "Open the product",
+    scope: "Simplified catalog publication and serving flow. Live product.",
   },
 ];
 
