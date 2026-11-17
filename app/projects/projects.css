@@ -405,8 +405,9 @@
   background: #193e52;
   border-color: #193e52;
   color: #fff9f0;
-  padding: 13px 18px;
+  padding: 12px 20px 12px 22px;
   min-height: 48px;
+  border-radius: 999px;
 }
 .projects-page .collection-all:hover {
   background: #82335d;

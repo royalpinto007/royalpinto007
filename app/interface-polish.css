@@ -16,10 +16,10 @@ body {
   outline-offset: 5px;
 }
 .primary-link {
-  gap: 22px;
-  padding: 12px 18px 12px 22px;
+  gap: 18px;
+  padding: 6px 7px 6px 22px;
   border: 1px solid #163b53;
-  border-radius: 8px;
+  border-radius: 999px;
   font-size: 16px;
   font-weight: 560;
   letter-spacing: -0.015em;
@@ -29,10 +29,10 @@ body {
 }
 .primary-link svg {
   box-sizing: content-box;
-  padding: 7px;
-  border: 1px solid #ffffff4d;
-  border-radius: 5px;
-  background: #ffffff0c;
+  padding: 9px;
+  border: 1px solid #ffffff40;
+  border-radius: 50%;
+  background: #ffffff1a;
   flex-shrink: 0;
 }
 .primary-link:hover {
@@ -44,8 +44,11 @@ body {
 }
 .header-actions .primary-link {
   min-height: 44px;
-  padding: 6px 9px 6px 17px;
-  gap: 16px;
+  padding: 4px 5px 4px 18px;
+  gap: 14px;
+}
+.header-actions .primary-link svg {
+  padding: 7px;
 }
 .quiet-link {
   min-height: 48px;

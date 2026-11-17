@@ -1043,3 +1043,57 @@ html[data-motion="static"] .home-page .experiment-play {
     animation-delay: 1.6s;
   }
 }
+
+/* Open by default: the supporting line reads as copy, and the graph labels
+   use the site typeface instead of the SVG's system-ui fallback. */
+.home-page .open-source-heading > p:last-child {
+  max-width: 34ch;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #3d5568;
+  text-align: right;
+}
+.home-page .wall-svg text {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  .home-page .open-source-heading > p:last-child {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+/* Architecture controls and captions at a readable size. */
+.home-page .architecture-walkthrough legend {
+  font-size: 15px;
+  padding-top: 12px;
+}
+.home-page .architecture-walkthrough span {
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.home-page .system-case-intro > a.go-link {
+  font-size: 16px;
+}
+.home-page .system-scope {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.home-page .system-notes summary,
+.home-page .system-full-map summary {
+  font-size: 16px;
+}
+.home-page .calendar-status {
+  font-size: 15px;
+  color: #3d5568;
+}
+.home-page a.calendar-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

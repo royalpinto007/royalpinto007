@@ -62,11 +62,11 @@ export default function RootLayout({
           <div className="sunset-current" />
           <div className="horizon-lines" />
         </div>
-        <Header />
-        <CoffeeTicker />
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
+        <Header />
+        <CoffeeTicker />
         <main id="main-content">{children}</main>
         <Footer />
       </body>

@@ -74,11 +74,25 @@
 .coastal-footer .footer-bottom nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 26px;
+  gap: 4px 14px;
 }
+/* Every footer link, even the one-letter "X", gets a full 44px target. */
 .coastal-footer .footer-bottom a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
   min-height: 44px;
+  padding-inline: 6px;
+  border-radius: 8px;
   font-size: 16px;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+.coastal-footer .footer-bottom a:hover {
+  background: #e9eef1;
+  color: #9c3263;
 }
 @media (max-width: 767px) {
   .coastal-footer .footer-invitation .projects-scenery::after {
