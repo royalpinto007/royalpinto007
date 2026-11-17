@@ -6,7 +6,6 @@ import { profile } from "@/data/profile";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  { label: "Calendar", href: "/calendar" },
   { label: "Contact", href: "/contact" },
 ];
 export function Header() {

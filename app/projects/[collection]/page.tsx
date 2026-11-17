@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { projectCollections } from "@/data/project-collections";
@@ -24,11 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     (c) => c.id === (collectionAliases[collection] ?? collection),
   );
   if (!details) notFound();
-  return {
+  return pageMetadata({
     title: details.title,
     description: details.description,
-    alternates: { canonical: `/projects/${details.id}` },
-  };
+    path: `/projects/${details.id}`,
+  });
 }
 
 export default async function CollectionPage({ params }: Props) {

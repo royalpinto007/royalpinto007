@@ -7,6 +7,8 @@ import "./not-found.css";
 export const metadata: Metadata = {
   title: "Page not found",
   robots: { index: false },
+  alternates: { canonical: null },
+  openGraph: null,
 };
 
 /** Branded 404 for the static export, in the same coastal world as the site. */

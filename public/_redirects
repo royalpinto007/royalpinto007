@@ -1,3 +1,6 @@
 /blog /projects 301
 /blog/ /projects 301
 /blog.html /projects 301
+/calendar /contact 301
+/calendar/ /contact 301
+/calendar.html /contact 301

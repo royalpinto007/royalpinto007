@@ -18,6 +18,7 @@ import { CinematicHero } from "@/components/CinematicHero";
 import { TypingDescriptor } from "@/components/TypingDescriptor";
 import { HomeProjectExplorer } from "@/components/HomeProjectExplorer";
 import { ProjectVisual } from "@/components/ProjectVisual";
+import { jsonLdScript, personJsonLd } from "@/lib/seo";
 import { SystemsShowcase } from "@/components/SystemsShowcase";
 import { SceneEnvironment } from "@/components/SceneEnvironment";
 import { siteConfig } from "@/data/site";
@@ -55,6 +56,10 @@ const work = [
 export default function HomePage() {
   return (
     <div className="portfolio-shell home-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript(personJsonLd())}
+      />
       <CinematicHero>
         <div className="hero-copy">
           <p className="intro-name">

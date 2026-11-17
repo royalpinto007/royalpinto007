@@ -1,17 +1,18 @@
 import "./contact.css";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ArrowUpRight, Calendar, Mail } from "lucide-react";
 import { GithubIcon, TwitterIcon } from "@/components/BrandIcons";
 import { ProjectsScenery } from "@/components/ProjectsScenery";
 import { WorldScene } from "@/components/WorldScene";
 import { siteConfig } from "@/data/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  alternates: { canonical: "/contact" },
+  path: "/contact",
   description:
-    "Have a project in mind? Email Royal Pinto or book a call to talk software, freelance work and open source.",
-};
+    "Hire Royal Simpson Pinto for software, AI agent and full-stack work. Email or book a call to talk freelance projects, roles and open source.",
+});
 
 export default function ContactPage() {
   return (

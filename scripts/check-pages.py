@@ -1,4 +1,4 @@
-"""Exercise Projects navigation, Calendar readiness and shared interface styles."""
+"""Exercise Projects navigation, Contact channels, page navigation and shared interface styles."""
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 import os,json
@@ -10,7 +10,7 @@ with sync_playwright() as p:
  for w in [320,390,768,1440]:
   context=b.new_context(viewport={'width':w,'height':1000},reduced_motion='reduce')
   page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)))
-  for route in ['projects','contact','calendar']:
+  for route in ['projects','contact']:
    page.goto(BASE+'/'+route,wait_until='networkidle')
    assert page.locator('h1').count()==1
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(w,route)
@@ -46,19 +46,17 @@ with sync_playwright() as p:
     page.locator('.contact-heading img').evaluate_all('ns=>Promise.all(ns.map(n=>n.decode()))')
     page.locator('.contact-heading').screenshot(path=str(OUT/f'contact-heading-{w}.png'))
     page.locator('.contact-actions').screenshot(path=str(OUT/f'contact-actions-{w}.png'))
-   else:
-    assert page.get_by_text('No events are published yet.',exact=True).is_visible()
-    assert page.locator('iframe,input,select,form').count()==0
-    assert page.locator('.calendar-preview a').get_attribute('href')=='/projects'
     if w<1024:
      page.locator('.home-mobile-menu summary').click()
      nav=page.get_by_role('navigation',name='Mobile navigation')
-     assert nav.get_by_role('link',name='Calendar',exact=True).get_attribute('aria-current')=='page'
-     nav.get_by_role('link',name='Calendar',exact=True).click()
+     assert nav.get_by_role('link',name='Contact',exact=True).get_attribute('aria-current')=='page'
+     assert nav.get_by_role('link',name='Calendar',exact=True).count()==0
+     nav.get_by_role('link',name='Contact',exact=True).click()
      assert not page.locator('.home-mobile-menu').evaluate('n=>n.open')
     else:
-     assert page.get_by_role('navigation',name='Main navigation').get_by_role('link',name='Calendar',exact=True).get_attribute('aria-current')=='page'
-    page.screenshot(path=str(OUT/f'calendar-{w}.png'))
+     main_nav=page.get_by_role('navigation',name='Main navigation')
+     assert main_nav.get_by_role('link',name='Contact',exact=True).get_attribute('aria-current')=='page'
+     assert main_nav.get_by_role('link',name='Calendar',exact=True).count()==0
    # The shared footer must reach both viewport edges without clipping its copy.
    page.locator('.site-footer').scroll_into_view_if_needed()
    page.locator('.site-footer img').evaluate_all("ns=>ns.forEach(n=>n.loading='eager')")
@@ -75,8 +73,7 @@ with sync_playwright() as p:
  page.locator('.category-menu summary').click()
  page.get_by_role('navigation',name='Browse project categories').get_by_role('link',name='Apps & products',exact=True).click()
  assert page.evaluate("location.hash==='#apps'")
- page.goto(BASE+'/calendar',wait_until='networkidle');assert page.get_by_text('No events are published yet.',exact=True).is_visible()
  context.close();b.close()
 assert not errors,errors
 (OUT/'verification.json').write_text(json.dumps({'ok':True,'checks':checks,'no_js_navigation':True,'runtime_errors':errors},indent=2)+'\n')
-print('PASS 3 routes at 4 widths, keyboard/outside-click category menu, touch targets, native no-JS links and empty Calendar')
+print('PASS 2 routes at 4 widths, keyboard/outside-click category menu, touch targets, nav without Calendar and native no-JS links')

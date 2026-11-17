@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Anton, Geist } from "next/font/google";
 import { PortfolioMotion } from "@/components/PortfolioMotion";
 import { Header } from "@/components/Header";
 import { CoffeeTicker } from "@/components/CoffeeTicker";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
+import { pageMetadata, siteUrl } from "@/lib/seo";
 import "./globals.css";
 import "./coastal-theme.css";
 import "./interface-polish.css";
@@ -18,32 +19,32 @@ const display = Anton({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://royalpinto007.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${siteConfig.name} | ${siteConfig.role}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.bio,
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: `${siteConfig.name} | ${siteConfig.role}`,
-    description: siteConfig.bio,
-    type: "website",
-    images: [
-      {
-        url: "/social-sky.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Royal Simpson Pinto, software engineer, in the coastal sunset portfolio hero",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteConfig.name} | ${siteConfig.role}`,
-    description: siteConfig.bio,
-    images: ["/social-sky.jpg"],
-  },
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name, url: siteUrl }],
+  creator: siteConfig.name,
+  keywords: [
+    "Royal Simpson Pinto",
+    "Royal Pinto",
+    "software engineer",
+    "indie developer",
+    "freelance developer",
+    "AI agents",
+    "full-stack developer",
+    "Solana developer",
+    "open source",
+  ],
+  formatDetection: { telephone: false, email: false, address: false },
+  ...pageMetadata({ description: siteConfig.bio, path: "/" }),
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f5f6f1",
+  colorScheme: "light",
 };
 
 export default function RootLayout({

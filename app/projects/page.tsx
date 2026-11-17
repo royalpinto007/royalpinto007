@@ -1,6 +1,7 @@
 import "./projects.css";
 import { WorldScene } from "@/components/WorldScene";
 import type { Metadata } from "next";
+import { jsonLdScript, pageMetadata, siteUrl } from "@/lib/seo";
 import { ArrowUpRight } from "lucide-react";
 import { projectCollections } from "@/data/project-collections";
 import { ProjectCollage } from "@/components/ProjectCollage";
@@ -20,15 +21,33 @@ const scenery = {
   "open-source": "pavilion",
 } as const;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Projects",
-  alternates: { canonical: "/projects" },
+  path: "/projects",
   description:
-    "Explore apps, Solana and Web3 tools, browser extensions, websites, interactive experiments and open-source work by Royal Pinto.",
-};
+    "Apps, AI agent tooling, Solana and Web3 developer tools, open-source work, website designs, games and interactive graphics by Royal Simpson Pinto.",
+});
 export default function ProjectsPage() {
   return (
     <div className="portfolio-shell projects-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Projects",
+          url: `${siteUrl}/projects`,
+          author: { "@id": `${siteUrl}/#person` },
+          hasPart: projectCollections.map((category) => ({
+            "@type": "CollectionPage",
+            name: category.title,
+            description: category.description,
+            url: category.href.startsWith("http")
+              ? category.href
+              : `${siteUrl}${category.href}`,
+          })),
+        })}
+      />
       <header className="projects-heading world-heading" data-motion-intro>
         <ProjectsScenery scene="tidal" priority />
         <WorldScene kind="arcade" priority />
