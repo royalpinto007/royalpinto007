@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Geist } from "next/font/google";
 import { PortfolioMotion } from "@/components/PortfolioMotion";
+import { ScrollMemory } from "@/components/ScrollMemory";
 import { Header } from "@/components/Header";
 import { CoffeeTicker } from "@/components/CoffeeTicker";
 import { Footer } from "@/components/Footer";
@@ -53,11 +54,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
         className={`${geist.className} ${geist.variable} ${display.variable} bg-bg text-ink antialiased`}
       >
         <PortfolioMotion />
+        <ScrollMemory />
         <div className="sunset-atmosphere" aria-hidden="true">
           <div className="sky-current" />
           <div className="sunset-current" />
