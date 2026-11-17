@@ -91,7 +91,7 @@ with sync_playwright() as p:
             assert 'noopener' in link.get_attribute('rel')
         assert page.locator('.project-chapter .projects-scenery img').count() == 8
         assert page.locator('#web3 [data-project-group]').count() == 1
-        assert page.locator('#web3 [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == ["delegate-inspector", "txray", "paylint", "solana-authority-inspector"]
+        assert page.locator('#web3 [data-project-id]').evaluate_all("ns=>ns.map(n=>n.dataset.projectId)") == ["delegate-inspector", "txray", "paylint", "solana-authority-inspector", "settled", "hookview"]
         assert page.locator('#apps [data-project-id="signalizeai"] img').get_attribute('src') == '/work/signalizeai-light.webp'
         assert page.locator('#agentpostmortem [data-project-group="resources"]').count() == 0
         assert page.locator('#resources .collection-all').get_attribute('href') == '/projects/resources'

@@ -729,12 +729,20 @@ body:has(.home-page) .site-header {
 .home-page .hero-bottom {
   gap: 10px;
 }
+/* The label is always shown: hover-only labels never appear on touch screens. */
 .home-page .work-preview-link > span {
-  opacity: 0;
-  transition: opacity 180ms ease;
+  margin: 0 14px 14px 0;
+  box-shadow: 0 10px 24px -16px #173b5099;
+  font-weight: 600;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
 }
 .home-page .work-preview-link:is(:hover, :focus-visible) > span {
-  opacity: 1;
+  background: #9c3263;
+  border-color: #9c3263;
+  color: #fff8ef;
 }
 .home-page .scene-ambient-toggle {
   width: 44px;

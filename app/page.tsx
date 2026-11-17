@@ -244,20 +244,22 @@ export default function HomePage() {
               )}
               <div className="work-preview">
                 {project.image === "boardeject" ? (
-                  <BoardDemo />
+                  <BoardDemo name={project.name} href={project.href} />
                 ) : (
-                  <ProjectVisual product={project.image} />
+                  <>
+                    <ProjectVisual product={project.image} />
+                    <a
+                      className="work-preview-link"
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>
+                        Explore {project.name} <ArrowUpRight size={15} />
+                      </span>
+                    </a>
+                  </>
                 )}
-                <a
-                  className="work-preview-link"
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>
-                    Explore {project.name} <ArrowUpRight size={15} />
-                  </span>
-                </a>
               </div>
               <div className="work-details">
                 <p className="work-index">

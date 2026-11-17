@@ -113,7 +113,9 @@ export default function ProjectsPage() {
                   key={group.id}
                   group={group}
                   single={groups.length === 1}
-                  previewLimit={category.id === "games" ? 6 : 4}
+                  previewLimit={
+                    ["games", "web3", "resources"].includes(category.id) ? 6 : 4
+                  }
                 />
               ))}
             </div>

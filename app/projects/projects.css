@@ -488,34 +488,6 @@
   }
 }
 
-/* A mixed two-by-two preview replaces the separate narrow Web3 boards. */
-.projects-page :is(.chapter-web3, .chapter-resources) .collage-screens {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
-  padding: clamp(18px, 3vw, 36px);
-}
-.projects-page :is(.chapter-web3, .chapter-resources) .project-window {
-  transform: none;
-}
-@media (max-width: 560px) {
-  .projects-page :is(.chapter-web3, .chapter-resources) .collage-screens {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
-  }
-}
-.projects-page
-  :is(.chapter-web3, .chapter-resources)
-  .project-preview-caption
-  h4 {
-  font-size: clamp(22px, 2vw, 28px);
-}
-.projects-page
-  :is(.chapter-web3, .chapter-resources)
-  .project-preview-caption
-  p {
-  font-size: 16px;
-}
-
 /* On narrow screens copy spans the full width, so the veil must cover the right side too. */
 @media (max-width: 767px) {
   .projects-heading .projects-scenery::after,

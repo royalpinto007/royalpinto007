@@ -2,22 +2,21 @@
 
 import {
   useCallback,
-  useMemo,
   useRef,
   useState,
   useSyncExternalStore,
   type KeyboardEvent,
+  type MouseEvent,
   type PointerEvent,
 } from "react";
 import {
   ArrowRight,
+  ArrowUpRight,
   Circle,
   Diamond,
   Download,
-  Hand,
-  Minus,
+  Eraser,
   MousePointer2,
-  Pencil,
   RotateCcw,
   Square,
   Type,
@@ -25,134 +24,169 @@ import {
 import { RoughGenerator } from "roughjs/bin/generator";
 
 /*
- * A small, real Excalidraw-style canvas. The shapes are drawn with rough.js
- * (the library Excalidraw uses) and labelled in Excalifont. After conversion
- * they can be dragged, their bound arrows follow, labels can be edited, and the
- * scene downloads as a genuine .excalidraw file. It demonstrates the output;
- * it does not parse Freeform files.
+ * A small working canvas. Before conversion it behaves like a Freeform board;
+ * after conversion it is drawn the way Excalidraw draws (rough.js, Excalifont),
+ * with working tools, bound arrows, inline text editing and a download that
+ * opens in Excalidraw. It demonstrates BoardEject's output; it does not parse
+ * Freeform files.
  */
 
+type Kind = "rectangle" | "diamond" | "ellipse" | "text";
+type Tool =
+  | "select"
+  | "rectangle"
+  | "diamond"
+  | "ellipse"
+  | "arrow"
+  | "text"
+  | "eraser";
 type Shape = {
   id: string;
+  kind: Kind;
   label: string;
   x: number;
   y: number;
   fill: string;
-  freeform: { x: number; y: number; tilt: number; color: string };
   seed: number;
 };
+type Link = { id: string; from: string; to: string; seed: number };
+type LayoutKey = "wide" | "compact";
+type Scene = { shapes: Shape[]; links: Link[] };
 
 const W = 200;
 const H = 104;
+const TEXT_H = 56;
+const MAX_SHAPES = 12;
+const stroke = "#1e1e1e";
+const fills = ["#a5d8ff", "#ffc9c9", "#ffec99", "#b2f2bb"];
+const freeformColor: Record<string, string> = {
+  "#a5d8ff": "#cee4f5",
+  "#ffc9c9": "#f3c9d7",
+  "#ffec99": "#f6ddbd",
+  "#b2f2bb": "#cdeccf",
+};
 
-type LayoutKey = "wide" | "compact";
-type Spot = { x: number; y: number; fx: number; fy: number; tilt: number };
-/* Phones get a taller zig-zag board so shapes and labels stay large enough to
-   drag and read; wide cards keep the left-to-right flow. */
+/* Phones get a taller board so shapes and labels stay large enough to drag. */
 const layouts: Record<
   LayoutKey,
   {
     view: { w: number; h: number };
     canvas: { top: number; bottom: number; left: number; right: number };
-    toolbarX: number;
-    zoomY: number;
-    at: Record<string, Spot>;
+    at: Record<string, { x: number; y: number }>;
   }
 > = {
   wide: {
     view: { w: 860, h: 460 },
-    canvas: { top: 76, bottom: 444, left: 16, right: 844 },
-    toolbarX: 238,
-    zoomY: 404,
+    canvas: { top: 84, bottom: 444, left: 16, right: 844 },
     at: {
-      idea: { x: 52, y: 236, fx: 90, fy: 150, tilt: -6 },
-      plan: { x: 330, y: 120, fx: 340, fy: 90, tilt: 7 },
-      real: { x: 608, y: 236, fx: 560, fy: 236, tilt: -5 },
+      idea: { x: 70, y: 210 },
+      plan: { x: 330, y: 104 },
+      real: { x: 590, y: 250 },
     },
   },
   compact: {
     view: { w: 520, h: 640 },
-    canvas: { top: 76, bottom: 572, left: 16, right: 504 },
-    toolbarX: 68,
-    zoomY: 588,
+    canvas: { top: 84, bottom: 624, left: 16, right: 504 },
     at: {
-      idea: { x: 40, y: 112, fx: 50, fy: 120, tilt: -6 },
-      plan: { x: 280, y: 270, fx: 268, fy: 262, tilt: 7 },
-      real: { x: 40, y: 440, fx: 64, fy: 420, tilt: -5 },
+      idea: { x: 44, y: 120 },
+      plan: { x: 276, y: 280 },
+      real: { x: 44, y: 450 },
     },
   },
 };
 
-const baseShapes = [
-  {
-    id: "idea",
-    label: "An idea",
-    fill: "#a5d8ff",
-    color: "#cee4f5",
-    seed: 1931,
-  },
-  {
-    id: "plan",
-    label: "A plan",
-    fill: "#ffc9c9",
-    color: "#f3c9d7",
-    seed: 4127,
-  },
-  {
-    id: "real",
-    label: "Something real",
-    fill: "#ffec99",
-    color: "#f6ddbd",
-    seed: 7703,
-  },
-];
-
-/** Shapes at a layout's starting spots, keeping any labels already edited. */
-function place(
-  list: { id: string; label: string; fill: string; seed: number }[],
-  key: LayoutKey,
-): Shape[] {
-  return list.map((s) => {
-    const spot = layouts[key].at[s.id];
-    const color = baseShapes.find((b) => b.id === s.id)!.color;
-    return {
-      id: s.id,
-      label: s.label,
-      fill: s.fill,
-      seed: s.seed,
-      x: spot.x,
-      y: spot.y,
-      freeform: { x: spot.fx, y: spot.fy, tilt: spot.tilt, color },
-    };
-  });
+function initialScene(key: LayoutKey): Scene & { key: LayoutKey } {
+  const at = layouts[key].at;
+  return {
+    key,
+    shapes: [
+      {
+        id: "idea",
+        kind: "rectangle",
+        label: "An idea",
+        fill: fills[0],
+        seed: 1931,
+        ...at.idea,
+      },
+      {
+        id: "plan",
+        kind: "rectangle",
+        label: "A plan",
+        fill: fills[1],
+        seed: 4127,
+        ...at.plan,
+      },
+      {
+        id: "real",
+        kind: "rectangle",
+        label: "Something real",
+        fill: fills[2],
+        seed: 7703,
+        ...at.real,
+      },
+    ],
+    links: [
+      { id: "a1", from: "idea", to: "plan", seed: 2281 },
+      { id: "a2", from: "plan", to: "real", seed: 5519 },
+    ],
+  };
 }
 
-const compactQuery = "(max-width: 640px)";
-const subscribeCompact = (onChange: () => void) => {
-  const media = window.matchMedia(compactQuery);
-  media.addEventListener("change", onChange);
-  return () => media.removeEventListener("change", onChange);
-};
-const links = [
-  { id: "a1", from: "idea", to: "plan", seed: 2281 },
-  { id: "a2", from: "plan", to: "real", seed: 5519 },
-];
-
 const generator = new RoughGenerator();
-const stroke = "#1e1e1e";
+const sketchCache = new Map<string, ReturnType<typeof generator.toPaths>>();
 
-/** Rounded rectangle path, as Excalidraw draws "adaptive" rectangle corners. */
 function roundedRect(w: number, h: number, r: number) {
   return `M${r} 0L${w - r} 0Q${w} 0 ${w} ${r}L${w} ${h - r}Q${w} ${h} ${w - r} ${h}L${r} ${h}Q0 ${h} 0 ${h - r}L0 ${r}Q0 0 ${r} 0Z`;
 }
 
-/** Where the line from a box's centre towards a point leaves the box. */
+/** Hand-drawn outline and hachure fill for a shape, cached per kind and seed. */
+function sketch(s: Shape) {
+  const cacheKey = `${s.kind}-${s.seed}-${s.fill}`;
+  const hit = sketchCache.get(cacheKey);
+  if (hit) return hit;
+  const o = {
+    seed: s.seed,
+    stroke,
+    strokeWidth: 2,
+    roughness: 1,
+    fill: s.fill,
+    fillStyle: "hachure",
+    hachureGap: 8,
+    fillWeight: 1.6,
+  };
+  const drawable =
+    s.kind === "ellipse"
+      ? generator.ellipse(W / 2, H / 2, W, H, o)
+      : s.kind === "diamond"
+        ? generator.polygon(
+            [
+              [W / 2, 0],
+              [W, H / 2],
+              [W / 2, H],
+              [0, H / 2],
+            ],
+            o,
+          )
+        : generator.path(roundedRect(W, H, 18), o);
+  const paths = generator.toPaths(drawable);
+  sketchCache.set(cacheKey, paths);
+  return paths;
+}
+
+const heightOf = (s: Shape) => (s.kind === "text" ? TEXT_H : H);
+const tiltOf = (s: Shape) => ((s.seed % 11) - 5) * 1.2;
+
+/** Where the line from a shape's centre towards a point leaves its outline. */
 function edgePoint(s: Shape, toward: { x: number; y: number }, gap: number) {
+  const h = heightOf(s);
   const cx = s.x + W / 2;
-  const cy = s.y + H / 2;
+  const cy = s.y + h / 2;
   const dx = toward.x - cx;
   const dy = toward.y - cy;
-  const scale = 1 / Math.max(Math.abs(dx) / (W / 2), Math.abs(dy) / (H / 2));
+  const boxy = s.kind === "rectangle" || s.kind === "text";
+  const rx = boxy ? W / 2 : W / 2.4;
+  const ry = boxy ? h / 2 : h / 2.4;
+  const scale = 1 / Math.max(Math.abs(dx) / rx, Math.abs(dy) / ry, 1e-6);
   const len = Math.hypot(dx, dy) || 1;
   return {
     x: cx + dx * scale + (dx / len) * gap,
@@ -161,8 +195,8 @@ function edgePoint(s: Shape, toward: { x: number; y: number }, gap: number) {
 }
 
 function arrowGeometry(a: Shape, b: Shape) {
-  const ca = { x: a.x + W / 2, y: a.y + H / 2 };
-  const cb = { x: b.x + W / 2, y: b.y + H / 2 };
+  const ca = { x: a.x + W / 2, y: a.y + heightOf(a) / 2 };
+  const cb = { x: b.x + W / 2, y: b.y + heightOf(b) / 2 };
   const start = edgePoint(a, cb, 8);
   const end = edgePoint(b, ca, 8);
   const angle = Math.atan2(end.y - start.y, end.x - start.x);
@@ -173,12 +207,31 @@ function arrowGeometry(a: Shape, b: Shape) {
   return { start, end, left: head(1), right: head(-1) };
 }
 
-function paths(drawable: ReturnType<typeof generator.path>) {
-  return generator.toPaths(drawable);
-}
+const compactQuery = "(max-width: 640px)";
+const subscribeCompact = (onChange: () => void) => {
+  const media = window.matchMedia(compactQuery);
+  media.addEventListener("change", onChange);
+  return () => media.removeEventListener("change", onChange);
+};
 
-export function BoardDemo() {
-  const [converted, setConverted] = useState(false);
+const tools: {
+  id: Tool;
+  label: string;
+  shortcut: string;
+  Icon: typeof Square;
+}[] = [
+  { id: "select", label: "Select", shortcut: "V", Icon: MousePointer2 },
+  { id: "rectangle", label: "Rectangle", shortcut: "R", Icon: Square },
+  { id: "diamond", label: "Diamond", shortcut: "D", Icon: Diamond },
+  { id: "ellipse", label: "Ellipse", shortcut: "O", Icon: Circle },
+  { id: "arrow", label: "Arrow", shortcut: "A", Icon: ArrowRight },
+  { id: "text", label: "Text", shortcut: "T", Icon: Type },
+  { id: "eraser", label: "Eraser", shortcut: "E", Icon: Eraser },
+];
+const placesShape = (t: Tool): t is Kind =>
+  t === "rectangle" || t === "diamond" || t === "ellipse" || t === "text";
+
+export function BoardDemo({ name, href }: { name: string; href: string }) {
   const compact = useSyncExternalStore(
     subscribeCompact,
     () => window.matchMedia(compactQuery).matches,
@@ -186,147 +239,220 @@ export function BoardDemo() {
   );
   const key: LayoutKey = compact ? "compact" : "wide";
   const L = layouts[key];
-  const [store, setStore] = useState(() => ({
-    key: "wide" as LayoutKey,
-    list: place(baseShapes, "wide"),
-  }));
-  const shapes = store.key === key ? store.list : place(store.list, key);
-  const setShapes = useCallback(
-    (update: (current: Shape[]) => Shape[]) =>
-      setStore((cur) => ({
+  const [stored, setStored] = useState(() => initialScene("wide"));
+  // Crossing the phone breakpoint starts the sample board again in that layout.
+  const scene = stored.key === key ? stored : initialScene(key);
+  const { shapes, links } = scene;
+  const setScene = useCallback(
+    (update: (s: Scene) => Scene) =>
+      setStored((cur) => ({
         key,
-        list: update(cur.key === key ? cur.list : place(cur.list, key)),
+        ...update(cur.key === key ? cur : initialScene(key)),
       })),
     [key],
   );
+
+  const [converted, setConverted] = useState(false);
+  const [tool, setTool] = useState<Tool>("select");
   const [selected, setSelected] = useState<string | null>(null);
   const [editing, setEditing] = useState<string | null>(null);
+  const [arrowFrom, setArrowFrom] = useState<string | null>(null);
   const [draft, setDraft] = useState("");
+  const counter = useRef(0);
   const svgRef = useRef<SVGSVGElement>(null);
   const drag = useRef<{
     id: string;
     dx: number;
     dy: number;
+    startX: number;
+    startY: number;
     moved: boolean;
     wasSelected: boolean;
   } | null>(null);
 
-  // Box sketches only depend on the seed, so moving a shape is a translate.
-  const boxSketches = useMemo(
-    () =>
-      Object.fromEntries(
-        baseShapes.map((s) => [
-          s.id,
-          paths(
-            generator.path(roundedRect(W, H, 18), {
-              seed: s.seed,
-              stroke,
-              strokeWidth: 2,
-              roughness: 1,
-              fill: s.fill,
-              fillStyle: "hachure",
-              hachureGap: 8,
-              fillWeight: 1.6,
-            }),
-          ),
-        ]),
-      ),
-    [],
-  );
+  const byId = Object.fromEntries(shapes.map((s) => [s.id, s]));
 
-  const byId = useMemo(
-    () => Object.fromEntries(shapes.map((s) => [s.id, s])),
-    [shapes],
-  );
-  const arrows = useMemo(
-    () =>
-      links.map((link) => {
-        const g = arrowGeometry(byId[link.from], byId[link.to]);
-        const o = { seed: link.seed, stroke, strokeWidth: 2, roughness: 1 };
-        return {
-          id: link.id,
-          ...g,
-          sketch: [
-            ...paths(generator.line(g.start.x, g.start.y, g.end.x, g.end.y, o)),
-            ...paths(generator.line(g.left.x, g.left.y, g.end.x, g.end.y, o)),
-            ...paths(generator.line(g.right.x, g.right.y, g.end.x, g.end.y, o)),
-          ],
-        };
-      }),
-    [byId],
-  );
-
-  const toCanvas = useCallback((clientX: number, clientY: number) => {
-    const svg = svgRef.current;
-    const matrix = svg?.getScreenCTM();
-    if (!svg || !matrix) return { x: 0, y: 0 };
-    const point = new DOMPoint(clientX, clientY).matrixTransform(
-      matrix.inverse(),
-    );
-    return { x: point.x, y: point.y };
-  }, []);
-
-  const moveTo = useCallback(
-    (id: string, x: number, y: number) => {
-      setShapes((current) =>
-        current.map((s) =>
-          s.id === id
-            ? {
-                ...s,
-                x: Math.min(Math.max(x, L.canvas.left), L.canvas.right - W),
-                y: Math.min(Math.max(y, L.canvas.top), L.canvas.bottom - H),
-              }
-            : s,
-        ),
-      );
-    },
-    [L, setShapes],
-  );
-
-  const startEdit = (id: string) => {
-    setSelected(id);
-    setEditing(id);
-    setDraft(byId[id].label);
+  const toCanvas = (clientX: number, clientY: number) => {
+    const matrix = svgRef.current?.getScreenCTM();
+    if (!matrix) return { x: 0, y: 0 };
+    const p = new DOMPoint(clientX, clientY).matrixTransform(matrix.inverse());
+    return { x: p.x, y: p.y };
   };
-  const commitEdit = () => {
-    if (!editing) return;
-    const text = draft.trim().slice(0, 24) || byId[editing].label;
-    setShapes((current) =>
-      current.map((s) => (s.id === editing ? { ...s, label: text } : s)),
-    );
+  const clampTo = (s: Shape, x: number, y: number) => ({
+    x: Math.min(Math.max(x, L.canvas.left), L.canvas.right - W),
+    y: Math.min(Math.max(y, L.canvas.top), L.canvas.bottom - heightOf(s)),
+  });
+  const moveTo = (id: string, x: number, y: number) =>
+    setScene((s) => ({
+      ...s,
+      shapes: s.shapes.map((sh) =>
+        sh.id === id ? { ...sh, ...clampTo(sh, x, y) } : sh,
+      ),
+    }));
+  const remove = (id: string) => {
+    setScene((s) => ({
+      shapes: s.shapes.filter((sh) => sh.id !== id),
+      links: s.links.filter((l) => l.from !== id && l.to !== id),
+    }));
+    setSelected(null);
     setEditing(null);
   };
 
-  const onPointerDown = (event: PointerEvent<SVGGElement>, s: Shape) => {
-    if (!converted || editing) return;
+  const startEdit = (id: string, label = byId[id]?.label ?? "") => {
+    setSelected(id);
+    setEditing(id);
+    setDraft(label);
+  };
+  const commitEdit = () => {
+    if (!editing) return;
+    const shape = byId[editing];
+    const text = draft.trim().slice(0, 24);
+    setEditing(null);
+    if (!shape) return;
+    if (!text && shape.kind === "text") return remove(shape.id);
+    setScene((s) => ({
+      ...s,
+      shapes: s.shapes.map((sh) =>
+        sh.id === shape.id ? { ...sh, label: text } : sh,
+      ),
+    }));
+  };
+  const cancelEdit = () => {
+    const shape = editing ? byId[editing] : null;
+    setEditing(null);
+    if (shape && shape.kind === "text" && !shape.label) remove(shape.id);
+  };
+
+  const addShape = (kind: Kind, at: { x: number; y: number }) => {
+    if (shapes.length >= MAX_SHAPES) return;
+    counter.current += 1;
+    const n = counter.current;
+    const fresh: Shape = {
+      id: `new-${n}`,
+      kind,
+      label: "",
+      x: 0,
+      y: 0,
+      fill: kind === "text" ? "transparent" : fills[(n + 2) % fills.length],
+      seed: 1009 + n * 7919,
+    };
+    const shape = {
+      ...fresh,
+      ...clampTo(fresh, at.x - W / 2, at.y - heightOf(fresh) / 2),
+    };
+    setScene((s) => ({ ...s, shapes: [...s.shapes, shape] }));
+    setTool("select");
+    startEdit(shape.id, "");
+  };
+  const connect = (from: string, to: string) => {
+    if (from === to) return;
+    counter.current += 1;
+    const n = counter.current;
+    setScene((s) =>
+      s.links.some(
+        (l) =>
+          (l.from === from && l.to === to) || (l.from === to && l.to === from),
+      )
+        ? s
+        : {
+            ...s,
+            links: [
+              ...s.links,
+              { id: `link-${n}`, from, to, seed: 3001 + n * 613 },
+            ],
+          },
+    );
+  };
+
+  const chooseTool = (next: Tool) => {
+    setTool(next);
+    setArrowFrom(null);
+    if (next !== "select") setSelected(null);
+  };
+
+  // Pointer handlers cancel the browser's default mousedown so it cannot move
+  // focus away from a text editor that this same press has just opened.
+  const onCanvasPointerDown = (event: PointerEvent<SVGSVGElement>) => {
+    if ((event.target as Element).closest(".board-shape")) return;
+    event.preventDefault();
+    if (editing) commitEdit();
+    setSelected(null);
+    setArrowFrom(null);
+    if (converted && placesShape(tool))
+      addShape(tool, toCanvas(event.clientX, event.clientY));
+  };
+  const onCanvasDoubleClick = (event: MouseEvent<SVGSVGElement>) => {
+    if (!converted || tool !== "select") return;
+    if ((event.target as Element).closest(".board-shape")) return;
+    addShape("text", toCanvas(event.clientX, event.clientY));
+  };
+
+  const onShapePointerDown = (event: PointerEvent<SVGGElement>, s: Shape) => {
+    event.stopPropagation();
+    if (editing === s.id) return;
+    event.preventDefault();
+    event.currentTarget.focus({ preventScroll: true });
+    if (editing) commitEdit();
+    if (converted && tool === "eraser") return remove(s.id);
+    // As in Excalidraw, an active shape tool draws even on top of a shape.
+    if (converted && placesShape(tool))
+      return addShape(tool, toCanvas(event.clientX, event.clientY));
+    if (converted && tool === "arrow") {
+      if (!arrowFrom) setArrowFrom(s.id);
+      else {
+        connect(arrowFrom, s.id);
+        setArrowFrom(null);
+        setTool("select");
+        setSelected(s.id);
+      }
+      return;
+    }
+    if (converted && tool !== "select") setTool("select");
     event.currentTarget.setPointerCapture(event.pointerId);
     const p = toCanvas(event.clientX, event.clientY);
     drag.current = {
       id: s.id,
       dx: p.x - s.x,
       dy: p.y - s.y,
+      startX: p.x,
+      startY: p.y,
       moved: false,
       wasSelected: selected === s.id,
     };
     setSelected(s.id);
   };
-  const onPointerMove = (event: PointerEvent<SVGGElement>) => {
+  const onShapePointerMove = (event: PointerEvent<SVGGElement>) => {
     const d = drag.current;
     if (!d) return;
     const p = toCanvas(event.clientX, event.clientY);
-    const s = byId[d.id];
-    if (!d.moved && Math.hypot(p.x - d.dx - s.x, p.y - d.dy - s.y) < 3) return;
+    if (!d.moved && Math.hypot(p.x - d.startX, p.y - d.startY) < 4) return;
     d.moved = true;
     moveTo(d.id, p.x - d.dx, p.y - d.dy);
   };
-  const onPointerUp = () => {
+  const onShapePointerUp = () => {
     const d = drag.current;
     drag.current = null;
-    // A second tap on a selected shape edits its text, as on touch screens.
+    // A second tap on an already selected shape edits it, as on touch screens.
     if (d && !d.moved && d.wasSelected) startEdit(d.id);
   };
+
+  const onBoardKey = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (editing || event.metaKey || event.ctrlKey || event.altKey) return;
+    const target = event.target as HTMLElement;
+    if (target.tagName === "INPUT" || target.tagName === "A") return;
+    if (converted && !event.shiftKey) {
+      const t = tools.find((x) => x.shortcut === event.key.toUpperCase());
+      if (t) {
+        event.preventDefault();
+        return chooseTool(t.id);
+      }
+    }
+    if (selected && (event.key === "Delete" || event.key === "Backspace")) {
+      event.preventDefault();
+      remove(selected);
+    }
+  };
   const onShapeKey = (event: KeyboardEvent<SVGGElement>, s: Shape) => {
-    if (!converted) return;
     const step = event.shiftKey ? 40 : 10;
     const moves: Record<string, [number, number]> = {
       ArrowLeft: [-step, 0],
@@ -346,14 +472,40 @@ export function BoardDemo() {
     }
   };
 
-  const reset = () => {
-    setStore({ key, list: place(baseShapes, key) });
+  const clearInteraction = () => {
+    setTool("select");
     setSelected(null);
     setEditing(null);
+    setArrowFrom(null);
+  };
+  const toggle = () => {
+    setConverted(!converted);
+    clearInteraction();
+  };
+  const reset = () => {
+    setStored(initialScene(key));
+    clearInteraction();
   };
 
+  const arrows = links
+    .filter((l) => byId[l.from] && byId[l.to])
+    .map((l) => {
+      const g = arrowGeometry(byId[l.from], byId[l.to]);
+      const o = { seed: l.seed, stroke, strokeWidth: 2, roughness: 1 };
+      const line = (a: { x: number; y: number }, b: { x: number; y: number }) =>
+        generator.toPaths(generator.line(a.x, a.y, b.x, b.y, o));
+      return {
+        link: l,
+        ...g,
+        paths: [
+          ...line(g.start, g.end),
+          ...line(g.left, g.end),
+          ...line(g.right, g.end),
+        ],
+      };
+    });
+
   const download = () => {
-    const now = Date.now();
     const base = {
       angle: 0,
       strokeColor: stroke,
@@ -367,56 +519,66 @@ export function BoardDemo() {
       version: 1,
       versionNonce: 1,
       isDeleted: false,
-      updated: now,
+      updated: 1,
       link: null,
       locked: false,
     };
+    const arrowRefs = (id: string) =>
+      arrows
+        .filter((a) => a.link.from === id || a.link.to === id)
+        .map((a) => ({ type: "arrow", id: a.link.id }));
+    const textElement = (s: Shape, containerId: string | null) => ({
+      ...base,
+      id: containerId ? `${s.id}-text` : s.id,
+      type: "text",
+      x: s.x + 10,
+      y: s.y + heightOf(s) / 2 - 12.5,
+      width: W - 20,
+      height: 25,
+      backgroundColor: "transparent",
+      roundness: null,
+      seed: s.seed + 1,
+      boundElements: containerId ? null : arrowRefs(s.id),
+      text: s.label,
+      originalText: s.label,
+      fontSize: 20,
+      fontFamily: 5,
+      textAlign: "center",
+      verticalAlign: "middle",
+      containerId,
+      autoResize: true,
+      lineHeight: 1.25,
+    });
     const elements = [
-      ...shapes.flatMap((s) => [
-        {
-          ...base,
-          id: s.id,
-          type: "rectangle",
-          x: s.x,
-          y: s.y,
-          width: W,
-          height: H,
-          backgroundColor: s.fill,
-          roundness: { type: 3 },
-          seed: s.seed,
-          boundElements: [
-            { type: "text", id: `${s.id}-text` },
-            ...links
-              .filter((l) => l.from === s.id || l.to === s.id)
-              .map((l) => ({ type: "arrow", id: l.id })),
-          ],
-        },
-        {
-          ...base,
-          id: `${s.id}-text`,
-          type: "text",
-          x: s.x + 10,
-          y: s.y + H / 2 - 12.5,
-          width: W - 20,
-          height: 25,
-          backgroundColor: "transparent",
-          roundness: null,
-          seed: s.seed + 1,
-          boundElements: null,
-          text: s.label,
-          originalText: s.label,
-          fontSize: 20,
-          fontFamily: 5,
-          textAlign: "center",
-          verticalAlign: "middle",
-          containerId: s.id,
-          autoResize: true,
-          lineHeight: 1.25,
-        },
-      ]),
-      ...arrows.map((a, i) => ({
+      ...shapes.flatMap((s) =>
+        s.kind === "text"
+          ? [textElement(s, null)]
+          : [
+              {
+                ...base,
+                id: s.id,
+                type: s.kind,
+                x: s.x,
+                y: s.y,
+                width: W,
+                height: H,
+                backgroundColor: s.fill,
+                roundness:
+                  s.kind === "ellipse"
+                    ? null
+                    : { type: s.kind === "rectangle" ? 3 : 2 },
+                seed: s.seed,
+                boundElements: [
+                  ...(s.label ? [{ type: "text", id: `${s.id}-text` }] : []),
+                  ...arrowRefs(s.id),
+                ],
+              },
+              ...(s.label ? [textElement(s, s.id)] : []),
+            ],
+      ),
+      ...arrows.map((a) => ({
         ...base,
-        id: a.id,
+        id: a.link.id,
         type: "arrow",
         x: a.start.x,
         y: a.start.y,
@@ -424,15 +586,15 @@ export function BoardDemo() {
         height: Math.abs(a.end.y - a.start.y),
         backgroundColor: "transparent",
         roundness: { type: 2 },
-        seed: links[i].seed,
+        seed: a.link.seed,
         boundElements: null,
         points: [
           [0, 0],
           [a.end.x - a.start.x, a.end.y - a.start.y],
         ],
         lastCommittedPoint: null,
-        startBinding: { elementId: links[i].from, focus: 0, gap: 8 },
-        endBinding: { elementId: links[i].to, focus: 0, gap: 8 },
+        startBinding: { elementId: a.link.from, focus: 0, gap: 8 },
+        endBinding: { elementId: a.link.to, focus: 0, gap: 8 },
         startArrowhead: null,
         endArrowhead: "arrow",
         elbowed: false,
@@ -459,22 +621,27 @@ export function BoardDemo() {
   };
 
   const editingShape = editing ? byId[editing] : null;
-  const tools = [
-    Hand,
-    MousePointer2,
-    Square,
-    Diamond,
-    Circle,
-    ArrowRight,
-    Minus,
-    Pencil,
-    Type,
-  ];
+  const shapeCount = shapes.filter((s) => s.kind !== "text").length;
+  const hint = !converted
+    ? "Move the shapes, then convert. Positions carry over."
+    : tool === "arrow"
+      ? arrowFrom
+        ? "Now tap the shape to connect to."
+        : "Tap the shape the arrow starts from."
+      : tool === "eraser"
+        ? "Tap a shape to remove it."
+        : tool === "text"
+          ? "Tap the canvas to add text."
+          : tool !== "select"
+            ? `Tap the canvas to place a ${tool}.`
+            : "Drag a shape, tap it twice to edit, or pick a tool.";
 
   return (
     <div
       className="board-demo product-art product-art-boardeject"
       data-converted={converted}
+      data-tool={tool}
+      onKeyDown={onBoardKey}
     >
       <div className="board-canvas-wrap">
         <svg
@@ -484,12 +651,11 @@ export function BoardDemo() {
           role="group"
           aria-label={
             converted
-              ? "Excalidraw canvas with three editable shapes. Drag a shape, or focus it and use arrow keys to move and Enter to edit its text."
-              : "Apple Freeform board with three sticky shapes"
+              ? "Excalidraw canvas. Drag shapes; focus one and use arrow keys to move it, Enter to edit, Delete to remove. Tool shortcuts V, R, D, O, A, T, E."
+              : "Freeform board. Drag shapes; focus one and use arrow keys to move it and Enter to edit."
           }
-          onPointerDown={(event) => {
-            if (event.target === event.currentTarget) setSelected(null);
-          }}
+          onPointerDown={onCanvasPointerDown}
+          onDoubleClick={onCanvasDoubleClick}
         >
           <defs>
             <pattern
@@ -525,74 +691,17 @@ export function BoardDemo() {
             height={L.canvas.bottom - L.canvas.top + 8}
             rx="12"
             fill={converted ? "url(#board-grid)" : "url(#board-dots)"}
-            pointerEvents="none"
           />
-
-          {converted ? (
-            <g className="excalidraw-chrome" aria-hidden="true">
-              <rect
-                x={L.toolbarX}
-                y="14"
-                width="384"
-                height="46"
-                rx="10"
-                fill="#fff"
-                stroke="#e3e3e8"
-              />
-              {tools.map((Icon, i) => (
-                <g key={i}>
-                  {i === 1 && (
-                    <rect
-                      x={L.toolbarX + 10 + i * 41}
-                      y="20"
-                      width="34"
-                      height="34"
-                      rx="8"
-                      fill="#e0dfff"
-                    />
-                  )}
-                  <Icon
-                    x={L.toolbarX + 18 + i * 41}
-                    y="28"
-                    width="18"
-                    height="18"
-                    color={i === 1 ? "#4a47b1" : "#1b1b1f"}
-                    strokeWidth={1.8}
-                  />
-                </g>
-              ))}
-              {!compact && (
-                <text x="30" y="43" className="board-title">
-                  Excalidraw
-                </text>
-              )}
-              <rect
-                x="30"
-                y={L.zoomY}
-                width="96"
-                height="36"
-                rx="8"
-                fill="#ececf4"
-              />
-              <text
-                x="78"
-                y={L.zoomY + 23}
-                textAnchor="middle"
-                className="board-zoom"
-              >
-                − 100% +
-              </text>
-            </g>
-          ) : (
+          {(!converted || !compact) && (
             <text x="30" y="43" className="board-title" aria-hidden="true">
-              Freeform
+              {converted ? "Excalidraw" : "Freeform"}
             </text>
           )}
 
           {converted &&
             arrows.map((a) => (
-              <g key={a.id} aria-hidden="true">
-                {a.sketch.map((p, i) => (
+              <g key={a.link.id} aria-hidden="true" pointerEvents="none">
+                {a.paths.map((p, i) => (
                   <path
                     key={i}
                     d={p.d}
@@ -605,33 +714,36 @@ export function BoardDemo() {
             ))}
 
           {shapes.map((s) => {
-            const tx = converted ? s.x : s.freeform.x;
-            const ty = converted ? s.y : s.freeform.y;
-            const tilt = converted ? 0 : s.freeform.tilt;
-            const isSelected = converted && selected === s.id;
+            const h = heightOf(s);
+            const tilt = converted ? 0 : tiltOf(s);
+            const isSelected = selected === s.id || arrowFrom === s.id;
+            const color = freeformColor[s.fill] ?? "#f3ece0";
             return (
               <g
                 key={s.id}
                 className="board-shape"
-                transform={`translate(${tx},${ty}) rotate(${tilt},${W / 2},${H / 2})`}
-                tabIndex={converted ? 0 : -1}
-                role={converted ? "button" : undefined}
-                aria-label={
-                  converted
-                    ? `${s.label}. Arrow keys move it, Enter edits the text.`
-                    : undefined
-                }
-                aria-pressed={converted ? isSelected : undefined}
-                onPointerDown={(e) => onPointerDown(e, s)}
-                onPointerMove={onPointerMove}
-                onPointerUp={onPointerUp}
+                data-kind={s.kind}
+                transform={`translate(${s.x},${s.y}) rotate(${tilt},${W / 2},${h / 2})`}
+                tabIndex={0}
+                role="button"
+                aria-label={`${s.label || `Empty ${s.kind}`}. Arrow keys move it, Enter edits the text.`}
+                aria-pressed={isSelected}
+                onPointerDown={(e) => onShapePointerDown(e, s)}
+                onPointerMove={onShapePointerMove}
+                onPointerUp={onShapePointerUp}
                 onPointerCancel={() => (drag.current = null)}
-                onDoubleClick={() => converted && startEdit(s.id)}
+                onDoubleClick={(e) => {
+                  e.stopPropagation();
+                  if (tool === "select") startEdit(s.id);
+                }}
                 onKeyDown={(e) => onShapeKey(e, s)}
-                onFocus={() => converted && setSelected(s.id)}
+                onFocus={() => {
+                  if (!drag.current) setSelected(s.id);
+                }}
               >
-                {converted ? (
-                  boxSketches[s.id].map((p, i) => (
+                <rect width={W} height={h} fill="transparent" />
+                {s.kind === "text" ? null : converted ? (
+                  sketch(s).map((p, i) => (
                     <path
                       key={i}
                       d={p.d}
@@ -640,20 +752,37 @@ export function BoardDemo() {
                       fill={p.fill ?? "none"}
                     />
                   ))
+                ) : s.kind === "ellipse" ? (
+                  <ellipse
+                    cx={W / 2}
+                    cy={H / 2}
+                    rx={W / 2}
+                    ry={H / 2}
+                    fill={color}
+                    stroke="#21465d"
+                    strokeWidth="2"
+                  />
+                ) : s.kind === "diamond" ? (
+                  <polygon
+                    points={`${W / 2},0 ${W},${H / 2} ${W / 2},${H} 0,${H / 2}`}
+                    fill={color}
+                    stroke="#21465d"
+                    strokeWidth="2"
+                  />
                 ) : (
                   <rect
                     width={W}
                     height={H}
                     rx="18"
-                    fill={s.freeform.color}
+                    fill={color}
                     stroke="#21465d"
                     strokeWidth="2"
                   />
                 )}
-                {editing !== s.id && (
+                {editing !== s.id && s.label && (
                   <text
                     x={W / 2}
-                    y={H / 2 + 8}
+                    y={h / 2 + 8}
                     textAnchor="middle"
                     className={converted ? "board-label-sketch" : "board-label"}
                   >
@@ -672,14 +801,14 @@ export function BoardDemo() {
                       x="-8"
                       y="-8"
                       width={W + 16}
-                      height={H + 16}
+                      height={h + 16}
                       fill="none"
                     />
                     {[
                       [-8, -8],
                       [W + 8, -8],
-                      [-8, H + 8],
-                      [W + 8, H + 8],
+                      [-8, h + 8],
+                      [W + 8, h + 8],
                     ].map(([cx, cy]) => (
                       <rect
                         key={`${cx}-${cy}`}
@@ -690,29 +819,52 @@ export function BoardDemo() {
                         rx="2"
                       />
                     ))}
-                    <circle cx={W / 2} cy="-26" r="5" />
+                    {converted && <circle cx={W / 2} cy="-26" r="5" />}
                   </g>
                 )}
               </g>
             );
           })}
         </svg>
+
+        {converted && (
+          <div
+            className="board-toolbar"
+            role="toolbar"
+            aria-label="Excalidraw tools"
+          >
+            {tools.map(({ id, label, shortcut, Icon }) => (
+              <button
+                key={id}
+                type="button"
+                aria-label={`${label} (${shortcut})`}
+                title={`${label}  ${shortcut}`}
+                aria-pressed={tool === id}
+                onClick={() => chooseTool(id)}
+              >
+                <Icon aria-hidden="true" />
+              </button>
+            ))}
+          </div>
+        )}
+
         {editingShape && (
           <input
             className="board-edit"
             autoFocus
             value={draft}
             maxLength={24}
-            aria-label={`Edit text for ${editingShape.label}`}
+            placeholder={editingShape.kind === "text" ? "Type text" : "Label"}
+            aria-label={`Edit text for ${editingShape.label || editingShape.kind}`}
             onChange={(e) => setDraft(e.target.value)}
             onBlur={commitEdit}
             onKeyDown={(e) => {
               if (e.key === "Enter") commitEdit();
-              if (e.key === "Escape") setEditing(null);
+              if (e.key === "Escape") cancelEdit();
             }}
             style={{
               left: `${((editingShape.x + 12) / L.view.w) * 100}%`,
-              top: `${((editingShape.y + H / 2 - 20) / L.view.h) * 100}%`,
+              top: `${((editingShape.y + heightOf(editingShape) / 2 - 20) / L.view.h) * 100}%`,
               width: `${((W - 24) / L.view.w) * 100}%`,
             }}
           />
@@ -720,47 +872,38 @@ export function BoardDemo() {
       </div>
 
       <div className="board-demo-bar">
-        <button
-          type="button"
-          onClick={() => {
-            setConverted(!converted);
-            setSelected(null);
-            setEditing(null);
-          }}
-          className="board-demo-action"
-        >
+        <button type="button" onClick={toggle} className="board-demo-action">
           {converted ? <RotateCcw size={17} /> : <ArrowRight size={17} />}
           {converted ? "Back to Freeform" : "Convert to Excalidraw"}
         </button>
         {converted && (
-          <>
-            <button
-              type="button"
-              className="board-demo-secondary"
-              onClick={download}
-            >
-              <Download size={16} aria-hidden="true" /> Download .excalidraw
-            </button>
-            <button
-              type="button"
-              className="board-demo-secondary"
-              onClick={reset}
-            >
-              Reset
-            </button>
-          </>
+          <button
+            type="button"
+            className="board-demo-secondary"
+            onClick={download}
+          >
+            <Download size={16} aria-hidden="true" /> Download .excalidraw
+          </button>
         )}
+        <button type="button" className="board-demo-secondary" onClick={reset}>
+          Reset
+        </button>
+        <a
+          className="board-demo-explore"
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore {name} <ArrowUpRight size={15} aria-hidden="true" />
+        </a>
       </div>
       <div className="board-demo-note">
         <p role="status">
           {converted
-            ? "3 shapes · 2 bound arrows · 0 unsupported. Drag one, or tap it twice to edit."
-            : "A Freeform board: three sticky shapes, no connections you can edit."}
+            ? `${shapeCount} shapes · ${arrows.length} bound arrows · 0 unsupported. ${hint}`
+            : `A Freeform board. ${hint}`}
         </p>
-        <small>
-          Sample board. The download opens in Excalidraw. Open BoardEject to
-          convert your own.
-        </small>
+        <small>Sample board. The download opens in Excalidraw.</small>
       </div>
     </div>
   );

@@ -154,14 +154,6 @@
 .board-demo small {
   font-size: 13px;
 }
-.home-page .work-world-boardeject .work-preview-link {
-  inset: auto 0 0 auto;
-  width: fit-content;
-  min-height: 44px;
-}
-.home-page .work-world-boardeject .work-preview-link > span {
-  position: static;
-}
 .home-page .motion-reel .reel-poster {
   display: block;
   padding: 0;
@@ -345,11 +337,7 @@ html[data-motion] .board-demo-action {
     sans-serif;
   fill: #1e1e1e;
 }
-.board-demo[data-converted="true"] .board-shape {
-  cursor: grab;
-  touch-action: none;
-}
-.board-demo[data-converted="true"] .board-shape:active {
+.board-demo .board-shape:active {
   cursor: grabbing;
 }
 .board-shape:focus {
@@ -357,14 +345,6 @@ html[data-motion] .board-demo-action {
 }
 .board-shape:focus-visible .board-selection > rect:first-child {
   stroke-width: 3;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .board-shape {
-    transition: transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  .board-demo[data-converted="true"] .board-shape {
-    transition: none;
-  }
 }
 .board-edit {
   position: absolute;
@@ -411,6 +391,85 @@ html[data-motion] .board-demo-action {
 }
 .board-demo-secondary:focus-visible,
 .board-demo-action:focus-visible {
+  outline: 3px solid #9c3263;
+  outline-offset: 3px;
+}
+
+/* Working Excalidraw toolbar over the converted canvas. */
+.board-toolbar {
+  position: absolute;
+  top: 2.2%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid #e3e3e8;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px -4px #1e1e1e33;
+  transform: translateX(-50%);
+}
+.board-toolbar button {
+  display: grid;
+  place-items: center;
+  width: clamp(32px, 6.4cqw, 38px);
+  height: clamp(32px, 6.4cqw, 38px);
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #1b1b1f;
+  cursor: pointer;
+}
+.board-toolbar button svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+}
+.board-toolbar button:hover {
+  background: #f1f0ff;
+}
+.board-toolbar button[aria-pressed="true"] {
+  background: #e0dfff;
+  color: #4a47b1;
+}
+.board-toolbar button:focus-visible {
+  outline: 2px solid #6965db;
+  outline-offset: 1px;
+}
+.board-demo[data-converted="true"]:not([data-tool="select"]) .board-canvas {
+  cursor: crosshair;
+}
+.board-demo[data-tool="eraser"] .board-shape,
+.board-demo[data-tool="arrow"] .board-shape {
+  cursor: pointer;
+}
+.board-demo .board-shape {
+  cursor: grab;
+  touch-action: none;
+}
+.board-demo-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-left: auto;
+  padding: 8px 14px;
+  border: 1px solid #8ca8bb;
+  border-radius: 7px;
+  background: #fffaf0f2;
+  color: #133b53;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.board-demo-explore:hover {
+  background: #9c3263;
+  border-color: #9c3263;
+  color: #fff8ef;
+}
+.board-demo-explore:focus-visible {
   outline: 3px solid #9c3263;
   outline-offset: 3px;
 }

@@ -245,6 +245,8 @@ export const projectCollections: ProjectCollection[] =
               "txray",
               "paylint",
               "solana-authority-inspector",
+              "settled",
+              "hookview",
             ]
           : category.id === "open-source"
             ? ["d-errors-docs", "dent-docs", "text-generation"]
