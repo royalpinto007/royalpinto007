@@ -81,12 +81,6 @@ body:has(.home-page) .coffee-ticker {
   font-size: clamp(40px, 5.2vw, 84px);
   letter-spacing: -0.05em;
 }
-.home-page .open-source-heading > p:last-child {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.8;
-  color: #635572;
-}
 .home-page .contribution-calendar {
   border-radius: 20px;
   background: #ffffffbf;
@@ -1044,24 +1038,10 @@ html[data-motion="static"] .home-page .experiment-play {
   }
 }
 
-/* Open by default: the supporting line reads as copy, and the graph labels
-   use the site typeface instead of the SVG's system-ui fallback. */
-.home-page .open-source-heading > p:last-child {
-  max-width: 34ch;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #3d5568;
-  text-align: right;
-}
+/* Contribution graph labels use the site typeface, not the SVG's system-ui fallback. */
 .home-page .wall-svg text {
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 500;
-}
-@media (max-width: 767px) {
-  .home-page .open-source-heading > p:last-child {
-    font-size: 16px;
-    text-align: left;
-  }
 }
 
 /* Architecture controls and captions at a readable size. */

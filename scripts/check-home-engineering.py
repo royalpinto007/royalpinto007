@@ -29,7 +29,7 @@ with sync_playwright() as p:
   expect(len(description.split())<25,f'{width}: hero too wordy')
   expect(page.locator('#systems').evaluate('n=>n.compareDocumentPosition(document.querySelector(".motion-reel")) & Node.DOCUMENT_POSITION_FOLLOWING'),f'{width}: creative reel precedes system design')
   expect('Where it started' in page.locator('.journey-start').inner_text(),f'{width}: programmes not framed as the beginning')
-  expect('Write code. Review PRs. Maintain projects.' in page.locator('.open-source-heading').inner_text(),f'{width}: ongoing open source missing')
+  expect('Review PRs' not in page.locator('.open-source-heading').inner_text(),f'{width}: filler open-source subtitle returned')
   expect('Qdrant' not in page.locator('#oss').inner_text(),f'{width}: named contribution reference remains')
   expect(page.locator('#system-tenantq,#system-vaultrag').count()==0,f'{width}: retired architecture cases remain')
   page.screenshot(path=str(OUT/f'hero-{width}.png'))

@@ -137,8 +137,6 @@ export default function HomePage() {
         </figure>
       </CinematicHero>
 
-      <MotionReel />
-
       <section
         className="open-source open-source-experience"
         id="oss"
@@ -146,11 +144,6 @@ export default function HomePage() {
       >
         <div className="section-intro open-source-heading">
           <h2 id="source-title">Open by default.</h2>
-          <p>
-            Write code. Review PRs. Maintain projects.
-            <br />
-            Open source is part of the work.
-          </p>
         </div>
         <div className="contribution-summary">
           <strong>12,623 contributions in 2026</strong>
@@ -305,6 +298,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <MotionReel />
       <SystemsShowcase />
 
       <HomeProjectExplorer />

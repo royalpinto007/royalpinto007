@@ -28,7 +28,7 @@ with sync_playwright() as p:
         }"""), (width, "Working across wraps or clips")
         headings = page.locator(".home-page h2").all_text_contents()
         headings = [" ".join(text.split()) for text in headings]
-        assert headings[:4] == ["Code in motion.", "Open by default.", "Selectedprojects.", "How it’sbuilt."], headings
+        assert headings[:4] == ["Open by default.", "Selectedprojects.", "Code in motion.", "How it’sbuilt."], headings
         assert page.locator(".work-meta h3").all_text_contents() == ["BoardEject ", "SignalizeAI ", "AashiNyra "]
         assert page.locator("main a[href*='agentpostmortem']").count() == 0
         assert page.locator(".playground, .gallery-heading").count() == 0
