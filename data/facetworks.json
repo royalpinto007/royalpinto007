@@ -354,10 +354,10 @@
     "collection": "graphics"
   },
   {
-    "slug": "palmfold",
-    "name": "Palmfold",
+    "slug": "drape",
+    "name": "Drape",
     "genre": "Cloth simulation",
-    "note": "South Beach printed on cloth: grab it, peel the day back and find Ocean Drive in neon underneath.",
+    "note": "South Beach hung like a curtain over Ocean Drive at night: lift it, pull it, let it fall.",
     "stack": ["WebGL2", "Verlet cloth", "GLSL"],
     "collection": "graphics"
   }

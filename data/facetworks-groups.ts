@@ -46,7 +46,7 @@ const groups = {
         "jelly-pancake",
         "gummy",
         "jalebi",
-        "palmfold",
+        "drape",
       ],
     },
     {
