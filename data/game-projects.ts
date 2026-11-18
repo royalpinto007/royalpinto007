@@ -24,7 +24,7 @@ export const gameProjects = [
     tech: ["Unity 6 (URP)", "C#", "Android + WebGL"],
     featured: false,
     section: "Games",
-    liveUrl: "#",
+    liveUrl: "https://revlap.royalpinto007.com",
     githubUrl: "#",
   },
   {
