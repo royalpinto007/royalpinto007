@@ -177,7 +177,6 @@ export const projectCollections: ProjectCollection[] =
                   ids: [
                     "d-simple-server",
                     "phobos-nogc-checker",
-                    "toy-compiler",
                   ],
                 },
               ]

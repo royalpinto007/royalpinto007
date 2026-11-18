@@ -13,7 +13,7 @@ export const projectCategories = [
     id: "open-source",
     title: "Open source",
     description:
-      "Documentation, networking, modules and compilers. Code and knowledge built in the open.",
+      "Documentation, networking, modules and source analysis. Code and knowledge built in the open.",
   },
   {
     id: "websites",

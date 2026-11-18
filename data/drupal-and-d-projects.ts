@@ -45,20 +45,6 @@ export const dLanguageProjects = [
     githubUrl: "https://github.com/royalpinto007/phobos-nogc-checker",
   },
   {
-    id: "toy-compiler",
-    name: "Toy Compiler",
-    category: "Lexer & parser",
-    status: "Learning project",
-    description:
-      "Lexer and recursive-descent parser in D for arithmetic expressions. Turns input into tokens and a typed AST with correct precedence, parentheses and error reporting.",
-    features: [],
-    tech: ["D", "Lexing", "Parsing"],
-    featured: false,
-    section: "D Language",
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
     id: "d-errors-docs",
     name: "D Error Docs",
     category: "Documentation site",

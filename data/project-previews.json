@@ -111,10 +111,6 @@
     "image": "/work/phobos-nogc-checker.webp",
     "kind": "workflow"
   },
-  "toy-compiler": {
-    "image": "/work/toy-compiler.webp",
-    "kind": "workflow"
-  },
   "d-errors-docs": {
     "image": "/work/d-errors-docs.webp",
     "kind": "screenshot"
