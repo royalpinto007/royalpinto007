@@ -1,0 +1,27 @@
+/* Home: a clear header over the hero sky, frosted once the page scrolls. */
+.site-header {
+  transition:
+    background-color 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    backdrop-filter 260ms ease;
+}
+.site-header.on-home:not(.is-scrolled) {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  /* "none" is dropped by the CSS optimiser; blur(0) survives and does the same. */
+  backdrop-filter: blur(0);
+}
+.site-header.on-home:not(.is-scrolled) .home-mobile-menu summary {
+  background: rgb(255 255 255 / 38%);
+  border-color: rgb(12 45 67 / 18%);
+  backdrop-filter: blur(10px);
+}
+.site-header.on-home.is-scrolled {
+  box-shadow: 0 8px 24px rgb(12 45 67 / 8%);
+}
+.site-header.on-home:not(.is-scrolled) .brand-link,
+.site-header.on-home:not(.is-scrolled) .site-nav a {
+  text-shadow: 0 1px 14px rgb(255 255 255 / 60%);
+}

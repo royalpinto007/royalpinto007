@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ArrowRight, Plus } from "lucide-react";
@@ -11,6 +11,30 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const router = useRouter();
+  const headerRef = useRef<HTMLElement>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const onHome = pathname === "/";
+  // Over the home hero the bar is clear so the sky runs to the top; it turns
+  // frosted once the page scrolls. The hero slides under it by --header-h.
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 8);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+    const measure = () =>
+      document.documentElement.style.setProperty(
+        "--header-h",
+        `${header.offsetHeight}px`,
+      );
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
   // The mobile menu hides its links, so viewport prefetching never sees them.
   // Fetch the other main pages once the browser is idle so a tap is instant.
   useEffect(() => {
@@ -26,7 +50,10 @@ export function Header() {
     return () => window.clearTimeout(timer);
   }, [pathname, router]);
   return (
-    <header className="site-header">
+    <header
+      ref={headerRef}
+      className={`site-header${onHome ? " on-home" : ""}${scrolled ? " is-scrolled" : ""}`}
+    >
       <div className="header-inner">
         <Link
           href="/"

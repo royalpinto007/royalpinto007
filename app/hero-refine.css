@@ -1,0 +1,71 @@
+/* Hero refinements, loaded last on the home page. */
+
+/* The hero starts under the clear header; the copy keeps its old position. */
+.home-page .portfolio-hero {
+  margin-top: calc(-1 * var(--header-h, 0px));
+}
+.home-page .portfolio-hero .hero-copy {
+  margin-top: var(--header-h, 0px);
+}
+/* The hero grows by the same amount, so its bottom (and the portrait anchored
+   there) stays where it was. Mirrors the min-heights in home-*.css. */
+@media (min-width: 1024px) {
+  .home-page .hero-cinema {
+    padding-bottom: calc(130px + var(--header-h, 0px));
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-page .hero-cinema {
+    min-height: calc(720px + var(--header-h, 0px));
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .home-page .hero-cinema {
+    min-height: calc(720px + var(--header-h, 0px));
+  }
+}
+@media (max-width: 479px) {
+  .home-page .hero-cinema {
+    min-height: calc(230px + 158vw + var(--header-h, 0px));
+  }
+}
+
+/* "Software engineer" as a quiet eyebrow, not a boxed chip. */
+.home-page .intro-name {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: clamp(18px, 3vw, 30px);
+  color: #0c2d43;
+}
+.home-page .intro-name::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  margin: 0;
+  border-radius: 2px;
+  background: #c2185b;
+  box-shadow: none;
+}
+.home-page .intro-name::after {
+  content: none;
+}
+.home-page .intro-name strong {
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 12px rgb(255 255 255 / 55%);
+}
+@media (max-width: 767px) {
+  .home-page .intro-name::before {
+    width: 20px;
+  }
+  .home-page .intro-name strong {
+    letter-spacing: 0.18em;
+  }
+}

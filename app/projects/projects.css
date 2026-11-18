@@ -237,11 +237,11 @@
 }
 @media (max-width: 767px) {
   .project-directory-bar {
-    align-items: flex-start;
+    align-items: center;
     gap: 14px;
   }
   .project-directory-bar > p {
-    max-width: 13ch;
+    white-space: nowrap;
     font-size: 12px;
     line-height: 1.5;
   }

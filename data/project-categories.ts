@@ -11,7 +11,7 @@ export const projectCategories = [
   },
   {
     id: "open-source",
-    title: "Open source and systems",
+    title: "Open source",
     description:
       "Documentation, networking, modules and compilers. Code and knowledge built in the open.",
   },

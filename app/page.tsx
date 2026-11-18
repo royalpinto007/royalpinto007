@@ -8,6 +8,7 @@ import "./kinetic-opening.css";
 import "./orbital-hero.css";
 import "./home-discovery.css";
 import "./reel.css";
+import "./hero-refine.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, Coffee, Star } from "lucide-react";

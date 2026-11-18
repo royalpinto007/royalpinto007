@@ -11,6 +11,7 @@ import "./globals.css";
 import "./coastal-theme.css";
 import "./interface-polish.css";
 import "./links.css";
+import "./header-hero.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const display = Anton({
