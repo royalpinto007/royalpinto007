@@ -352,5 +352,13 @@
     "note": "Tune mysterious frequencies and discover strange transmissions.",
     "stack": ["TypeScript", "Web Audio"],
     "collection": "graphics"
+  },
+  {
+    "slug": "palmfold",
+    "name": "Palmfold",
+    "genre": "Cloth simulation",
+    "note": "South Beach printed on cloth: grab it, peel the day back and find Ocean Drive in neon underneath.",
+    "stack": ["WebGL2", "Verlet cloth", "GLSL"],
+    "collection": "graphics"
   }
 ]
