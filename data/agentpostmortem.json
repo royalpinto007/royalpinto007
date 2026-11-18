@@ -220,50 +220,6 @@
     "preview": "workflow"
   },
   {
-    "id": "awesome-mcp-security",
-    "name": "Awesome MCP Security",
-    "image": "/agentpostmortem/awesome-mcp-security.webp",
-    "href": "https://mcp-security.agentpostmortem.com",
-    "group": "resources",
-    "kind": "List",
-    "description": "Curated directory of 48 MCP security tools, standards and papers, grouped by the threat each one defends against: tool poisoning, rug pulls, over-scoped tools and exfiltration.",
-    "output": "48 tools, 12 categories",
-    "preview": "screenshot"
-  },
-  {
-    "id": "awesome-context-engineering",
-    "name": "Awesome Context Engineering",
-    "image": "/agentpostmortem/awesome-context-engineering.webp",
-    "href": "https://context-engineering.agentpostmortem.com",
-    "group": "resources",
-    "kind": "List",
-    "description": "Practitioner-first directory of 40 context engineering tools and papers, organised around failure modes like context rot, bloat and lost-in-the-middle, each paired with what mitigates it.",
-    "output": "40 references, 12 categories",
-    "preview": "screenshot"
-  },
-  {
-    "id": "awesome-agent-memory",
-    "name": "Awesome Agent Memory",
-    "image": "/agentpostmortem/awesome-agent-memory.webp",
-    "href": "https://agent-memory.agentpostmortem.com",
-    "group": "resources",
-    "kind": "List",
-    "description": "Vendor-neutral directory of 45 agent memory frameworks, stores, benchmarks and papers, with benchmarks such as LoCoMo and LongMemEval as their own category so claims can be checked.",
-    "output": "45 frameworks and benchmarks",
-    "preview": "screenshot"
-  },
-  {
-    "id": "awesome-agent-skills",
-    "name": "Awesome Agent Skills",
-    "image": "/agentpostmortem/awesome-agent-skills.webp",
-    "href": "https://agent-skills.agentpostmortem.com",
-    "group": "resources",
-    "kind": "List",
-    "description": "Small, security-aware directory of 46 Agent Skills (SKILL.md), curated for trust over volume, with a dedicated security section and 14 merged community submissions.",
-    "output": "46 vetted skills",
-    "preview": "screenshot"
-  },
-  {
     "id": "ship-skills",
     "name": "ship-skills",
     "image": "/agentpostmortem/ship-skills.webp",

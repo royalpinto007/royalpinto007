@@ -47,9 +47,9 @@ export const projectCategories = [
   },
   {
     id: "resources",
-    title: "Directories & skills",
+    title: "Agent skills",
     description:
-      "Curated references and reusable skills for building, shipping and working with agents.",
+      "Reusable skills that help coding agents ship and distribute software.",
   },
 ] as const;
 export type ProjectCategory = (typeof projectCategories)[number]["id"];
