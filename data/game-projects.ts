@@ -10,7 +10,7 @@ export const gameProjects = [
     tech: ["Godot 4", "GDScript", "Android + Web"],
     featured: false,
     section: "Games",
-    liveUrl: "#",
+    liveUrl: "https://bumblecrate.royalpinto007.com",
     githubUrl: "#",
   },
   {
@@ -38,7 +38,7 @@ export const gameProjects = [
     tech: ["React + TypeScript", "Capacitor", "PWA"],
     featured: false,
     section: "Games",
-    liveUrl: "#",
+    liveUrl: "https://tablewink.royalpinto007.com",
     githubUrl: "#",
   },
   {
@@ -52,7 +52,7 @@ export const gameProjects = [
     tech: ["TypeScript", "Three.js", "Capacitor"],
     featured: false,
     section: "Games",
-    liveUrl: "#",
+    liveUrl: "https://megoblin.royalpinto007.com",
     githubUrl: "#",
   },
   {
@@ -66,7 +66,7 @@ export const gameProjects = [
     tech: ["TypeScript", "Three.js", "Capacitor + PWA"],
     featured: false,
     section: "Games",
-    liveUrl: "#",
+    liveUrl: "https://jollybound.royalpinto007.com",
     githubUrl: "#",
   },
   {
@@ -80,7 +80,7 @@ export const gameProjects = [
     tech: ["Java", "libGDX", "Android + Desktop + Web"],
     featured: false,
     section: "Games",
-    liveUrl: "#",
+    liveUrl: "https://hushmallow.royalpinto007.com",
     githubUrl: "#",
   },
 ];
