@@ -262,7 +262,8 @@
 .home-page .contribution-total > span {
   white-space: nowrap;
 }
-@media (max-width: 380px) {
+/* On phones the link reads just "GitHub". */
+@media (max-width: 767px) {
   .home-page .contribution-head .link-long {
     display: none;
   }
