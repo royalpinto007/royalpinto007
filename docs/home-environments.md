@@ -50,7 +50,7 @@ The current Home selects SignalizeAI, AashiNyra and BoardEject. AgentPostmortem 
 
 Navigation, calls to action, captions and supporting copy use a larger shared type scale, with responsive spacing and retained native keyboard controls. The light coastal palette remains drawn from the supplied portrait.
 
-The playground's liquid-chrome artwork is an original Blender 5.2 Cycles render, built from a procedural trefoil, reflective silver, jacket-blue and rose glass, and warm porcelain steps. The script `scripts/render-coastal-chrome.py` regenerates the transparent PNG and editable Blender scene at a supplied output path. Responsive production assets are `public/scene/liquid-chrome.webp` and `public/scene/liquid-chrome-mobile.webp`. The initial page serves optimized images and existing GSAP motion. The optional live object described below loads its Three.js runtime only after a visitor chooses to open it.
+The playground's liquid-chrome artwork is an original Blender 5.2 Cycles render, built from a procedural trefoil, reflective silver, jacket-blue and rose glass, and warm porcelain steps. Responsive production assets are `public/scene/liquid-chrome.webp` and `public/scene/liquid-chrome-mobile.webp`. The initial page serves optimized images and existing GSAP motion. The optional live object described below loads its Three.js runtime only after a visitor chooses to open it.
 
 ## Original portrait fidelity
 
@@ -64,9 +64,9 @@ Each Home scene opens with one semantic heading instead of a numbered banner and
 
 The 20-second Remotion composition has three authored acts: a coastal chrome opening, a deterministic BoardEject illustration that rearranges shapes into an editable board, and an original-portrait closing. Chapter buttons seek the same timeline. Playback stops offscreen or when the tab is hidden; pause, reduced motion, no JavaScript and failed-chunk poster alternatives remain available. This is a browser composition, not a newly exported video. The BoardEject illustration also has a native before/after control beside its real project link; it explicitly identifies itself as a sample workflow and does not convert uploaded files.
 
-`scripts/render-coastal-film.py` renders the film foreground from the original editable Blender scene. The optimized transparent foreground is `public/scene/film-sculpture.webp` (63,012 bytes). It does not alter the supplied portrait.
+The optimized transparent foreground is `public/scene/film-sculpture.webp` (63,012 bytes). It does not alter the supplied portrait.
 
-“Make it yours” explicitly opens an optional Three.js version of the authored chrome/glass sculpture. `scripts/export-coastal-sculpture.py` exports its own meshes and materials to `public/scene/coastal-sculpture.glb` (304,960 bytes); it has no external textures or lighting downloads. Horizontal touch/pointer dragging, the native keyboard range, three lighting choices and reset change the actual rendered object. Vertical touch scrolling is retained. There is no continuous render loop: input, resize or visibility changes request a frame. Closing, navigation, context loss, failed setup and interrupted loading release resources and retain the artwork fallback. Escape closes and restores focus.
+“Make it yours” explicitly opens an optional Three.js version of the authored chrome/glass sculpture. Its own meshes and materials are in `public/scene/coastal-sculpture.glb` (304,960 bytes); it has no external textures or lighting downloads. Horizontal touch/pointer dragging, the native keyboard range, three lighting choices and reset change the actual rendered object. Vertical touch scrolling is retained. There is no continuous render loop: input, resize or visibility changes request a frame. Closing, navigation, context loss, failed setup and interrupted loading release resources and retain the artwork fallback. Escape closes and restores focus.
 
 Interactive containers stay outside decorative entrance translations so a focus reveal cannot move a button between pointerdown and pointerup. Expanding the sculpture refreshes scroll-trigger layout. On mobile its active panel occupies its own grid row below the subtitle.
 
@@ -92,7 +92,7 @@ The hero places two original Blender-rendered orbital layers behind the intact p
 
 One compact scene toolbar places the native layer toggle, lighting and pause controls on the same baseline. The layer icon separates and reassembles the artwork, with a descriptive native hint and accessible name. There is no separate floating action. It has a pressed state, keyboard operation and a stationary target outside the decorative transforms. Automatic movement shares the hero's pause/offscreen/hidden-tab lifecycle, and reduced-motion/no-JavaScript scenes are static. Mobile artwork is 38,598 bytes combined; desktop artwork is 65,198 bytes combined. These are low-priority responsive WebP images, with no new dependency.
 
-`scripts/render-hero-orbits.py` reproduces the transparent original layers with Blender CPU Cycles. It never loads or modifies the portrait. `scripts/check-hero-orbits.py` verifies movement without input, actual reversible layer poses, original portrait styling, responsive image selection, control containment, no extra downloads on interaction and pause/static alternatives at five widths.
+`scripts/check-hero-orbits.py` verifies movement without input, actual reversible layer poses, original portrait styling, responsive image selection, control containment, no extra downloads on interaction and pause/static alternatives at five widths.
 
 ## Developer copy and contribution motion
 
