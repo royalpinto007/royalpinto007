@@ -1,0 +1,23 @@
+# Royal Simpson Pinto (royalpinto007)
+
+> AI product engineer, indie developer and freelancer. Builds AI agents, LLM tooling, full-stack apps, backend systems, automation, Web3 tools and open source. 3+ years shipping production software. Google Summer of Code, Linux Foundation (LFX) and Symmetry Autumn of Code contributor; mentored 500+ students. Studied at the National Institute of Technology Karnataka, Surathkal (NITK).
+
+## Selected projects
+
+- [AgentPostmortem](https://github.com/AgentPostmortem/agentpostmortem): open reliability benchmark and fault-injection runner for AI agents; 25 failure scenarios judged by real side effects. Python, MCP, on PyPI.
+- [BoardEject](https://boardeject.dev): converts Apple Freeform boards to editable Excalidraw, or a verified local archive. Nothing is uploaded.
+- [SignalizeAI](https://signalizeai.org): browser extension that researches a company once and alerts when its pricing, hiring or messaging changes.
+- [AashiNyra](https://aashinyra.com): deal tracking with real price drops and UPI cashback.
+
+## Pages
+
+- [Home](https://royalpinto007.com/): overview, open-source work, selected projects and system designs
+- [All projects](https://royalpinto007.com/projects): apps, open source, Web3 tools, games and agent skills
+- [Facetworks](https://royalpinto007.com/facetworks): web designs and interactive graphics experiments
+- [Contact](https://royalpinto007.com/contact): freelance, full-time or open-source work
+
+## Contact
+
+- Email: work@royalpinto007.com
+- GitHub: https://github.com/royalpinto007
+- X: https://x.com/royalpinto007
