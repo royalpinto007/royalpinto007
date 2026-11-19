@@ -2,6 +2,7 @@
 
 import {
   useCallback,
+  useEffect,
   useRef,
   useState,
   useSyncExternalStore,
@@ -272,6 +273,25 @@ export function BoardDemo({ name, href }: { name: string; href: string }) {
 
   const byId = Object.fromEntries(shapes.map((s) => [s.id, s]));
 
+  // Touch drags: mobile browsers ignore touch-action on SVG children, so a finger on a shape would
+  // scroll the page and cancel the drag. Block scrolling only for touches that start on a shape.
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const hold = (event: TouchEvent) => {
+      if ((event.target as Element).closest?.(".board-shape")) event.preventDefault();
+    };
+    svg.addEventListener("touchstart", hold, { passive: false });
+    svg.addEventListener("touchmove", hold, { passive: false });
+    return () => {
+      svg.removeEventListener("touchstart", hold);
+      svg.removeEventListener("touchmove", hold);
+    };
+  }, []);
+  // Pointer moves arrive faster than the screen refreshes; apply at most one per frame.
+  const pending = useRef<{ id: string; x: number; y: number } | null>(null);
+  const frame = useRef(0);
+
   const toCanvas = (clientX: number, clientY: number) => {
     const matrix = svgRef.current?.getScreenCTM();
     if (!matrix) return { x: 0, y: 0 };
@@ -427,11 +447,25 @@ export function BoardDemo({ name, href }: { name: string; href: string }) {
     const p = toCanvas(event.clientX, event.clientY);
     if (!d.moved && Math.hypot(p.x - d.startX, p.y - d.startY) < 4) return;
     d.moved = true;
-    moveTo(d.id, p.x - d.dx, p.y - d.dy);
+    pending.current = { id: d.id, x: p.x - d.dx, y: p.y - d.dy };
+    if (!frame.current)
+      frame.current = requestAnimationFrame(() => {
+        frame.current = 0;
+        const m = pending.current;
+        pending.current = null;
+        if (m) moveTo(m.id, m.x, m.y);
+      });
   };
   const onShapePointerUp = () => {
     const d = drag.current;
     drag.current = null;
+    if (frame.current) {
+      cancelAnimationFrame(frame.current);
+      frame.current = 0;
+    }
+    const m = pending.current;
+    pending.current = null;
+    if (m) moveTo(m.id, m.x, m.y);
     // A second tap on an already selected shape edits it, as on touch screens.
     if (d && !d.moved && d.wasSelected) startEdit(d.id);
   };

@@ -459,3 +459,15 @@
     min-height: 32px;
   }
 }
+
+/* Phones: chapter scenery covers its whole section. The sticky camera does not stay pinned in
+   mobile Safari, which left the lower part of tall chapters on the flat fallback gradient. */
+@media (max-width: 767px) {
+  .home-page .chapter-environment .environment-camera {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    height: 100%;
+    min-height: 0;
+  }
+}
