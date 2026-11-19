@@ -1,122 +1,122 @@
 {
   "pennyrush": {
-    "image": "/work/pennyrush.webp",
+    "image": "https://assets.royalpinto007.com/work/pennyrush.webp",
     "kind": "screenshot"
   },
   "holdfast": {
-    "image": "/work/holdfast.webp",
+    "image": "https://assets.royalpinto007.com/work/holdfast.webp",
     "kind": "screenshot"
   },
   "kabootar": {
-    "image": "/work/kabootar.webp",
+    "image": "https://assets.royalpinto007.com/work/kabootar.webp",
     "kind": "screenshot"
   },
   "tiny-day": {
-    "image": "/work/tiny-day.webp",
+    "image": "https://assets.royalpinto007.com/work/tiny-day.webp",
     "kind": "screenshot"
   },
   "agentday": {
-    "image": "/work/agentday.webp",
+    "image": "https://assets.royalpinto007.com/work/agentday.webp",
     "kind": "screenshot"
   },
   "bumblecrate": {
-    "image": "/work/bumblecrate.webp",
+    "image": "https://assets.royalpinto007.com/work/bumblecrate.webp",
     "kind": "screenshot"
   },
   "megoblin": {
-    "image": "/work/megoblin.webp",
+    "image": "https://assets.royalpinto007.com/work/megoblin.webp",
     "kind": "screenshot"
   },
   "jollybound": {
-    "image": "/work/jollybound.webp",
+    "image": "https://assets.royalpinto007.com/work/jollybound.webp",
     "kind": "screenshot"
   },
   "revlap": {
-    "image": "/work/revlap.webp",
+    "image": "https://assets.royalpinto007.com/work/revlap.webp",
     "kind": "screenshot"
   },
   "tablewink": {
-    "image": "/work/tablewink.webp",
+    "image": "https://assets.royalpinto007.com/work/tablewink.webp",
     "kind": "screenshot"
   },
   "hushmallow": {
-    "image": "/work/hushmallow.webp",
+    "image": "https://assets.royalpinto007.com/work/hushmallow.webp",
     "kind": "screenshot"
   },
   "drupal-chatbot": {
-    "image": "/work/drupal-chatbot.webp",
+    "image": "https://assets.royalpinto007.com/work/drupal-chatbot.webp",
     "kind": "screenshot"
   },
   "delegate-inspector": {
-    "image": "/work/delegate-inspector.webp",
+    "image": "https://assets.royalpinto007.com/work/delegate-inspector.webp",
     "kind": "screenshot"
   },
   "hookview": {
-    "image": "/work/hookview.webp",
+    "image": "https://assets.royalpinto007.com/work/hookview.webp",
     "kind": "screenshot"
   },
   "solana-authority-inspector": {
-    "image": "/work/solana-authority-inspector.webp",
+    "image": "https://assets.royalpinto007.com/work/solana-authority-inspector.webp",
     "kind": "screenshot"
   },
   "ack": {
-    "image": "/work/ack.webp",
+    "image": "https://assets.royalpinto007.com/work/ack.webp",
     "kind": "screenshot"
   },
   "paylint": {
-    "image": "/work/paylint.webp",
+    "image": "https://assets.royalpinto007.com/work/paylint.webp",
     "kind": "screenshot"
   },
   "settled": {
-    "image": "/work/settled.webp",
+    "image": "https://assets.royalpinto007.com/work/settled.webp",
     "kind": "screenshot"
   },
   "txray": {
-    "image": "/work/txray.webp",
+    "image": "https://assets.royalpinto007.com/work/txray.webp",
     "kind": "screenshot"
   },
   "v1check": {
-    "image": "/work/v1check.webp",
+    "image": "https://assets.royalpinto007.com/work/v1check.webp",
     "kind": "screenshot"
   },
   "pagefold": {
-    "image": "/work/pagefold.webp",
+    "image": "https://assets.royalpinto007.com/work/pagefold.webp",
     "kind": "screenshot"
   },
   "stowlane": {
-    "image": "/work/stowlane.webp",
+    "image": "https://assets.royalpinto007.com/work/stowlane.webp",
     "kind": "screenshot"
   },
   "glasswing": {
-    "image": "/work/glasswing.webp",
+    "image": "https://assets.royalpinto007.com/work/glasswing.webp",
     "kind": "screenshot"
   },
   "bellrope": {
-    "image": "/work/bellrope.webp",
+    "image": "https://assets.royalpinto007.com/work/bellrope.webp",
     "kind": "screenshot"
   },
   "cribsheet": {
-    "image": "/work/cribsheet.webp",
+    "image": "https://assets.royalpinto007.com/work/cribsheet.webp",
     "kind": "screenshot"
   },
   "text-generation": {
-    "image": "/work/text-generation.webp",
+    "image": "https://assets.royalpinto007.com/work/text-generation.webp",
     "kind": "workflow"
   },
   "d-simple-server": {
-    "image": "/work/d-simple-server.webp",
+    "image": "https://assets.royalpinto007.com/work/d-simple-server.webp",
     "kind": "workflow"
   },
   "phobos-nogc-checker": {
-    "image": "/work/phobos-nogc-checker.webp",
+    "image": "https://assets.royalpinto007.com/work/phobos-nogc-checker.webp",
     "kind": "workflow"
   },
   "d-errors-docs": {
-    "image": "/work/d-errors-docs.webp",
+    "image": "https://assets.royalpinto007.com/work/d-errors-docs.webp",
     "kind": "screenshot"
   },
   "signalizeai": {
-    "image": "/work/signalizeai-light.webp",
+    "image": "https://assets.royalpinto007.com/work/signalizeai-light.webp",
     "kind": "screenshot"
   }
 }

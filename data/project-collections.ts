@@ -1,5 +1,4 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
+import { workImages } from "./work-images";
 import { siteConfig } from "./site";
 import {
   projectCategories,
@@ -61,7 +60,7 @@ export const projectCollections: ProjectCollection[] =
           name: p.name,
           kind: p.genre,
           description: p.note,
-          image: `/designs/${p.slug}.webp`,
+          image: `https://assets.royalpinto007.com/designs/${p.slug}.webp`,
           href: p.url,
           tech: p.stack,
         })),
@@ -115,8 +114,8 @@ export const projectCollections: ProjectCollection[] =
                 : "screenshot",
           image:
             previews[p.id]?.image ??
-            (existsSync(path.join(process.cwd(), "public/work", p.id + ".webp"))
-              ? `/work/${p.id}.webp`
+            (workImages.has(p.id)
+              ? `https://assets.royalpinto007.com/work/${p.id}.webp`
               : undefined),
           href: destination(p.liveUrl) ?? destination(p.githubUrl),
           source: destination(p.githubUrl),

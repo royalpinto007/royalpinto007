@@ -2,7 +2,7 @@
   {
     "id": "resolvd",
     "name": "Resolvd",
-    "image": "/agentpostmortem/resolvd.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/resolvd.webp",
     "href": "https://resolvd.agentpostmortem.com",
     "group": "agents",
     "kind": "Live",
@@ -13,7 +13,7 @@
   {
     "id": "greenlite",
     "name": "Greenlite",
-    "image": "/agentpostmortem/greenlite.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/greenlite.webp",
     "href": "https://greenlite.agentpostmortem.com",
     "group": "agents",
     "kind": "Live",
@@ -24,7 +24,7 @@
   {
     "id": "relayg",
     "name": "RelayG",
-    "image": "/agentpostmortem/relayg.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/relayg.webp",
     "href": "https://relayg.agentpostmortem.com",
     "group": "agents",
     "kind": "Live",
@@ -35,7 +35,7 @@
   {
     "id": "webhands",
     "name": "Webhands",
-    "image": "/agentpostmortem/webhands.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/webhands.webp",
     "href": "https://webhands.agentpostmortem.com",
     "group": "agents",
     "kind": "Live",
@@ -46,7 +46,7 @@
   {
     "id": "bridgekit",
     "name": "Bridgekit",
-    "image": "/agentpostmortem/bridgekit.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/bridgekit.webp",
     "href": "https://bridgekit.agentpostmortem.com",
     "group": "agents",
     "kind": "Live",
@@ -57,7 +57,7 @@
   {
     "id": "tracecase",
     "name": "Tracecase",
-    "image": "/agentpostmortem/tracecase.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/tracecase.webp",
     "href": "https://tracecase.agentpostmortem.com",
     "group": "agents",
     "kind": "Live",
@@ -68,7 +68,7 @@
   {
     "id": "casebook-mcp",
     "name": "Casebook MCP",
-    "image": "/agentpostmortem/casebook-mcp.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/casebook-mcp.webp",
     "href": "https://mcp.agentpostmortem.com",
     "group": "agents",
     "kind": "Live",
@@ -79,7 +79,7 @@
   {
     "id": "casebook-chat",
     "name": "Casebook Chat",
-    "image": "/agentpostmortem/casebook-chat.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/casebook-chat.webp",
     "href": "https://chat.agentpostmortem.com",
     "group": "agents",
     "kind": "Live",
@@ -90,7 +90,7 @@
   {
     "id": "injection-arena",
     "name": "Injection Arena",
-    "image": "/agentpostmortem/injection-arena.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/injection-arena.webp",
     "href": "https://injection-arena.agentpostmortem.com",
     "group": "agents",
     "kind": "Live",
@@ -101,7 +101,7 @@
   {
     "id": "tokencut",
     "name": "tokencut",
-    "image": "/agentpostmortem/tokencut.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/tokencut.webp",
     "href": "https://www.npmjs.com/package/tokencut",
     "group": "tooling",
     "kind": "npm",
@@ -112,7 +112,7 @@
   {
     "id": "mcp-audit",
     "name": "MCP-audit",
-    "image": "/agentpostmortem/mcp-audit.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/mcp-audit.webp",
     "href": "https://www.npmjs.com/package/@royalpinto007/mcp-audit",
     "group": "tooling",
     "kind": "npm",
@@ -123,7 +123,7 @@
   {
     "id": "skill-audit",
     "name": "Skill-audit",
-    "image": "/agentpostmortem/skill-audit.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/skill-audit.webp",
     "href": "https://www.npmjs.com/package/@royalpinto007/skill-audit",
     "group": "tooling",
     "kind": "npm",
@@ -134,7 +134,7 @@
   {
     "id": "ctxtrim",
     "name": "Ctxtrim",
-    "image": "/agentpostmortem/ctxtrim.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/ctxtrim.webp",
     "href": "https://www.npmjs.com/package/ctxtrim",
     "group": "tooling",
     "kind": "npm",
@@ -145,7 +145,7 @@
   {
     "id": "evalgate",
     "name": "Evalgate",
-    "image": "/agentpostmortem/evalgate.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/evalgate.webp",
     "href": "https://www.npmjs.com/package/@royalpinto007/evalgate",
     "group": "tooling",
     "kind": "npm",
@@ -156,7 +156,7 @@
   {
     "id": "ctxlens",
     "name": "Ctxlens",
-    "image": "/agentpostmortem/ctxlens.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/ctxlens.webp",
     "href": "https://pypi.org/project/ctxlens-cli/",
     "group": "tooling",
     "kind": "PyPI",
@@ -167,7 +167,7 @@
   {
     "id": "answerproof",
     "name": "Answerproof",
-    "image": "/agentpostmortem/answerproof.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/answerproof.webp",
     "href": "https://pypi.org/project/answerproof/",
     "group": "tooling",
     "kind": "PyPI",
@@ -178,7 +178,7 @@
   {
     "id": "agentrace",
     "name": "Agentrace",
-    "image": "/agentpostmortem/agentrace.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/agentrace.webp",
     "href": "https://github.com/AgentPostmortem/Agentrace",
     "group": "tooling",
     "kind": "GitHub",
@@ -189,7 +189,7 @@
   {
     "id": "voiceeval",
     "name": "Voiceeval",
-    "image": "/agentpostmortem/voiceeval.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/voiceeval.webp",
     "href": "https://github.com/AgentPostmortem/Voiceeval",
     "group": "tooling",
     "kind": "GitHub",
@@ -200,7 +200,7 @@
   {
     "id": "vaultrag",
     "name": "VaultRAG",
-    "image": "/agentpostmortem/vaultrag.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/vaultrag.webp",
     "href": "https://github.com/AgentPostmortem/VaultRAG",
     "group": "tooling",
     "kind": "GitHub",
@@ -211,7 +211,7 @@
   {
     "id": "tenantq",
     "name": "Tenantq",
-    "image": "/agentpostmortem/tenantq.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/tenantq.webp",
     "href": "https://github.com/AgentPostmortem/Tenantq",
     "group": "tooling",
     "kind": "GitHub",
@@ -222,7 +222,7 @@
   {
     "id": "ship-skills",
     "name": "ship-skills",
-    "image": "/agentpostmortem/ship-skills.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/ship-skills.webp",
     "href": "https://github.com/royalpinto007/ship-skills",
     "group": "resources",
     "kind": "Skills",
@@ -233,7 +233,7 @@
   {
     "id": "distro-skills",
     "name": "distro-skills",
-    "image": "/agentpostmortem/distro-skills.webp",
+    "image": "https://assets.royalpinto007.com/agentpostmortem/distro-skills.webp",
     "href": "https://github.com/royalpinto007/distro-skills",
     "group": "resources",
     "kind": "Skills",

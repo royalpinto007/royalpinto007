@@ -89,10 +89,10 @@ export function CinematicHero({ children }: { children: ReactNode }) {
         <picture>
           <source
             media="(max-width: 767px)"
-            srcSet="/scene/coast-mobile.webp"
+            srcSet="https://assets.royalpinto007.com/scene/coast-mobile.webp"
           />
           <img
-            src="/scene/sunset-coast.webp"
+            src="https://assets.royalpinto007.com/scene/sunset-coast.webp"
             width="1672"
             height="941"
             alt=""
@@ -110,10 +110,10 @@ export function CinematicHero({ children }: { children: ReactNode }) {
               <picture>
                 <source
                   media="(max-width: 767px)"
-                  srcSet={`/scene/hero-orbit-${layer}-mobile.webp`}
+                  srcSet={`https://assets.royalpinto007.com/scene/hero-orbit-${layer}-mobile.webp`}
                 />
                 <img
-                  src={`/scene/hero-orbit-${layer}.webp`}
+                  src={`https://assets.royalpinto007.com/scene/hero-orbit-${layer}.webp`}
                   width={960}
                   height={1000}
                   alt=""

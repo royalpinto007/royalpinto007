@@ -20,10 +20,10 @@ export function ProjectsScenery({
       <picture>
         <source
           media="(max-width: 767px)"
-          srcSet={`/scene/environments/${scene}-mobile.webp`}
+          srcSet={`https://assets.royalpinto007.com/scene/environments/${scene}-mobile.webp`}
         />
         <img
-          src={`/scene/environments/${scene}.webp`}
+          src={`https://assets.royalpinto007.com/scene/environments/${scene}.webp`}
           alt=""
           width={1800}
           height={1000}

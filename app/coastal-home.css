@@ -30,8 +30,8 @@ body:has(.home-page) .site-header {
 .home-page .portrait-person img {
   clip-path: none;
   mask-image:
-    url("/scene/portrait-enhanced-alpha.png"),
-    url("/scene/portrait-enhanced-outline.svg");
+    url("https://assets.royalpinto007.com/scene/portrait-enhanced-alpha.png"),
+    url("https://assets.royalpinto007.com/scene/portrait-enhanced-outline.svg");
   mask-size:
     100% 100%,
     100% 100%;

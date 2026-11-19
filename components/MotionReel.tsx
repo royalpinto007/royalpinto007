@@ -99,10 +99,10 @@ export function MotionReel() {
             <picture className="reel-poster-backdrop">
               <source
                 media="(max-width: 767px)"
-                srcSet="/scene/sunset-coast-mobile.webp"
+                srcSet="https://assets.royalpinto007.com/scene/sunset-coast-mobile.webp"
               />
               <img
-                src="/scene/sunset-coast.webp"
+                src="https://assets.royalpinto007.com/scene/sunset-coast.webp"
                 alt=""
                 width={960}
                 height={640}
@@ -112,7 +112,7 @@ export function MotionReel() {
             </picture>
             <picture className="film-poster-sculpture">
               <Image
-                src="/scene/film-sculpture.webp"
+                src="https://assets.royalpinto007.com/scene/film-sculpture.webp"
                 alt=""
                 width={1200}
                 height={1000}

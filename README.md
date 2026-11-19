@@ -1,6 +1,6 @@
 # Royal Simpson Pinto
 
-AI product engineer building agents, LLM tooling and full-stack apps.
+Software engineer, indie developer and freelancer building agents, LLM tooling and full-stack apps.
 
 - 3+ years building and shipping production software
 - Google Summer of Code · Linux Foundation · Symmetry Autumn of Code

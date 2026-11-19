@@ -39,7 +39,7 @@ export function DockScene({
       style={{ background: "#c9dfed", overflow: "hidden", color: "#12374e" }}
     >
       <FilmImage
-        src={compact ? "/scene/coast-mobile.webp" : "/scene/sunset-coast.webp"}
+        src={compact ? "https://assets.royalpinto007.com/scene/coast-mobile.webp" : "https://assets.royalpinto007.com/scene/sunset-coast.webp"}
         style={{
           width: "100%",
           height: "100%",

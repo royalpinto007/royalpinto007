@@ -102,7 +102,7 @@ export function FacetworksCollection({
               >
                 <div className="facetworks-preview">
                   <Image
-                    src={`/designs/${project.slug}.webp`}
+                    src={`https://assets.royalpinto007.com/designs/${project.slug}.webp`}
                     alt={`${project.name} preview`}
                     width={960}
                     height={640}

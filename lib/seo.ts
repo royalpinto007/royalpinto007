@@ -4,7 +4,7 @@ import { profile } from "@/data/profile";
 export const siteUrl = "https://royalpinto007.com";
 
 const socialImage = {
-  url: "/social-sky.jpg",
+  url: "https://assets.royalpinto007.com/social-sky.jpg",
   width: 1200,
   height: 630,
   alt: "Royal Simpson Pinto, software engineer, in the coastal sunset portfolio hero",
@@ -63,7 +63,7 @@ export function personJsonLd() {
         jobTitle: profile.role,
         description: profile.bio,
         url: siteUrl,
-        image: `${siteUrl}${profile.avatar}`,
+        image: profile.avatar,
         email: `mailto:${profile.email}`,
         sameAs: [profile.github, profile.twitter],
         knowsAbout: [

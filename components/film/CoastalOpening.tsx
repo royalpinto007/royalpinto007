@@ -17,7 +17,7 @@ export function CoastalOpening({
   return (
     <AbsoluteFill style={{ overflow: "hidden", background: "#a8cee8" }}>
       <FilmImage
-        src={compact ? "/scene/coast-mobile.webp" : "/scene/sunset-coast.webp"}
+        src={compact ? "https://assets.royalpinto007.com/scene/coast-mobile.webp" : "https://assets.royalpinto007.com/scene/sunset-coast.webp"}
         style={{
           width: "100%",
           height: "100%",
@@ -32,19 +32,19 @@ export function CoastalOpening({
       />
       {closing ? (
         <FilmImage
-          src="/portrait-original.webp"
+          src="https://assets.royalpinto007.com/portrait-original.webp"
           style={{
             position: "absolute",
             width: compact ? "92%" : "56%",
             right: compact ? "-24%" : "-9%",
             bottom: "-6%",
-            mask: "url(/scene/portrait-outline.svg) center / 100% 100% no-repeat",
+            mask: "url(https://assets.royalpinto007.com/scene/portrait-outline.svg) center / 100% 100% no-repeat",
             transform: `translateY(${(1 - enter) * 40}px)`,
           }}
         />
       ) : (
         <FilmImage
-          src="/scene/film-sculpture.webp"
+          src="https://assets.royalpinto007.com/scene/film-sculpture.webp"
           style={{
             position: "absolute",
             width: compact ? "92%" : "64%",

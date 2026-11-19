@@ -22,10 +22,10 @@ export function WorldScene({
         <picture>
           <source
             media="(max-width: 767px)"
-            srcSet={`/scene/${asset}-mobile.webp`}
+            srcSet={`https://assets.royalpinto007.com/scene/${asset}-mobile.webp`}
           />
           <img
-            src={`/scene/${asset}.webp`}
+            src={`https://assets.royalpinto007.com/scene/${asset}.webp`}
             width={1200}
             height={kind === "play" ? 960 : 800}
             alt=""

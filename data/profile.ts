@@ -7,5 +7,5 @@ export const profile = {
   calendarLink: "https://cal.com/royalpinto007",
   github: "https://github.com/royalpinto007",
   twitter: "https://twitter.com/royalpinto007",
-  avatar: "/portrait-enhanced.webp",
+  avatar: "https://assets.royalpinto007.com/portrait-enhanced.webp",
 } as const;

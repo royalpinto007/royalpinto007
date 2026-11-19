@@ -8,11 +8,11 @@ export function CoastalHorizon() {
       <picture>
         <source
           media="(max-width: 767px)"
-          srcSet="/scene/sailboat-mobile.webp"
+          srcSet="https://assets.royalpinto007.com/scene/sailboat-mobile.webp"
         />
         <img
           className="horizon-boat"
-          src="/scene/sailboat.webp"
+          src="https://assets.royalpinto007.com/scene/sailboat.webp"
           width={1200}
           height={800}
           alt=""
