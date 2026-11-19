@@ -24,6 +24,8 @@ export function renderContributionWall(
     day: "2-digit",
   }).format(new Date()),
 ) {
+  // a past year ends on 31 December, not today
+  if (through > `${year}-12-31`) through = `${year}-12-31`;
   const weeks = calendar.weeks
     .map((week) => ({
       contributionDays: week.contributionDays.filter(

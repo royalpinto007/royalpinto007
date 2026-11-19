@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 /** Keep the calendar out of the initial HTML and load its unchanged SVG near view. */
-export function ContributionWall() {
+export function ContributionWall({ year }: { year: number }) {
   const host = useRef<HTMLDivElement>(null);
   const [svg, setSvg] = useState("");
+  const [moreLeft, setMoreLeft] = useState(false);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const [active, setActive] = useState(false);
@@ -39,7 +40,7 @@ export function ContributionWall() {
       started = true;
       setFailed(false);
       try {
-        const response = await fetch("/wall2026.svg", { signal: abort.signal });
+        const response = await fetch(`/wall${year}.svg`, { signal: abort.signal });
         if (!response.ok) throw new Error("Calendar unavailable");
         const body = await response.text();
         if (!body.startsWith("<svg") || !body.includes('class="wall-svg"'))
@@ -63,14 +64,25 @@ export function ContributionWall() {
       observer.disconnect();
       abort.abort();
     };
-  }, [attempt]);
+  }, [attempt, year]);
+  // open on the latest months; earlier ones are a swipe to the left
+  useEffect(() => {
+    const element = host.current;
+    if (!element || !svg) return;
+    element.scrollLeft = element.scrollWidth;
+    const update = () => setMoreLeft(element.scrollLeft > 8);
+    update();
+    element.addEventListener("scroll", update, { passive: true });
+    return () => element.removeEventListener("scroll", update);
+  }, [svg]);
   return (
     <div
       ref={host}
       className="contribution-wall"
       data-active={active}
+      data-more-left={moreLeft}
       role="region"
-      aria-label="GitHub contribution calendar, scroll horizontally to explore the year"
+      aria-label={`GitHub contribution calendar for ${year}, scroll horizontally to explore the year`}
       tabIndex={0}
     >
       {svg ? (
@@ -90,21 +102,21 @@ export function ContributionWall() {
               Try again
             </button>
           )}
-          <a className="calendar-status" href="/wall2026.svg">
+          <a className="calendar-status" href={`/wall${year}.svg`}>
             View the contribution calendar ↗
           </a>
         </div>
       )}
       <noscript>
         <a
-          href="/wall2026.svg"
+          href={`/wall${year}.svg`}
           aria-label="Open the contribution calendar with daily dates and counts"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="calendar-static"
-            src="/wall2026.svg"
-            alt="Royal Simpson Pinto’s 2026 GitHub contribution calendar. Open the linked SVG for dates and daily counts."
+            src={`/wall${year}.svg`}
+            alt={`Royal Simpson Pinto’s ${year} GitHub contribution calendar. Open the linked SVG for dates and daily counts.`}
             width="662"
             height="119"
             loading="lazy"

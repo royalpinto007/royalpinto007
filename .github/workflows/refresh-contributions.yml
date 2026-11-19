@@ -25,11 +25,11 @@ jobs:
 
       - name: Commit changes if any
         run: |
-          if [ -n "$(git status --porcelain public/ app/page.tsx)" ]; then
+          if [ -n "$(git status --porcelain public/ data/contributions.json)" ]; then
             git config user.name "royalpinto007"
             git config user.email "royalpinto007@gmail.com"
-            git add public/wall2026.svg app/page.tsx
-            git commit -m "chore: refresh 2026 contribution wall"
+            git add public/wall*.svg data/contributions.json
+            git commit -m "chore: refresh contribution walls"
             git push
           else
             echo "no change in contributions"

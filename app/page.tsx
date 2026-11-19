@@ -14,7 +14,8 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowRight, Coffee, Star } from "lucide-react";
 import { MotionReel } from "@/components/MotionReel";
 import { BoardDemo } from "@/components/BoardDemo";
-import { ContributionWall } from "@/components/ContributionWall";
+import { ContributionCalendar } from "@/components/ContributionCalendar";
+import contributions from "@/data/contributions.json";
 import { CinematicHero } from "@/components/CinematicHero";
 import { TypingDescriptor } from "@/components/TypingDescriptor";
 import { HomeProjectExplorer } from "@/components/HomeProjectExplorer";
@@ -148,38 +149,10 @@ export default function HomePage() {
         <div className="section-intro open-source-heading">
           <h2 id="source-title">Open by default.</h2>
         </div>
-        <div className="contribution-summary">
-          <strong>12,623 contributions in 2026</strong>
-          <a
-            className="go-link"
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="go-link-label">View GitHub profile</span>
-            <span className="go-link-icon" aria-hidden="true">
-              <ArrowUpRight />
-            </span>
-          </a>
-        </div>
-        <div className="contribution-calendar">
-          <ContributionWall />
-          <div className="contribution-legend">
-            <span>
-              Every square is a day on GitHub.
-              <small className="calendar-scroll-hint">
-                Scroll to explore the year.
-              </small>
-            </span>
-            <div aria-label="Contribution intensity from fewer to more">
-              <span>Less</span>
-              {[0, 1, 2, 3, 4].map((level) => (
-                <i key={level} data-level={level} aria-hidden="true" />
-              ))}
-              <span>More</span>
-            </div>
-          </div>
-        </div>
+        <ContributionCalendar
+          years={contributions.years}
+          profile={siteConfig.github}
+        />
         <div className="source-origin journey-start">
           {siteConfig.stats
             .filter((stat) => stat.label === "Students mentored")
@@ -199,7 +172,7 @@ export default function HomePage() {
             </li>
             <li>
               <strong>LFX</strong>
-              <span>Linux Foundation’s LFX Mentorship</span>
+              <span>Linux Foundation’s LFX</span>
             </li>
             <li>
               <strong>SAoC</strong>
