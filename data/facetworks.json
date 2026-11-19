@@ -322,14 +322,6 @@
     "collection": "designs"
   },
   {
-    "slug": "jalebi",
-    "name": "Jalebi",
-    "genre": "Interactive cooking physics",
-    "note": "Pipe batter, fry a golden coil and dip it in syrup in a real-time GPU experiment.",
-    "stack": ["WebGPU", "WebGL2", "GLSL"],
-    "collection": "graphics"
-  },
-  {
     "slug": "lunelle",
     "name": "Lunelle",
     "genre": "Tactile window",

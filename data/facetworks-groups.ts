@@ -45,7 +45,6 @@ const groups = {
         "jelly-iphone",
         "jelly-pancake",
         "gummy",
-        "jalebi",
         "drape",
       ],
     },
