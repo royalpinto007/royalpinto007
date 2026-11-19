@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
 import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
-import { ContributionWall } from "./ContributionWall";
+import { ContributionWall } from "@/components/home/ContributionWall";
 
 type YearTotal = { year: number; total: number };
 

@@ -1,6 +1,6 @@
-import { WorldScene } from "./WorldScene";
-import { SceneEnvironment } from "./SceneEnvironment";
-import { ArchitectureMap } from "./ArchitectureMap";
+import { WorldScene } from "@/components/scenery/WorldScene";
+import { SceneEnvironment } from "@/components/scenery/SceneEnvironment";
+import { ArchitectureMap } from "@/components/home/ArchitectureMap";
 import {
   ArrowRight,
   ArrowUpRight,

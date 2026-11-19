@@ -23,7 +23,7 @@ export function PortfolioMotion() {
       dispose = () => {};
       root.dataset.motion = preference.matches ? "reduced" : "loading";
       if (preference.matches) return;
-      void import("@/lib/portfolio-motion")
+      void import("@/lib/motion/portfolio-motion")
         .then(({ mountPortfolioMotion }) => {
           if (current !== revision) return;
           dispose = mountPortfolioMotion(document.body);

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { ProjectCollage } from "@/components/ProjectCollage";
+import { ProjectCollage } from "@/components/projects/ProjectCollage";
 import { projectCollections } from "@/lib/data/project-collections";
 import { ArrowUpRight } from "lucide-react";
-import { WorldScene } from "@/components/WorldScene";
-import "@/components/facetworks.css";
+import { WorldScene } from "@/components/scenery/WorldScene";
+import "@/components/projects/facetworks.css";
 
 export const metadata: Metadata = {
   title: "Facetworks",

@@ -2,9 +2,9 @@ import "./contact.css";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { ArrowUpRight, Calendar, Mail } from "lucide-react";
-import { GithubIcon, TwitterIcon } from "@/components/BrandIcons";
-import { ProjectsScenery } from "@/components/ProjectsScenery";
-import { WorldScene } from "@/components/WorldScene";
+import { GithubIcon, TwitterIcon } from "@/components/ui/BrandIcons";
+import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
+import { WorldScene } from "@/components/scenery/WorldScene";
 import { siteConfig } from "@/lib/data/site";
 
 export const metadata: Metadata = pageMetadata({

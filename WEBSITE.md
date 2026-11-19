@@ -23,9 +23,18 @@ npm run build    # pulls content, then static site in out/
 
 | Path | What lives there |
 | --- | --- |
-| `app/` | Pages, layouts and styles |
-| `components/` | UI, scenes and interactive demos |
-| `lib/` | Data shaping (`lib/data/`), motion helpers and SEO |
+| `app/` | Routes only: pages, layout, icons, and page-specific CSS next to its page |
+| `components/layout/` | Header, footer and site-wide behaviour |
+| `components/home/` | Home page sections (hero, systems, calendar, reel, board demo) |
+| `components/film/` | The Remotion film played in the reel |
+| `components/projects/` | Project collections, previews and Facetworks pages |
+| `components/scenery/` | Painted backgrounds and coastal scenes |
+| `components/ui/` | Small shared pieces (brand icons) |
+| `styles/global/` | Tailwind entry, theme and site-wide styles |
+| `styles/home/` | Home page styles, in load order |
+| `lib/data/` | Shapes the content JSON into what pages render |
+| `lib/motion/` | Motion helpers |
+| `lib/seo.ts` | Metadata and structured data |
 | `scripts/pull-content.mjs` | Downloads the content JSON into `content/` (not committed) |
 | `public/` | Icons, font, `llms.txt`, `robots.txt` and the sitemap |
 

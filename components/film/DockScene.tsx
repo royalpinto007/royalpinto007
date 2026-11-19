@@ -1,6 +1,6 @@
 import { AbsoluteFill, Easing, interpolate, spring } from "remotion";
 import { FilmImage } from "./FilmImage";
-import { SkillRail } from "../SkillRail";
+import { SkillRail } from "@/components/film/SkillRail";
 
 /** A frame-driven camera follows the original chrome cursor across four tiles. */
 export function DockScene({

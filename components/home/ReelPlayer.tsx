@@ -5,7 +5,7 @@ import {
   type PlayerRef,
   type CallbackListener,
 } from "@remotion/player";
-import { ProjectReelComposition, FILM_DURATION } from "./film/CoastalFilm";
+import { ProjectReelComposition, FILM_DURATION } from "@/components/film/CoastalFilm";
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 

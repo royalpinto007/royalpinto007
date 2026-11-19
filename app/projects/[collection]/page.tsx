@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { projectCollections } from "@/lib/data/project-collections";
 import { collectionAliases } from "@/lib/data/project-categories";
-import { ProjectCollage } from "@/components/ProjectCollage";
-import { ProjectsScenery } from "@/components/ProjectsScenery";
+import { ProjectCollage } from "@/components/projects/ProjectCollage";
+import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
 import "../projects.css";
 
 type Props = { params: Promise<{ collection: string }> };

@@ -1,13 +1,13 @@
 import "./projects.css";
-import { WorldScene } from "@/components/WorldScene";
+import { WorldScene } from "@/components/scenery/WorldScene";
 import type { Metadata } from "next";
 import { jsonLdScript, pageMetadata, siteUrl } from "@/lib/seo";
 import { ArrowUpRight } from "lucide-react";
 import { projectCollections } from "@/lib/data/project-collections";
-import { ProjectCollage } from "@/components/ProjectCollage";
-import { CategoryMenu } from "@/components/CategoryMenu";
+import { ProjectCollage } from "@/components/projects/ProjectCollage";
+import { CategoryMenu } from "@/components/projects/CategoryMenu";
 import { collectionAliases } from "@/lib/data/project-categories";
-import { ProjectsScenery } from "@/components/ProjectsScenery";
+import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
 
 const scenery = {
   experiments: "tidal",

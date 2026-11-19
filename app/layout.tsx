@@ -1,17 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Geist } from "next/font/google";
-import { PortfolioMotion } from "@/components/PortfolioMotion";
-import { ScrollMemory } from "@/components/ScrollMemory";
-import { Header } from "@/components/Header";
-import { CoffeeTicker } from "@/components/CoffeeTicker";
-import { Footer } from "@/components/Footer";
+import { PortfolioMotion } from "@/components/layout/PortfolioMotion";
+import { ScrollMemory } from "@/components/layout/ScrollMemory";
+import { Header } from "@/components/layout/Header";
+import { CoffeeTicker } from "@/components/layout/CoffeeTicker";
+import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/lib/data/site";
 import { pageMetadata, siteUrl } from "@/lib/seo";
-import "./globals.css";
-import "./coastal-theme.css";
-import "./interface-polish.css";
-import "./links.css";
-import "./header-hero.css";
+import "@/styles/global/globals.css";
+import "@/styles/global/coastal-theme.css";
+import "@/styles/global/interface-polish.css";
+import "@/styles/global/links.css";
+import "@/styles/global/header-hero.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const display = Anton({

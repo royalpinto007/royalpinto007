@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowDownRight, Pause, Play, Sun, ScanLine } from "lucide-react";
 
-import { CoastalAtmosphere } from "./CoastalAtmosphere";
+import { CoastalAtmosphere } from "@/components/scenery/CoastalAtmosphere";
 
 const lights = ["Golden hour", "Sky blue", "Rose glow"];
 const glints = Array.from({ length: 24 }, (_, i) => ({

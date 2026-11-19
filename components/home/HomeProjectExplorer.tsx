@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projectCollections } from "@/lib/data/project-collections";
-import { SceneEnvironment } from "./SceneEnvironment";
+import { SceneEnvironment } from "@/components/scenery/SceneEnvironment";
 
 const shelves = [
   {

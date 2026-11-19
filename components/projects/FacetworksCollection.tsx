@@ -6,7 +6,7 @@ import {
   type FacetworksCollection,
 } from "@/lib/data/facetworks";
 import { facetworksGroups } from "@/lib/data/facetworks-groups";
-import { WorldScene } from "./WorldScene";
+import { WorldScene } from "@/components/scenery/WorldScene";
 import "./facetworks.css";
 
 export function FacetworksCollection({

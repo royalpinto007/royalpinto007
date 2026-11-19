@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { attachPointerMotion } from "./pointer-motion";
+import { attachPointerMotion } from "@/lib/motion/pointer-motion";
 
 const revealSelector = [
   ".section-intro:not(.playground-heading)",

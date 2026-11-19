@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { PreviewGroup } from "@/lib/data/project-collections";
-import { ProjectPreview } from "./ProjectPreview";
+import { ProjectPreview } from "@/components/projects/ProjectPreview";
 import "./project-collections.css";
 
 export function ProjectCollage({

@@ -1,6 +1,6 @@
 "use client";
 
-import { SceneEnvironment } from "./SceneEnvironment";
+import { SceneEnvironment } from "@/components/scenery/SceneEnvironment";
 import Image from "next/image";
 import {
   useCallback,
@@ -9,7 +9,7 @@ import {
   useState,
   type ComponentType,
 } from "react";
-import type { ReelPlayerProps } from "./ReelPlayer";
+import type { ReelPlayerProps } from "@/components/home/ReelPlayer";
 
 /** The static composition is also the no-JS and reduced-motion experience. */
 export function MotionReel() {
@@ -60,7 +60,7 @@ export function MotionReel() {
   useEffect(() => {
     if (!(near || visible) || reduced || Player || failed) return;
     let active = true;
-    import("./ReelPlayer")
+    import("@/components/home/ReelPlayer")
       .then((module) => {
         if (active) setPlayer(() => module.ReelPlayer);
       })

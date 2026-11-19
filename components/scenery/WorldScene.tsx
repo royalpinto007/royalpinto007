@@ -1,4 +1,4 @@
-import { CoastalHorizon } from "./CoastalHorizon";
+import { CoastalHorizon } from "@/components/scenery/CoastalHorizon";
 
 /** Choose a section's own artwork explicitly, rather than repeating a default. */
 export function WorldScene({

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { ProjectsScenery } from "@/components/ProjectsScenery";
+import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
 import "./not-found.css";
 
 export const metadata: Metadata = {

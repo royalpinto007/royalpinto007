@@ -1,5 +1,5 @@
 import { AbsoluteFill, interpolate, spring } from "remotion";
-import { BoardArtifact } from "../BoardArtifact";
+import { BoardArtifact } from "@/components/film/BoardArtifact";
 
 export function ArtifactScene({
   frame,

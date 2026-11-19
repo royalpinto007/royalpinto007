@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FacetworksCollection } from "@/components/FacetworksCollection";
+import { FacetworksCollection } from "@/components/projects/FacetworksCollection";
 
 export const metadata: Metadata = {
   title: "Interactive Graphics | Facetworks",

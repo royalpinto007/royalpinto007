@@ -1,5 +1,5 @@
 import "./footer.css";
-import { ProjectsScenery } from "./ProjectsScenery";
+import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/data/site";

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
-import { CoastalAtmosphere } from "./CoastalAtmosphere";
+import { CoastalAtmosphere } from "@/components/scenery/CoastalAtmosphere";
 
 export type Environment =
   | "marina"
