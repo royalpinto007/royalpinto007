@@ -291,6 +291,10 @@
     overflow: hidden;
     clip-path: inset(50%);
     white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
   }
   /* GitHub link: vertically centred on the total, flush with the card edge */
   .home-page .contribution-head {
