@@ -1,32 +1,47 @@
 # Portfolio website
 
-Source for [royalpinto007.com](https://royalpinto007.com/), built with Next.js static export, React, Tailwind, GSAP, and an optional Remotion Player.
+Source for [royalpinto007.com](https://royalpinto007.com/). The [README](README.md) is my GitHub profile; this file covers the site.
+
+Built with Next.js (static export), React, Tailwind CSS, GSAP, three.js and the Remotion Player.
+
+## Run it
+
+Requires Node 22.
 
 ```sh
 npm ci
-npm run dev
+npm run dev      # http://localhost:3000
 npm run lint
-node --test scripts/contribution-wall.test.mjs
-npm run build
+npm test
+npm run build    # static site in out/
 ```
 
-Home opens as a coastal poster with condensed display typography and the original portrait in the foreground. The image itself remains unchanged; a curved SVG mask, inset at the neck and shoulder, clips the sky without the previous blue fringe. Moving light, subtle water glints and pointer parallax share one pause control. Three lighting treatments are selectable, with reduced-motion, offscreen and hidden-tab handling. The compact mobile header keeps navigation in a native disclosure. The coastal navy, sky, rose and peach palette, condensed display type and compact navigation are shared by Home, Projects, Contact and the footer. Home uses full-width product stories, an interactive architecture stage, a matching Remotion reel and on-demand experiments. “Open by default” keeps its neutral green calendar. [Art provenance and the final generation prompt](docs/home-scene-art.md) document the environment assets. Native architecture walkthroughs cover AashiNyra, the SignalizeAI extension, and BoardEject. The open-source story uses generic contribution language, preserves the green GitHub calendar’s real counts, and presents the programmes as the beginning of a longer journey.
+`out/` is plain static files, so it can be hosted anywhere: Cloudflare Pages, Netlify, Vercel or GitHub Pages.
 
-Home’s experiments mount one same-origin demo at a time on request, expand to a usable viewport, and restore keyboard focus when closed. The central asset assembly allows same-origin framing only for these three preview demos.
+## Layout
 
-Browser regression scripts in `scripts/check-*.py` use Python Playwright and Chrome. Set `PORTFOLIO_URL` to a server hosting the exported build or the deployed site. Run browser suites serially.
+| Path | What lives there |
+| --- | --- |
+| `app/` | Pages, layouts and global styles |
+| `components/` | UI, scenes and interactive demos |
+| `data/` | Profile, projects, categories and contribution data |
+| `lib/` | Motion helpers and SEO metadata |
+| `public/` | Images, fonts, `llms.txt` and other static files |
+| `scripts/` | Contribution-wall generator, preview capture and browser checks |
 
-Production combines this portfolio with the Facetworks gallery and demos under `/facetworks/`. Release from the central `Open-Source/Final` workspace after checks, build, assembly, asset audit, and browser verification:
+## Make it yours
 
-```sh
-python3 run_sites.py check portfolio
-python3 run_sites.py build portfolio
-python3 stage_site.py
-python3 audit_assets.py
-python3 publish.py portfolio
-python3 verify_live.py
-```
+Use this repository as a template, then:
 
-Do not deploy this repository's `out/` alone to the combined production Worker. Its standalone Wrangler configuration is historical. The scheduled contribution workflow refreshes and validates source; production publication uses the complete bundle above. The hire service is released separately.
+1. Edit `data/profile.ts` with your name, bio, email and links.
+2. Replace the projects in `data/site.ts` and the other files in `data/`.
+3. Swap the portrait and artwork in `public/` (paths are referenced from `data/profile.ts` and the scene components).
+4. Set your GitHub username in `scripts/gen-wall.mjs` and run `GITHUB_TOKEN=<token> node scripts/gen-wall.mjs` to rebuild the contribution data. The `refresh-contributions` workflow keeps it current.
+5. Replace this repository's `README.md` with your own.
+6. Update `lib/seo.ts`, `public/llms.txt` and `public/robots.txt` with your domain.
 
-Credentials belong in ignored environment files or deployment secret stores. Build output, browser evidence, and local caches are excluded from Git.
+The code is MIT licensed. My portrait, film, resume, artwork and written content are not, so please replace them. See [LICENSE](LICENSE).
+
+## Browser checks
+
+`scripts/check-*.py` are Playwright (Python) regression checks. Point `PORTFOLIO_URL` at a running build and run them one at a time.
