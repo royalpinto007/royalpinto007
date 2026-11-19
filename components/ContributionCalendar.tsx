@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { ContributionWall } from "./ContributionWall";
 
 type YearTotal = { year: number; total: number };
@@ -21,7 +21,23 @@ export function ContributionCalendar({
       <div className="contribution-head">
         <p className="contribution-total">
           <strong>{total.toLocaleString("en-US")}</strong>
-          <span>contributions in {year}</span>
+          <span>
+            contributions in{" "}
+            <span className="contribution-year">
+              <select
+                aria-label="Choose a year"
+                value={year}
+                onChange={(event) => setYear(Number(event.target.value))}
+              >
+                {years.map((y) => (
+                  <option key={y.year} value={y.year}>
+                    {y.year}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={14} aria-hidden="true" />
+            </span>
+          </span>
         </p>
         <a
           className="go-link"
@@ -29,23 +45,14 @@ export function ContributionCalendar({
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className="go-link-label">View GitHub profile</span>
+          <span className="go-link-label">
+            <span className="link-long">View </span>GitHub
+            <span className="link-long"> profile</span>
+          </span>
           <span className="go-link-icon" aria-hidden="true">
             <ArrowUpRight />
           </span>
         </a>
-      </div>
-      <div className="contribution-years" role="group" aria-label="Choose a year">
-        {years.map((y) => (
-          <button
-            key={y.year}
-            type="button"
-            aria-pressed={y.year === year}
-            onClick={() => setYear(y.year)}
-          >
-            {y.year}
-          </button>
-        ))}
       </div>
       <div className="contribution-calendar">
         <ContributionWall key={year} year={year} />

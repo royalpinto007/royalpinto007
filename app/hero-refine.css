@@ -190,3 +190,70 @@
     display: none;
   }
 }
+
+/* The year is part of the sentence: "contributions in 2026 ▾". */
+.home-page .contribution-year {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 1px 6px 1px 8px;
+  margin-left: 2px;
+  border-radius: 8px;
+  background: #17394d14;
+  color: #0c2d43;
+  font-weight: 700;
+  transition: background 160ms ease;
+}
+.home-page .contribution-year:hover,
+.home-page .contribution-year:focus-within {
+  background: #17394d24;
+}
+.home-page .contribution-year select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  padding: 0 14px 0 0;
+  margin-right: -14px;
+  cursor: pointer;
+}
+.home-page .contribution-year select:focus-visible {
+  outline: none;
+}
+.home-page .contribution-year:focus-within {
+  outline: 2px solid #c2185b;
+  outline-offset: 2px;
+}
+.home-page .contribution-year svg {
+  pointer-events: none;
+}
+.home-page .contribution-head {
+  margin-bottom: 18px;
+}
+@media (max-width: 767px) {
+  /* total on the left, GitHub link on the right: one row */
+  .home-page .contribution-head {
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  .home-page .contribution-head .go-link {
+    flex: none;
+    gap: 6px;
+  }
+  .home-page .contribution-head .go-link-label {
+    font-size: 13px;
+  }
+}
+.home-page .contribution-total > span {
+  white-space: nowrap;
+}
+@media (max-width: 380px) {
+  .home-page .contribution-head .link-long {
+    display: none;
+  }
+}
