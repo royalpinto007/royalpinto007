@@ -282,17 +282,15 @@
   .home-page .board-demo-bar > .board-demo-action {
     flex: 1 1 100%;
   }
+  /* the note stays for screen readers (it announces conversions) but is
+     not shown on phones */
   .home-page .board-demo-note {
-    margin-top: 10px;
-    padding: 10px 12px;
-  }
-  .home-page .board-demo-note p {
-    font-size: 13px;
-    line-height: 1.45;
-    margin: 0;
-  }
-  .home-page .board-demo-note small {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   /* GitHub link: vertically centred on the total, flush with the card edge */
   .home-page .contribution-head {

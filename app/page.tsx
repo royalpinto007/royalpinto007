@@ -37,16 +37,6 @@ const work = [
     stack: ["Python + MCP", "On PyPI"],
   },
   {
-    name: "SignalizeAI",
-    kind: "AI product",
-    image: "signalizeai",
-    scene: "marina",
-    href: "https://signalizeai.org",
-    description:
-      "Research any company once. Get told when its pricing, hiring or messaging changes.",
-    stack: ["Browser extension", "Change alerts"],
-  },
-  {
     name: "BoardEject",
     kind: "Developer tool",
     image: "boardeject",
@@ -55,6 +45,16 @@ const work = [
     description:
       "Freeform boards to editable Excalidraw, or a verified local archive. Nothing is uploaded.",
     stack: ["Export + archive", "macOS helper"],
+  },
+  {
+    name: "SignalizeAI",
+    kind: "AI product",
+    image: "signalizeai",
+    scene: "marina",
+    href: "https://signalizeai.org",
+    description:
+      "Research any company once. Get told when its pricing, hiring or messaging changes.",
+    stack: ["Browser extension", "Change alerts"],
   },
   {
     name: "AashiNyra",
