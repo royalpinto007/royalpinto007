@@ -375,3 +375,76 @@
     display: none;
   }
 }
+
+/* Phones: the project artworks keep readable labels and icons, and nothing runs off the card. */
+@media (max-width: 767px) {
+  /* AashiNyra: the pipeline becomes a row of three steps under the catalog window. */
+  .home-page .work-world .commerce-window {
+    top: 8%;
+    left: 7%;
+    width: 86%;
+    rotate: -3deg;
+  }
+  .home-page .work-world .commerce-engine {
+    top: auto;
+    bottom: 7%;
+    left: 6%;
+    right: 6%;
+    width: auto;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    row-gap: 6px;
+    padding: 12px 8px;
+    font-size: 12px;
+    line-height: 1.25;
+    text-align: center;
+  }
+  .home-page .work-world .commerce-engine svg {
+    width: 24px;
+    height: 24px;
+  }
+  .home-page .work-world .commerce-engine i {
+    display: none;
+  }
+  /* SignalizeAI: the event cards sit fully inside the card. */
+  .home-page .work-world .signal-stack {
+    right: 5%;
+    width: 55%;
+  }
+  .home-page .work-world .signal-event {
+    font-size: 12px;
+  }
+  .home-page .work-world .signal-event > svg {
+    width: 18px;
+    height: 18px;
+  }
+  /* AgentPostmortem: readable path label and feature lines. */
+  .home-page .work-world .art-eyebrow {
+    font-size: 12px;
+  }
+  .home-page .work-world .art-eyebrow svg {
+    width: 16px;
+    height: 16px;
+  }
+  .home-page .work-world .incident-line {
+    font-size: 13px;
+  }
+  .home-page .work-world .incident-line svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Phones: keep the "Indie dev · Freelancer · Open source" line under the name. */
+@media (max-width: 767px) {
+  body .site-header .header-inner .brand-link small {
+    display: block;
+    font-size: 11px;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+}

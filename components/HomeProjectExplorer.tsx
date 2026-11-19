@@ -134,7 +134,7 @@ export function HomeProjectExplorer() {
             rel="noopener noreferrer"
           >
             <span className="go-link-label">
-              Explore all {web3.count} tools
+              Explore all Web3 tools
             </span>
             <span className="go-link-icon" aria-hidden="true">
               <ArrowRight />
@@ -142,9 +142,6 @@ export function HomeProjectExplorer() {
           </Link>
         </div>
         <div className="web3-workbench">
-          <p className="web3-workbench-label">
-            <span aria-hidden="true">›_</span> Read-only developer tools
-          </p>
           <div className="web3-previews">
             {["delegate-inspector", "txray"].map((id) => {
               const project = tools.find((item) => item.id === id);
