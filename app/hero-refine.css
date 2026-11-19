@@ -69,3 +69,29 @@
     letter-spacing: 0.18em;
   }
 }
+
+/* Mobile fixes (19 Nov 2026 audit). */
+@media (max-width: 767px) {
+  /* "View projects" keeps its arrow on the same line */
+  .home-page .hero-work-link {
+    gap: 8px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+  /* the Explore button sits bottom-left, clear of the visual's chips */
+  /* the SignalizeAI scene keeps two status chips on phones, so the Explore
+     button never covers the third */
+  .home-page .work-world .signal-event:nth-of-type(3) {
+    display: none;
+  }
+}
+/* narrow phones: the hero title fits with its full stop */
+@media (max-width: 380px) {
+  /* scene controls go icon-only so they fit beside "View projects" */
+  .home-page .scene-light > span {
+    display: none;
+  }
+  .home-page .portfolio-hero h1 {
+    font-size: 25vw;
+  }
+}

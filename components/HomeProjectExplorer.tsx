@@ -197,7 +197,7 @@ export function HomeProjectExplorer() {
             >
               <span>
                 <strong>{collection.title}</strong>
-                <small>Docs, modules and compilers, built in the open.</small>
+                <small>Docs, modules and source analysis, built in the open.</small>
               </span>
               <ArrowUpRight size={18} aria-hidden="true" />
             </Link>

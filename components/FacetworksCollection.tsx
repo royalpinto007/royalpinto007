@@ -21,6 +21,8 @@ export function FacetworksCollection({
     0,
   );
   const other = collection === "designs" ? "graphics" : "designs";
+  const tabCount = (c: FacetworksCollection) =>
+    facetworksGroups(c).reduce((total, group) => total + group.projects.length, 0);
   return (
     <div className="portfolio-shell facetworks-page">
       <header className="world-heading facetworks-heading">
@@ -56,13 +58,13 @@ export function FacetworksCollection({
             href="/facetworks/designs"
             aria-current={collection === "designs" ? "page" : undefined}
           >
-            Designs <span>19</span>
+            Designs <span>{tabCount("designs")}</span>
           </a>
           <a
             href="/facetworks/graphics"
             aria-current={collection === "graphics" ? "page" : undefined}
           >
-            Graphics <span>24</span>
+            Graphics <span>{tabCount("graphics")}</span>
           </a>
         </nav>
       </header>
