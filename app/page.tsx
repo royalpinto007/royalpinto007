@@ -27,14 +27,14 @@ import { siteConfig } from "@/data/site";
 
 const work = [
   {
-    name: "BoardEject",
-    kind: "Developer tool",
-    image: "boardeject",
-    scene: "pavilion",
-    href: "https://boardeject.dev",
+    name: "AgentPostmortem",
+    kind: "Open source",
+    image: "agentpostmortem",
+    scene: "observatory",
+    href: "https://github.com/AgentPostmortem/agentpostmortem",
     description:
-      "Freeform boards to editable Excalidraw, or a verified local archive. Nothing is uploaded.",
-    stack: ["Export + archive", "macOS helper"],
+      "Find out how your AI agent fails before your customers do. 25 failure scenarios, judged by real side effects.",
+    stack: ["Python + MCP", "On PyPI"],
   },
   {
     name: "SignalizeAI",
@@ -45,6 +45,16 @@ const work = [
     description:
       "Research any company once. Get told when its pricing, hiring or messaging changes.",
     stack: ["Browser extension", "Change alerts"],
+  },
+  {
+    name: "BoardEject",
+    kind: "Developer tool",
+    image: "boardeject",
+    scene: "pavilion",
+    href: "https://boardeject.dev",
+    description:
+      "Freeform boards to editable Excalidraw, or a verified local archive. Nothing is uploaded.",
+    stack: ["Export + archive", "macOS helper"],
   },
   {
     name: "AashiNyra",

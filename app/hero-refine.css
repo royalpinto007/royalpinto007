@@ -257,3 +257,45 @@
     display: none;
   }
 }
+
+/* Selected projects on phones: one way into each project, not three. */
+@media (max-width: 767px) {
+  .home-page .work-preview-link {
+    display: none;
+  }
+  /* BoardEject demo: Convert and Reset share one row, the card's own link
+     replaces "Explore BoardEject", and the note is quieter. */
+  .home-page .board-demo-explore {
+    display: none;
+  }
+  .home-page .board-demo-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .home-page .board-demo-bar > button {
+    flex: 1 1 auto;
+    min-height: 44px;
+    justify-content: center;
+  }
+  .home-page .board-demo-bar > .board-demo-action {
+    flex: 1 1 100%;
+  }
+  .home-page .board-demo-note {
+    margin-top: 10px;
+    padding: 10px 12px;
+  }
+  .home-page .board-demo-note p {
+    font-size: 13px;
+    line-height: 1.45;
+    margin: 0;
+  }
+  .home-page .board-demo-note small {
+    display: none;
+  }
+  /* GitHub link: vertically centred on the total, flush with the card edge */
+  .home-page .contribution-head {
+    align-items: center;
+  }
+}

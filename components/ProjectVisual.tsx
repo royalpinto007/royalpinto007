@@ -64,26 +64,26 @@ export function ProjectVisual({ product }: { product: string }) {
           </div>
           <div className="incident-sheet">
             <span className="art-eyebrow">
-              <GitBranch size={14} /> Agent failure → shared knowledge
+              <GitBranch size={14} /> refund() → timeout → retry
             </span>
             <strong>
-              What broke?
+              Charged twice?
               <br />
-              Why did it break?
+              Find out first.
             </strong>
             <div className="incident-line">
               <Fingerprint size={18} />
-              <span>Trace the cause</span>
+              <span>25 failure scenarios</span>
             </div>
             <div className="incident-line">
               <ShieldCheck size={18} />
-              <span>Keep the lesson</span>
+              <span>Judged by real side effects</span>
             </div>
           </div>
           <span className="art-stamp">
-            Learn.
+            Break it.
             <br />
-            Build better.
+            On purpose.
           </span>
         </div>
       )}
