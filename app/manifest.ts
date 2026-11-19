@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { profile } from "@/data/profile";
+import { profile } from "@/lib/data/profile";
 
 export const dynamic = "force-static";
 

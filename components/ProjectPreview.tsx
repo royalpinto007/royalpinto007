@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight, Code2, Gamepad2 } from "lucide-react";
-import type { PreviewProject } from "@/data/project-collections";
+import type { PreviewProject } from "@/lib/data/project-collections";
 
 export function ProjectPreview({
   project,

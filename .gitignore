@@ -49,3 +49,6 @@ CLAUDE.md
 # Python browser-check caches
 __pycache__/
 *.py[cod]
+
+# content pulled from R2 at build time
+/content/

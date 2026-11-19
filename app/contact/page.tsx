@@ -5,7 +5,7 @@ import { ArrowUpRight, Calendar, Mail } from "lucide-react";
 import { GithubIcon, TwitterIcon } from "@/components/BrandIcons";
 import { ProjectsScenery } from "@/components/ProjectsScenery";
 import { WorldScene } from "@/components/WorldScene";
-import { siteConfig } from "@/data/site";
+import { siteConfig } from "@/lib/data/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",

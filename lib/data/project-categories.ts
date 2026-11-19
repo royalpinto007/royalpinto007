@@ -1,58 +1,10 @@
 import { siteConfig } from "./site";
-import agentpostmortemTools from "./agentpostmortem.json";
+import agentpostmortemTools from "@/content/agentpostmortem.json";
+import categories from "@/content/categories.json";
 
-// Display order on Projects (Royal's choice): apps, open source, designs first.
-export const projectCategories = [
-  {
-    id: "apps",
-    title: "Apps & products",
-    description:
-      "Software for real workflows. AI research, offline messaging, creative tools and everyday apps.",
-  },
-  {
-    id: "open-source",
-    title: "Open source",
-    description:
-      "Documentation, networking, modules and source analysis. Code and knowledge built in the open.",
-  },
-  {
-    id: "websites",
-    title: "Designs",
-    description:
-      "Studios, products, places and storefronts. Nineteen distinct website concepts.",
-  },
-  {
-    id: "experiments",
-    title: "Interactive Graphics",
-    description:
-      "3D scenes, physics, generative visuals and playful interactions. Open an experiment and play.",
-  },
-  {
-    id: "games",
-    title: "Games",
-    description:
-      "Six game projects, from delivery challenges and football to shared-device board games.",
-  },
-  {
-    id: "web3",
-    title: "Solana & Web3",
-    description:
-      "Open-source tools for token permissions, transactions, payments and on-chain receipts.",
-  },
-  {
-    id: "packages",
-    title: "Packages & developer tools",
-    description:
-      "Installable libraries, command-line utilities, MCP integrations, and reusable skills.",
-  },
-  {
-    id: "resources",
-    title: "Agent skills",
-    description:
-      "Reusable skills that help coding agents ship and distribute software.",
-  },
-] as const;
-export type ProjectCategory = (typeof projectCategories)[number]["id"];
+// Display order on Projects comes from content/categories.json.
+export const projectCategories = categories;
+export type ProjectCategory = string;
 const browser = new Set([
   "pagefold",
   "stowlane",

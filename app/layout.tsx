@@ -5,7 +5,7 @@ import { ScrollMemory } from "@/components/ScrollMemory";
 import { Header } from "@/components/Header";
 import { CoffeeTicker } from "@/components/CoffeeTicker";
 import { Footer } from "@/components/Footer";
-import { siteConfig } from "@/data/site";
+import { siteConfig } from "@/lib/data/site";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 import "./globals.css";
 import "./coastal-theme.css";

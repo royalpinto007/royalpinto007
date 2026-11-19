@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test scripts/contribution-wall.test.mjs"
+    "predev": "node scripts/pull-content.mjs",
+    "prebuild": "node scripts/pull-content.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

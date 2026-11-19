@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { projectCollections } from "@/data/project-collections";
+import { projectCollections } from "@/lib/data/project-collections";
 import { SceneEnvironment } from "./SceneEnvironment";
 
 const shelves = [

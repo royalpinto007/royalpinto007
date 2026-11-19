@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import type { PreviewGroup } from "@/data/project-collections";
+import type { PreviewGroup } from "@/lib/data/project-collections";
 import { ProjectPreview } from "./ProjectPreview";
 import "./project-collections.css";
 

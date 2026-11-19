@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ProjectCollage } from "@/components/ProjectCollage";
-import { projectCollections } from "@/data/project-collections";
+import { projectCollections } from "@/lib/data/project-collections";
 import { ArrowUpRight } from "lucide-react";
 import { WorldScene } from "@/components/WorldScene";
 import "@/components/facetworks.css";

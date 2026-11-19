@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { profile } from "@/data/profile";
+import { profile } from "@/lib/data/profile";
 
 export const siteUrl = "https://royalpinto007.com";
 

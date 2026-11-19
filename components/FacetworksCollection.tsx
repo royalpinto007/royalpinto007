@@ -4,8 +4,8 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import {
   facetworksCollections,
   type FacetworksCollection,
-} from "@/data/facetworks";
-import { facetworksGroups } from "@/data/facetworks-groups";
+} from "@/lib/data/facetworks";
+import { facetworksGroups } from "@/lib/data/facetworks-groups";
 import { WorldScene } from "./WorldScene";
 import "./facetworks.css";
 

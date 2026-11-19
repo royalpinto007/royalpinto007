@@ -1,4 +1,4 @@
-import { workImages } from "./work-images";
+import workImageIds from "@/content/work-images.json";
 import { siteConfig } from "./site";
 import {
   projectCategories,
@@ -6,8 +6,9 @@ import {
   type ProjectCategory,
 } from "./project-categories";
 import { facetworksGroups } from "./facetworks-groups";
-import tools from "./agentpostmortem.json";
-import projectPreviews from "./project-previews.json";
+import tools from "@/content/agentpostmortem.json";
+import projectPreviews from "@/content/project-previews.json";
+const workImages = new Set(workImageIds);
 const previews: Record<string, { image: string; kind: string }> =
   projectPreviews;
 

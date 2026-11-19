@@ -2,7 +2,7 @@ import "./footer.css";
 import { ProjectsScenery } from "./ProjectsScenery";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { siteConfig } from "@/data/site";
+import { siteConfig } from "@/lib/data/site";
 
 export function Footer() {
   return (

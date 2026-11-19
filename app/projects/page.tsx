@@ -3,10 +3,10 @@ import { WorldScene } from "@/components/WorldScene";
 import type { Metadata } from "next";
 import { jsonLdScript, pageMetadata, siteUrl } from "@/lib/seo";
 import { ArrowUpRight } from "lucide-react";
-import { projectCollections } from "@/data/project-collections";
+import { projectCollections } from "@/lib/data/project-collections";
 import { ProjectCollage } from "@/components/ProjectCollage";
 import { CategoryMenu } from "@/components/CategoryMenu";
-import { collectionAliases } from "@/data/project-categories";
+import { collectionAliases } from "@/lib/data/project-categories";
 import { ProjectsScenery } from "@/components/ProjectsScenery";
 
 const scenery = {
@@ -77,7 +77,9 @@ export default function ProjectsPage() {
             id={category.id}
             data-project-category={category.id}
           >
-            <ProjectsScenery scene={scenery[category.id]} />
+            <ProjectsScenery
+              scene={scenery[category.id as keyof typeof scenery] ?? "atrium"}
+            />
             {Object.entries(collectionAliases)
               .filter(([, target]) => target === category.id)
               .map(([alias]) => (

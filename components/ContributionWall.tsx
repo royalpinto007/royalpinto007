@@ -40,7 +40,7 @@ export function ContributionWall({ year }: { year: number }) {
       started = true;
       setFailed(false);
       try {
-        const response = await fetch(`/wall${year}.svg`, { signal: abort.signal });
+        const response = await fetch(`https://assets.royalpinto007.com/wall${year}.svg`, { signal: abort.signal });
         if (!response.ok) throw new Error("Calendar unavailable");
         const body = await response.text();
         if (!body.startsWith("<svg") || !body.includes('class="wall-svg"'))
@@ -102,20 +102,20 @@ export function ContributionWall({ year }: { year: number }) {
               Try again
             </button>
           )}
-          <a className="calendar-status" href={`/wall${year}.svg`}>
+          <a className="calendar-status" href={`https://assets.royalpinto007.com/wall${year}.svg`}>
             View the contribution calendar ↗
           </a>
         </div>
       )}
       <noscript>
         <a
-          href={`/wall${year}.svg`}
+          href={`https://assets.royalpinto007.com/wall${year}.svg`}
           aria-label="Open the contribution calendar with daily dates and counts"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="calendar-static"
-            src={`/wall${year}.svg`}
+            src={`https://assets.royalpinto007.com/wall${year}.svg`}
             alt={`Royal Simpson Pinto’s ${year} GitHub contribution calendar. Open the linked SVG for dates and daily counts.`}
             width="662"
             height="119"

@@ -15,7 +15,7 @@ import { ArrowUpRight, ArrowRight, Coffee, Star } from "lucide-react";
 import { MotionReel } from "@/components/MotionReel";
 import { BoardDemo } from "@/components/BoardDemo";
 import { ContributionCalendar } from "@/components/ContributionCalendar";
-import contributions from "@/data/contributions.json";
+import contributions from "@/content/contributions.json";
 import { CinematicHero } from "@/components/CinematicHero";
 import { TypingDescriptor } from "@/components/TypingDescriptor";
 import { HomeProjectExplorer } from "@/components/HomeProjectExplorer";
@@ -23,7 +23,7 @@ import { ProjectVisual } from "@/components/ProjectVisual";
 import { jsonLdScript, personJsonLd } from "@/lib/seo";
 import { SystemsShowcase } from "@/components/SystemsShowcase";
 import { SceneEnvironment } from "@/components/SceneEnvironment";
-import { siteConfig } from "@/data/site";
+import { siteConfig } from "@/lib/data/site";
 
 const work = [
   {
