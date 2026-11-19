@@ -50,12 +50,12 @@ export default function ProjectsPage() {
       <header className="projects-heading world-heading" data-motion-intro>
         <ProjectsScenery scene="tidal" priority />
         <WorldScene kind="arcade" priority />
-        <h1>Projects.</h1>
+        <h1>Projects</h1>
         <p>Products, tools and experiments. Pick a preview. Open the build.</p>
       </header>
       <div className="project-directory-bar">
         <p>
-          <span aria-hidden="true">↘</span> Browse by category.
+          <span aria-hidden="true">↘</span> Browse by category
         </p>
         <CategoryMenu
           items={projectCollections.map(({ id, title }) => ({ id, title }))}

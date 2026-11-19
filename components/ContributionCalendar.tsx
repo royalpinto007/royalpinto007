@@ -1,10 +1,131 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { useEffect, useId, useRef, useState } from "react";
+import type { KeyboardEvent } from "react";
+import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
 import { ContributionWall } from "./ContributionWall";
 
 type YearTotal = { year: number; total: number };
+
+/**
+ * The year inside "contributions in 2026": a button that opens a styled listbox
+ * (the native select's menu cannot be styled). Keyboard: arrows, Home/End,
+ * Enter/Space to choose, Escape or Tab to close.
+ */
+function YearPicker({
+  years,
+  value,
+  onChange,
+}: {
+  years: YearTotal[];
+  value: number;
+  onChange: (year: number) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const selected = Math.max(
+    0,
+    years.findIndex((y) => y.year === value),
+  );
+  const [active, setActive] = useState(selected);
+  const root = useRef<HTMLSpanElement>(null);
+  const button = useRef<HTMLButtonElement>(null);
+  const list = useRef<HTMLUListElement>(null);
+  const id = useId();
+
+  useEffect(() => {
+    if (!open) return;
+    list.current?.focus();
+    const away = (event: PointerEvent) => {
+      if (!root.current?.contains(event.target as Node)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", away);
+    return () => document.removeEventListener("pointerdown", away);
+  }, [open]);
+
+  const show = () => {
+    setActive(selected);
+    setOpen(true);
+  };
+  const choose = (index: number) => {
+    onChange(years[index].year);
+    setOpen(false);
+    button.current?.focus();
+  };
+  const onListKey = (event: KeyboardEvent<HTMLUListElement>) => {
+    const last = years.length - 1;
+    const keys: Record<string, () => void> = {
+      ArrowDown: () => setActive((i) => Math.min(last, i + 1)),
+      ArrowUp: () => setActive((i) => Math.max(0, i - 1)),
+      Home: () => setActive(0),
+      End: () => setActive(last),
+      Enter: () => choose(active),
+      " ": () => choose(active),
+      Escape: () => {
+        setOpen(false);
+        button.current?.focus();
+      },
+    };
+    if (event.key === "Tab") setOpen(false);
+    else if (keys[event.key]) {
+      event.preventDefault();
+      keys[event.key]();
+    }
+  };
+
+  return (
+    <span className="year-picker" ref={root} data-open={open}>
+      <button
+        ref={button}
+        type="button"
+        className="year-picker-button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls={open ? `${id}-list` : undefined}
+        aria-label={`Year ${value}, choose another year`}
+        onClick={() => (open ? setOpen(false) : show())}
+        onKeyDown={(event) => {
+          if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+            event.preventDefault();
+            show();
+          }
+        }}
+      >
+        {value}
+        <ChevronDown size={14} aria-hidden="true" />
+      </button>
+      {open && (
+        <ul
+          ref={list}
+          id={`${id}-list`}
+          className="year-picker-list"
+          role="listbox"
+          tabIndex={-1}
+          aria-label="Choose a year"
+          aria-activedescendant={`${id}-${active}`}
+          onKeyDown={onListKey}
+        >
+          {years.map((y, index) => (
+            <li
+              key={y.year}
+              id={`${id}-${index}`}
+              role="option"
+              aria-selected={y.year === value}
+              data-active={index === active}
+              onPointerEnter={() => setActive(index)}
+              onClick={() => choose(index)}
+            >
+              <span className="year-picker-year">{y.year}</span>
+              <span className="year-picker-count">
+                {y.total.toLocaleString("en-US")}
+              </span>
+              <Check size={15} aria-hidden="true" />
+            </li>
+          ))}
+        </ul>
+      )}
+    </span>
+  );
+}
 
 /** The GitHub calendar with a year picker; opens on the latest year and months. */
 export function ContributionCalendar({
@@ -23,20 +144,7 @@ export function ContributionCalendar({
           <strong>{total.toLocaleString("en-US")}</strong>
           <span>
             contributions in{" "}
-            <span className="contribution-year">
-              <select
-                aria-label="Choose a year"
-                value={year}
-                onChange={(event) => setYear(Number(event.target.value))}
-              >
-                {years.map((y) => (
-                  <option key={y.year} value={y.year}>
-                    {y.year}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown size={14} aria-hidden="true" />
-            </span>
+            <YearPicker years={years} value={year} onChange={setYear} />
           </span>
         </p>
         <a

@@ -500,3 +500,10 @@
     );
   }
 }
+
+/* On wider screens every category is already a chip below, so the menu would only repeat them. */
+@media (min-width: 768px) {
+  .category-menu {
+    display: none;
+  }
+}

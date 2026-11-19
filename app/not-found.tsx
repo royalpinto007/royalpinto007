@@ -19,7 +19,7 @@ export default function NotFound() {
       <div className="portfolio-shell not-found">
         <p className="not-found-code">404</p>
         <h1>
-          Lost at <span>sea.</span>
+          Lost at <span>sea</span>
         </h1>
         <p className="not-found-copy">
           This page doesn’t exist, or it moved. The work is still here.

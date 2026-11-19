@@ -25,7 +25,7 @@ const systems = [
     id: "kabootar",
     name: "Kabootar",
     icons: [Lock, Radio, Share2, CheckCheck],
-    title: "No server. Every phone relays.",
+    title: "No server. Every phone relays",
     description:
       "An offline Flutter messenger. Phones discover each other over Bluetooth and Wi-Fi with Nearby Connections, carry sealed envelopes for one another and deliver them hop by hop, with SQLite for messages and de-duplication.",
     flow: [
@@ -57,7 +57,7 @@ const systems = [
     id: "boardeject",
     name: "BoardEject",
     icons: [Clipboard, Braces, Layers, Download],
-    title: "Your board. A new format. All local.",
+    title: "Your board. A new format. All local",
     description:
       "A local-first Freeform-to-Excalidraw pipeline: a Mac helper captures a copied selection, a browser worker parses it, and a normalized board model feeds the converter and fidelity report.",
     flow: [
@@ -89,7 +89,7 @@ const systems = [
     id: "signalizeai",
     name: "SignalizeAI",
     icons: [Monitor, ScanSearch, Workflow, Bell],
-    title: "Research once. Watch what changes.",
+    title: "Research once. Watch what changes",
     description:
       "A Manifest V3 extension with a browser-side watch loop, structured page snapshots, and a Cloudflare Workers backend for research and change summaries.",
     flow: [
@@ -121,7 +121,7 @@ const systems = [
     id: "aashinyra",
     name: "AashiNyra",
     icons: [Workflow, Database, Layers, Monitor],
-    title: "One source. Fast reads.",
+    title: "One source. Fast reads",
     description:
       "A commerce platform with scheduled catalog updates, a PostgreSQL source of truth, and a D1 read model for the live site.",
     flow: [
@@ -163,7 +163,7 @@ export function SystemsShowcase() {
         <h2 id="systems-title">
           How it’s
           <br />
-          <span>built.</span>
+          <span>built</span>
         </h2>
         <WorldScene kind="engine" />
       </header>

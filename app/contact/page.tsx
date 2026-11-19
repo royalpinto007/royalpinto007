@@ -22,7 +22,7 @@ export default function ContactPage() {
         <div className="contact-copy">
           <p className="contact-kicker">Have something in mind?</p>
           <h1>
-            Let’s <span>talk.</span>
+            Let’s <span>talk</span>
           </h1>
           <p className="contact-intro">
             Send the brief, the repo or the idea. Let’s figure out what to

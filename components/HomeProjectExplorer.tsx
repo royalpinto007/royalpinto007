@@ -46,7 +46,7 @@ export function HomeProjectExplorer() {
       <header className="discovery-heading chapter-heading">
         <div>
           <h2 id="explore-title">
-            More to <span>explore.</span>
+            More to <span>explore</span>
           </h2>
           <p>Useful, playful, open. There’s more than one way to build.</p>
         </div>
@@ -119,7 +119,7 @@ export function HomeProjectExplorer() {
           <h3 id="web3-title">
             On-chain data.
             <br />
-            <span>Human-readable.</span>
+            <span>Human-readable</span>
           </h3>
           <p>
             Open-source tools to inspect permissions, trace transactions and

@@ -68,7 +68,7 @@ export function MotionReel() {
       <SceneEnvironment scene="cinema" />
       <header className="reel-heading chapter-heading">
         <h2 id="reel-title">
-          Code in <span>motion.</span>
+          Code in <span>motion</span>
         </h2>
         <p>From first commit to working software.</p>
       </header>
@@ -81,7 +81,7 @@ export function MotionReel() {
           <div className="reel-poster" aria-hidden="true">
             <div className="reel-poster-copy">
               <span>Royal Simpson Pinto</span>
-              <strong>Code. Test. Ship.</strong>
+              <strong>Code. Test. Ship</strong>
               <span>AI agents. Apps. Automation. Web3.</span>
             </div>
             <picture className="reel-poster-backdrop">
@@ -108,7 +108,7 @@ export function MotionReel() {
             </picture>
           </div>
         </div>
-        <span className="reel-static-note">Code. Convert. Ship.</span>
+        <span className="reel-static-note">Code. Convert. Ship</span>
         {Player && !reduced && !failed && (
           <Player visible={visible} compact={compact} onFailure={onFailure} />
         )}

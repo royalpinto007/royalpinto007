@@ -18,9 +18,7 @@ export default function FacetworksPage() {
       <header className="world-heading facetworks-heading">
         <WorldScene kind="studio" priority />
         <p className="collection-eyebrow">Design & creative development</p>
-        <h1>
-          Facetworks<span>.</span>
-        </h1>
+        <h1>Facetworks</h1>
         <p>
           Different visual worlds. One browser. Pick a collection and explore.
         </p>

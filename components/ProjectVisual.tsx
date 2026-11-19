@@ -49,7 +49,7 @@ export function ProjectVisual({ product }: { product: string }) {
           <strong className="product-art-title">
             A reason
             <br />
-            to reach out.
+            to reach out
           </strong>
         </div>
       )}
@@ -69,7 +69,7 @@ export function ProjectVisual({ product }: { product: string }) {
             <strong>
               Charged twice?
               <br />
-              Find out first.
+              Find out first
             </strong>
             <div className="incident-line">
               <Fingerprint size={18} />
@@ -83,7 +83,7 @@ export function ProjectVisual({ product }: { product: string }) {
           <span className="art-stamp">
             Break it.
             <br />
-            On purpose.
+            On purpose
           </span>
         </div>
       )}
@@ -110,7 +110,7 @@ export function ProjectVisual({ product }: { product: string }) {
           <strong className="product-art-title">
             Good finds.
             <br />
-            Real drops.
+            Real drops
           </strong>
         </div>
       )}
@@ -148,7 +148,7 @@ export function ProjectVisual({ product }: { product: string }) {
           <strong className="product-art-title">
             Your canvas.
             <br />
-            New possibilities.
+            New possibilities
           </strong>
         </div>
       )}

@@ -84,7 +84,7 @@ export default function HomePage() {
               <span>I build</span>
             </span>
             <span className="hero-line">
-              <span className="hero-title-accent">software.</span>
+              <span className="hero-title-accent">software</span>
             </span>
           </h1>
           <div className="hero-details">
@@ -157,7 +157,7 @@ export default function HomePage() {
         aria-labelledby="source-title"
       >
         <div className="section-intro open-source-heading">
-          <h2 id="source-title">Open by default.</h2>
+          <h2 id="source-title">Open by default</h2>
         </div>
         <ContributionCalendar
           years={contributions.years}
@@ -182,7 +182,7 @@ export default function HomePage() {
             </li>
             <li>
               <strong>LFX</strong>
-              <span>Linux Foundation’s LFX</span>
+              <span>Linux Foundation</span>
             </li>
             <li>
               <strong>SAoC</strong>
@@ -209,7 +209,7 @@ export default function HomePage() {
                   <h2 id="work-title">
                     Selected
                     <br />
-                    <span>projects.</span>
+                    <span>projects</span>
                   </h2>
                   <Link
                     className="go-link go-link-surface"

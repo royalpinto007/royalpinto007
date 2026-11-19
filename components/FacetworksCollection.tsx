@@ -42,13 +42,13 @@ export function FacetworksCollection({
             <>
               Designs with
               <br />
-              <span>character.</span>
+              <span>character</span>
             </>
           ) : (
             <>
               A browser.
               <br />
-              <span>A playground.</span>
+              <span>A playground</span>
             </>
           )}
         </h1>
