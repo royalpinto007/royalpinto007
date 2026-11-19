@@ -448,3 +448,14 @@
     white-space: nowrap;
   }
 }
+
+/* Phones: the two support links sit as a pair, not two far-apart rows (each stays an easy tap). */
+@media (max-width: 767px) {
+  .home-page .hero-support {
+    gap: 0;
+    margin-top: 14px;
+  }
+  .home-page .hero-support a {
+    min-height: 32px;
+  }
+}
