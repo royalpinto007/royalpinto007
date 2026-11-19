@@ -507,3 +507,17 @@
     display: none;
   }
 }
+
+/* On phones the dropdown is the one way to browse, so the label beside it goes. */
+@media (max-width: 767px) {
+  .project-directory-bar > p {
+    display: none;
+  }
+  .category-menu {
+    margin-inline-start: 0;
+    width: 100%;
+  }
+  .category-menu summary {
+    justify-content: space-between;
+  }
+}

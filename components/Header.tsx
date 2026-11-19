@@ -95,7 +95,7 @@ export function Header() {
             Menu <Plus size={16} aria-hidden="true" />
           </summary>
           <nav aria-label="Mobile navigation">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <Link
                 href={link.href}
                 key={link.href}
@@ -113,9 +113,6 @@ export function Header() {
                   if (menu) menu.open = false;
                 }}
               >
-                <span className="menu-index" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
                 <span>{link.label}</span>
                 <ArrowRight size={15} aria-hidden="true" />
               </Link>

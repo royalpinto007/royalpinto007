@@ -126,8 +126,11 @@
   outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
-.home-page .system-picker label:hover > span {
-  border-color: var(--accent);
+/* Hover only where there is a pointer that hovers; on touch screens it would stick after a tap. */
+@media (hover: hover) {
+  .home-page .system-picker label:hover > span {
+    border-color: var(--accent);
+  }
 }
 .home-page .system-cases {
   border: 1px solid var(--line-strong);

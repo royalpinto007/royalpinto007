@@ -18,6 +18,8 @@ export function MotionReel() {
     null,
   );
   const [visible, setVisible] = useState(false);
+  // The player loads while the reel is still well below the fold, so it can start the moment it is seen.
+  const [near, setNear] = useState(false);
   const [reduced, setReduced] = useState(true);
   const [compact, setCompact] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -37,16 +39,26 @@ export function MotionReel() {
       ([entry]) => setVisible(entry.isIntersecting),
       { threshold: 0.12 },
     );
-    if (host.current) observer.observe(host.current);
+    const approach = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setNear(true);
+      },
+      { rootMargin: "1500px 0px" },
+    );
+    if (host.current) {
+      observer.observe(host.current);
+      approach.observe(host.current);
+    }
     return () => {
       observer.disconnect();
+      approach.disconnect();
       preference.removeEventListener("change", sync);
       mobile.removeEventListener("change", sync);
     };
   }, []);
 
   useEffect(() => {
-    if (!visible || reduced || Player || failed) return;
+    if (!(near || visible) || reduced || Player || failed) return;
     let active = true;
     import("./ReelPlayer")
       .then((module) => {
@@ -58,7 +70,7 @@ export function MotionReel() {
     return () => {
       active = false;
     };
-  }, [visible, reduced, Player, failed]);
+  }, [near, visible, reduced, Player, failed]);
 
   return (
     <section

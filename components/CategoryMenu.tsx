@@ -49,10 +49,10 @@ export function CategoryMenu({
       }}
     >
       <summary>
-        Browse by kind <ChevronDown size={16} />
+        Browse by category <ChevronDown size={16} />
       </summary>
       <nav aria-label="Browse project categories">
-        {items.map((item, index) => (
+        {items.map((item) => (
           <a
             key={item.id}
             href={`#${item.id}`}
@@ -60,9 +60,6 @@ export function CategoryMenu({
               if (menu.current) menu.current.open = false;
             }}
           >
-            <span className="menu-index" aria-hidden="true">
-              {String(index + 1).padStart(2, "0")}
-            </span>
             <span>{item.title}</span>
             <ArrowUpRight size={16} />
           </a>

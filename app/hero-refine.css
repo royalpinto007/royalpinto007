@@ -351,25 +351,26 @@
   }
 }
 
-/* Five systems: on phones the picker scrolls sideways instead of squeezing every name. */
+/* Five systems: on phones every tab stays visible, wrapping onto a second row. */
 @media (max-width: 767px) {
   .home-page .system-picker {
     display: flex;
+    flex-wrap: wrap;
     min-inline-size: 0; /* fieldsets default to min-content, which pushed the row past the card */
     max-width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
-    scroll-snap-type: x proximity;
-  }
-  .home-page .system-picker::-webkit-scrollbar {
-    display: none;
   }
   .home-page .system-picker label {
-    flex: 0 0 auto;
-    min-width: 30%;
-    scroll-snap-align: start;
+    flex: 1 1 auto;
+    min-width: 0;
   }
   .home-page .system-picker label > span {
+    justify-content: center;
     white-space: nowrap;
+    min-height: 52px;
+    padding-inline: 12px;
+    font-size: 12px;
+  }
+  .home-page .system-picker label > span small {
+    display: none;
   }
 }
