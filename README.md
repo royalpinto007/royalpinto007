@@ -1,12 +1,10 @@
 # Royal Simpson Pinto
 
-Software engineer, indie developer and freelancer. I build AI agents, full-stack apps, backend systems, automation, Web3 tools and open source.
+AI product engineer building agents, LLM tooling and full-stack apps.
 
 - 3+ years building and shipping production software
 - Google Summer of Code · Linux Foundation · Symmetry Autumn of Code
 - National Institute of Technology Karnataka, Surathkal (NITK)
-
-[Portfolio](https://royalpinto007.com) · [Contact](https://royalpinto007.com/contact) · [work@royalpinto007.com](mailto:work@royalpinto007.com) · [X](https://x.com/royalpinto007)
 
 <a href="https://github.com/royalpinto007/royalpinto007/blob/main/.github/profile/royalpinto007-film.mp4" target="_blank"><img src=".github/profile/film-preview.gif" alt="Portfolio film: a chrome ball runs through every project and rolls down royalpinto007.com" width="100%"></a>
 
