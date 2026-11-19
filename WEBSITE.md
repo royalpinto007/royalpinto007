@@ -4,44 +4,35 @@ Source for [royalpinto007.com](https://royalpinto007.com/). The [README](README.
 
 Built with Next.js (static export), React, Tailwind CSS, GSAP, three.js and the Remotion Player.
 
+This repository is only the website code. Content (profile, projects, categories, contribution totals) and media live in Cloudflare R2 and are served from `assets.royalpinto007.com`.
+
 ## Run it
 
 Requires Node 22.
 
 ```sh
 npm ci
-npm run dev      # http://localhost:3000
+npm run dev      # pulls content, then http://localhost:3000
 npm run lint
-npm test
-npm run build    # static site in out/
+npm run build    # pulls content, then static site in out/
 ```
 
-`out/` is plain static files, so it can be hosted anywhere: Cloudflare Pages, Netlify, Vercel or GitHub Pages.
+`out/` is plain static files, so it can be hosted anywhere.
 
 ## Layout
 
 | Path | What lives there |
 | --- | --- |
-| `app/` | Pages, layouts and global styles |
+| `app/` | Pages, layouts and styles |
 | `components/` | UI, scenes and interactive demos |
-| `data/` | Profile, projects, categories and contribution data |
-| `lib/` | Motion helpers and SEO metadata |
-| `public/` | Images, fonts, `llms.txt` and other static files |
-| `scripts/` | Contribution-wall generator, preview capture and browser checks |
+| `lib/` | Data shaping (`lib/data/`), motion helpers and SEO |
+| `scripts/pull-content.mjs` | Downloads the content JSON into `content/` (not committed) |
+| `public/` | Icons, font, `llms.txt`, `robots.txt` and the sitemap |
 
 ## Make it yours
 
-Use this repository as a template, then:
+1. Host your own content JSON files (same names as in `scripts/pull-content.mjs`) and set `CONTENT_BASE` to their URL.
+2. Host your own images and update the URLs in your content and the components.
+3. Replace `README.md`, and update `lib/seo.ts`, `public/llms.txt` and `public/robots.txt` with your domain.
 
-1. Edit `data/profile.ts` with your name, bio, email and links.
-2. Replace the projects in `data/site.ts` and the other files in `data/`.
-3. Replace the images. Mine are served from Cloudflare R2 at `assets.royalpinto007.com`; put yours in `public/` (or your own bucket) and update the URLs in `data/` and the components.
-4. Set your GitHub username in `scripts/gen-wall.mjs` and run `GITHUB_TOKEN=<token> node scripts/gen-wall.mjs` to rebuild the contribution data. The `refresh-contributions` workflow keeps it current.
-5. Replace this repository's `README.md` with your own.
-6. Update `lib/seo.ts`, `public/llms.txt` and `public/robots.txt` with your domain.
-
-The code is MIT licensed. My portrait, film, resume, artwork and written content are not, so please replace them. See [LICENSE](LICENSE).
-
-## Browser checks
-
-`scripts/check-*.py` are Playwright (Python) regression checks. Point `PORTFOLIO_URL` at a running build and run them one at a time.
+The code is MIT licensed. My content, portrait, film and artwork are not. See [LICENSE](LICENSE).
