@@ -29,14 +29,6 @@ export function Footer() {
           <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
-          <a
-            href={siteConfig.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            X
-          </a>
-          <a href={`mailto:${siteConfig.email}`}>Email</a>
         </nav>
       </div>
     </footer>
