@@ -18,6 +18,10 @@ import {
   Lock,
   Radio,
   CheckCheck,
+  FileCode2,
+  Zap,
+  BookOpenCheck,
+  ShieldCheck,
 } from "lucide-react";
 
 const systems = [
@@ -52,6 +56,38 @@ const systems = [
     link: "Read the source",
     scope:
       "Best-effort epidemic delivery (TTL 8, 24 hours). Android and iOS each mesh within their own platform; carried copies live in memory.",
+  },
+  {
+    id: "agentpostmortem",
+    name: "AgentPostmortem",
+    icons: [FileCode2, Zap, BookOpenCheck, ShieldCheck],
+    title: "Break the world. Judge the side effects",
+    description:
+      "An open benchmark and fault-injection runner for AI agents. A YAML scenario seeds deterministic simulated services, the runner fires faults at chosen calls, and every real effect lands in a ledger that oracles turn into verdicts.",
+    flow: [
+      { title: "Scenario", detail: "YAML · task, faults, checks" },
+      { title: "Run", detail: "Agent vs simulated services" },
+      { title: "Ledger", detail: "Every effect, applied or deduped" },
+      { title: "Verdicts", detail: "Oracles + validity → report" },
+    ],
+    decisions: [
+      {
+        title: "Judge effects, not transcripts",
+        text: "Verdicts come from the side-effect ledger and the agent’s final claim, so a retry that charges twice fails even when the transcript reads fine.",
+      },
+      {
+        title: "Deterministic by design",
+        text: "Simulated services honour real semantics such as idempotency keys, and a scripted model replaces the LLM in framework mode, so every run reproduces exactly with no API key.",
+      },
+      {
+        title: "A fault that never fired is not a test",
+        text: "A run only counts if the faults and crash it declares actually happened. Otherwise it is reported invalid, never as a pass.",
+      },
+    ],
+    href: "https://github.com/AgentPostmortem/agentpostmortem#how-it-works",
+    link: "Read how it works",
+    scope:
+      "25 scenarios across six failure categories. Reference agents, framework adapters, or any agent over MCP or HTTP.",
   },
   {
     id: "boardeject",

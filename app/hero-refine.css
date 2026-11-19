@@ -184,9 +184,9 @@
   z-index: 30;
   top: calc(100% + 8px);
   left: 0;
-  width: 230px;
+  width: 132px;
   margin: 0;
-  padding: 7px;
+  padding: 6px;
   list-style: none;
   background: #f7f9f7f7;
   backdrop-filter: blur(18px);
@@ -203,7 +203,7 @@
 }
 .home-page .year-picker-list li {
   display: grid;
-  grid-template-columns: auto 1fr 16px;
+  grid-template-columns: 1fr 16px;
   align-items: center;
   gap: 12px;
   min-height: 42px;
@@ -219,11 +219,6 @@
 }
 .home-page .year-picker-year {
   font-weight: 700;
-}
-.home-page .year-picker-count {
-  justify-self: end;
-  color: #5b7182;
-  font-size: 13px;
 }
 .home-page .year-picker-list li svg {
   color: #92325e;
@@ -353,5 +348,28 @@
   .home-page .source-origin .mentoring-fact span,
   .home-page .source-origin .programme-strip span {
     font-size: 13px;
+  }
+}
+
+/* Five systems: on phones the picker scrolls sideways instead of squeezing every name. */
+@media (max-width: 767px) {
+  .home-page .system-picker {
+    display: flex;
+    min-inline-size: 0; /* fieldsets default to min-content, which pushed the row past the card */
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+  .home-page .system-picker::-webkit-scrollbar {
+    display: none;
+  }
+  .home-page .system-picker label {
+    flex: 0 0 auto;
+    min-width: 30%;
+    scroll-snap-align: start;
+  }
+  .home-page .system-picker label > span {
+    white-space: nowrap;
   }
 }

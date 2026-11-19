@@ -157,7 +157,10 @@
   [data-system="boardeject"],
 .home-page
   .systems-showcase:has(#system-kabootar:checked)
-  [data-system="kabootar"] {
+  [data-system="kabootar"],
+.home-page
+  .systems-showcase:has(#system-agentpostmortem:checked)
+  [data-system="agentpostmortem"] {
   display: block;
 }
 .home-page .system-case-intro {

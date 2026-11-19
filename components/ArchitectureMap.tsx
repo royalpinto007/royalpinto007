@@ -206,6 +206,32 @@ const graphs: Record<
       },
     ],
   },
+  agentpostmortem: {
+    description:
+      "A YAML scenario declares the task, the faults and the checks. The runner seeds deterministic simulated services and fires each fault at its chosen call while the agent under test works through its tools. Every real effect is written to a side-effect ledger. Oracles judge the ledger and the agent's final claim, a validity check confirms the declared faults actually fired, and the results land in results.json and report.html, which can gate CI.",
+    nodes: [
+      { id: "scenario", x: 20, y: 48, title: "YAML scenario", sub: "Task · faults · checks" },
+      { id: "runner", x: 260, y: 48, title: "Runner", sub: "Seeds sims, fires faults", tone: "blue" },
+      { id: "agent", x: 500, y: 48, title: "Agent under test", sub: "Reference, framework, MCP", tone: "violet" },
+      { id: "sims", x: 760, y: 48, title: "Simulated services", sub: "Payments, email, orders…", tone: "pink" },
+      { id: "ledger", x: 760, y: 225, title: "Side-effect ledger", sub: "Applied + deduplicated", tone: "pink" },
+      { id: "oracles", x: 500, y: 225, title: "Oracles", sub: "no_duplicate_effects …", tone: "violet" },
+      { id: "validity", x: 260, y: 225, title: "Validity check", sub: "Did the faults fire?", tone: "blue" },
+      { id: "report", x: 20, y: 225, title: "Results + report", sub: "results.json · report.html", tone: "peach" },
+      { id: "ci", x: 20, y: 402, title: "CI gate", sub: "--fail-on-fail" },
+    ],
+    edges: [
+      { path: "M210 90 H260" },
+      { path: "M450 90 H500" },
+      { path: "M690 90 H760" },
+      { path: "M855 132 V225", label: "effects", x: 866, y: 182 },
+      { path: "M760 267 H690" },
+      { path: "M595 132 V225", label: "final claim", x: 606, y: 182 },
+      { path: "M500 267 H450" },
+      { path: "M260 267 H210" },
+      { path: "M115 309 V402", label: "gate", x: 126, y: 360, dashed: true },
+    ],
+  },
   boardeject: {
     description:
       "A copied Freeform selection passes through the local Mac helper into a versioned capture. A browser worker parses it with libfreeform and normalizes it into a shared board model. The Excalidraw converter creates editable output; preview and fidelity reports expose unsupported items before download. Board data stays on the device. This map covers editable export, not the separate archive flow.",
@@ -410,6 +436,12 @@ export function ArchitectureMap({
       ["alarm", "snapshots", "diff", "supabase"],
       ["alerts", "brief"],
     ],
+    agentpostmortem: [
+      ["scenario", "runner"],
+      ["runner", "agent", "sims"],
+      ["sims", "ledger"],
+      ["oracles", "validity", "report", "ci"],
+    ],
     boardeject: [
       ["selection", "helper", "capture"],
       ["worker", "model"],
@@ -426,6 +458,7 @@ export function ArchitectureMap({
   const wirePhases: Record<string, number[][]> = {
     aashinyra: [[0], [1, 7], [2, 3], [4, 5, 6]],
     signalizeai: [[0], [1, 2], [3, 4, 6, 7, 8, 9], [5, 6]],
+    agentpostmortem: [[0], [1, 2], [3], [4, 5, 6, 7, 8]],
     boardeject: [[0, 1], [2, 3], [4, 5, 7, 8], [6]],
     kabootar: [
       [0, 7],
@@ -438,6 +471,7 @@ export function ArchitectureMap({
     aashinyra: "AashiNyra",
     signalizeai: "SignalizeAI",
     boardeject: "BoardEject",
+    agentpostmortem: "AgentPostmortem",
     kabootar: "Kabootar",
   };
   const mapId = `${system}${instance}`;

@@ -115,9 +115,6 @@ function YearPicker({
               onClick={() => choose(index)}
             >
               <span className="year-picker-year">{y.year}</span>
-              <span className="year-picker-count">
-                {y.total.toLocaleString("en-US")}
-              </span>
               <Check size={15} aria-hidden="true" />
             </li>
           ))}
