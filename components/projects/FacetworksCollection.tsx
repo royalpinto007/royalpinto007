@@ -8,9 +8,9 @@ import {
 import { facetworksGroups } from "@/lib/data/facetworks-groups";
 import { WorldScene } from "@/components/scenery/WorldScene";
 import { DesignPreviewPlayback } from "./DesignPreviewPlayback";
+import { DesignPreviewFilm } from "./DesignPreviewFilm";
+import { facetworksPreview } from "@/lib/data/facetworks-preview";
 import "./facetworks.css";
-
-const assets = "https://assets.royalpinto007.com/designs";
 
 export function FacetworksCollection({
   collection,
@@ -27,7 +27,7 @@ export function FacetworksCollection({
   const tabCount = (c: FacetworksCollection) =>
     facetworksGroups(c).reduce((total, group) => total + group.projects.length, 0);
   return (
-    <div className="portfolio-shell facetworks-page">
+    <div className="portfolio-shell facetworks-page" data-preview-gallery>
       <header className="world-heading facetworks-heading">
         <WorldScene
           kind={collection === "designs" ? "studio" : "arcade"}
@@ -100,9 +100,7 @@ export function FacetworksCollection({
           </header>
           <div className="facetworks-grid">
             {group.projects.map((project) => {
-              const film = collection === "designs" && project.slug !== "puffly"
-                ? `${assets}/motion/${project.slug}-v2`
-                : null;
+              const { image, film } = facetworksPreview(collection, project.slug);
               return (
                 <a
                   className="facetworks-entry"
@@ -112,26 +110,13 @@ export function FacetworksCollection({
                 >
                   <div className="facetworks-preview">
                     <Image
-                      src={film ? `${film}.webp` : `${assets}/${project.slug}.webp`}
+                      src={image}
                       alt={`${project.name} preview`}
                       width={960}
                       height={640}
                       sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
                     />
-                    {film && (
-                      <video
-                        aria-hidden="true"
-                        className="design-preview-film"
-                        data-preview-src={`${film}.mp4`}
-                        muted
-                        playsInline
-                        loop
-                        preload="none"
-                        disablePictureInPicture
-                        width={768}
-                        height={512}
-                      />
-                    )}
+                    {film && <DesignPreviewFilm src={film} />}
                     <span className="preview-open" aria-hidden="true">
                       <ArrowUpRight size={22} />
                     </span>

@@ -5,6 +5,7 @@ import {
   categoryFor,
   type ProjectCategory,
 } from "./project-categories";
+import { facetworksPreview } from "./facetworks-preview";
 import { facetworksGroups } from "./facetworks-groups";
 import tools from "@/content/agentpostmortem.json";
 import projectPreviews from "@/content/project-previews.json";
@@ -18,6 +19,7 @@ export type PreviewProject = {
   kind: string;
   description: string;
   image?: string;
+  film?: string;
   href?: string;
   source?: string;
   tech: readonly string[];
@@ -61,7 +63,7 @@ export const projectCollections: ProjectCollection[] =
           name: p.name,
           kind: p.genre,
           description: p.note,
-          image: `https://assets.royalpinto007.com/designs/${p.slug}.webp`,
+          ...facetworksPreview(collection, p.slug),
           href: p.url,
           tech: p.stack,
         })),

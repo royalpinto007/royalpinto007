@@ -147,6 +147,7 @@
   background: #729f9c;
 }
 .project-window-image {
+  position: relative;
   aspect-ratio: 3/2;
   overflow: hidden;
   background: #dfeaf0;
@@ -460,3 +461,5 @@
 .collage-expand[data-open="true"] .collage-expand-toggle svg {
   transform: rotate(180deg);
 }
+
+.chapter-websites .preview-playback { margin-top: 12px; }
