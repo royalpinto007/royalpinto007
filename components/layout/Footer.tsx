@@ -1,7 +1,7 @@
 import "./footer.css";
 import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Coffee, Star } from "lucide-react";
 import { siteConfig } from "@/lib/data/site";
 
 export function Footer() {
@@ -28,6 +28,20 @@ export function Footer() {
           <Link href="/contact">Contact</Link>
           <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
             GitHub
+          </a>
+          <a
+            href="https://github.com/royalpinto007/royalpinto007"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Star size={16} aria-hidden="true" /> Star this site
+          </a>
+          <a
+            href="https://www.buymeacoffee.com/royalpinto007"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Coffee size={16} aria-hidden="true" /> Buy me a coffee
           </a>
         </nav>
       </div>

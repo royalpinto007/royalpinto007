@@ -109,3 +109,38 @@
     flex-direction: column;
   }
 }
+
+/* Star and coffee links sit with the other footer links; icons line up with the text. */
+.coastal-footer .footer-bottom nav a svg {
+  margin-right: 6px;
+}
+
+/* Back to top: appears after about two screens of scrolling. */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: #12374e;
+  box-shadow: 0 6px 18px #0b1e2c40;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    opacity 250ms ease,
+    translate 250ms ease,
+    background-color 180ms ease;
+}
+.back-to-top:hover {
+  background: #862752;
+}
+.back-to-top[data-visible="false"] {
+  opacity: 0;
+  translate: 0 12px;
+  pointer-events: none;
+}

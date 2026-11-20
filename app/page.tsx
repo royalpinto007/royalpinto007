@@ -11,13 +11,14 @@ import "@/styles/home/reel.css";
 import "@/styles/home/hero-refine.css";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, Coffee, Star } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { MotionReel } from "@/components/home/MotionReel";
 import { BoardDemo } from "@/components/home/BoardDemo";
 import { ContributionCalendar } from "@/components/home/ContributionCalendar";
 import contributions from "@/content/contributions.json";
 import { CinematicHero } from "@/components/home/CinematicHero";
 import { TypingDescriptor } from "@/components/home/TypingDescriptor";
+import { ScrollCue } from "@/components/home/ScrollCue";
 import { HomeProjectExplorer } from "@/components/home/HomeProjectExplorer";
 import { ProjectVisual } from "@/components/home/ProjectVisual";
 import { jsonLdScript, personJsonLd } from "@/lib/seo";
@@ -88,23 +89,17 @@ export default function HomePage() {
             </span>
           </h1>
           <div className="hero-details">
+            <p className="hero-plain">
+              I turn ideas into working products, from first version to launch.
+            </p>
             <TypingDescriptor />
-            <div className="hero-support" aria-label="Support my work">
-              <a
-                href="https://www.buymeacoffee.com/royalpinto007"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Coffee size={18} aria-hidden="true" /> Buy me a coffee
-              </a>
-              <a
-                href="https://github.com/royalpinto007/royalpinto007"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Star size={18} aria-hidden="true" /> Like this site? Star it on
-                GitHub
-              </a>
+            <div className="hero-ctas">
+              <Link className="hero-cta hero-cta-primary" href="/contact">
+                Start a project <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+              <Link className="hero-cta" href="/projects">
+                See my work
+              </Link>
             </div>
           </div>
         </div>
@@ -150,6 +145,7 @@ export default function HomePage() {
           </svg>
         </figure>
       </CinematicHero>
+      <ScrollCue />
 
       <section
         className="open-source open-source-experience"

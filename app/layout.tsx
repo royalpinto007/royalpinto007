@@ -5,6 +5,7 @@ import { ScrollMemory } from "@/components/layout/ScrollMemory";
 import { Header } from "@/components/layout/Header";
 import { CoffeeTicker } from "@/components/layout/CoffeeTicker";
 import { Footer } from "@/components/layout/Footer";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { siteConfig } from "@/lib/data/site";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 import "@/styles/global/globals.css";
@@ -73,6 +74,7 @@ export default function RootLayout({
         <CoffeeTicker />
         <main id="main-content">{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

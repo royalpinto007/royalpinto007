@@ -471,3 +471,110 @@
     min-height: 0;
   }
 }
+
+/* Hero: a plain-language line for non-technical visitors, then the two actions that matter. */
+.home-page .hero-plain {
+  max-width: 34ch;
+  margin: 0 0 10px;
+  color: #12374e;
+  font-size: clamp(17px, 1.45vw, 21px);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.home-page .hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+.home-page .hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1.5px solid #12374e;
+  border-radius: 6px;
+  background: #ffffff8c;
+  color: #12374e;
+  font-size: 16px;
+  font-weight: 650;
+  backdrop-filter: blur(6px);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+.home-page .hero-cta:hover {
+  border-color: #862752;
+  color: #862752;
+}
+.home-page .hero-cta-primary {
+  background: #12374e;
+  color: #fff;
+}
+.home-page .hero-cta-primary:hover {
+  border-color: #862752;
+  background: #862752;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .home-page .hero-plain {
+    margin-top: 18px;
+    font-size: 16px;
+  }
+  .home-page .hero-ctas {
+    margin-top: 16px;
+  }
+  .home-page .hero-cta {
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 15px;
+  }
+}
+
+/* Scroll hint at the bottom of the first screen; fades out on the first scroll. */
+.scroll-cue {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #ffffffcc;
+  box-shadow: 0 4px 16px #0b1e2c26;
+  color: #12374e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  translate: -50% 0;
+  transition:
+    opacity 300ms ease,
+    translate 300ms ease;
+}
+.scroll-cue svg {
+  animation: scroll-cue-bob 1.6s ease-in-out infinite;
+}
+.scroll-cue[data-visible="false"] {
+  opacity: 0;
+  translate: -50% 12px;
+  pointer-events: none;
+}
+@keyframes scroll-cue-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue svg {
+    animation: none;
+  }
+}
