@@ -294,7 +294,17 @@ function route(vw: number, size: number, startLeft: boolean, notes: Note[]): Poi
         run = [];
         return;
       }
-      run = [last, { x: (x + last.x) / 2, y: last.y + 24 }, { x, y: last.y + 80 }];
+      // Head back to the margin. After an underline, return just beneath it (above the
+      // text that follows) instead of cutting diagonally through that text.
+      run =
+        m.mark === "underline"
+          ? [
+              last,
+              { x: last.x + (left ? -14 : 14), y: last.y + 12 },
+              { x: x + (left ? 20 : -20), y: last.y + 14 },
+              { x, y: last.y + 70 },
+            ]
+          : [last, { x: (x + last.x) / 2, y: last.y + 24 }, { x, y: last.y + 80 }];
     }
     const next = parts[i + 1];
     if (!next) {

@@ -116,7 +116,7 @@
 }
 .coastal-footer .footer-bottom nav a svg {
   flex-shrink: 0;
-  translate: 0 -0.5px;
+  translate: 0 -1.5px;
 }
 
 /* Back to top: appears after about two screens of scrolling. */
