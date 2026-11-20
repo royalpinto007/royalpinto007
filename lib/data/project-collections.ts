@@ -129,7 +129,7 @@ export const projectCollections: ProjectCollection[] =
               {
                 id: "products",
                 title: "Products",
-                ids: ["signalizeai", "aashinyra", "stoccoin"],
+                ids: ["agentpostmortem", "signalizeai", "aashinyra", "stoccoin"],
               },
               {
                 id: "apps",
@@ -138,6 +138,7 @@ export const projectCollections: ProjectCollection[] =
                   .filter(
                     (p) =>
                       ![
+                        "agentpostmortem",
                         "signalizeai",
                         "aashinyra",
                         "stoccoin",
@@ -222,7 +223,13 @@ export const projectCollections: ProjectCollection[] =
     );
     const overviewIds =
       category.id === "apps"
-        ? ["boardeject", "kabootar", "signalizeai", "aashinyra"]
+        ? [
+            "agentpostmortem",
+            "boardeject",
+            "signalizeai",
+            "kabootar",
+            "aashinyra",
+          ]
         : category.id === "web3"
           ? [
               "delegate-inspector",

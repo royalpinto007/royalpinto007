@@ -26,10 +26,9 @@ export const collectionAliases: Record<string, ProjectCategory> = {
   "d-language": "open-source",
   drupal: "open-source",
 };
-// AgentPostmortem's earlier tools are archived while it is rebuilt as one product,
+// AgentPostmortem's earlier tools are archived now that it is one product (the benchmark),
 // so they belong to no collection.
 const archivedAgentPostmortem = new Set([
-  "agentpostmortem",
   "agent-suite",
   ...agentpostmortemTools.map((tool) => tool.id),
 ]);

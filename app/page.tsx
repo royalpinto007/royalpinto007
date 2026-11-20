@@ -18,7 +18,7 @@ import { ContributionCalendar } from "@/components/home/ContributionCalendar";
 import contributions from "@/content/contributions.json";
 import { CinematicHero } from "@/components/home/CinematicHero";
 import { TypingDescriptor } from "@/components/home/TypingDescriptor";
-import { ScrollCue } from "@/components/home/ScrollCue";
+import { ScrollCue } from "@/components/layout/ScrollCue";
 import { HomeProjectExplorer } from "@/components/home/HomeProjectExplorer";
 import { ProjectVisual } from "@/components/home/ProjectVisual";
 import { jsonLdScript, personJsonLd } from "@/lib/seo";
@@ -90,7 +90,7 @@ export default function HomePage() {
           </h1>
           <div className="hero-details">
             <p className="hero-plain">
-              I turn ideas into working products, from first version to launch.
+              I turn ideas into working products.
             </p>
             <TypingDescriptor />
             <div className="hero-ctas">

@@ -7,6 +7,7 @@ import { projectCollections } from "@/lib/data/project-collections";
 import { ProjectCollage } from "@/components/projects/ProjectCollage";
 import { CategoryMenu } from "@/components/projects/CategoryMenu";
 import { collectionAliases } from "@/lib/data/project-categories";
+import { ScrollCue } from "@/components/layout/ScrollCue";
 import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
 
 const scenery = {
@@ -68,6 +69,7 @@ export default function ProjectsPage() {
           </a>
         ))}
       </nav>
+      <ScrollCue />
       {projectCollections.map((category) => {
         const groups = category.overviewGroups ?? category.groups;
         return (
@@ -115,7 +117,11 @@ export default function ProjectsPage() {
                   group={group}
                   single={groups.length === 1}
                   previewLimit={
-                    ["games", "web3", "resources"].includes(category.id) ? 6 : 4
+                    ["games", "web3", "resources"].includes(category.id)
+                      ? 6
+                      : category.id === "apps"
+                        ? 5
+                        : 4
                   }
                 />
               ))}

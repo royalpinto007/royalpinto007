@@ -436,6 +436,27 @@
   padding: clamp(18px, 3vw, 38px);
   gap: 32px;
 }
+/* Five apps in two columns: the last one sits centred instead of alone on the left. */
+.projects-page .chapter-apps .collage-screens > .project-preview:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - 32px) / 2);
+}
+/* Agent skills has two entries: two wide columns, no empty third slot. */
+.projects-page .chapter-resources .collage-screens {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: clamp(18px, 3vw, 38px);
+  gap: 32px;
+}
+.projects-page .chapter-resources .project-window {
+  transform: none;
+}
+.projects-page .chapter-resources .project-window-image {
+  aspect-ratio: 1072 / 522;
+}
+.projects-page .chapter-resources .project-preview-caption h4 {
+  font-size: clamp(23px, 2.3vw, 32px);
+}
 .projects-page .chapter-apps .project-window {
   transform: none;
 }
@@ -477,9 +498,13 @@
   .projects-page .collection-all {
     font-size: 15px;
   }
-  .projects-page .chapter-apps .collage-screens {
+  .projects-page .chapter-apps .collage-screens,
+  .projects-page .chapter-resources .collage-screens {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
+  }
+  .projects-page .chapter-apps .collage-screens > .project-preview:last-child:nth-child(odd) {
+    width: 100%;
   }
   .projects-page .projects-heading > .world-scene {
     grid-row: 3;
