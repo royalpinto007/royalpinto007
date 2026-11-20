@@ -546,8 +546,7 @@
   vertical-align: -1px;
 }
 
-/* Motion: the clip sits over the screenshot and fades in once it is actually playing.
-   Cards without a clip get a slow drift across the screenshot instead. */
+/* Motion: the clip sits over the screenshot and fades in once it is actually playing. */
 .project-window-image {
   position: relative;
 }
@@ -564,23 +563,4 @@
 }
 .card-clip[data-playing] {
   opacity: 1;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .project-preview:not(:has(.card-clip)) .project-window-image img {
-    animation: card-drift 18s ease-in-out infinite alternate;
-  }
-  .project-preview:nth-child(2n) .project-window-image img {
-    animation-delay: -6s;
-  }
-  .project-preview:nth-child(3n) .project-window-image img {
-    animation-delay: -12s;
-  }
-}
-@keyframes card-drift {
-  from {
-    transform: scale(1.02) translate(0, 0);
-  }
-  to {
-    transform: scale(1.08) translate(-1.5%, -2%);
-  }
 }

@@ -243,7 +243,7 @@ export const projectCollections: ProjectCollection[] =
               "hookview",
             ]
           : category.id === "open-source"
-            ? ["dmd-contributions", "d-errors-docs", "drupal-chatbot"]
+            ? ["dmd-contributions", "d-errors-docs", "dent-docs"]
             : undefined;
     const overviewGroups = overviewIds
       ? [
