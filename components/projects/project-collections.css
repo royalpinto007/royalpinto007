@@ -525,16 +525,16 @@
   }
 }
 /* With a Source button too, the pair gets its own row under the name, before the description. */
-.project-preview:has(.project-card-source) .project-preview-caption {
+.project-preview:has(> .project-card-actions.is-row) .project-preview-caption {
   padding-right: 0;
 }
-.project-preview:has(.project-card-source) > .project-card-actions {
+.project-preview:has(> .project-card-actions.is-row) > .project-card-actions {
   grid-row: 2;
   grid-column: 1 / -1;
   justify-self: start;
   margin: 14px 0 0;
 }
-.project-preview:has(.project-card-source) > .project-preview-details {
+.project-preview:has(> .project-card-actions.is-row) > .project-preview-details {
   grid-row: 3;
 }
 

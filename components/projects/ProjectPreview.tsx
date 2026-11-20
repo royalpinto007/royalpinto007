@@ -12,6 +12,7 @@ export function ProjectPreview({
   detailed?: boolean;
 }) {
   const Heading = detailed ? "h3" : "h4";
+  const hasSource = !!project.source && project.source !== project.href;
   const isGame = [
     "bumblecrate",
     "megoblin",
@@ -110,12 +111,14 @@ export function ProjectPreview({
       ) : (
         <div className="project-preview-static">{content}</div>
       )}
-      {caseStudyFor(project.id) && (
-        <div className="project-card-actions">
-          <Link className="project-case-study" href={`/case-studies/${project.id}`}>
-            Read the case study <ArrowRight size={15} aria-hidden="true" />
-          </Link>
-          {detailed && project.source && project.source !== project.href && (
+      {(caseStudyFor(project.id) || (detailed && hasSource)) && (
+        <div className={`project-card-actions ${detailed ? "is-row" : ""}`}>
+          {caseStudyFor(project.id) && (
+            <Link className="project-case-study" href={`/case-studies/${project.id}`}>
+              Read the case study <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+          )}
+          {detailed && hasSource && (
             <a
               className="project-card-source"
               href={project.source}
@@ -130,19 +133,6 @@ export function ProjectPreview({
       {detailed && (
         <div className="project-preview-details">
           <p>{project.description}</p>
-          {!caseStudyFor(project.id) && project.source && project.source !== project.href && (
-            <a
-              className="go-link"
-              href={project.source}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="go-link-label">Source</span>
-              <span className="go-link-icon" aria-hidden="true">
-                <ArrowUpRight />
-              </span>
-            </a>
-          )}
         </div>
       )}
     </article>
