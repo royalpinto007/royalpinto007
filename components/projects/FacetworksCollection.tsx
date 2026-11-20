@@ -48,7 +48,7 @@ export function FacetworksCollection({
             <>
               A browser.
               <br />
-              <span>A playground</span>
+              <span>A sandbox</span>
             </>
           )}
         </h1>

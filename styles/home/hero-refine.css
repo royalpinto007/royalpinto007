@@ -545,3 +545,15 @@
   object-fit: cover;
   object-position: center;
 }
+
+/* Phones: the portrait sits beside the copy and was drawn over its right edge, hiding
+   "See my work" and the end of the hero line. Keep the copy and actions on top. */
+@media (max-width: 767px) {
+  .home-page .hero-copy {
+    position: relative;
+    z-index: 3;
+  }
+  .home-page .hero-cta:not(.hero-cta-primary) {
+    background: #fffaf3;
+  }
+}
