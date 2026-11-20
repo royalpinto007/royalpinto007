@@ -7,6 +7,7 @@ import {
 } from "@/lib/data/facetworks";
 import { facetworksGroups } from "@/lib/data/facetworks-groups";
 import { WorldScene } from "@/components/scenery/WorldScene";
+import { DesignPreviewPlayback } from "./DesignPreviewPlayback";
 import "./facetworks.css";
 
 export function FacetworksCollection({
@@ -68,11 +69,14 @@ export function FacetworksCollection({
           </a>
         </nav>
       </header>
-      <p className="collection-note">
-        {collection === "designs"
-          ? "Independent design concepts. Open a site and explore the full build."
-          : "Open an experiment to interact. Some need a browser with WebGL or WebGPU support."}
-      </p>
+      <div className="collection-intro">
+        <p className="collection-note">
+          {collection === "designs"
+            ? "Independent design concepts. Open a site and explore the full build."
+            : "Open an experiment to interact. Some need a browser with WebGL or WebGPU support."}
+        </p>
+        {collection === "designs" && <DesignPreviewPlayback />}
+      </div>
       <nav className="facetworks-group-jumps" aria-label="Browse groups">
         {groups.map((group) => (
           <a key={group.id} href={`#${group.id}`}>
@@ -108,6 +112,20 @@ export function FacetworksCollection({
                     height={640}
                     sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
                   />
+                  {collection === "designs" && project.slug !== "puffly" && (
+                    <video
+                      aria-hidden="true"
+                      className="design-preview-film"
+                      data-preview-src={`https://assets.royalpinto007.com/designs/motion/${project.slug}-v1.mp4`}
+                      muted
+                      playsInline
+                      loop
+                      preload="none"
+                      disablePictureInPicture
+                      width={768}
+                      height={512}
+                    />
+                  )}
                   <span className="preview-open" aria-hidden="true">
                     <ArrowUpRight size={22} />
                   </span>

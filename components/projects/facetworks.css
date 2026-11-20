@@ -257,3 +257,36 @@
   outline: 3px solid #963c68;
   outline-offset: 4px;
 }
+
+.collection-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin-block: 20px 34px;
+}
+.collection-intro .collection-note { margin: 0; }
+.preview-playback:not([hidden]) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 15px;
+  border: 1px solid #9fb3c2;
+  border-radius: 7px;
+  color: #1b3e53;
+  background: #fffaf1;
+  cursor: pointer;
+}
+.preview-playback:focus-visible { outline: 3px solid #963c68; outline-offset: 3px; }
+.design-preview-film {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+}
+.design-preview-film[data-started] { opacity: 1; }
