@@ -164,12 +164,13 @@
   }
 }
 
-/* The film's chrome ball rides down the right margin with the scroll; it never takes clicks. */
+/* The film's chrome ball rides the side margins with the scroll; it never takes clicks. */
 .scroll-ball {
   position: fixed;
   top: 0;
-  /* The page gutter is about 4vw; the ball fills it with a few pixels to spare. */
-  right: 7px;
+  left: 0;
+  /* Placed by script (side margins, crossing at gaps between sections). The page gutter
+     is about 4vw, so the ball fills it with a few pixels to spare. */
   z-index: 45;
   width: clamp(22px, calc(4vw - 14px), 40px);
   aspect-ratio: 1;
