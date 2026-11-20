@@ -1,4 +1,5 @@
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { ShowMore } from "@/components/projects/ShowMore";
 import type { PreviewGroup } from "@/lib/data/project-collections";
 import { ProjectPreview } from "@/components/projects/ProjectPreview";
 import "./project-collections.css";
@@ -51,20 +52,13 @@ export function ProjectCollage({
         ))}
       </div>
       {!full && expandable && group.items.length > items.length && (
-        <details className="collage-expand">
-          <summary>
-            <span className="collage-expand-more">
-              Show {group.items.length - items.length} more
-            </span>
-            <span className="collage-expand-less">Show less</span>
-            <ChevronDown size={18} aria-hidden="true" />
-          </summary>
+        <ShowMore count={group.items.length - items.length}>
           <div className="collage-screens">
             {group.items.slice(items.length).map((project) => (
               <ProjectPreview key={project.id} project={project} />
             ))}
           </div>
-        </details>
+        </ShowMore>
       )}
       {!full && !expandable && group.items.length > items.length && (
         <p className="collage-more">

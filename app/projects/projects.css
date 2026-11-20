@@ -436,43 +436,33 @@
   padding: clamp(18px, 3vw, 38px);
   gap: 32px;
 }
-/* Apps: four highlights, the rest open in place under "Show more". */
+/* Apps: four highlights, the rest open in place; the toggle always sits below the cards. */
 .projects-page .collage-expand {
   border-top: 1px solid #b9c9d1;
 }
-.projects-page .collage-expand > summary {
+.projects-page .collage-expand-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  width: 100%;
   min-height: 56px;
+  border: 0;
+  background: none;
   color: #12374e;
+  font: inherit;
   font-size: 16px;
   font-weight: 650;
-  list-style: none;
   cursor: pointer;
 }
-.projects-page .collage-expand > summary::-webkit-details-marker {
-  display: none;
-}
-.projects-page .collage-expand > summary:hover {
+.projects-page .collage-expand-toggle:hover {
   color: #862752;
 }
-.projects-page .collage-expand > summary svg {
+.projects-page .collage-expand-toggle svg {
   transition: transform 200ms ease;
 }
-.projects-page .collage-expand[open] > summary svg {
+.projects-page .collage-expand[data-open="true"] .collage-expand-toggle svg {
   transform: rotate(180deg);
-}
-.projects-page .collage-expand .collage-expand-less,
-.projects-page .collage-expand[open] .collage-expand-more {
-  display: none;
-}
-.projects-page .collage-expand[open] .collage-expand-less {
-  display: inline;
-}
-.projects-page .chapter-apps .collage-expand .collage-screens {
-  padding-top: 0;
 }
 /* Agent skills has two entries: two wide columns, no empty third slot. */
 .projects-page .chapter-resources .collage-screens {
