@@ -163,15 +163,6 @@ export default function HomePage() {
           profile={siteConfig.github}
         />
         <div className="source-origin journey-start">
-          {siteConfig.stats
-            .filter((stat) => stat.label === "Students mentored")
-            .map((stat) => (
-              <p className="mentoring-fact" key={stat.label}>
-                <strong>{stat.value}</strong>
-                <span>{stat.label}</span>
-                {"detail" in stat && <small>{String(stat.detail)}</small>}
-              </p>
-            ))}
           <ul
             className="programme-strip"
             aria-label="Programmes that started my open-source journey"

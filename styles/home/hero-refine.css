@@ -315,7 +315,7 @@
 
 /* Mentoring: the count and the three programmes share one scale, so none shouts over the others. */
 .home-page .source-origin {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: 40px;
   padding-top: 34px;
