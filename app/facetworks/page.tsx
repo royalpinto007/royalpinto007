@@ -8,7 +8,7 @@ import "@/components/projects/facetworks.css";
 export const metadata: Metadata = {
   title: "Facetworks",
   description:
-    "Nineteen design websites and twenty-four interactive graphics experiments by Royal Pinto. Pick a collection and explore.",
+    "Nineteen design websites and twenty-one interactive graphics experiments by Royal Pinto. Pick a collection and explore.",
   alternates: { canonical: "/facetworks" },
 };
 

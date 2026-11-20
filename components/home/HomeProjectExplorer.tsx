@@ -8,7 +8,7 @@ const shelves = [
   {
     id: "experiments",
     line: "Light. Physics. A little curiosity.",
-    picks: ["abyss", "magnetic-sand", "fogged-glass"],
+    picks: ["fly-forklift", "drape", "mochimo"],
   },
   {
     id: "games",

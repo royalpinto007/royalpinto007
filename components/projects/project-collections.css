@@ -32,6 +32,8 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
+  /* Opening "Show more" in one group must not stretch the group beside it. */
+  align-items: start;
 }
 .collection-boards-single {
   grid-template-columns: minmax(0, 1fr);
