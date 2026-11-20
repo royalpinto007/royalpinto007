@@ -164,29 +164,8 @@
   }
 }
 
-/* The film's chrome ball rides the side margins with the scroll; it never takes clicks. */
-.scroll-ball {
-  position: fixed;
-  top: 0;
-  left: 0;
-  /* Placed by script (side margins, crossing at gaps between sections). The page gutter
-     is about 4vw, so the ball fills it with a few pixels to spare. */
-  z-index: 45;
-  width: clamp(22px, calc(4vw - 14px), 40px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: url("https://assets.royalpinto007.com/scene/chrome-ball.webp") center / cover no-repeat;
-  filter: drop-shadow(0 6px 8px #12374e40);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 400ms ease;
-  will-change: transform;
-}
-.scroll-ball[data-ready="true"] {
-  opacity: 1;
-}
-/* The ball's route, drawn on the page under the header (z-index 40). It only runs along
-   the side margins and the empty bands between sections. */
+/* An ink line drawn down the page as you scroll (it circles and underlines a few things).
+   It sits above the page and under the header (z-index 40), and never takes clicks. */
 .scroll-trail {
   position: absolute;
   top: 0;
@@ -202,17 +181,44 @@
 }
 .scroll-trail path {
   fill: none;
-  stroke: #922f60;
-  stroke-opacity: 0.55;
-  stroke-width: 2;
+  stroke: #b0336a;
+  stroke-opacity: 0.85;
+  stroke-width: 2.25;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-/* Phones and narrow tablets have no side margin to spare, so the ball stays off. */
-@media (max-width: 899px) {
-  .scroll-ball,
-  .scroll-trail {
-    display: none;
+/* The film's chrome ball rides the tip of the ink, in step with the scroll. Over content it
+   shrinks to a nib (so it never covers text) and grows back in free space. */
+.scroll-ball {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 45;
+  width: clamp(16px, calc(4vw - 14px), 40px);
+  aspect-ratio: 1;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+.scroll-ball[data-ready="true"] {
+  opacity: 1;
+}
+.scroll-ball > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: url("https://assets.royalpinto007.com/scene/chrome-ball.webp") center / cover no-repeat;
+  filter: drop-shadow(0 4px 6px #12374e40);
+  scale: 0.3;
+  transition: scale 90ms linear;
+}
+.scroll-ball[data-free="true"] > span {
+  scale: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-ball > span {
+    transition: none;
   }
 }
 @media print {
