@@ -242,9 +242,7 @@ export default function HomePage() {
                 )}
               </div>
               <div className="work-details">
-                <p className="work-index">
-                  <span>0{i + 1}</span> {project.kind}
-                </p>
+                <p className="work-index">{project.kind}</p>
                 <div className="work-meta">
                   <h3>
                     <a

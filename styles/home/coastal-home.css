@@ -185,16 +185,6 @@ body:has(.home-page) .site-header {
   color: #294a5e;
   margin-bottom: 24px;
 }
-.home-page .work-index > span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #6e899b;
-  border-radius: 50%;
-  font-size: 10px;
-}
 .home-page .work-meta h3 {
   font-size: clamp(27px, 3.5vw, 54px);
   line-height: 1.1;
