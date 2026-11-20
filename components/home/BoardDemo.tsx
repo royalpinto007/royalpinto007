@@ -657,7 +657,7 @@ export function BoardDemo({ name, href }: { name: string; href: string }) {
   const editingShape = editing ? byId[editing] : null;
   const shapeCount = shapes.filter((s) => s.kind !== "text").length;
   const hint = !converted
-    ? "Move the shapes, then convert. Positions carry over."
+    ? ""
     : tool === "arrow"
       ? arrowFrom
         ? "Now tap the shape to connect to."
@@ -933,11 +933,9 @@ export function BoardDemo({ name, href }: { name: string; href: string }) {
       </div>
       <div className="board-demo-note">
         <p role="status">
-          {converted
-            ? `${shapeCount} shapes · ${arrows.length} bound arrows · 0 unsupported. ${hint}`
-            : `A Freeform board. ${hint}`}
+          {converted &&
+            `${shapeCount} shapes · ${arrows.length} bound arrows · 0 unsupported. ${hint}`}
         </p>
-        <small>Sample board. The download opens in Excalidraw.</small>
       </div>
     </div>
   );

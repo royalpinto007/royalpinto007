@@ -680,3 +680,20 @@
     bottom: 0;
   }
 }
+
+/* "AgentPostmortem" is twice as long as the other names: at the shared size it ran past the
+   card's padding. Same scale, about 80% of it, so it sits inside the card at every width. */
+.home-page .work-world-agentpostmortem .work-meta h3 {
+  font-size: clamp(32px, calc(3.4 * var(--type-vw)), 58px);
+}
+@media (max-width: 1023px) {
+  .home-page .work-world-agentpostmortem .work-meta h3 {
+    font-size: clamp(29px, calc(5.8 * var(--type-vw)), 46px);
+  }
+}
+@media (max-width: 767px) {
+  .home-page .work-world-agentpostmortem .work-meta h3 {
+    font-size: clamp(24px, calc(6.4 * var(--type-vw)), 36px);
+    overflow-wrap: normal;
+  }
+}
