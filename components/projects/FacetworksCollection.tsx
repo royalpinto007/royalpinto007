@@ -7,6 +7,8 @@ import {
 } from "@/lib/data/facetworks";
 import { facetworksGroups } from "@/lib/data/facetworks-groups";
 import { WorldScene } from "@/components/scenery/WorldScene";
+import { CardClip } from "@/components/projects/CardClip";
+import { clipFor } from "@/lib/data/project-clips";
 import "./facetworks.css";
 
 export function FacetworksCollection({
@@ -108,6 +110,7 @@ export function FacetworksCollection({
                     height={640}
                     sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
                   />
+                  {clipFor(project.slug) && <CardClip src={clipFor(project.slug)!} />}
                   <span className="preview-open" aria-hidden="true">
                     <ArrowUpRight size={22} />
                   </span>

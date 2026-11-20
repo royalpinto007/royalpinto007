@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import "./card-clip.css";
 
 /** A silent loop over a card's screenshot. It loads and plays only while the card is on screen,
  *  and stays off for people who prefer reduced motion. */

@@ -546,21 +546,3 @@
   vertical-align: -1px;
 }
 
-/* Motion: the clip sits over the screenshot and fades in once it is actually playing. */
-.project-window-image {
-  position: relative;
-}
-.card-clip {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  opacity: 0;
-  transition: opacity 500ms ease;
-  pointer-events: none;
-}
-.card-clip[data-playing] {
-  opacity: 1;
-}
