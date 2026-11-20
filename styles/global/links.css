@@ -221,7 +221,8 @@
     transition: none;
   }
 }
-@media print {
+/* Phones: no ink line (and no ball, which rides it). */
+@media (max-width: 767px), print {
   .scroll-ball,
   .scroll-trail {
     display: none;

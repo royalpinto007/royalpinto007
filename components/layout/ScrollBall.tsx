@@ -363,6 +363,12 @@ export function ScrollBall() {
     let frame = 0;
 
     const build = () => {
+      // Phones get no ink line: skip the measuring work entirely.
+      if (matchMedia("(max-width: 767px)").matches) {
+        points = [];
+        svg.setAttribute("height", "0");
+        return;
+      }
       // Collapse the drawing area first: it is absolutely positioned and would otherwise keep
       // the previous page's height, stretching a shorter page.
       svg.setAttribute("height", "0");
