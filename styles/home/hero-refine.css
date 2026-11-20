@@ -532,3 +532,16 @@
     font-size: 15px;
   }
 }
+
+/* Web3 cards: the second card sits 36px lower, so the grid stretches the first one. Give that
+   height to the screenshot instead of leaving empty space under the caption. */
+.home-page .web3-preview {
+  display: flex;
+  flex-direction: column;
+}
+.home-page .web3-preview img {
+  flex: 1 1 auto;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
+}
