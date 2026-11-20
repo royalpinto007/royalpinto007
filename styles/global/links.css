@@ -185,14 +185,39 @@
 .scroll-ball[data-ready="true"] {
   opacity: 1;
 }
+/* The ball's route, drawn on the page under the header (z-index 40). It only runs along
+   the side margins and the empty bands between sections. */
+.scroll-trail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 39;
+  overflow: visible;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+.scroll-trail[data-ready="true"] {
+  opacity: 1;
+}
+.scroll-trail path {
+  fill: none;
+  stroke: #922f60;
+  stroke-opacity: 0.55;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 /* Phones and narrow tablets have no side margin to spare, so the ball stays off. */
 @media (max-width: 899px) {
-  .scroll-ball {
+  .scroll-ball,
+  .scroll-trail {
     display: none;
   }
 }
 @media print {
-  .scroll-ball {
+  .scroll-ball,
+  .scroll-trail {
     display: none;
   }
 }
