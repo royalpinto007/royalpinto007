@@ -1,6 +1,6 @@
 # Royal Simpson Pinto (royalpinto007)
 
-> AI product engineer, indie developer and freelancer. Builds AI agents, LLM tooling, full-stack apps, backend systems, automation, Web3 tools and open source. 3+ years shipping production software. Google Summer of Code, Linux Foundation (LFX) and Symmetry Autumn of Code contributor; mentored 500+ students. Studied at the National Institute of Technology Karnataka, Surathkal (NITK).
+> AI product engineer, indie developer and freelancer. Builds AI agents, LLM tooling, full-stack apps, backend systems, automation, Web3 tools and open source. 3+ years shipping production software. Google Summer of Code, Linux Foundation (LFX) and Symmetry Autumn of Code contributor, with 16 merged pull requests to the D compiler (DMD). Studied at the National Institute of Technology Karnataka, Surathkal (NITK).
 
 ## Selected projects
 
@@ -12,6 +12,7 @@
 ## Pages
 
 - [Home](https://royalpinto007.com/): overview, open-source work, selected projects and system designs
+- Case studies: [AgentPostmortem](https://royalpinto007.com/case-studies/agentpostmortem), [BoardEject](https://royalpinto007.com/case-studies/boardeject) and [SignalizeAI](https://royalpinto007.com/case-studies/signalizeai): the problem, what was built, system design, decisions and trade-offs
 - [All projects](https://royalpinto007.com/projects): apps, open source, Web3 tools, games and agent skills
 - [Facetworks](https://royalpinto007.com/facetworks): web designs and interactive graphics experiments
 - [Contact](https://royalpinto007.com/contact): freelance, full-time or open-source work

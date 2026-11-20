@@ -4,7 +4,7 @@ Source for [royalpinto007.com](https://royalpinto007.com/). The [README](README.
 
 Built with Next.js (static export), React, Tailwind CSS, GSAP, three.js and the Remotion Player.
 
-This repository is only the website code. Content (profile, projects, categories, contribution totals) and media live in Cloudflare R2 and are served from `assets.royalpinto007.com`.
+This repository is only the website code. Content (profile, projects, categories, case studies, contribution totals) and media (images, project clips, the film) live in Cloudflare R2 and are served from `assets.royalpinto007.com`.
 
 ## Run it
 
@@ -23,11 +23,11 @@ npm run build    # pulls content, then static site in out/
 
 | Path | What lives there |
 | --- | --- |
-| `app/` | Routes only: pages, layout, icons, and page-specific CSS next to its page |
+| `app/` | Routes only: pages (including `case-studies/[slug]`), layout, icons, and page-specific CSS next to its page |
 | `components/layout/` | Header, footer and site-wide behaviour |
 | `components/home/` | Home page sections (hero, systems, calendar, reel, board demo) |
 | `components/film/` | The Remotion film played in the reel |
-| `components/projects/` | Project collections, previews and Facetworks pages |
+| `components/projects/` | Project collections, previews, motion clips and Facetworks pages |
 | `components/scenery/` | Painted backgrounds and coastal scenes |
 | `components/ui/` | Small shared pieces (brand icons) |
 | `styles/global/` | Tailwind entry, theme and site-wide styles |
