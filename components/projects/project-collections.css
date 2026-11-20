@@ -461,21 +461,56 @@
   transform: rotate(180deg);
 }
 
-/* Projects with a write-up get a direct link under the card. */
+/* Projects with a write-up show "Read the case study" on the caption row, where the arrow
+   would be. It can't live inside the card's link, so the card becomes a grid and the button
+   shares the card's row, pinned to its bottom right. */
+.project-preview:has(> .project-case-study) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.project-preview:has(> .project-case-study) > .project-preview-link {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+.project-preview:has(> .project-case-study) > .project-preview-details {
+  grid-column: 1 / -1;
+}
+.project-preview:has(> .project-case-study) .project-preview-caption {
+  padding-right: 190px;
+}
+.project-preview:has(> .project-case-study) .project-preview-caption > svg {
+  display: none;
+}
 .project-case-study {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 10px;
-  padding: 7px 14px;
+  margin-bottom: 4px;
+  padding: 8px 14px;
   border-radius: 999px;
   background: #12374e;
   color: #fff;
   font-size: 14px;
   font-weight: 650;
+  white-space: nowrap;
   transition: background-color 180ms ease;
 }
 .project-case-study:hover {
   background: #862752;
   color: #fff;
+}
+@media (max-width: 560px) {
+  .project-preview:has(> .project-case-study) .project-preview-caption {
+    padding-right: 0;
+  }
+  .project-case-study {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: start;
+    margin-top: 10px;
+  }
 }
