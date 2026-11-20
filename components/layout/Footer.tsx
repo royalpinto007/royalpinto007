@@ -34,14 +34,14 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Star size={15} aria-hidden="true" /> Star this site
+            <Star size={13} aria-hidden="true" /> Star this site
           </a>
           <a
             href="https://www.buymeacoffee.com/royalpinto007"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Coffee size={15} aria-hidden="true" /> Buy me a coffee
+            <Coffee size={13} aria-hidden="true" /> Buy me a coffee
           </a>
         </nav>
       </div>
