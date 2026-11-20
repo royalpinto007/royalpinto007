@@ -270,6 +270,8 @@ export default function HomePage() {
                   <Link
                     className="hero-cta hero-cta-primary work-case-study"
                     href={`/case-studies/${project.caseStudy}`}
+                    target="_blank"
+                    rel="noopener"
                   >
                     Read the case study <ArrowRight size={18} aria-hidden="true" />
                   </Link>

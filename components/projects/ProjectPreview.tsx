@@ -114,7 +114,12 @@ export function ProjectPreview({
       {(caseStudyFor(project.id) || (detailed && hasSource)) && (
         <div className={`project-card-actions ${detailed ? "is-row" : ""}`}>
           {caseStudyFor(project.id) && (
-            <Link className="project-case-study" href={`/case-studies/${project.id}`}>
+            <Link
+              className="project-case-study"
+              href={`/case-studies/${project.id}`}
+              target="_blank"
+              rel="noopener"
+            >
               Read the case study <ArrowRight size={15} aria-hidden="true" />
             </Link>
           )}

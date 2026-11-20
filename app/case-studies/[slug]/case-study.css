@@ -88,14 +88,13 @@
 }
 
 .case-study-body {
-  max-width: 760px;
   padding-top: 48px;
 }
 /* Facts: a quiet strip above the story, not a sidebar. */
 .case-study-facts {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 32px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px 40px;
   margin: 0 0 48px;
   padding: 0 0 32px;
   border-bottom: 1px solid #d5dfe5;
@@ -113,8 +112,21 @@
   font-size: 16px;
   line-height: 1.5;
 }
+/* Each section: its heading on the left, the text on the right, so the page uses its width
+   while lines stay a readable length. */
 .case-study-article section {
-  margin-bottom: 44px;
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(0, 760px);
+  gap: 0 clamp(32px, 5vw, 80px);
+  margin-bottom: 0;
+  padding: 40px 0;
+  border-bottom: 1px solid #e1e8ec;
+}
+.case-study-article section > :not(h2) {
+  grid-column: 2;
+}
+.case-study-article section > h2 {
+  grid-row: 1 / span 9;
 }
 .case-study-article h2 {
   margin: 0 0 14px;
@@ -152,7 +164,8 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 4px 16px;
-  margin-top: 16px;
+  max-width: 760px;
+  margin: 48px 0 0 auto;
   padding: 24px 28px;
   border: 1px solid #c9d6de;
   border-radius: 14px;
@@ -181,6 +194,11 @@
   color: #862752;
 }
 
+@media (max-width: 1199px) {
+  .case-study-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (max-width: 899px) {
   .case-study-heading {
     min-height: 0;
@@ -193,6 +211,13 @@
   }
   .case-study-body {
     padding-top: 32px;
+  }
+  .case-study-article section {
+    display: block;
+    padding: 28px 0;
+  }
+  .case-study-next {
+    margin-left: 0;
   }
   .case-study-facts {
     grid-template-columns: minmax(0, 1fr);
