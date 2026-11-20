@@ -1,4 +1,4 @@
-import type { ComponentProps } from "react";
+import { Fragment, type ComponentProps } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,6 +6,10 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { pageMetadata } from "@/lib/seo";
 import { caseStudies, caseStudyFor } from "@/lib/data/case-studies";
 import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
+import { SystemCase, systemFor } from "@/components/home/SystemsShowcase";
+import "@/styles/home/home.css";
+import "@/styles/home/home-experience.css";
+import "@/styles/home/home-environments.css";
 import "./case-study.css";
 
 /** "Lead. The rest" becomes a bold lead, when the first sentence is short. */
@@ -42,6 +46,7 @@ export default async function CaseStudyPage({ params }: Props) {
   if (!study) notFound();
   const index = caseStudies.indexOf(study);
   const next = caseStudies[(index + 1) % caseStudies.length];
+  const system = systemFor(study.slug);
   return (
     <div className="portfolio-shell case-study-page">
       <header className="case-study-heading">
@@ -88,20 +93,38 @@ export default async function CaseStudyPage({ params }: Props) {
 
         <article className="case-study-article">
           {study.sections.map((section) => (
-            <section key={section.id} id={section.id}>
-              <h2>{section.title}</h2>
-              {section.paragraphs?.map((text) => <p key={text}>{text}</p>)}
-              {section.points && (
-                <ul>
-                  {section.points.map((point) => (
-                    <Point key={point} text={point} />
-                  ))}
-                </ul>
+            <Fragment key={section.id}>
+              <section id={section.id}>
+                <h2>{section.title}</h2>
+                {section.paragraphs?.map((text) => (
+                  <p key={text}>{text}</p>
+                ))}
+                {section.points && (
+                  <ul>
+                    {section.points.map((point) => (
+                      <Point key={point} text={point} />
+                    ))}
+                  </ul>
+                )}
+              </section>
+              {section.id === "built" && system && (
+                <section id="system-design" className="case-study-system">
+                  <h2>System design</h2>
+                  {/* Home's system styles are scoped to .home-page; reuse them as they are. */}
+                  <div className="home-page case-study-system-frame">
+                    <div className="systems-showcase">
+                      <SystemCase system={system} />
+                    </div>
+                  </div>
+                </section>
               )}
-            </section>
+            </Fragment>
           ))}
           {next.slug !== study.slug && (
-            <Link className="case-study-next" href={`/case-studies/${next.slug}`}>
+            <Link
+              className="case-study-next"
+              href={`/case-studies/${next.slug}`}
+            >
               <span>Next case study</span>
               <strong>{next.name}</strong>
               <ArrowRight aria-hidden="true" />

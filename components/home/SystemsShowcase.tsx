@@ -223,113 +223,122 @@ export function SystemsShowcase() {
       </fieldset>
       <div className="system-cases">
         {systems.map((system) => (
-          <article
-            className="system-case"
-            key={system.id}
-            data-system={system.id}
-            aria-labelledby={`title-${system.id}`}
-          >
-            <div className="system-case-intro">
-              <div>
-                <h3 id={`title-${system.id}`}>{system.title}</h3>
-              </div>
-              <a
-                className="go-link go-link-surface"
-                href={system.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="go-link-label">{system.link}</span>
-                <span className="go-link-icon" aria-hidden="true">
-                  <ArrowUpRight />
-                </span>
-              </a>
-            </div>
-            <fieldset className="architecture-walkthrough">
-              <legend>Follow the data</legend>
-              <label>
-                <input
-                  type="radio"
-                  name={`walk-${system.id}`}
-                  value="all"
-                  defaultChecked
-                />
-                <span>Full system</span>
-              </label>
-              {system.flow.map((step, i) => (
-                <label key={step.title}>
-                  <input type="radio" name={`walk-${system.id}`} value={i} />
-                  <span>
-                    <b>{i + 1}</b>
-                    {step.title}
-                  </span>
-                </label>
-              ))}
-            </fieldset>
-            <ArchitectureMap system={system.id} />
-            <ol
-              className="system-flow"
-              aria-label={`${system.name} simplified data flow`}
-            >
-              {system.flow.map((node, i) => {
-                const Icon = system.icons[i];
-                return (
-                  <li key={node.title} data-stage={i}>
-                    <div className="system-node">
-                      <span className="system-step" aria-hidden="true">
-                        0{i + 1}
-                      </span>
-                      <Icon
-                        className="system-glyph"
-                        size={48}
-                        strokeWidth={1.25}
-                        aria-hidden="true"
-                      />
-                      <strong>{node.title}</strong>
-                      <span className="system-node-detail">{node.detail}</span>
-                    </div>
-                    {i < system.flow.length - 1 && (
-                      <span className="system-connector" aria-hidden="true">
-                        <i />
-                        <ArrowRight size={18} />
-                      </span>
-                    )}
-                  </li>
-                );
-              })}
-            </ol>
-            <details className="system-full-map">
-              <summary>
-                Explore the full architecture{" "}
-                <ChevronDown size={16} aria-hidden="true" />
-              </summary>
-              <div
-                className="architecture-scroll"
-                role="region"
-                aria-label={`${system.name} full architecture, scroll horizontally`}
-                tabIndex={0}
-              >
-                <ArchitectureMap system={system.id} instance="-mobile" />
-              </div>
-            </details>
-            <p className="system-scope">{system.scope}</p>
-            <details className="system-notes">
-              <summary>
-                Design notes <ChevronDown size={16} aria-hidden="true" />
-              </summary>
-              <p className="system-description">{system.description}</p>
-              <div className="system-decisions">
-                {system.decisions.map((decision) => (
-                  <div key={decision.title}>
-                    <h4>{decision.title}</h4>
-                    <p>{decision.text}</p>
-                  </div>
-                ))}
-              </div>
-            </details>
-          </article>
+          <SystemCase key={system.id} system={system} />
         ))}
       </div>
     </section>
+  );
+}
+
+export type System = (typeof systems)[number];
+export const systemFor = (id: string) => systems.find((s) => s.id === id);
+
+/** One system: walkthrough controls, the architecture map, the step flow and design notes. */
+export function SystemCase({ system }: { system: System }) {
+  return (
+    <article
+      className="system-case"
+      data-system={system.id}
+      aria-labelledby={`title-${system.id}`}
+    >
+      <div className="system-case-intro">
+        <div>
+          <h3 id={`title-${system.id}`}>{system.title}</h3>
+        </div>
+        <a
+          className="go-link go-link-surface"
+          href={system.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="go-link-label">{system.link}</span>
+          <span className="go-link-icon" aria-hidden="true">
+            <ArrowUpRight />
+          </span>
+        </a>
+      </div>
+      <fieldset className="architecture-walkthrough">
+        <legend className="sr-only">Walk through the system</legend>
+        <label>
+          <input
+            type="radio"
+            name={`walk-${system.id}`}
+            value="all"
+            defaultChecked
+          />
+          <span>Full system</span>
+        </label>
+        {system.flow.map((step, i) => (
+          <label key={step.title}>
+            <input type="radio" name={`walk-${system.id}`} value={i} />
+            <span>
+              <b>{i + 1}</b>
+              {step.title}
+            </span>
+          </label>
+        ))}
+      </fieldset>
+      <ArchitectureMap system={system.id} />
+      <ol
+        className="system-flow"
+        aria-label={`${system.name} simplified data flow`}
+      >
+        {system.flow.map((node, i) => {
+          const Icon = system.icons[i];
+          return (
+            <li key={node.title} data-stage={i}>
+              <div className="system-node">
+                <span className="system-step" aria-hidden="true">
+                  0{i + 1}
+                </span>
+                <Icon
+                  className="system-glyph"
+                  size={48}
+                  strokeWidth={1.25}
+                  aria-hidden="true"
+                />
+                <strong>{node.title}</strong>
+                <span className="system-node-detail">{node.detail}</span>
+              </div>
+              {i < system.flow.length - 1 && (
+                <span className="system-connector" aria-hidden="true">
+                  <i />
+                  <ArrowRight size={18} />
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+      <details className="system-full-map">
+        <summary>
+          Explore the full architecture{" "}
+          <ChevronDown size={16} aria-hidden="true" />
+        </summary>
+        <div
+          className="architecture-scroll"
+          role="region"
+          aria-label={`${system.name} full architecture, scroll horizontally`}
+          tabIndex={0}
+        >
+          <ArchitectureMap system={system.id} instance="-mobile" />
+        </div>
+      </details>
+      <p className="system-scope">{system.scope}</p>
+      <details className="system-notes">
+        <summary>
+          Design notes <ChevronDown size={16} aria-hidden="true" />
+        </summary>
+        <p className="system-description">{system.description}</p>
+        <div className="system-decisions">
+          {system.decisions.map((decision) => (
+            <div key={decision.title}>
+              <h4>{decision.title}</h4>
+              <p>{decision.text}</p>
+            </div>
+          ))}
+        </div>
+      </details>
+    </article>
   );
 }

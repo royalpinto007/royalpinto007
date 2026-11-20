@@ -229,3 +229,26 @@
     font-size: 17px;
   }
 }
+
+/* System design spans the page: heading and intro on the left, the live diagram below. */
+.case-study-article .case-study-system {
+  display: block;
+}
+.case-study-system > p {
+  max-width: 62ch;
+}
+.case-study-system-frame {
+  margin-top: 24px;
+}
+.case-study-system-frame .systems-showcase {
+  padding: 0;
+  background: none;
+}
+.case-study-system-frame .system-case {
+  display: block;
+  padding: clamp(22px, 3vw, 44px);
+  border: 1px solid #d5dfe5;
+  border-radius: 18px;
+  background: #fffdf8;
+  box-shadow: 0 24px 60px -36px #10354c40;
+}
