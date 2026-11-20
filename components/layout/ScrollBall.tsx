@@ -123,7 +123,7 @@ function sections(): Section[] {
   if (!shell) return [];
   const list = [...shell.children, document.querySelector("footer.site-footer")].filter(
     (el): el is Element =>
-      !!el && getComputedStyle(el).position !== "fixed" && el.getBoundingClientRect().height > 40,
+      !!el && getComputedStyle(el).position !== "fixed" && el.getBoundingClientRect().height > 4,
   );
   return list.map((block) => {
     const box = block.getBoundingClientRect();
