@@ -116,7 +116,6 @@ export default function ProjectsPage() {
                   key={group.id}
                   group={group}
                   single={groups.length === 1}
-                  expandable={category.id === "apps"}
                   previewLimit={
                     ["games", "web3", "resources"].includes(category.id)
                       ? 6

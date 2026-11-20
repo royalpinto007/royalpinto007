@@ -244,11 +244,6 @@
   line-height: 1.4;
   max-width: 25ch;
 }
-.collage-more {
-  font-size: 13px;
-  color: #4d6274;
-  padding: 0 22px 20px;
-}
 .project-preview-details {
   margin: 14px 2px 0;
   font-size: 16px;
@@ -433,4 +428,33 @@
     transform: none !important;
     transition: none;
   }
+}
+
+/* Groups with more cards than shown open the rest in place; the toggle sits below them. */
+.collage-expand {
+  border-top: 1px solid #b9c9d1;
+}
+.collage-expand-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 56px;
+  border: 0;
+  background: none;
+  color: #12374e;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.collage-expand-toggle:hover {
+  color: #862752;
+}
+.collage-expand-toggle svg {
+  transition: transform 200ms ease;
+}
+.collage-expand[data-open="true"] .collage-expand-toggle svg {
+  transform: rotate(180deg);
 }
