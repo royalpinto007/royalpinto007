@@ -14,6 +14,7 @@ const files = [
   "facetworks-collections",
   "facetworks-groups",
   "contributions",
+  "case-studies",
 ];
 
 await mkdir("content", { recursive: true });

@@ -29,6 +29,7 @@ import { siteConfig } from "@/lib/data/site";
 const work = [
   {
     name: "AgentPostmortem",
+    caseStudy: "agentpostmortem",
     kind: "Open source",
     image: "agentpostmortem",
     scene: "observatory",
@@ -39,6 +40,7 @@ const work = [
   },
   {
     name: "BoardEject",
+    caseStudy: "boardeject",
     kind: "Developer tool",
     image: "boardeject",
     scene: "pavilion",
@@ -49,6 +51,7 @@ const work = [
   },
   {
     name: "SignalizeAI",
+    caseStudy: "signalizeai",
     kind: "AI product",
     image: "signalizeai",
     scene: "marina",
@@ -263,6 +266,18 @@ export default function HomePage() {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
+                {"caseStudy" in project && (
+                  <Link
+                    className="go-link work-case-study"
+                    data-direction="forward"
+                    href={`/case-studies/${project.caseStudy}`}
+                  >
+                    <span className="go-link-label">Read the case study</span>
+                    <span className="go-link-icon" aria-hidden="true">
+                      <ArrowRight />
+                    </span>
+                  </Link>
+                )}
                 <a
                   className="go-link"
                   href={project.href}
