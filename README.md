@@ -10,8 +10,8 @@ Software engineer, indie developer and freelancer building agents, LLM tooling a
 
 ## Selected projects
 
-- [AgentPostmortem](https://github.com/AgentPostmortem/agentpostmortem): find out how your AI agent fails before your customers do
-- [BoardEject](https://boardeject.dev): Apple Freeform boards to editable Excalidraw, nothing uploaded
-- [SignalizeAI](https://signalizeai.org): research a company once, get told when it changes
+- [AgentPostmortem](https://github.com/AgentPostmortem/agentpostmortem): open benchmark that tests how AI agents handle failing tools
+- [BoardEject](https://boardeject.dev): converts Apple Freeform boards into editable Excalidraw files
+- [SignalizeAI](https://signalizeai.org): browser extension that tracks changes on target companies' sites
 
 [View all projects →](https://royalpinto007.com/projects)
