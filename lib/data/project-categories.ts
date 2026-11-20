@@ -13,9 +13,9 @@ const browser = new Set([
   "cribsheet",
 ]);
 const systems = new Set([
+  "dmd-contributions",
   "d-errors-docs",
   "dent-docs",
-  "text-generation",
   "drupal-chatbot",
 ]);
 export const collectionAliases: Record<string, ProjectCategory> = {

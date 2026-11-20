@@ -563,3 +563,13 @@
   align-self: flex-start;
   margin-top: 6px;
 }
+
+/* The proof under each number: where it came from. */
+.home-page .source-origin .mentoring-fact small,
+.home-page .source-origin .programme-strip small {
+  display: block;
+  margin-top: 6px;
+  color: #5a7182;
+  font-size: 14px;
+  line-height: 1.4;
+}

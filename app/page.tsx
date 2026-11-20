@@ -169,6 +169,7 @@ export default function HomePage() {
               <p className="mentoring-fact" key={stat.label}>
                 <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
+                {"detail" in stat && <small>{String(stat.detail)}</small>}
               </p>
             ))}
           <ul
@@ -178,14 +179,17 @@ export default function HomePage() {
             <li>
               <strong>GSoC</strong>
               <span>Google Summer of Code</span>
+              <small>Top 2% · 967 of 43,765</small>
             </li>
             <li>
               <strong>LFX</strong>
               <span>Linux Foundation</span>
+              <small>Top 6% · 874 of 14,024</small>
             </li>
             <li>
               <strong>SAoC</strong>
               <span>Symmetry Autumn of Code</span>
+              <small>Top 2 of 5,000+</small>
             </li>
           </ul>
         </div>

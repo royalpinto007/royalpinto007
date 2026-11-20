@@ -89,14 +89,14 @@ export const projectCollections: ProjectCollection[] =
     } else {
       const items: PreviewProject[] = siteConfig.projects
         .filter(
-          (p) => p.id !== "drupal-chatbot" && categoryFor(p) === category.id,
+          (p) => categoryFor(p) === category.id,
         )
         .sort((a, b) => {
           if (category.id !== "open-source") return 0;
           const order = [
+            "dmd-contributions",
             "d-errors-docs",
             "dent-docs",
-            "text-generation",
             "drupal-chatbot",
           ];
           const rank = (id: string) => {
@@ -173,7 +173,7 @@ export const projectCollections: ProjectCollection[] =
                 {
                   id: "contributions",
                   title: "Contributions & modules",
-                  ids: ["d-errors-docs", "dent-docs", "text-generation"],
+                  ids: ["dmd-contributions", "d-errors-docs", "dent-docs", "drupal-chatbot"],
                 },
                 {
                   id: "d-language",
@@ -243,7 +243,7 @@ export const projectCollections: ProjectCollection[] =
               "hookview",
             ]
           : category.id === "open-source"
-            ? ["d-errors-docs", "dent-docs", "text-generation"]
+            ? ["dmd-contributions", "d-errors-docs", "drupal-chatbot"]
             : undefined;
     const overviewGroups = overviewIds
       ? [
