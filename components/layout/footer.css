@@ -110,14 +110,13 @@
   }
 }
 
-/* Star and coffee links: icons sized to the capital height and sitting on the text's
-   optical centre (a text box reserves space below the baseline, so nudge them down). */
+/* Star and coffee links: icons sized to the capital height and centred on the capitals. */
 .coastal-footer .footer-bottom nav a {
   gap: 7px;
 }
 .coastal-footer .footer-bottom nav a svg {
   flex-shrink: 0;
-  translate: 0 0.5px;
+  translate: 0 -0.5px;
 }
 
 /* Back to top: appears after about two screens of scrolling. */
