@@ -61,68 +61,36 @@ export default async function CaseStudyPage({ params }: Props) {
           <p className="case-study-headline">{study.headline}</p>
           <p className="case-study-summary">{study.summary}</p>
           <div className="case-study-links">
-            {study.live && (
-              <a className="hero-cta hero-cta-primary" href={study.live} target="_blank" rel="noopener noreferrer">
-                Open {study.name} <ArrowUpRight size={18} aria-hidden="true" />
+            {study.links?.map((link, i) => (
+              <a
+                key={link.href}
+                className={i === 0 ? "hero-cta hero-cta-primary" : "hero-cta"}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.label} <ArrowUpRight size={18} aria-hidden="true" />
               </a>
-            )}
-            {study.source && (
-              <a className="hero-cta" href={study.source} target="_blank" rel="noopener noreferrer">
-                Read the source <ArrowUpRight size={18} aria-hidden="true" />
-              </a>
-            )}
+            ))}
           </div>
         </div>
       </header>
 
       <div className="case-study-body">
-        <aside className="case-study-aside" aria-label={`${study.name} at a glance`}>
-          <dl>
-            {study.facts.map((fact) => (
-              <div key={fact.label}>
-                <dt>{fact.label}</dt>
-                <dd>{fact.value}</dd>
-              </div>
-            ))}
-          </dl>
-          {study.links && (
-            <div className="case-study-aside-links">
-              <h2>Links</h2>
-              {study.links.map((link) => (
-                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
-                  {link.label} <ArrowUpRight size={15} aria-hidden="true" />
-                </a>
-              ))}
+        <dl className="case-study-facts">
+          {study.facts.map((fact) => (
+            <div key={fact.label}>
+              <dt>{fact.label}</dt>
+              <dd>{fact.value}</dd>
             </div>
-          )}
-          <nav aria-label="On this page">
-            {study.sections.map((section) => (
-              <a key={section.id} href={`#${section.id}`}>
-                {section.title}
-              </a>
-            ))}
-          </nav>
-        </aside>
+          ))}
+        </dl>
 
         <article className="case-study-article">
           {study.sections.map((section) => (
             <section key={section.id} id={section.id}>
               <h2>{section.title}</h2>
               {section.paragraphs?.map((text) => <p key={text}>{text}</p>)}
-              {section.flow && (
-                <figure className="case-study-flow">
-                  <ol>
-                    {section.flow.steps.map((step, i) => (
-                      <li key={step.title}>
-                        <span className="case-study-flow-n">{i + 1}</span>
-                        <strong>{step.title}</strong>
-                        <span>{step.detail}</span>
-                      </li>
-                    ))}
-                  </ol>
-                  <figcaption>{section.flow.caption}</figcaption>
-                </figure>
-              )}
               {section.points && (
                 <ul>
                   {section.points.map((point) => (
@@ -132,14 +100,6 @@ export default async function CaseStudyPage({ params }: Props) {
               )}
             </section>
           ))}
-          <section id="skills">
-            <h2>Skills it shows</h2>
-            <ul className="case-study-skills">
-              {study.skills.map((skill) => (
-                <li key={skill}>{skill}</li>
-              ))}
-            </ul>
-          </section>
           {next.slug !== study.slug && (
             <Link className="case-study-next" href={`/case-studies/${next.slug}`}>
               <span>Next case study</span>

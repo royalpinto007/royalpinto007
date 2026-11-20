@@ -460,3 +460,22 @@
 .collage-expand[data-open="true"] .collage-expand-toggle svg {
   transform: rotate(180deg);
 }
+
+/* Projects with a write-up get a direct link under the card. */
+.project-case-study {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: #12374e;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 650;
+  transition: background-color 180ms ease;
+}
+.project-case-study:hover {
+  background: #862752;
+  color: #fff;
+}

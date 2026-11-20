@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { ArrowUpRight, Code2, Gamepad2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, Code2, Gamepad2 } from "lucide-react";
+import { caseStudyFor } from "@/lib/data/case-studies";
 import type { PreviewProject } from "@/lib/data/project-collections";
 
 export function ProjectPreview({
@@ -106,6 +108,11 @@ export function ProjectPreview({
         </a>
       ) : (
         <div className="project-preview-static">{content}</div>
+      )}
+      {caseStudyFor(project.id) && (
+        <Link className="project-case-study" href={`/case-studies/${project.id}`}>
+          Read the case study <ArrowRight size={15} aria-hidden="true" />
+        </Link>
       )}
       {detailed && (
         <div className="project-preview-details">
