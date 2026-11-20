@@ -31,7 +31,7 @@
   padding-block: 30px 50px;
 }
 .facetworks-index-section > h2 {
-  font-size: clamp(30px, 4vw, 54px);
+  font-size: clamp(30px, calc(4 * var(--type-vw)), 54px);
   margin-bottom: 24px;
   letter-spacing: -0.045em;
 }
@@ -50,7 +50,7 @@
 .facetworks-heading h1 {
   font-family: var(--font-coastal-display), sans-serif;
   text-transform: uppercase;
-  font-size: clamp(58px, 7vw, 110px);
+  font-size: clamp(58px, calc(7 * var(--type-vw)), 110px);
   line-height: 1;
   margin-block: 22px;
   letter-spacing: -0.025em;
@@ -134,7 +134,7 @@
   margin-top: 18px;
 }
 .facetworks-entry h3 {
-  font-size: clamp(23px, 2.2vw, 31px);
+  font-size: clamp(23px, calc(2.2 * var(--type-vw)), 31px);
   font-weight: 650;
   letter-spacing: -0.04em;
   line-height: 1.15;
@@ -224,7 +224,7 @@
   margin-bottom: 26px;
 }
 .facetworks-group-heading h2 {
-  font-size: clamp(26px, 3vw, 40px);
+  font-size: clamp(26px, calc(3 * var(--type-vw)), 40px);
   font-weight: 650;
   letter-spacing: -0.04em;
 }

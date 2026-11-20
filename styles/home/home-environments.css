@@ -1,6 +1,6 @@
 /* Supporting chapters occupy a whole world, with scenery behind the content. */
 .home-page {
-  --chapter-gutter: clamp(22px, 4vw, 88px);
+  --chapter-gutter: var(--page-gutter);
 }
 .chapter-environment {
   position: absolute;
@@ -231,13 +231,13 @@
     0 24px 40px -30px #153c6699;
 }
 .home-page .work-world .work-meta h3 {
-  font-size: clamp(38px, 4.2vw, 72px);
+  font-size: clamp(38px, calc(4.2 * var(--type-vw)), 72px);
   letter-spacing: -0.055em;
   color: #10354c;
 }
 .home-page .work-world .work-details > p:not(.work-index) {
   color: #173d53;
-  font-size: clamp(15px, 1.4vw, 19px);
+  font-size: clamp(15px, calc(1.4 * var(--type-vw)), 19px);
 }
 .home-page .work-world .work-index,
 .home-page .work-world .work-stack li {
@@ -430,7 +430,7 @@
     padding: 30px;
   }
   .home-page .work-world .work-meta h3 {
-    font-size: clamp(35px, 7.3vw, 58px);
+    font-size: clamp(35px, calc(7.3 * var(--type-vw)), 58px);
   }
   .home-page .work-world .work-details > p:not(.work-index) {
     max-width: 34ch;
@@ -458,7 +458,7 @@
     padding: 26px 22px;
   }
   .home-page .work-world .work-meta h3 {
-    font-size: clamp(29px, 8vw, 45px);
+    font-size: clamp(29px, calc(8 * var(--type-vw)), 45px);
     overflow-wrap: anywhere;
   }
   .home-page .work-world .signal-event {
@@ -584,11 +584,11 @@
   min-height: 48px;
 }
 .home-page .work-world .work-details > p:not(.work-index) {
-  font-size: clamp(17px, 1.4vw, 20px);
+  font-size: clamp(17px, calc(1.4 * var(--type-vw)), 20px);
   line-height: 1.65;
 }
 .home-page .system-picker label > span {
-  font-size: clamp(15px, 1.4vw, 20px);
+  font-size: clamp(15px, calc(1.4 * var(--type-vw)), 20px);
 }
 .home-page .system-picker label > span small {
   display: none;

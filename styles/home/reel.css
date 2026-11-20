@@ -18,7 +18,7 @@
   align-self: center;
 }
 .home-page .immersive-chapter .reel-heading h2 {
-  font-size: clamp(44px, 5.2vw, 84px);
+  font-size: clamp(44px, calc(5.2 * var(--type-vw)), 84px);
   line-height: 1.06;
   max-width: 8ch;
 }
@@ -130,7 +130,7 @@
   }
   .home-page .immersive-chapter .reel-heading h2 {
     max-width: none;
-    font-size: clamp(40px, 7vw, 68px);
+    font-size: clamp(40px, calc(7 * var(--type-vw)), 68px);
   }
   .home-page .immersive-chapter .reel-heading > p {
     max-width: none;

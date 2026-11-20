@@ -94,6 +94,7 @@ export function SceneEnvironment({ scene }: { scene: Environment }) {
           className="scene-ambient-toggle"
           type="button"
           onClick={() => setPaused(!paused)}
+          aria-pressed={paused}
           aria-label={`${paused ? "Play" : "Pause"} scenery: ${scene}`}
           title={`${paused ? "Play" : "Pause"} scenery`}
         >

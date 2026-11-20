@@ -72,7 +72,7 @@ body {
 .contact-page h1,
 .footer-invitation h2 {
   font-family: var(--font-coastal-display), sans-serif;
-  font-size: clamp(70px, 9.5vw, 160px);
+  font-size: clamp(70px, calc(9.5 * var(--type-vw)), 160px);
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: -0.025em;
@@ -95,7 +95,7 @@ body {
 .projects-page .section-intro h2 {
   font-family: var(--font-coastal-display), sans-serif;
   text-transform: uppercase;
-  font-size: clamp(42px, 5vw, 76px);
+  font-size: clamp(42px, calc(5 * var(--type-vw)), 76px);
   letter-spacing: -0.02em;
   line-height: 1;
   font-weight: 400;
@@ -146,7 +146,7 @@ body {
   font-family: var(--font-coastal-display), sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  font-size: clamp(36px, 4.5vw, 64px);
+  font-size: clamp(36px, calc(4.5 * var(--type-vw)), 64px);
 }
 .contact-page .contact-channels > a,
 .contact-page .bg-panel {
@@ -167,7 +167,7 @@ body {
   border-radius: 0;
 }
 .footer-invitation h2 {
-  font-size: clamp(64px, 8vw, 128px);
+  font-size: clamp(64px, calc(8 * var(--type-vw)), 128px);
 }
 .footer-invitation p {
   max-width: 36ch;
@@ -252,13 +252,13 @@ body {
   }
   .projects-heading h1,
   .contact-page h1 {
-    font-size: clamp(58px, 14vw, 96px);
+    font-size: clamp(58px, calc(14 * var(--type-vw)), 96px);
   }
   .footer-invitation {
     padding-block: 60px;
   }
   .footer-invitation h2 {
-    font-size: clamp(52px, 12vw, 86px);
+    font-size: clamp(52px, calc(12 * var(--type-vw)), 86px);
   }
 }
 
@@ -350,7 +350,7 @@ body {
   align-self: start;
 }
 .footer-invitation h2 {
-  font-size: clamp(62px, 7vw, 112px);
+  font-size: clamp(62px, calc(7 * var(--type-vw)), 112px);
 }
 .site-footer {
   background: linear-gradient(180deg, transparent, #e5eff5 80%);
@@ -371,7 +371,7 @@ body {
   max-width: 50%;
 }
 .contact-invitation > h2 {
-  font-size: clamp(36px, 4vw, 58px);
+  font-size: clamp(36px, calc(4 * var(--type-vw)), 58px);
 }
 .project-jumps a:nth-child(n) {
   border-color: #a3aebd;

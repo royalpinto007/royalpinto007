@@ -31,7 +31,7 @@
   text-transform: uppercase;
   letter-spacing: -0.02em;
   line-height: 0.95;
-  font-size: clamp(64px, 11vw, 160px);
+  font-size: clamp(64px, calc(11 * var(--type-vw)), 160px);
   color: #10364e;
 }
 .not-found h1 span {

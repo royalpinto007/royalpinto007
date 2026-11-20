@@ -235,7 +235,7 @@
   top: 12%;
   font-family: var(--font-coastal-display), sans-serif;
   text-transform: uppercase;
-  font-size: clamp(40px, 7vw, 92px);
+  font-size: clamp(40px, calc(7 * var(--type-vw)), 92px);
   line-height: 1;
   color: #476a8138;
   transform: rotate(-8deg);
@@ -265,7 +265,7 @@
 }
 .collection-page-heading h1 {
   font-family: var(--font-coastal-display), sans-serif;
-  font-size: clamp(46px, 7vw, 94px);
+  font-size: clamp(46px, calc(7 * var(--type-vw)), 94px);
   line-height: 1.05;
   text-transform: uppercase;
   letter-spacing: -0.02em;

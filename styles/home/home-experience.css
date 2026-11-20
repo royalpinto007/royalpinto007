@@ -78,7 +78,7 @@ body:has(.home-page) .coffee-ticker {
 }
 .home-page .open-source-heading h2 {
   font-weight: 650;
-  font-size: clamp(40px, 5.2vw, 84px);
+  font-size: clamp(40px, calc(5.2 * var(--type-vw)), 84px);
   letter-spacing: -0.05em;
 }
 .home-page .contribution-calendar {
@@ -434,7 +434,7 @@ html[data-motion="static"] .home-page .experiment-play {
   overflow: clip;
   isolation: isolate;
   background: #c8dce9;
-  padding: 58px clamp(22px, 4vw, 88px) 130px;
+  padding: 58px var(--page-gutter) 130px;
 }
 .home-page .hero-landscape {
   position: absolute;
@@ -489,7 +489,7 @@ html[data-motion="static"] .home-page .experiment-play {
 }
 .home-page .portfolio-hero h1 {
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(110px, 14vw, 250px);
+  font-size: clamp(110px, calc(14 * var(--type-vw)), 250px);
   line-height: 0.9;
   letter-spacing: -0.025em;
   font-weight: 400;
@@ -646,8 +646,8 @@ html[data-motion="static"] .home-page .experiment-play {
 .home-page .hero-bottom {
   position: absolute;
   bottom: 28px;
-  left: clamp(22px, 4vw, 88px);
-  right: clamp(22px, 4vw, 88px);
+  left: var(--page-gutter);
+  right: var(--page-gutter);
   z-index: 5;
   display: flex;
   align-items: center;
@@ -775,7 +775,7 @@ html[data-motion="static"] .home-page .experiment-play {
     min-height: 720px;
   }
   .home-page .portfolio-hero h1 {
-    font-size: 14vw;
+    font-size: calc(14 * var(--type-vw));
   }
   .home-page .portrait {
     width: 94vw;
@@ -862,7 +862,7 @@ html[data-motion="static"] .home-page .experiment-play {
     margin-right: 10px;
   }
   .home-page .portfolio-hero h1 {
-    font-size: clamp(83px, 28vw, 174px);
+    font-size: clamp(83px, calc(28 * var(--type-vw)), 174px);
     line-height: 0.95;
   }
   .home-page .hero-copy {
@@ -932,7 +932,7 @@ html[data-motion="static"] .home-page .experiment-play {
     min-height: 720px;
   }
   .home-page .portfolio-hero h1 {
-    font-size: 17vw;
+    font-size: calc(17 * var(--type-vw));
   }
   .home-page .portrait {
     width: min(120vw, 760px);
@@ -951,7 +951,7 @@ html[data-motion="static"] .home-page .experiment-play {
     min-height: 690px;
   }
   .home-page .portfolio-hero h1 {
-    font-size: 27vw;
+    font-size: calc(27 * var(--type-vw));
   }
   .home-page .portrait {
     width: 177vw;

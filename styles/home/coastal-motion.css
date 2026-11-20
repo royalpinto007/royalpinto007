@@ -183,7 +183,7 @@
   max-width: 58%;
 }
 .home-page .motion-reel .reel-poster-copy strong {
-  font-size: clamp(38px, 6vw, 100px);
+  font-size: clamp(38px, calc(6 * var(--type-vw)), 100px);
 }
 .home-page .motion-reel .reel-poster .film-poster-sculpture {
   position: absolute;
@@ -218,7 +218,7 @@
     top: 8%;
   }
   .home-page .motion-reel .reel-poster-copy strong {
-    font-size: clamp(42px, 12vw, 78px);
+    font-size: clamp(42px, calc(12 * var(--type-vw)), 78px);
   }
   .home-page .motion-reel .reel-poster .film-poster-sculpture {
     width: 110%;

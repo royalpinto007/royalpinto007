@@ -72,7 +72,7 @@ body:has(.home-page) .site-header {
   z-index: -1;
 }
 .home-page .kinetic-band {
-  margin: 0 calc(clamp(22px, 4vw, 88px) * -1) 0;
+  margin: 0 calc(var(--page-gutter) * -1) 0;
   padding: 12px 0;
   border: 0;
   background: #e5eef4;
@@ -81,7 +81,7 @@ body:has(.home-page) .site-header {
 .home-page .kinetic-group > span {
   font-family: var(--font-coastal-display), sans-serif;
   text-transform: uppercase;
-  font-size: clamp(28px, 3.1vw, 54px);
+  font-size: clamp(28px, calc(3.1 * var(--type-vw)), 54px);
   font-weight: 400;
   letter-spacing: -0.015em;
   color: #15394f;
@@ -115,7 +115,7 @@ body:has(.home-page) .site-header {
   h2 {
   font-family: var(--font-coastal-display), sans-serif;
   text-transform: uppercase;
-  font-size: clamp(64px, 6vw, 108px);
+  font-size: clamp(64px, calc(6 * var(--type-vw)), 108px);
   line-height: 1.02;
   letter-spacing: -0.02em;
   font-weight: 400;
@@ -186,7 +186,7 @@ body:has(.home-page) .site-header {
   margin-bottom: 24px;
 }
 .home-page .work-meta h3 {
-  font-size: clamp(27px, 3.5vw, 54px);
+  font-size: clamp(27px, calc(3.5 * var(--type-vw)), 54px);
   line-height: 1.1;
   letter-spacing: -0.05em;
 }
@@ -201,7 +201,7 @@ body:has(.home-page) .site-header {
 .home-page .work-details > p:not(.work-index) {
   max-width: 31ch;
   margin-top: 20px;
-  font-size: clamp(14px, 1.4vw, 19px);
+  font-size: clamp(14px, calc(1.4 * var(--type-vw)), 19px);
   line-height: 1.6;
   color: #294a5e;
 }
@@ -279,8 +279,8 @@ body:has(.home-page) .site-header {
   border-color: #fff8;
 }
 .home-page .systems-showcase {
-  margin-inline: calc(clamp(22px, 4vw, 88px) * -1);
-  padding-inline: clamp(22px, 4vw, 88px);
+  margin-inline: calc(var(--page-gutter) * -1);
+  padding-inline: var(--page-gutter);
   background: linear-gradient(155deg, #e2f1f8, #e8e5f2 65%, #f3dbe5);
 }
 .home-page .systems-heading {
@@ -305,7 +305,7 @@ body:has(.home-page) .site-header {
   border-radius: 0;
   border-bottom: 3px solid transparent;
   background: transparent;
-  font-size: clamp(13px, 1.4vw, 20px);
+  font-size: clamp(13px, calc(1.4 * var(--type-vw)), 20px);
   padding: 16px 22px;
   color: #38566a;
 }
@@ -328,7 +328,7 @@ body:has(.home-page) .site-header {
 }
 .home-page .system-case-intro h3 {
   color: #173c55;
-  font-size: clamp(25px, 2.8vw, 42px);
+  font-size: clamp(25px, calc(2.8 * var(--type-vw)), 42px);
   max-width: 24ch;
 }
 .home-page .architecture-walkthrough {
@@ -411,7 +411,7 @@ body:has(.home-page) .site-header {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  font-size: clamp(38px, 5.4vw, 88px);
+  font-size: clamp(38px, calc(5.4 * var(--type-vw)), 88px);
   line-height: 1;
 }
 .home-page .reel-poster span {
@@ -422,8 +422,8 @@ body:has(.home-page) .site-header {
 }
 .home-page #oss {
   background: #f8f8f5;
-  margin-inline: calc(clamp(22px, 4vw, 88px) * -1);
-  padding: 70px clamp(22px, 4vw, 88px);
+  margin-inline: calc(var(--page-gutter) * -1);
+  padding: 70px var(--page-gutter);
 }
 .home-page .playground > .section-intro {
   max-width: none;
@@ -469,7 +469,7 @@ body:has(.home-page) .site-header {
   gap: 20px;
 }
 .home-page .gallery-heading h3 {
-  font-size: clamp(23px, 2.4vw, 36px);
+  font-size: clamp(23px, calc(2.4 * var(--type-vw)), 36px);
   letter-spacing: -0.04em;
 }
 .home-page .design-gallery {
@@ -529,7 +529,7 @@ body:has(.home-page) .site-header {
       .playground > .section-intro
     )
     h2 {
-    font-size: clamp(50px, 12vw, 80px);
+    font-size: clamp(50px, calc(12 * var(--type-vw)), 80px);
   }
   .home-page .work-heading {
     margin-bottom: 20px;

@@ -119,7 +119,7 @@
   margin-bottom: 36px;
 }
 .projects-page .section-intro h2 {
-  font-size: clamp(36px, 5vw, 68px);
+  font-size: clamp(36px, calc(5 * var(--type-vw)), 68px);
   max-width: 19ch;
   margin-top: 14px;
 }
@@ -157,7 +157,7 @@
 }
 .projects-page .project-card h3 {
   font-weight: 630;
-  font-size: clamp(22px, 2vw, 28px);
+  font-size: clamp(22px, calc(2 * var(--type-vw)), 28px);
   line-height: 1.1;
   letter-spacing: -0.045em;
   margin-top: 18px;
@@ -260,7 +260,7 @@
     padding-block: 48px;
   }
   .projects-page .section-intro h2 {
-    font-size: clamp(32px, 8vw, 50px);
+    font-size: clamp(32px, calc(8 * var(--type-vw)), 50px);
   }
   .projects-page .design-gallery {
     grid-template-columns: minmax(0, 1fr);
@@ -330,8 +330,8 @@
 /* Coastal chapters use the same blue, rose and peach world as Home.
    Scenery stays outside the readable glass surfaces, rather than competing with previews. */
 .projects-page {
-  --projects-gutter: clamp(22px, 4vw, 88px);
-  max-width: 1920px;
+  --projects-gutter: var(--page-gutter);
+  max-width: none;
   padding-inline: var(--projects-gutter);
 }
 .projects-page .projects-heading,
@@ -358,7 +358,7 @@
 .projects-page .projects-heading > h1 {
   align-self: end;
   margin-bottom: 22px;
-  font-size: clamp(74px, 10vw, 162px);
+  font-size: clamp(74px, calc(10 * var(--type-vw)), 162px);
 }
 .projects-page .projects-heading > p {
   align-self: start;
@@ -394,7 +394,7 @@
   text-transform: uppercase;
   letter-spacing: -0.015em;
   font-weight: 400;
-  font-size: clamp(36px, 4.2vw, 66px);
+  font-size: clamp(36px, calc(4.2 * var(--type-vw)), 66px);
 }
 .projects-page .collection-section-heading p {
   font-size: 17px;
@@ -449,13 +449,13 @@
   aspect-ratio: 1072 / 522;
 }
 .projects-page .chapter-resources .project-preview-caption h4 {
-  font-size: clamp(23px, 2.3vw, 32px);
+  font-size: clamp(23px, calc(2.3 * var(--type-vw)), 32px);
 }
 .projects-page .chapter-apps .project-window {
   transform: none;
 }
 .projects-page .chapter-apps .project-preview-caption h4 {
-  font-size: clamp(23px, 2.3vw, 32px);
+  font-size: clamp(23px, calc(2.3 * var(--type-vw)), 32px);
 }
 .projects-page .chapter-apps .project-window-image {
   aspect-ratio: 16/10;
@@ -475,7 +475,7 @@
   }
   .projects-page .projects-heading > h1 {
     margin-bottom: 12px;
-    font-size: clamp(66px, 16vw, 110px);
+    font-size: clamp(66px, calc(16 * var(--type-vw)), 110px);
   }
   /* Copy sits directly under the title; the arcade art follows in its own row. */
   .projects-page .projects-heading > p {

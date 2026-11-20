@@ -1,7 +1,7 @@
 /* Home's visual composition is scoped so other routes retain their layout. */
 .portfolio-shell.home-page {
-  max-width: 2200px;
-  padding-inline: clamp(22px, 4vw, 88px);
+  max-width: none;
+  padding-inline: var(--page-gutter);
 }
 .home-page .kinetic-band {
   margin-bottom: 0;
@@ -51,7 +51,7 @@
   gap: 15px;
 }
 .home-page .work-meta h3 {
-  font-size: clamp(25px, 2.1vw, 34px);
+  font-size: clamp(25px, calc(2.1 * var(--type-vw)), 34px);
 }
 .home-page .work-meta > span {
   font-size: 11px;
@@ -173,7 +173,7 @@
   gap: 24px;
 }
 .home-page .system-case-intro h3 {
-  font-size: clamp(24px, 2.2vw, 36px);
+  font-size: clamp(24px, calc(2.2 * var(--type-vw)), 36px);
   font-weight: 550;
   line-height: 1.2;
   letter-spacing: -0.04em;
@@ -350,7 +350,7 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
 }
 .home-page .programme-strip strong {
   color: var(--accent);
-  font-size: clamp(38px, 4.5vw, 70px);
+  font-size: clamp(38px, calc(4.5 * var(--type-vw)), 70px);
   font-weight: 550;
   letter-spacing: -0.055em;
   line-height: 1.1;
@@ -510,7 +510,7 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
     gap: 16px;
   }
   .home-page .programme-strip strong {
-    font-size: clamp(30px, 8vw, 48px);
+    font-size: clamp(30px, calc(8 * var(--type-vw)), 48px);
   }
   .home-page .programme-strip span {
     font-size: 10px;
@@ -557,7 +557,7 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
   position: absolute;
   bottom: 12%;
   left: 7%;
-  font-size: clamp(28px, 3.2vw, 58px);
+  font-size: clamp(28px, calc(3.2 * var(--type-vw)), 58px);
   letter-spacing: -0.055em;
   line-height: 1.02;
   font-weight: 550;
@@ -618,7 +618,7 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
   border: 1px solid #8db2cf;
   border-radius: 8px;
   box-shadow: 0 10px 20px -14px #285a86;
-  font-size: clamp(10px, 1vw, 15px);
+  font-size: clamp(10px, calc(1 * var(--type-vw)), 15px);
 }
 .home-page .signal-event svg {
   flex-shrink: 0;
@@ -646,12 +646,12 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: clamp(8px, 0.8vw, 12px);
+  font-size: clamp(8px, calc(0.8 * var(--type-vw)), 12px);
   color: #774397;
 }
 .home-page .incident-sheet > strong {
   display: block;
-  font-size: clamp(25px, 3vw, 52px);
+  font-size: clamp(25px, calc(3 * var(--type-vw)), 52px);
   line-height: 1.06;
   letter-spacing: -0.05em;
   margin: 17px 0;
@@ -674,7 +674,7 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
   border-radius: 50%;
   rotate: 12deg;
   color: #7a367c;
-  font-size: clamp(12px, 1.3vw, 21px);
+  font-size: clamp(12px, calc(1.3 * var(--type-vw)), 21px);
   font-weight: 550;
   text-align: center;
   background: #f4bbd8;
@@ -756,7 +756,7 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  font-size: clamp(9px, 0.8vw, 12px);
+  font-size: clamp(9px, calc(0.8 * var(--type-vw)), 12px);
 }
 .home-page .commerce-engine i {
   width: 1px;
@@ -853,7 +853,7 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
 }
 .home-page .board-art .product-art-title {
   bottom: 12%;
-  font-size: clamp(26px, 2.9vw, 48px);
+  font-size: clamp(26px, calc(2.9 * var(--type-vw)), 48px);
 }
 .home-page .architecture-map {
   display: block;
@@ -966,14 +966,14 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
     font-size: 7px;
   }
   .home-page .product-art-title {
-    font-size: clamp(26px, 6.8vw, 46px);
+    font-size: clamp(26px, calc(6.8 * var(--type-vw)), 46px);
   }
   .home-page .signal-event {
     padding: 12px 9px;
-    font-size: clamp(9px, 2.4vw, 13px);
+    font-size: clamp(9px, calc(2.4 * var(--type-vw)), 13px);
   }
   .home-page .incident-sheet > strong {
-    font-size: clamp(25px, 6.5vw, 44px);
+    font-size: clamp(25px, calc(6.5 * var(--type-vw)), 44px);
   }
   .home-page .art-stamp {
     font-size: 13px;
@@ -992,7 +992,7 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
     font-size: 9px;
   }
   .home-page .board-art .product-art-title {
-    font-size: clamp(25px, 6.4vw, 42px);
+    font-size: clamp(25px, calc(6.4 * var(--type-vw)), 42px);
   }
   .home-page .board-paper {
     padding: 10px;
@@ -1037,7 +1037,7 @@ html[data-motion="ready"]
   }
   .home-page .signal-event {
     padding: 9px 7px;
-    font-size: clamp(9px, 2.3vw, 12px);
+    font-size: clamp(9px, calc(2.3 * var(--type-vw)), 12px);
   }
   .home-page .signal-event svg {
     width: 16px;
@@ -1055,7 +1055,7 @@ html[data-motion="ready"]
     left: 10%;
   }
   .home-page .incident-sheet > strong {
-    font-size: clamp(24px, 6.2vw, 42px);
+    font-size: clamp(24px, calc(6.2 * var(--type-vw)), 42px);
   }
   .home-page .work-meta {
     flex-direction: column;
@@ -1145,8 +1145,8 @@ html[data-motion="ready"]
   align-items: center;
   gap: 0;
   min-height: 680px;
-  padding: 42px clamp(22px, 4vw, 88px) 50px;
-  margin-inline: calc(clamp(22px, 4vw, 88px) * -1);
+  padding: 42px var(--page-gutter) 50px;
+  margin-inline: calc(var(--page-gutter) * -1);
   background:
     radial-gradient(
       ellipse at 14% 16%,
@@ -1191,7 +1191,7 @@ html[data-motion="ready"]
   border-left: 1px solid #42617d60;
 }
 .home-page .portfolio-hero h1 {
-  font-size: clamp(60px, 7.4vw, 148px);
+  font-size: clamp(60px, calc(7.4 * var(--type-vw)), 148px);
   line-height: 0.94;
   font-weight: 600;
   letter-spacing: -0.065em;
@@ -1209,7 +1209,7 @@ html[data-motion="ready"]
 }
 .home-page .hero-description {
   max-width: 38ch;
-  font-size: clamp(15px, 1.1vw, 19px);
+  font-size: clamp(15px, calc(1.1 * var(--type-vw)), 19px);
   margin-top: 30px;
   color: #294765;
   line-height: 1.7;
@@ -1300,7 +1300,7 @@ html[data-motion="ready"]
   margin: 0;
 }
 .home-page .journey-start .programme-strip strong {
-  font-size: clamp(34px, 3.2vw, 54px);
+  font-size: clamp(34px, calc(3.2 * var(--type-vw)), 54px);
 }
 .home-page .journey-start .programme-strip span {
   font-size: 11px;
@@ -1361,7 +1361,7 @@ html[data-motion="ready"]
     padding: 0;
   }
   .home-page .portfolio-hero h1 {
-    font-size: clamp(54px, 7.1vw, 82px);
+    font-size: clamp(54px, calc(7.1 * var(--type-vw)), 82px);
   }
   .home-page .hero-description {
     font-size: 15px;
@@ -1409,7 +1409,7 @@ html[data-motion="ready"]
     margin-bottom: 24px;
   }
   .home-page .portfolio-hero h1 {
-    font-size: clamp(56px, 13vw, 88px);
+    font-size: clamp(56px, calc(13 * var(--type-vw)), 88px);
   }
   .home-page .hero-description {
     font-size: 15px;
@@ -1439,7 +1439,7 @@ html[data-motion="ready"]
     gap: 16px;
   }
   .home-page .journey-start .programme-strip strong {
-    font-size: clamp(30px, 8vw, 48px);
+    font-size: clamp(30px, calc(8 * var(--type-vw)), 48px);
   }
   .home-page .journey-start .programme-strip span {
     font-size: 10px;

@@ -55,7 +55,7 @@
   content: none;
 }
 .home-page .intro-name strong {
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(12px, calc(1 * var(--type-vw)), 14px);
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -92,7 +92,7 @@
     display: none;
   }
   .home-page .portfolio-hero h1 {
-    font-size: 25vw;
+    font-size: calc(25 * var(--type-vw));
   }
 }
 
@@ -111,7 +111,7 @@
   margin: 0;
 }
 .home-page .contribution-total strong {
-  font-size: clamp(34px, 6vw, 56px);
+  font-size: clamp(34px, calc(6 * var(--type-vw)), 56px);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -326,7 +326,7 @@
 }
 .home-page .source-origin .mentoring-fact strong,
 .home-page .source-origin .programme-strip strong {
-  font-size: clamp(30px, 3vw, 42px);
+  font-size: clamp(30px, calc(3 * var(--type-vw)), 42px);
   line-height: 1;
   font-weight: 650;
   letter-spacing: -0.035em;
@@ -477,7 +477,7 @@
   max-width: 34ch;
   margin: 0 0 10px;
   color: #12374e;
-  font-size: clamp(17px, 1.45vw, 21px);
+  font-size: clamp(17px, calc(1.45 * var(--type-vw)), 21px);
   font-weight: 600;
   line-height: 1.4;
 }

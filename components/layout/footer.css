@@ -1,5 +1,5 @@
 .site-footer.coastal-footer {
-  --footer-gutter: clamp(22px, 4vw, 88px);
+  --footer-gutter: var(--page-gutter);
   max-width: none;
   width: 100%;
   margin: 0;
@@ -37,7 +37,7 @@
 .coastal-footer .footer-invitation h2 {
   font-family: var(--font-coastal-display), sans-serif;
   text-transform: uppercase;
-  font-size: clamp(56px, 7vw, 104px);
+  font-size: clamp(56px, calc(7 * var(--type-vw)), 104px);
   line-height: 1.08;
   font-weight: 400;
   letter-spacing: -0.02em;
@@ -99,7 +99,7 @@
     background: linear-gradient(90deg, #fff7eceb, #fff5e8bd 65%, #fff0e085);
   }
   .coastal-footer .footer-invitation h2 {
-    font-size: clamp(52px, 13vw, 84px);
+    font-size: clamp(52px, calc(13 * var(--type-vw)), 84px);
   }
   .coastal-footer .footer-invitation p {
     font-size: 17px;
