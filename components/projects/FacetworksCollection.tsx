@@ -10,8 +10,6 @@ import { WorldScene } from "@/components/scenery/WorldScene";
 import { DesignPreviewPlayback } from "./DesignPreviewPlayback";
 import "./facetworks.css";
 
-const assets = "https://assets.royalpinto007.com/designs";
-
 export function FacetworksCollection({
   collection,
 }: {
@@ -99,51 +97,46 @@ export function FacetworksCollection({
             <span>{group.projects.length} projects</span>
           </header>
           <div className="facetworks-grid">
-            {group.projects.map((project) => {
-              const film = collection === "designs" && project.slug !== "puffly"
-                ? `${assets}/motion/${project.slug}-v2`
-                : null;
-              return (
-                <a
-                  className="facetworks-entry"
-                  href={project.url}
-                  key={project.slug}
-                  data-facetworks-project={project.slug}
-                >
-                  <div className="facetworks-preview">
-                    <Image
-                      src={film ? `${film}.webp` : `${assets}/${project.slug}.webp`}
-                      alt={`${project.name} preview`}
-                      width={960}
-                      height={640}
-                      sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            {group.projects.map((project) => (
+              <a
+                className="facetworks-entry"
+                href={project.url}
+                key={project.slug}
+                data-facetworks-project={project.slug}
+              >
+                <div className="facetworks-preview">
+                  <Image
+                    src={`https://assets.royalpinto007.com/designs/${project.slug}.webp`}
+                    alt={`${project.name} preview`}
+                    width={960}
+                    height={640}
+                    sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                  />
+                  {collection === "designs" && project.slug !== "puffly" && (
+                    <video
+                      aria-hidden="true"
+                      className="design-preview-film"
+                      data-preview-src={`https://assets.royalpinto007.com/designs/motion/${project.slug}-v1.mp4`}
+                      muted
+                      playsInline
+                      loop
+                      preload="none"
+                      disablePictureInPicture
+                      width={768}
+                      height={512}
                     />
-                    {film && (
-                      <video
-                        aria-hidden="true"
-                        className="design-preview-film"
-                        data-preview-src={`${film}.mp4`}
-                        muted
-                        playsInline
-                        loop
-                        preload="none"
-                        disablePictureInPicture
-                        width={768}
-                        height={512}
-                      />
-                    )}
-                    <span className="preview-open" aria-hidden="true">
-                      <ArrowUpRight size={22} />
-                    </span>
-                  </div>
-                  <div className="facetworks-entry-heading">
-                    <h3>{project.name}</h3>
-                    <span>{project.genre}</span>
-                  </div>
-                  <p>{project.note}</p>
-                </a>
-              );
-            })}
+                  )}
+                  <span className="preview-open" aria-hidden="true">
+                    <ArrowUpRight size={22} />
+                  </span>
+                </div>
+                <div className="facetworks-entry-heading">
+                  <h3>{project.name}</h3>
+                  <span>{project.genre}</span>
+                </div>
+                <p>{project.note}</p>
+              </a>
+            ))}
           </div>
         </section>
       ))}
