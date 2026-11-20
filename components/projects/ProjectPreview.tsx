@@ -1,4 +1,3 @@
-import { DesignPreviewFilm } from "./DesignPreviewFilm";
 import Image from "next/image";
 import { ArrowUpRight, Code2, Gamepad2 } from "lucide-react";
 import type { PreviewProject } from "@/lib/data/project-collections";
@@ -75,7 +74,6 @@ export function ProjectPreview({
               </span>
             </div>
           )}
-          {project.film && <DesignPreviewFilm src={project.film} />}
         </div>
       </div>
       <div className="project-preview-caption">

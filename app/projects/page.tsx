@@ -1,4 +1,3 @@
-import { DesignPreviewPlayback } from "@/components/projects/DesignPreviewPlayback";
 import "./projects.css";
 import { WorldScene } from "@/components/scenery/WorldScene";
 import type { Metadata } from "next";
@@ -79,7 +78,6 @@ export default function ProjectsPage() {
             key={category.id}
             id={category.id}
             data-project-category={category.id}
-            data-preview-gallery={category.id === "websites" ? "" : undefined}
           >
             <ProjectsScenery
               scene={scenery[category.id as keyof typeof scenery] ?? "atrium"}
@@ -98,7 +96,6 @@ export default function ProjectsPage() {
               <div className="section-intro">
                 <h2>{category.title}</h2>
                 <p>{category.description}</p>
-                {category.id === "websites" && <DesignPreviewPlayback />}
               </div>
               <a
                 className="collection-view-all collection-all"

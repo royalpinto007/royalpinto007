@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import "./design-preview.css";
 import { Pause, Play } from "lucide-react";
 
 export function DesignPreviewPlayback() {
@@ -11,7 +10,7 @@ export function DesignPreviewPlayback() {
 
   useEffect(() => {
     const control = button.current;
-    const gallery = control?.closest("[data-preview-gallery]");
+    const gallery = control?.closest(".facetworks-page");
     if (!control || !gallery || !("IntersectionObserver" in window)) return;
 
     const videos = gallery.querySelectorAll<HTMLVideoElement>("video[data-preview-src]");
