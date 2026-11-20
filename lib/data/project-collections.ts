@@ -129,7 +129,7 @@ export const projectCollections: ProjectCollection[] =
               {
                 id: "products",
                 title: "Products",
-                ids: ["agentpostmortem", "signalizeai", "aashinyra", "stoccoin"],
+                ids: ["agentpostmortem", "signalizeai", "aashinyra"],
               },
               {
                 id: "apps",
@@ -163,7 +163,7 @@ export const projectCollections: ProjectCollection[] =
                   "cribsheet",
                 ],
               },
-              { id: "editor-tools", title: "Editor tools", ids: ["water"] },
+              { id: "for-fun", title: "For fun & learning", ids: ["water", "stoccoin"] },
             ]
           : category.id === "open-source"
             ? [

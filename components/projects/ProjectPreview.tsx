@@ -80,14 +80,15 @@ export function ProjectPreview({
       </div>
       <div className="project-preview-caption">
         <div>
-          <Heading>{project.name}</Heading>
+          <Heading>
+            {project.name}
+            {project.href && (
+              <ArrowUpRight className="caption-arrow" size={17} aria-hidden="true" />
+            )}
+          </Heading>
           <p>{project.kind}</p>
         </div>
-        {project.href ? (
-          <ArrowUpRight size={18} aria-hidden="true" />
-        ) : (
-          <span className="preview-only">Preview only</span>
-        )}
+        {!project.href && <span className="preview-only">Preview only</span>}
       </div>
     </>
   );
@@ -110,14 +111,26 @@ export function ProjectPreview({
         <div className="project-preview-static">{content}</div>
       )}
       {caseStudyFor(project.id) && (
-        <Link className="project-case-study" href={`/case-studies/${project.id}`}>
-          Read the case study <ArrowRight size={15} aria-hidden="true" />
-        </Link>
+        <div className="project-card-actions">
+          <Link className="project-case-study" href={`/case-studies/${project.id}`}>
+            Read the case study <ArrowRight size={15} aria-hidden="true" />
+          </Link>
+          {detailed && project.source && project.source !== project.href && (
+            <a
+              className="project-card-source"
+              href={project.source}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Source <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          )}
+        </div>
       )}
       {detailed && (
         <div className="project-preview-details">
           <p>{project.description}</p>
-          {project.source && project.source !== project.href && (
+          {!caseStudyFor(project.id) && project.source && project.source !== project.href && (
             <a
               className="go-link"
               href={project.source}
