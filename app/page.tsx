@@ -268,27 +268,12 @@ export default function HomePage() {
                 </ul>
                 {"caseStudy" in project && (
                   <Link
-                    className="go-link work-case-study"
-                    data-direction="forward"
+                    className="hero-cta hero-cta-primary work-case-study"
                     href={`/case-studies/${project.caseStudy}`}
                   >
-                    <span className="go-link-label">Read the case study</span>
-                    <span className="go-link-icon" aria-hidden="true">
-                      <ArrowRight />
-                    </span>
+                    Read the case study <ArrowRight size={18} aria-hidden="true" />
                   </Link>
                 )}
-                <a
-                  className="go-link"
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="go-link-label">View {project.name}</span>
-                  <span className="go-link-icon" aria-hidden="true">
-                    <ArrowUpRight />
-                  </span>
-                </a>
               </div>
             </article>
           ))}

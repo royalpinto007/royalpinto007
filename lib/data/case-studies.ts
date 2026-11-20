@@ -5,6 +5,7 @@ export type CaseStudySection = {
   title: string;
   paragraphs?: string[];
   points?: string[];
+  flow?: { caption: string; steps: { title: string; detail: string }[] };
 };
 
 export type CaseStudy = {
@@ -16,6 +17,7 @@ export type CaseStudy = {
   scene: string;
   live?: string;
   source?: string;
+  links?: { label: string; href: string }[];
   facts: { label: string; value: string }[];
   sections: CaseStudySection[];
   skills: string[];

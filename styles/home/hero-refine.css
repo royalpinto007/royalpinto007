@@ -557,3 +557,9 @@
     background: #fffaf3;
   }
 }
+
+/* Selected projects: the case study is the card's one action. */
+.home-page .work-case-study {
+  align-self: flex-start;
+  margin-top: 6px;
+}

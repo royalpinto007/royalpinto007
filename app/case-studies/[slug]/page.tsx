@@ -8,6 +8,18 @@ import { caseStudies, caseStudyFor } from "@/lib/data/case-studies";
 import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
 import "./case-study.css";
 
+/** "Lead. The rest" becomes a bold lead, when the first sentence is short. */
+function Point({ text }: { text: string }) {
+  const end = text.search(/[.:] /);
+  if (end < 0 || end > 60) return <li>{text}</li>;
+  return (
+    <li>
+      <strong>{text.slice(0, end + 1)}</strong>
+      {text.slice(end + 1)}
+    </li>
+  );
+}
+
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 
@@ -71,6 +83,16 @@ export default async function CaseStudyPage({ params }: Props) {
               </div>
             ))}
           </dl>
+          {study.links && (
+            <div className="case-study-aside-links">
+              <h2>Links</h2>
+              {study.links.map((link) => (
+                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label} <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          )}
           <nav aria-label="On this page">
             {study.sections.map((section) => (
               <a key={section.id} href={`#${section.id}`}>
@@ -85,10 +107,24 @@ export default async function CaseStudyPage({ params }: Props) {
             <section key={section.id} id={section.id}>
               <h2>{section.title}</h2>
               {section.paragraphs?.map((text) => <p key={text}>{text}</p>)}
+              {section.flow && (
+                <figure className="case-study-flow">
+                  <ol>
+                    {section.flow.steps.map((step, i) => (
+                      <li key={step.title}>
+                        <span className="case-study-flow-n">{i + 1}</span>
+                        <strong>{step.title}</strong>
+                        <span>{step.detail}</span>
+                      </li>
+                    ))}
+                  </ol>
+                  <figcaption>{section.flow.caption}</figcaption>
+                </figure>
+              )}
               {section.points && (
                 <ul>
                   {section.points.map((point) => (
-                    <li key={point}>{point}</li>
+                    <Point key={point} text={point} />
                   ))}
                 </ul>
               )}
