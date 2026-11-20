@@ -163,3 +163,35 @@
     animation: none;
   }
 }
+
+/* The film's chrome ball rides down the right margin with the scroll; it never takes clicks. */
+.scroll-ball {
+  position: fixed;
+  top: 0;
+  /* The page gutter is about 4vw; the ball fills it with a few pixels to spare. */
+  right: 7px;
+  z-index: 45;
+  width: clamp(22px, calc(4vw - 14px), 40px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: url("https://assets.royalpinto007.com/scene/chrome-ball.webp") center / cover no-repeat;
+  filter: drop-shadow(0 6px 8px #12374e40);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+  will-change: transform;
+}
+.scroll-ball[data-ready="true"] {
+  opacity: 1;
+}
+/* Phones and narrow tablets have no side margin to spare, so the ball stays off. */
+@media (max-width: 899px) {
+  .scroll-ball {
+    display: none;
+  }
+}
+@media print {
+  .scroll-ball {
+    display: none;
+  }
+}
