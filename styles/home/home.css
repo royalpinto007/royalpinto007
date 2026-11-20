@@ -679,26 +679,6 @@ html[data-motion="ready"] .home-page .is-in-view .system-connector i {
   text-align: center;
   background: #f4bbd8;
 }
-.home-page .incident-path {
-  position: absolute;
-  top: 18%;
-  bottom: 22%;
-  left: 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.home-page .incident-path span {
-  width: 8px;
-  height: 8px;
-  border: 1px solid #885b9a;
-  border-radius: 50%;
-}
-.home-page .incident-path i {
-  flex: 1;
-  width: 1px;
-  background: #885b9a;
-}
 .home-page .product-art-aashinyra {
   background:
     radial-gradient(ellipse at 30% 20%, #fff5e4, transparent 60%), #f4c5ad;

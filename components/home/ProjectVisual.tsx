@@ -55,13 +55,6 @@ export function ProjectVisual({ product }: { product: string }) {
       )}
       {product === "agentpostmortem" && (
         <div className="postmortem-art">
-          <div className="incident-path">
-            <span />
-            <i />
-            <span />
-            <i />
-            <span />
-          </div>
           <div className="incident-sheet">
             <span className="art-eyebrow">
               <GitBranch size={14} /> refund() → timeout → retry

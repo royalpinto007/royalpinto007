@@ -14,7 +14,13 @@ type Point = { x: number; y: number };
 type Rect = { left: number; top: number; right: number; bottom: number };
 
 /** What each page's line annotates, top to bottom. */
-type Note = { selector: string; mark: "loop" | "underline"; text?: string; pad?: [number, number] };
+type Note = {
+  selector: string;
+  mark: "loop" | "underline";
+  text?: string; // only the match containing this text
+  pad?: [number, number];
+  every?: boolean; // mark every match, not just the first
+};
 const NOTES: Record<string, Note[]> = {
   "/": [
     { selector: ".hero-plain", mark: "loop" },
@@ -23,7 +29,10 @@ const NOTES: Record<string, Note[]> = {
     { selector: ".home-discovery h2", mark: "loop", pad: [20, 10] },
     { selector: ".footer-copy h2 span", mark: "underline" },
   ],
-  "/projects": [{ selector: ".projects-heading h1", mark: "underline" }],
+  "/projects": [
+    { selector: ".projects-heading h1", mark: "underline" },
+    { selector: ".collection-section-heading h2", mark: "loop", pad: [20, 10], every: true },
+  ],
   "/contact": [{ selector: ".contact-heading h1", mark: "underline" }],
 };
 
@@ -238,15 +247,17 @@ function route(vw: number, size: number, startLeft: boolean, notes: Note[]): Poi
   if (!parts.length) return [];
   const lane = (left: boolean) => (left ? edge(vw) + size / 2 : vw - edge(vw) - size / 2);
   const marks = notes
-    .map((note) => {
-      const element = [...document.querySelectorAll(note.selector)].find(
+    .flatMap((note) => {
+      const found = [...document.querySelectorAll(note.selector)].filter(
         (el) => !note.text || el.textContent?.includes(note.text),
       );
-      if (!element) return null;
-      const r = textRect(element);
-      return r.right - r.left < 2 ? null : { r, mark: note.mark, pad: note.pad };
+      return (note.every ? found : found.slice(0, 1)).map((element) => {
+        const r = textRect(element);
+        return r.right - r.left < 2 ? null : { r, mark: note.mark, pad: note.pad };
+      });
     })
-    .filter((m): m is { r: Rect; mark: Note["mark"]; pad: Note["pad"] } => !!m);
+    .filter((m): m is { r: Rect; mark: Note["mark"]; pad: Note["pad"] } => !!m)
+    .sort((a, b) => a.r.top - b.r.top);
 
   // Each section uses the margin nearest to what it annotates; otherwise sides alternate.
   let previous = !startLeft;

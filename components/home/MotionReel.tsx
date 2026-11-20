@@ -36,8 +36,9 @@ export function MotionReel() {
     preference.addEventListener("change", sync);
     mobile.addEventListener("change", sync);
     const observer = new IntersectionObserver(
+      // Play whenever any of the reel is on screen, so it never shows a frozen frame.
       ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.12 },
+      { threshold: 0 },
     );
     const approach = new IntersectionObserver(
       ([entry]) => {

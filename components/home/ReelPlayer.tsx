@@ -56,6 +56,25 @@ export function ReelPlayer({ visible, compact, onFailure }: ReelPlayerProps) {
     else player.current?.pause();
   }, [visible, paused, hidden]);
 
+  // Watchdog: if the reel should be playing but its frame has not moved for 1.5 s (a stalled
+  // clock or a frame stuck waiting on an image), start it again from the same spot.
+  useEffect(() => {
+    if (!(visible && !paused && !hidden)) return;
+    let last = -1;
+    let still = 0;
+    const timer = window.setInterval(() => {
+      const frame = player.current?.getCurrentFrame() ?? -1;
+      still = frame === last ? still + 1 : 0;
+      last = frame;
+      if (still >= 3) {
+        still = 0;
+        player.current?.pause();
+        player.current?.play();
+      }
+    }, 500);
+    return () => window.clearInterval(timer);
+  }, [visible, paused, hidden]);
+
   const toggle = () => {
     if (!ready) {
       // A fresh play request also recovers a player whose initial clock stalled.
