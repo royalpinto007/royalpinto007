@@ -436,11 +436,43 @@
   padding: clamp(18px, 3vw, 38px);
   gap: 32px;
 }
-/* Five apps in two columns: the last one sits centred instead of alone on the left. */
-.projects-page .chapter-apps .collage-screens > .project-preview:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: calc((100% - 32px) / 2);
+/* Apps: four highlights, the rest open in place under "Show more". */
+.projects-page .collage-expand {
+  border-top: 1px solid #b9c9d1;
+}
+.projects-page .collage-expand > summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 56px;
+  color: #12374e;
+  font-size: 16px;
+  font-weight: 650;
+  list-style: none;
+  cursor: pointer;
+}
+.projects-page .collage-expand > summary::-webkit-details-marker {
+  display: none;
+}
+.projects-page .collage-expand > summary:hover {
+  color: #862752;
+}
+.projects-page .collage-expand > summary svg {
+  transition: transform 200ms ease;
+}
+.projects-page .collage-expand[open] > summary svg {
+  transform: rotate(180deg);
+}
+.projects-page .collage-expand .collage-expand-less,
+.projects-page .collage-expand[open] .collage-expand-more {
+  display: none;
+}
+.projects-page .collage-expand[open] .collage-expand-less {
+  display: inline;
+}
+.projects-page .chapter-apps .collage-expand .collage-screens {
+  padding-top: 0;
 }
 /* Agent skills has two entries: two wide columns, no empty third slot. */
 .projects-page .chapter-resources .collage-screens {
@@ -502,9 +534,6 @@
   .projects-page .chapter-resources .collage-screens {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
-  }
-  .projects-page .chapter-apps .collage-screens > .project-preview:last-child:nth-child(odd) {
-    width: 100%;
   }
   .projects-page .projects-heading > .world-scene {
     grid-row: 3;

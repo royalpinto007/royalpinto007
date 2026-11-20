@@ -248,14 +248,22 @@ export const projectCollections: ProjectCollection[] =
             id: "highlights",
             title: category.title,
             href,
-            items: overviewIds.map((id) => {
-              const item = groups
-                .flatMap((group) => group.items)
-                .find((p) => p.id === id);
-              if (!item)
-                throw new Error(`Missing ${category.id} highlight: ${id}`);
-              return item;
-            }),
+            items: [
+              ...overviewIds.map((id) => {
+                const item = groups
+                  .flatMap((group) => group.items)
+                  .find((p) => p.id === id);
+                if (!item)
+                  throw new Error(`Missing ${category.id} highlight: ${id}`);
+                return item;
+              }),
+              // Apps opens the rest in place ("Show more"), after the highlights.
+              ...(category.id === "apps"
+                ? groups
+                    .flatMap((group) => group.items)
+                    .filter((p) => !overviewIds.includes(p.id))
+                : []),
+            ],
           },
         ]
       : undefined;

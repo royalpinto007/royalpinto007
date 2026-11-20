@@ -13,7 +13,7 @@ const shelves = [
   {
     id: "games",
     line: "Made to be played.",
-    picks: ["bumblecrate", "revlap", "hushmallow"],
+    picks: ["bumblecrate", "hushmallow", "revlap"],
   },
   {
     id: "apps",

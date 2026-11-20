@@ -27,6 +27,44 @@ function restoreTo(target: number) {
   return () => cancelAnimationFrame(frame);
 }
 
+/** Opening a URL with #section: the browser jumps before the page has its final height
+ *  (manual restoration, late images), so keep the section in place until layout settles. */
+function revealHash(hash: string) {
+  let element: Element | null = null;
+  try {
+    element = document.querySelector(decodeURIComponent(hash));
+  } catch {
+    return () => {};
+  }
+  if (!element) return () => {};
+  const target = element;
+  let frame = 0;
+  let last = Number.NaN;
+  let steady = 0;
+  const started = performance.now();
+  const apply = () => {
+    target.scrollIntoView({ behavior: "instant", block: "start" });
+    const top = Math.round(target.getBoundingClientRect().top);
+    steady = top === last ? steady + 1 : 0;
+    last = top;
+    if (steady < 20 && performance.now() - started < 3000)
+      frame = requestAnimationFrame(apply);
+  };
+  const stop = () => cancelAnimationFrame(frame);
+  // A reader who starts scrolling takes over.
+  const takeOver = () => {
+    stop();
+    removeEventListener("wheel", takeOver);
+    removeEventListener("touchstart", takeOver);
+    removeEventListener("keydown", takeOver);
+  };
+  addEventListener("wheel", takeOver, { passive: true });
+  addEventListener("touchstart", takeOver, { passive: true });
+  addEventListener("keydown", takeOver);
+  apply();
+  return takeOver;
+}
+
 /**
  * Links open a page at the top (the router does that); Back, Forward and
  * reload return to where the reader was. The browser cannot do the second part
@@ -83,7 +121,8 @@ export function ScrollMemory() {
       | undefined;
     let cancelRestore = () => {};
     const target = saved.current[current.current];
-    if (entry && entry.type !== "navigate" && !location.hash && target)
+    if (location.hash) cancelRestore = revealHash(location.hash);
+    else if (entry && entry.type !== "navigate" && target)
       cancelRestore = restoreTo(target);
 
     return () => {
