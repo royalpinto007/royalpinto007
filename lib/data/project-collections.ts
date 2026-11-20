@@ -1,3 +1,4 @@
+import { clipFor } from "@/lib/data/project-clips";
 import workImageIds from "@/content/work-images.json";
 import { siteConfig } from "./site";
 import {
@@ -18,6 +19,7 @@ export type PreviewProject = {
   kind: string;
   description: string;
   image?: string;
+  clip?: string;
   href?: string;
   source?: string;
   tech: readonly string[];
@@ -62,6 +64,7 @@ export const projectCollections: ProjectCollection[] =
           kind: p.genre,
           description: p.note,
           image: `https://assets.royalpinto007.com/designs/${p.slug}.webp`,
+          clip: clipFor(p.slug),
           href: p.url,
           tech: p.stack,
         })),

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Code2, Gamepad2 } from "lucide-react";
 import { caseStudyFor } from "@/lib/data/case-studies";
+import { CardClip } from "@/components/projects/CardClip";
 import type { PreviewProject } from "@/lib/data/project-collections";
 
 export function ProjectPreview({
@@ -55,13 +56,16 @@ export function ProjectPreview({
           className={`project-window-image ${project.previewKind === "workflow" ? "is-workflow" : ""}`}
         >
           {project.image ? (
-            <Image
-              src={project.image}
-              alt=""
-              width={960}
-              height={640}
-              sizes="(max-width: 560px) 45vw, (max-width: 1100px) 40vw, 24vw"
-            />
+            <>
+              <Image
+                src={project.image}
+                alt=""
+                width={960}
+                height={640}
+                sizes="(max-width: 560px) 45vw, (max-width: 1100px) 40vw, 24vw"
+              />
+              {project.clip && <CardClip src={project.clip} />}
+            </>
           ) : (
             <div className="project-overview" aria-label="Project illustration">
               {isGame ? (
@@ -84,7 +88,11 @@ export function ProjectPreview({
           <Heading>
             {project.name}
             {project.href && (
-              <ArrowUpRight className="caption-arrow" size={17} aria-hidden="true" />
+              <ArrowUpRight
+                className="caption-arrow"
+                size={17}
+                aria-hidden="true"
+              />
             )}
           </Heading>
           <p>{project.kind}</p>
