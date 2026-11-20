@@ -19,7 +19,8 @@ const NOTES: Record<string, Note[]> = {
   "/": [
     { selector: ".hero-plain", mark: "loop" },
     { selector: ".contribution-total strong", mark: "loop" },
-    { selector: ".selected-work h3", mark: "loop", text: "AgentPostmortem", pad: [16, 6] },
+    { selector: "#systems-title", mark: "loop", pad: [20, 10] },
+    { selector: ".home-discovery h2", mark: "loop", pad: [20, 10] },
     { selector: ".footer-copy h2 span", mark: "underline" },
   ],
   "/projects": [{ selector: ".projects-heading h1", mark: "underline" }],
@@ -36,6 +37,22 @@ function restRect(element: Element): Rect {
     left += node.offsetLeft;
   }
   return { left, top, right: left + element.offsetWidth, bottom: top + element.offsetHeight };
+}
+
+/** The box of an element's text (not its block), at its resting position. */
+function textRect(element: Element): Rect {
+  const range = document.createRange();
+  range.selectNodeContents(element);
+  const text = range.getBoundingClientRect();
+  const drawn = element.getBoundingClientRect();
+  if (text.width < 2) return restRect(element);
+  const shift = restRect(element).top - (drawn.top + scrollY); // undo reveal offsets
+  return {
+    left: text.left,
+    right: text.right,
+    top: text.top + scrollY + shift,
+    bottom: text.bottom + scrollY + shift,
+  };
 }
 
 const docRect = (element: Element): Rect => {
@@ -226,7 +243,7 @@ function route(vw: number, size: number, startLeft: boolean, notes: Note[]): Poi
         (el) => !note.text || el.textContent?.includes(note.text),
       );
       if (!element) return null;
-      const r = restRect(element);
+      const r = textRect(element);
       return r.right - r.left < 2 ? null : { r, mark: note.mark, pad: note.pad };
     })
     .filter((m): m is { r: Rect; mark: Note["mark"]; pad: Note["pad"] } => !!m);
@@ -281,10 +298,12 @@ function route(vw: number, size: number, startLeft: boolean, notes: Note[]): Poi
     const top = part.contentBottom + 4;
     const bottom = next.contentTop - 4;
     run.push({ x, y: Math.max(run[run.length - 1].y + 10, top) });
-    if (toX === x) {
+    // When the next section opens with an annotation, lead straight into it instead.
+    const opensWithMark = marks.some((m) => m.r.top >= next.top && m.r.top < next.contentTop + 260);
+    if (toX === x && !opensWithMark) {
       // Staying on this side: swing out into the band and back, like a pen loop.
       run.push({ x: x + (x < vw / 2 ? 1 : -1) * vw * 0.22, y: mid });
-    } else {
+    } else if (toX !== x) {
       run.push({ x: x + (toX - x) * 0.25, y: mid - swing * 0.6 });
       run.push({ x: x + (toX - x) * 0.75, y: mid + swing * 0.6 });
     }
@@ -318,9 +337,14 @@ export function ScrollBall() {
     let points: Point[] = [];
     let reach: number[] = []; // furthest page y reached up to each point
     let clear: boolean[] = []; // the ball fits there without covering content
+    let lengths: number[] = []; // ink length up to each point, in px
+    let total = 0;
     let frame = 0;
 
     const build = () => {
+      // Collapse the drawing area first: it is absolutely positioned and would otherwise keep
+      // the previous page's height, stretching a shorter page.
+      svg.setAttribute("height", "0");
       const vw = document.documentElement.clientWidth;
       const size = element.offsetWidth || 40;
       points = route(vw, size, location.pathname === "/", NOTES[location.pathname] ?? []);
@@ -334,11 +358,20 @@ export function ScrollBall() {
       });
       svg.setAttribute("width", String(vw));
       svg.setAttribute("height", String(document.documentElement.scrollHeight));
-      path.setAttribute(
-        "d",
-        points.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(""),
-      );
-      path.setAttribute("pathLength", String(Math.max(1, points.length - 1)));
+      const d = points.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join("");
+      path.setAttribute("d", d);
+      // Reveal in real pixel lengths (from the same rounded points the path uses), so the end
+      // of the ink and the ball are always at the same point.
+      lengths = [0];
+      for (let i = 1; i < points.length; i++) {
+        const a = points[i - 1];
+        const b = points[i];
+        lengths.push(
+          lengths[i - 1] +
+            Math.hypot(+b.x.toFixed(1) - +a.x.toFixed(1), +b.y.toFixed(1) - +a.y.toFixed(1)),
+        );
+      }
+      total = lengths[lengths.length - 1] ?? 0;
     };
 
     const draw = () => {
@@ -355,7 +388,7 @@ export function ScrollBall() {
         else high = mid - 1;
       }
       const index = reach[0] <= limit ? low : 0;
-      path.style.strokeDasharray = `${index} ${points.length + 10}`;
+      path.style.strokeDasharray = `${(lengths[index] ?? 0).toFixed(2)} ${(total + 10).toFixed(0)}`;
       const p = points[index];
       const y = p.y - scrollY;
       const size = element.offsetWidth || 40;
@@ -401,6 +434,7 @@ export function ScrollBall() {
 
   // The ball stays mounted across page changes: redraw the route for the new page.
   useEffect(() => {
+    trail.current?.setAttribute("height", "0");
     rebuildRef.current();
   }, [pathname]);
 
