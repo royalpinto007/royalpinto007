@@ -8,17 +8,17 @@ const shelves = [
   {
     id: "experiments",
     line: "Light. Physics. A little curiosity.",
-    picks: ["fly-forklift", "drape", "mochimo"],
+    picks: ["puffly", "drape", "mochimo"],
   },
   {
     id: "games",
     line: "Made to be played.",
-    picks: ["bumblecrate", "hushmallow", "revlap"],
+    picks: ["bumblecrate", "tablewink", "revlap"],
   },
   {
     id: "apps",
     line: "Useful software, on your terms.",
-    picks: ["boardeject", "kabootar", "pennyrush"],
+    picks: ["holdfast", "kabootar", "pennyrush"],
   },
   {
     id: "websites",
@@ -26,6 +26,8 @@ const shelves = [
     picks: ["vantage", "lumen", "atlas"],
   },
 ];
+// A shelf can show a pick from another collection (Puffly, a design, on the graphics shelf).
+const everything = projectCollections.flatMap((c) => c.groups.flatMap((g) => g.items));
 const findCollection = (id: string) => {
   const collection = projectCollections.find((item) => item.id === id);
   if (!collection) throw new Error(`Missing Home collection: ${id}`);
@@ -80,7 +82,9 @@ export function HomeProjectExplorer() {
             >
               <div className="shelf-art" aria-hidden="true">
                 {shelf.picks.map((id) => {
-                  const project = projects.find((item) => item.id === id);
+                  const project =
+                    projects.find((item) => item.id === id) ??
+                    everything.find((item) => item.id === id);
                   if (!project?.image)
                     throw new Error(`Missing Home preview: ${id}`);
                   return (
@@ -181,26 +185,6 @@ export function HomeProjectExplorer() {
           </div>
         </div>
       </section>
-      {/* Apps & products already has a shelf above; only link what Home does not preview. */}
-      <nav className="discovery-more" aria-label="More project collections">
-        {(() => {
-          const collection = findCollection("open-source");
-          return (
-            <Link
-              href={collection.href}
-              prefetch={false}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>
-                <strong>{collection.title}</strong>
-                <small>Docs, modules and source analysis, built in the open.</small>
-              </span>
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </Link>
-          );
-        })()}
-      </nav>
     </section>
   );
 }
