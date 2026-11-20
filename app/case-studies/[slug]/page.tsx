@@ -55,21 +55,23 @@ export default async function CaseStudyPage({ params }: Props) {
           </span>
           <span className="go-link-label">Selected projects</span>
         </Link>
-        <p className="case-study-kind">Case study · {study.kind}</p>
-        <h1>{study.name}</h1>
-        <p className="case-study-headline">{study.headline}</p>
-        <p className="case-study-summary">{study.summary}</p>
-        <div className="case-study-links">
-          {study.live && (
-            <a className="hero-cta hero-cta-primary" href={study.live} target="_blank" rel="noopener noreferrer">
-              Open {study.name} <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
-          )}
-          {study.source && (
-            <a className="hero-cta" href={study.source} target="_blank" rel="noopener noreferrer">
-              Read the source <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
-          )}
+        <div className="case-study-card">
+          <p className="case-study-kind">Case study · {study.kind}</p>
+          <h1>{study.name}</h1>
+          <p className="case-study-headline">{study.headline}</p>
+          <p className="case-study-summary">{study.summary}</p>
+          <div className="case-study-links">
+            {study.live && (
+              <a className="hero-cta hero-cta-primary" href={study.live} target="_blank" rel="noopener noreferrer">
+                Open {study.name} <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+            )}
+            {study.source && (
+              <a className="hero-cta" href={study.source} target="_blank" rel="noopener noreferrer">
+                Read the source <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+            )}
+          </div>
         </div>
       </header>
 
