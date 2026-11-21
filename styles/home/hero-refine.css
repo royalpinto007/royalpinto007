@@ -592,3 +592,16 @@
     margin-top: 0;
   }
 }
+
+/* Very wide screens (2200px+): the hero is a framed panel 88px wider than the page column
+   (home.css). Its side padding must match that 88px, not --page-gutter, which keeps growing past
+   the 1320px cap; otherwise the copy column collapses and "I build software" is clipped. */
+@media (min-width: 2200px) {
+  .home-page .hero-cinema {
+    padding-inline: 88px;
+  }
+  .home-page .hero-cinema .hero-bottom {
+    left: 88px;
+    right: 88px;
+  }
+}
