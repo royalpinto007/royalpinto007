@@ -573,3 +573,22 @@
   font-size: 14px;
   line-height: 1.4;
 }
+
+/* Phones: the programme names wrap to different line counts, so share rows across the three
+   columns (subgrid) and the detail lines start at the same height. */
+@media (max-width: 767px) {
+  .home-page .source-origin .programme-strip {
+    grid-template-rows: auto auto auto;
+    row-gap: 0;
+  }
+  .home-page .source-origin .programme-strip li {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    align-content: start;
+    gap: 6px;
+  }
+  .home-page .source-origin .programme-strip small {
+    margin-top: 0;
+  }
+}
