@@ -257,3 +257,10 @@
   outline: 3px solid #963c68;
   outline-offset: 4px;
 }
+
+/* Share the site's column (header, Projects, case studies) instead of the old 1400px + 5% shell,
+   so the left edge stays on the logo line at every width, 4K included. */
+.portfolio-shell.facetworks-page {
+  max-width: none;
+  padding-inline: var(--page-gutter);
+}
