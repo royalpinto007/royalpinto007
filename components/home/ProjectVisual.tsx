@@ -66,7 +66,7 @@ export function ProjectVisual({ product }: { product: string }) {
             </strong>
             <div className="incident-line">
               <Fingerprint size={18} />
-              <span>25 failure scenarios</span>
+              <span>50 failure scenarios</span>
             </div>
             <div className="incident-line">
               <ShieldCheck size={18} />

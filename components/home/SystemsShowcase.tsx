@@ -87,7 +87,7 @@ const systems = [
     href: "https://github.com/AgentPostmortem/agentpostmortem#how-it-works",
     link: "Read how it works",
     scope:
-      "25 scenarios across six failure categories. Reference agents, framework adapters, or any agent over MCP or HTTP.",
+      "50 scenarios across six failure categories. Reference agents, framework adapters, or any agent over MCP or HTTP.",
   },
   {
     id: "boardeject",

@@ -35,7 +35,7 @@ const work = [
     scene: "observatory",
     href: "https://github.com/AgentPostmortem/agentpostmortem",
     description:
-      "Find out how your AI agent fails before your customers do. 25 failure scenarios, judged by real side effects.",
+      "Find out how your AI agent fails before your customers do. 50 failure scenarios, judged by real side effects.",
     stack: ["Python + MCP", "On PyPI"],
   },
   {
