@@ -19,6 +19,10 @@ npm run build    # pulls content, then static site in out/
 
 `out/` is plain static files, so it can be hosted anywhere.
 
+## Games
+
+The [games collection](https://royalpinto007.com/projects/games/) lists each game with its own browser build. Play [Guess When?](https://guess-when.royalpinto007.com/) or watch its [trailer](https://guess-when.royalpinto007.com/trailer.mp4). [BumbleCrate](https://bumblecrate.royalpinto007.com/) runs on a separate game Worker.
+
 ## Layout
 
 | Path | What lives there |

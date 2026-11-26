@@ -21,6 +21,7 @@ export function ProjectPreview({
     "revlap",
     "tablewink",
     "hushmallow",
+    "guess-when",
   ].includes(project.id);
   // The caption already says "Preview only"; the window bar names what is shown.
   const target = !project.href
@@ -119,7 +120,7 @@ export function ProjectPreview({
       ) : (
         <div className="project-preview-static">{content}</div>
       )}
-      {(caseStudyFor(project.id) || (detailed && hasSource)) && (
+      {(caseStudyFor(project.id) || (detailed && (hasSource || project.trailer))) && (
         <div className={`project-card-actions ${detailed ? "is-row" : ""}`}>
           {caseStudyFor(project.id) && (
             <Link
@@ -139,6 +140,17 @@ export function ProjectPreview({
               rel="noopener noreferrer"
             >
               Source <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          )}
+          {detailed && project.trailer && (
+            <a
+              className="project-card-source"
+              href={project.trailer}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Watch the ${project.name} trailer`}
+            >
+              Watch trailer <ArrowUpRight size={15} aria-hidden="true" />
             </a>
           )}
         </div>

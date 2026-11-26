@@ -10,7 +10,7 @@ import { facetworksGroups } from "./facetworks-groups";
 import tools from "@/content/agentpostmortem.json";
 import projectPreviews from "@/content/project-previews.json";
 const workImages = new Set(workImageIds);
-const previews: Record<string, { image: string; kind: string }> =
+const previews: Record<string, { image: string; kind: string; trailer?: string }> =
   projectPreviews;
 
 export type PreviewProject = {
@@ -20,6 +20,7 @@ export type PreviewProject = {
   description: string;
   image?: string;
   clip?: string;
+  trailer?: string;
   href?: string;
   source?: string;
   tech: readonly string[];
@@ -123,6 +124,7 @@ export const projectCollections: ProjectCollection[] =
               : undefined),
           href: destination(p.liveUrl) ?? destination(p.githubUrl),
           source: destination(p.githubUrl),
+          trailer: destination(previews[p.id]?.trailer),
           tech: p.tech,
         }));
       if (!items.length) return [];
