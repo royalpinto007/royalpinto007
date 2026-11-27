@@ -26,38 +26,6 @@ import {
 
 const systems = [
   {
-    id: "kabootar",
-    name: "Kabootar",
-    icons: [Lock, Radio, Share2, CheckCheck],
-    title: "No server. Every phone relays",
-    description:
-      "An offline Flutter messenger. Phones discover each other over Bluetooth and Wi-Fi with Nearby Connections, carry sealed envelopes for one another and deliver them hop by hop, with SQLite for messages and de-duplication.",
-    flow: [
-      { title: "Seal & store", detail: "Encrypt, sign, save as sending" },
-      { title: "Flood on contact", detail: "Hello + carry cache per link" },
-      { title: "Relay with limits", detail: "Dedup · TTL 8 · 500 for 24h" },
-      { title: "Ack flows back", detail: "Clears copies, marks delivered" },
-    ],
-    decisions: [
-      {
-        title: "One id end to end",
-        text: "The message id is also the envelope, de-duplication and acknowledgement key, so flooding is idempotent and an ack maps straight to its database row.",
-      },
-      {
-        title: "Routing core in plain Dart",
-        text: "The mesh engine depends only on small ports for transport, seen ids and delivery, and is unit-tested against an in-memory mesh.",
-      },
-      {
-        title: "Persist what must survive",
-        text: "The seen set lives in SQLite so a restarted phone does not re-flood, and unacknowledged outgoing messages are rebuilt from the database on launch.",
-      },
-    ],
-    href: "https://github.com/royalpinto007/Kabootar",
-    link: "Read the source",
-    scope:
-      "Best-effort epidemic delivery (TTL 8, 24 hours). Android and iOS each mesh within their own platform; carried copies live in memory.",
-  },
-  {
     id: "agentpostmortem",
     name: "AgentPostmortem",
     icons: [FileCode2, Zap, BookOpenCheck, ShieldCheck],
@@ -183,6 +151,38 @@ const systems = [
     href: "https://aashinyra.com",
     link: "Open the product",
     scope: "Simplified catalog publication and serving flow. Live product.",
+  },
+  {
+    id: "kabootar",
+    name: "Kabootar",
+    icons: [Lock, Radio, Share2, CheckCheck],
+    title: "No server. Every phone relays",
+    description:
+      "An offline Flutter messenger. Phones discover each other over Bluetooth and Wi-Fi with Nearby Connections, carry sealed envelopes for one another and deliver them hop by hop, with SQLite for messages and de-duplication.",
+    flow: [
+      { title: "Seal & store", detail: "Encrypt, sign, save as sending" },
+      { title: "Flood on contact", detail: "Hello + carry cache per link" },
+      { title: "Relay with limits", detail: "Dedup · TTL 8 · 500 for 24h" },
+      { title: "Ack flows back", detail: "Clears copies, marks delivered" },
+    ],
+    decisions: [
+      {
+        title: "One id end to end",
+        text: "The message id is also the envelope, de-duplication and acknowledgement key, so flooding is idempotent and an ack maps straight to its database row.",
+      },
+      {
+        title: "Routing core in plain Dart",
+        text: "The mesh engine depends only on small ports for transport, seen ids and delivery, and is unit-tested against an in-memory mesh.",
+      },
+      {
+        title: "Persist what must survive",
+        text: "The seen set lives in SQLite so a restarted phone does not re-flood, and unacknowledged outgoing messages are rebuilt from the database on launch.",
+      },
+    ],
+    href: "https://github.com/royalpinto007/Kabootar",
+    link: "Read the source",
+    scope:
+      "Best-effort epidemic delivery (TTL 8, 24 hours). Android and iOS each mesh within their own platform; carried copies live in memory.",
   },
 ];
 

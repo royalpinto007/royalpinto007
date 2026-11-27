@@ -24,8 +24,8 @@ type Note = {
 const NOTES: Record<string, Note[]> = {
   "/": [
     { selector: ".hero-plain", mark: "loop" },
-    { selector: ".contribution-total strong", mark: "underline" },
     { selector: "#work-title", mark: "loop", pad: [20, 10] },
+    { selector: ".contribution-total strong", mark: "underline" },
     { selector: "#systems-title", mark: "loop", pad: [20, 10] },
     { selector: ".home-discovery h2", mark: "loop", pad: [20, 10] },
     { selector: ".footer-copy h2 span", mark: "underline" },

@@ -12,6 +12,10 @@ import {
   ShieldCheck,
   Sparkles,
   Workflow,
+  Bluetooth,
+  Lock,
+  Smartphone,
+  CheckCheck,
 } from "lucide-react";
 
 /** Authored product concepts, not screenshots or live customer activity. */
@@ -104,6 +108,36 @@ export function ProjectVisual({ product }: { product: string }) {
             Good finds.
             <br />
             Real drops
+          </strong>
+        </div>
+      )}
+      {product === "kabootar" && (
+        <div className="signal-art mesh-art">
+          <div className="signal-orbit">
+            <Bluetooth size={76} strokeWidth={1} />
+            <i />
+            <i />
+          </div>
+          <div className="signal-stack">
+            <div className="signal-event">
+              <Lock size={20} />
+              <span>Seal and sign</span>
+              <Check size={15} />
+            </div>
+            <div className="signal-event">
+              <Smartphone size={20} />
+              <span>Hop phone to phone</span>
+              <Check size={15} />
+            </div>
+            <div className="signal-event">
+              <CheckCheck size={20} />
+              <span>Delivered, ack back</span>
+            </div>
+          </div>
+          <strong className="product-art-title">
+            No signal.
+            <br />
+            Still delivered
           </strong>
         </div>
       )}

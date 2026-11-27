@@ -3,6 +3,7 @@ import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
 import Link from "next/link";
 import { ArrowUpRight, Coffee, Star } from "lucide-react";
 import { siteConfig } from "@/lib/data/site";
+import { CopyEmail } from "@/components/ui/CopyEmail";
 
 export function Footer() {
   return (
@@ -15,9 +16,13 @@ export function Footer() {
             <span>developer?</span>
           </h2>
           <p>Freelance, full-time or open source. Let’s talk.</p>
-          <a className="primary-link" href={`mailto:${siteConfig.email}`}>
-            Send email <ArrowUpRight size={18} aria-hidden="true" />
-          </a>
+          <div className="footer-email-actions">
+            <a className="primary-link" href={`mailto:${siteConfig.email}`}>
+              Send email <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+            <CopyEmail email={siteConfig.email} className="footer-copy-email" />
+          </div>
+          <p className="footer-email">{siteConfig.email}</p>
         </div>
       </div>
       <div className="footer-bottom">

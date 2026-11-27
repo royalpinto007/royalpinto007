@@ -148,3 +148,44 @@
   translate: 0 12px;
   pointer-events: none;
 }
+
+/* Copy-address button, shared by the footer and the contact page (the footer is on every page). */
+.copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 50px;
+  padding: 0 18px;
+  border: 1.5px solid #183f56;
+  border-radius: 10px;
+  background: #fff9f1;
+  color: #183f56;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+.copy-email:hover {
+  border-color: #92365f;
+  background: #92365f;
+  color: #fff;
+}
+.coastal-footer .footer-email-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+.coastal-footer .footer-email-actions .primary-link {
+  margin-top: 0;
+}
+.coastal-footer .footer-copy-email {
+  min-height: 52px;
+  font-size: 17px;
+}
+.coastal-footer .footer-email {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #315164;
+}

@@ -69,6 +69,16 @@ const work = [
     description: "Tracked deals. Real price drops. UPI cashback.",
     stack: ["Workers + D1", "Nightly price jobs"],
   },
+  {
+    name: "Kabootar",
+    kind: "Mobile app",
+    image: "kabootar",
+    scene: "tidal",
+    href: "https://github.com/royalpinto007/Kabootar",
+    description:
+      "Chat with no internet, servers or SIM. Encrypted messages hop phone to phone over Bluetooth and Wi-Fi.",
+    stack: ["Flutter + Dart", "Offline mesh"],
+  },
 ] as const;
 
 export default function HomePage() {
@@ -150,41 +160,6 @@ export default function HomePage() {
       </CinematicHero>
       <ScrollCue />
 
-      <section
-        className="open-source open-source-experience"
-        id="oss"
-        aria-labelledby="source-title"
-      >
-        <div className="section-intro open-source-heading">
-          <h2 id="source-title">Open by default</h2>
-        </div>
-        <ContributionCalendar
-          years={contributions.years}
-          profile={siteConfig.github}
-        />
-        <div className="source-origin journey-start">
-          <ul
-            className="programme-strip"
-            aria-label="Programmes that started my open-source journey"
-          >
-            <li>
-              <strong>GSoC</strong>
-              <span>Google Summer of Code</span>
-              <small>Top 2% · 967 of 43,765</small>
-            </li>
-            <li>
-              <strong>LFX</strong>
-              <span>Linux Foundation</span>
-              <small>Top 6% · 874 of 14,024</small>
-            </li>
-            <li>
-              <strong>SAoC</strong>
-              <span>Symmetry Autumn of Code</span>
-              <small>Top 2 of 5,000+</small>
-            </li>
-          </ul>
-        </div>
-      </section>
 
       <section
         className="selected-work immersive-work"
@@ -277,8 +252,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      <MotionReel />
+
+      <section
+        className="open-source open-source-experience"
+        id="oss"
+        aria-labelledby="source-title"
+      >
+        <div className="section-intro open-source-heading">
+          <h2 id="source-title">Open by default</h2>
+        </div>
+        <ContributionCalendar
+          years={contributions.years}
+          profile={siteConfig.github}
+        />
+        <div className="source-origin journey-start">
+          <ul
+            className="programme-strip"
+            aria-label="Programmes that started my open-source journey"
+          >
+            <li>
+              <strong>GSoC</strong>
+              <span>Google Summer of Code</span>
+              <small>Top 2% · 967 of 43,765</small>
+            </li>
+            <li>
+              <strong>LFX</strong>
+              <span>Linux Foundation</span>
+              <small>Top 6% · 874 of 14,024</small>
+            </li>
+            <li>
+              <strong>SAoC</strong>
+              <span>Symmetry Autumn of Code</span>
+              <small>Top 2 of 5,000+</small>
+            </li>
+          </ul>
+        </div>
+      </section>
       <SystemsShowcase />
+      <MotionReel />
 
       <HomeProjectExplorer />
     </div>

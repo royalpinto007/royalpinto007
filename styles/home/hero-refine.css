@@ -605,3 +605,12 @@
     right: 88px;
   }
 }
+
+/* Kabootar: offline mesh messenger. Shares the SignalizeAI layout, with its own tide palette. */
+.home-page .work-world-kabootar {
+  background: #b9d8d2;
+}
+.home-page .product-art-kabootar {
+  background:
+    radial-gradient(ellipse at 85% 10%, #ffffff, transparent 62%), #cfe9e1;
+}

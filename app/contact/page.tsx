@@ -6,6 +6,7 @@ import { GithubIcon, TwitterIcon } from "@/components/ui/BrandIcons";
 import { ProjectsScenery } from "@/components/scenery/ProjectsScenery";
 import { WorldScene } from "@/components/scenery/WorldScene";
 import { siteConfig } from "@/lib/data/site";
+import { CopyEmail } from "@/components/ui/CopyEmail";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
@@ -32,14 +33,17 @@ export default function ContactPage() {
         <WorldScene kind="telephone" priority />
       </header>
       <section className="contact-actions" aria-label="Direct contact">
-        <a className="contact-channel" href={`mailto:${siteConfig.email}`}>
+        <div className="contact-channel contact-channel-email">
           <Mail size={28} aria-hidden="true" />
           <h2>Email me</h2>
           <p>{siteConfig.email}</p>
-          <span className="contact-channel-action">
-            Send email <ArrowUpRight size={22} aria-hidden="true" />
-          </span>
-        </a>
+          <div className="contact-email-actions">
+            <a className="contact-channel-action" href={`mailto:${siteConfig.email}`}>
+              Send email <ArrowUpRight size={22} aria-hidden="true" />
+            </a>
+            <CopyEmail email={siteConfig.email} />
+          </div>
+        </div>
         <a
           className="contact-channel"
           href={siteConfig.calendarLink}

@@ -204,3 +204,22 @@
     transition: none;
   }
 }
+
+/* Email card: send (opens a mail app) or copy the address (works everywhere). */
+.contact-email-actions {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #becbd3;
+}
+.contact-email-actions .contact-channel-action {
+  flex: 1;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.contact-email-actions .contact-channel-action:hover {
+  color: #92365f;
+}
