@@ -15,6 +15,7 @@ export function ProjectPreview({
   const Heading = detailed ? "h3" : "h4";
   const hasSource = !!project.source && project.source !== project.href;
   const isGame = [
+    "cyber-duckday",
     "bumblecrate",
     "megoblin",
     "jollybound",
